@@ -129,7 +129,6 @@
       color: #94a3b8 !important;
     }
 
-    /* ===== زر الكورس في الهيدر ===== */
     .btn-course {
       background: linear-gradient(135deg, #2563eb, #7c3aed);
       color: white !important;
@@ -220,7 +219,6 @@
       margin-bottom: 1.2rem;
     }
 
-    /* ===== زر بدء الكورس في الهيرو ===== */
     .hero-course-btn {
       display: inline-block;
       background: linear-gradient(135deg, #2563eb, #7c3aed);
@@ -244,78 +242,150 @@
       margin-left: 0.6rem;
     }
 
-    .about-founder {
+    /* ===== صورة المبرمج ===== */
+    .founder-section {
       background: white;
       border-radius: 36px;
-      padding: 2rem 2.2rem;
+      padding: 2.5rem;
       margin-top: 2.5rem;
       border: 1px solid #e9edf2;
-      text-align: right;
       box-shadow: 0 8px 24px rgba(0, 0, 0, 0.02);
     }
 
-    .about-founder h3 {
+    .founder-section h3 {
       font-size: 1.8rem;
       font-weight: 700;
-      margin-bottom: 0.3rem;
+      margin-bottom: 0.5rem;
       display: flex;
       align-items: center;
       gap: 0.6rem;
+      justify-content: center;
     }
 
-    .about-founder h3 i {
+    .founder-section h3 i {
       color: #2563eb;
-    }
-
-    .about-founder .highlight {
-      color: #2563eb;
-      font-weight: 600;
     }
 
     .founder-grid {
       display: flex;
       flex-wrap: wrap;
-      gap: 2rem;
+      gap: 2.5rem;
       align-items: center;
-      margin-top: 1rem;
+      justify-content: center;
+      margin-top: 1.5rem;
     }
 
-    .founder-avatar {
-      background: linear-gradient(145deg, #e0edff, #c7dfff);
-      width: 110px;
-      height: 110px;
+    /* ===== صورة المبرمج (دائرة احترافية) ===== */
+    .founder-image-wrapper {
+      flex-shrink: 0;
+      position: relative;
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
+      overflow: hidden;
+      box-shadow: 0 12px 40px rgba(37, 99, 235, 0.2);
+      border: 4px solid #2563eb;
+      transition: 0.3s;
+    }
+
+    .founder-image-wrapper:hover {
+      transform: scale(1.05);
+      box-shadow: 0 16px 50px rgba(37, 99, 235, 0.3);
+    }
+
+    .founder-image-wrapper img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    /* ===== حلقة زخرفية حول الصورة ===== */
+    .founder-image-wrapper::after {
+      content: '';
+      position: absolute;
+      top: -8px;
+      left: -8px;
+      right: -8px;
+      bottom: -8px;
+      border-radius: 50%;
+      border: 3px solid transparent;
+      background: linear-gradient(135deg, #2563eb, #7c3aed, #2563eb) border-box;
+      -webkit-mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
+      -webkit-mask-composite: xor;
+      mask-composite: exclude;
+      animation: rotateBorder 6s linear infinite;
+    }
+
+    @keyframes rotateBorder {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+
+    /* ===== أيقونة الكاميرا فوق الصورة ===== */
+    .founder-image-wrapper .camera-icon {
+      position: absolute;
+      bottom: 8px;
+      right: 8px;
+      background: #2563eb;
+      color: white;
+      width: 36px;
+      height: 36px;
       border-radius: 50%;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 4rem;
-      color: #1e4ab0;
-      box-shadow: 0 8px 20px rgba(37, 99, 235, 0.15);
-      flex-shrink: 0;
+      font-size: 1rem;
+      border: 2px solid white;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+      z-index: 2;
     }
 
     .founder-desc {
       flex: 1;
+      min-width: 250px;
+      text-align: right;
     }
 
     .founder-desc p {
       color: #1e293b;
       font-size: 1.05rem;
+      line-height: 1.8;
     }
 
-    .social-links i {
-      font-size: 1.4rem;
-      margin-left: 0.8rem;
-      color: #475569;
-      transition: 0.1s;
-      cursor: default;
-    }
-
-    .social-links i:hover {
+    .founder-desc .highlight {
       color: #2563eb;
+      font-weight: 600;
     }
 
-    /* ===== صفحة الدورات ===== */
+    .social-links {
+      display: flex;
+      gap: 0.8rem;
+      margin-top: 0.8rem;
+      justify-content: flex-start;
+    }
+
+    .social-links a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: #f1f5f9;
+      color: #475569;
+      transition: 0.2s;
+      text-decoration: none;
+      font-size: 1.3rem;
+    }
+
+    .social-links a:hover {
+      background: #2563eb;
+      color: white;
+      transform: translateY(-3px);
+    }
+
+    /* ===== الدورات ===== */
     .courses-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -382,118 +452,7 @@
       font-weight: 600;
     }
 
-    /* ===== صفحة عن الأكاديمية ===== */
-    .about-academy {
-      background: white;
-      border-radius: 44px;
-      padding: 2.5rem;
-      border: 1px solid #e9edf2;
-    }
-
-    .about-academy h2 {
-      font-size: 2.2rem;
-      margin-bottom: 0.5rem;
-    }
-
-    .about-academy .vision {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 2rem;
-      margin-top: 1.8rem;
-    }
-
-    .vision-item {
-      flex: 1 1 200px;
-      background: #f8fafc;
-      padding: 1.5rem;
-      border-radius: 28px;
-    }
-
-    .vision-item i {
-      font-size: 2rem;
-      color: #2563eb;
-      margin-bottom: 0.5rem;
-    }
-
-    /* ===== صفحة التواصل ===== */
-    .contact-wrapper {
-      background: white;
-      border-radius: 44px;
-      padding: 2.5rem;
-      border: 1px solid #e9edf2;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 2.5rem;
-      justify-content: center;
-    }
-
-    .contact-card {
-      background: #f8fafc;
-      padding: 2rem;
-      border-radius: 32px;
-      min-width: 200px;
-      flex: 1;
-      text-align: center;
-      transition: 0.2s;
-      border: 1px solid #eef2f6;
-    }
-
-    .contact-card:hover {
-      transform: translateY(-4px);
-      border-color: #b9c7db;
-      box-shadow: 0 12px 24px -8px rgba(0, 0, 0, 0.04);
-    }
-
-    .contact-card i {
-      font-size: 2.8rem;
-      color: #2563eb;
-      background: #e0edff;
-      padding: 1rem;
-      border-radius: 50%;
-      margin-bottom: 1rem;
-    }
-
-    .contact-card h4 {
-      font-size: 1.2rem;
-      margin-bottom: 0.3rem;
-    }
-
-    .contact-card p {
-      color: #475569;
-      font-size: 1.1rem;
-      direction: ltr;
-    }
-
-    .contact-card .arabic-number {
-      direction: rtl;
-    }
-
-    .whatsapp-link {
-      display: inline-block;
-      background: #25D366;
-      color: white;
-      padding: 0.6rem 1.8rem;
-      border-radius: 60px;
-      text-decoration: none;
-      font-weight: 600;
-      margin-top: 0.8rem;
-      transition: 0.15s;
-    }
-
-    .whatsapp-link:hover {
-      background: #1da851;
-      transform: scale(1.03);
-    }
-
-    .whatsapp-link i {
-      background: transparent !important;
-      padding: 0 !important;
-      color: white !important;
-      font-size: 1.2rem !important;
-      margin-left: 0.4rem;
-    }
-
-    /* ===== صفحة الدعم ===== */
+    /* ===== صفحات الدعم ===== */
     .support-page {
       background: white;
       border-radius: 44px;
@@ -637,6 +596,84 @@
       color: #1e293b;
     }
 
+    /* ===== صفحة التواصل ===== */
+    .contact-wrapper {
+      background: white;
+      border-radius: 44px;
+      padding: 2.5rem;
+      border: 1px solid #e9edf2;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2.5rem;
+      justify-content: center;
+    }
+
+    .contact-card {
+      background: #f8fafc;
+      padding: 2rem;
+      border-radius: 32px;
+      min-width: 200px;
+      flex: 1;
+      text-align: center;
+      transition: 0.2s;
+      border: 1px solid #eef2f6;
+    }
+
+    .contact-card:hover {
+      transform: translateY(-4px);
+      border-color: #b9c7db;
+      box-shadow: 0 12px 24px -8px rgba(0, 0, 0, 0.04);
+    }
+
+    .contact-card i {
+      font-size: 2.8rem;
+      color: #2563eb;
+      background: #e0edff;
+      padding: 1rem;
+      border-radius: 50%;
+      margin-bottom: 1rem;
+    }
+
+    .contact-card h4 {
+      font-size: 1.2rem;
+      margin-bottom: 0.3rem;
+    }
+
+    .contact-card p {
+      color: #475569;
+      font-size: 1.1rem;
+      direction: ltr;
+    }
+
+    .contact-card .arabic-number {
+      direction: rtl;
+    }
+
+    .whatsapp-link {
+      display: inline-block;
+      background: #25D366;
+      color: white;
+      padding: 0.6rem 1.8rem;
+      border-radius: 60px;
+      text-decoration: none;
+      font-weight: 600;
+      margin-top: 0.8rem;
+      transition: 0.15s;
+    }
+
+    .whatsapp-link:hover {
+      background: #1da851;
+      transform: scale(1.03);
+    }
+
+    .whatsapp-link i {
+      background: transparent !important;
+      padding: 0 !important;
+      color: white !important;
+      font-size: 1.2rem !important;
+      margin-left: 0.4rem;
+    }
+
     /* ===== FOOTER ===== */
     .footer {
       background: #0b1a2e;
@@ -704,6 +741,26 @@
       .contact-wrapper { flex-direction: column; }
       .support-inner-page h2 { font-size: 1.6rem; flex-wrap: wrap; }
       .hero-course-btn { font-size: 1rem; padding: 0.8rem 1.8rem; }
+
+      .founder-image-wrapper {
+        width: 150px;
+        height: 150px;
+      }
+
+      .founder-desc {
+        text-align: center;
+      }
+
+      .social-links {
+        justify-content: center;
+      }
+    }
+
+    @media (min-width: 701px) and (max-width: 1024px) {
+      .founder-image-wrapper {
+        width: 180px;
+        height: 180px;
+      }
     }
   </style>
 </head>
@@ -720,6 +777,7 @@
         <button data-page="contact"><i class="fas fa-envelope"></i> تواصل</button>
         <button data-page="support"><i class="fas fa-headset"></i> الدعم</button>
         <a href="course-basics.html" class="btn-course"><i class="fas fa-graduation-cap"></i> الكورس</a>
+        <button class="btn-join"><i class="fas fa-user-plus"></i> انضم الآن</button>
       </nav>
     </div>
   </header>
@@ -742,28 +800,39 @@
             لتقديم تجربة أكاديمية احترافية ومشوقة.
           </p>
 
-          <!-- زر بدء الكورس -->
           <a href="course-basics.html" class="hero-course-btn">
             <i class="fas fa-rocket"></i> ابدأ كورس أساسيات البرمجة الآن
           </a>
 
-          <div class="about-founder">
+          <!-- ===== قسم المبرمج مع الصورة ===== -->
+          <div class="founder-section">
             <h3><i class="fas fa-user-astronaut"></i> المبرمج بهاء الدين الحسين</h3>
             <div class="founder-grid">
-              <div class="founder-avatar">
-                <i class="fas fa-code"></i>
+
+              <!-- صورة المبرمج -->
+              <div class="founder-image-wrapper">
+                <img src="WhatsApp Image 2026-07-01 at 10.52.35 PM.jpeg" alt="بهاء الدين الحسين - مؤسس الأكاديمية" />
+                <span class="camera-icon"><i class="fas fa-camera"></i></span>
               </div>
+
+              <!-- نص التعريف -->
               <div class="founder-desc">
                 <p>
                   <span class="highlight">بهاء الدين الحسين</span> — مطور ويب شغوف، يملك خبرة عملية تمتد لأربع سنوات في 
                   برمجة وتطوير الويب. أسس هذه الأكاديمية لمشاركة خبرته بأسلوب مبسط وعملي، 
                   مؤمنًا بأن التعليم الجيد هو المفتاح لبناء مبرمجين مبدعين.
                 </p>
-                <div class="social-links" style="margin-top: 0.6rem;">
+                <div class="social-links">
+                  <a href="#" aria-label="جيت هاب"><i class="fab fa-github"></i></a>
+                  <a href="#" aria-label="لينكد إن"><i class="fab fa-linkedin-in"></i></a>
+                  <a href="#" aria-label="تويتر"><i class="fab fa-twitter"></i></a>
+                  <a href="#" aria-label="يوتيوب"><i class="fab fa-youtube"></i></a>
                 </div>
               </div>
+
             </div>
           </div>
+
         </div>
       </div>
 
@@ -772,7 +841,6 @@
         <h2 style="font-size: 2.2rem; font-weight: 700;">الدورات التعليمية</h2>
         <p style="color: #475569; margin-bottom: 0.5rem;">أساسيات البرمجة وتطوير الويب خطوة بخطوة</p>
         <div class="courses-grid">
-          <!-- بطاقة كورس أساسيات البرمجة (مميزة) -->
           <a href="course-basics.html" class="course-card" style="border-color: #2563eb; border-width: 2px;">
             <i class="fas fa-code" style="background: linear-gradient(135deg, #2563eb, #7c3aed); color: white;"></i>
             <h4>أساسيات البرمجة</h4>
@@ -782,7 +850,6 @@
             </div>
             <span class="badge-featured"><i class="fas fa-star"></i> مميز</span>
           </a>
-
           <div class="course-card">
             <i class="fab fa-html5"></i>
             <h4>HTML</h4>
@@ -812,21 +879,21 @@
 
       <!-- ========== صفحة عن الأكاديمية ========== -->
       <div id="page-about" class="page">
-        <div class="about-academy">
+        <div class="support-page">
           <h2>عن أكاديمية بهاء الدين</h2>
           <p style="color: #334155; font-size: 1.1rem;">نسعى لتقديم تعليم برمجي بمعايير عالمية، مع التركيز على التطبيق العملي والمشاريع الحقيقية.</p>
-          <div class="vision">
-            <div class="vision-item">
+          <div class="support-grid" style="margin-top: 1.5rem;">
+            <div class="support-item">
               <i class="fas fa-bullseye"></i>
               <h4>الرؤية</h4>
               <p style="color: #475569;">تخريج مبرمجين قادرين على المنافسة في السوق العالمي.</p>
             </div>
-            <div class="vision-item">
+            <div class="support-item">
               <i class="fas fa-rocket"></i>
               <h4>الرسالة</h4>
               <p style="color: #475569;">توفير محتوى تعليمي محدث وأدوات تفاعلية حديثة.</p>
             </div>
-            <div class="vision-item">
+            <div class="support-item">
               <i class="fas fa-handshake"></i>
               <h4>القيم</h4>
               <p style="color: #475569;">الإبداع، الجودة، والالتزام تجاه المتعلمين.</p>
@@ -843,7 +910,6 @@
             <h4>اتصال</h4>
             <p class="arabic-number">0982520358</p>
           </div>
-
           <div class="contact-card">
             <i class="fab fa-whatsapp"></i>
             <h4>واتساب</h4>
@@ -852,13 +918,11 @@
               <i class="fab fa-whatsapp"></i> تواصل عبر واتساب
             </a>
           </div>
-
           <div class="contact-card">
             <i class="fas fa-map-marker-alt"></i>
             <h4>العنوان</h4>
             <p>سوريا، إدلب</p>
           </div>
-
           <div class="contact-card">
             <i class="fas fa-envelope"></i>
             <h4>البريد الإلكتروني</h4>
@@ -872,7 +936,6 @@
         <div class="support-page">
           <h2>مركز الدعم والمساعدة</h2>
           <p style="color: #475569; font-size: 1.1rem;">اختر الخدمة التي تحتاجها من القائمة أدناه</p>
-          
           <div class="support-grid">
             <div class="support-item">
               <i class="fas fa-question-circle"></i>
@@ -880,21 +943,18 @@
               <p>إجابات على أكثر الأسئلة شيوعاً حول الأكاديمية والدورات</p>
               <button class="btn-support" onclick="switchPage('faq')">عرض الأسئلة</button>
             </div>
-
             <div class="support-item">
               <i class="fas fa-file-alt"></i>
               <h4>سياسة الخصوصية</h4>
               <p>تعرف على كيفية تعاملنا مع بياناتك وحماية خصوصيتك</p>
               <button class="btn-support" onclick="switchPage('privacy')">قراءة السياسة</button>
             </div>
-
             <div class="support-item">
               <i class="fas fa-comment-dots"></i>
               <h4>الدعم الفني</h4>
               <p>تواصل مع فريق الدعم الفني لحل أي مشكلة تقنية</p>
               <button class="btn-support" onclick="switchPage('contact')">تواصل معنا</button>
             </div>
-
             <div class="support-item">
               <i class="fas fa-book"></i>
               <h4>دليل المستخدم</h4>
@@ -910,7 +970,6 @@
         <div class="support-inner-page">
           <h2><i class="fas fa-question-circle"></i> الأسئلة الشائعة</h2>
           <p style="color: #475569; margin-bottom: 1.5rem;">أكثر الأسئلة التي يطرحها الطلاب الجدد</p>
-          
           <ul>
             <li>
               <strong>كيف يمكنني التسجيل في الدورات؟</strong>
@@ -933,7 +992,6 @@
               <p>يمكنك التواصل مع المدربين عبر صفحة "تواصل" أو من خلال مجموعة الدعم الفني.</p>
             </li>
           </ul>
-          
           <span class="back-link" onclick="switchPage('support')"><i class="fas fa-arrow-right"></i> العودة إلى مركز الدعم</span>
         </div>
       </div>
@@ -943,7 +1001,6 @@
         <div class="support-inner-page">
           <h2><i class="fas fa-file-alt"></i> سياسة الخصوصية</h2>
           <p style="color: #475569; margin-bottom: 1rem;">نحن نولي خصوصية بياناتك أهمية كبيرة</p>
-          
           <div class="privacy-text">
             <p><strong>1. جمع البيانات:</strong> نقوم بجمع البيانات الأساسية مثل الاسم والبريد الإلكتروني لغرض تحسين تجربة التعلم والتواصل معك.</p>
             <p><strong>2. استخدام البيانات:</strong> نستخدم بياناتك فقط لتقديم الخدمات التعليمية، وإرسال تحديثات حول الدورات، والرد على استفساراتك.</p>
@@ -951,7 +1008,6 @@
             <p><strong>4. حماية البيانات:</strong> نستخدم إجراءات أمنية مشددة لحماية بياناتك من الوصول غير المصرح به.</p>
             <p><strong>5. حقوقك:</strong> لديك الحق في طلب تعديل أو حذف بياناتك في أي وقت من خلال التواصل معنا.</p>
           </div>
-          
           <span class="back-link" onclick="switchPage('support')"><i class="fas fa-arrow-right"></i> العودة إلى مركز الدعم</span>
         </div>
       </div>
@@ -961,7 +1017,6 @@
         <div class="support-inner-page">
           <h2><i class="fas fa-book"></i> دليل المستخدم</h2>
           <p style="color: #475569; margin-bottom: 1.5rem;">كل ما تحتاج لمعرفته عن استخدام منصة الأكاديمية</p>
-          
           <ul>
             <li>
               <strong>التسجيل والدخول</strong>
@@ -984,7 +1039,6 @@
               <p>يمكنك التفاعل مع زملائك الطلاب وطرح الأسئلة في منتديات النقاش المخصصة لكل دورة.</p>
             </li>
           </ul>
-          
           <span class="back-link" onclick="switchPage('support')"><i class="fas fa-arrow-right"></i> العودة إلى مركز الدعم</span>
         </div>
       </div>
@@ -1058,9 +1112,7 @@
     // روابط الفوتر
     document.querySelectorAll('.footer a').forEach(link => {
       link.addEventListener('click', function(e) {
-        // تجاهل الروابط التي تذهب إلى صفحات خارجية (course-basics.html)
         if (this.getAttribute('href') === 'course-basics.html') return;
-        
         e.preventDefault();
         const text = this.textContent.trim();
         if (text === 'الرئيسية') switchPage('home');
