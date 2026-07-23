@@ -1,0 +1,1853 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>كورس أساسيات البرمجة - أكاديمية بهاء الدين</title>
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+    }
+
+    body {
+      background: #f6f9fc;
+      color: #0b1a2e;
+      line-height: 2;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+
+    /* ===== HEADER ===== */
+    .navbar {
+      background: rgba(255, 255, 255, 0.9);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+      padding: 0.6rem 0;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+    }
+
+    .navbar .container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .logo {
+      font-size: 1.6rem;
+      font-weight: 800;
+      letter-spacing: -0.5px;
+      background: linear-gradient(145deg, #0b1a2e, #1e3a6b);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .logo i {
+      -webkit-text-fill-color: #2563eb;
+      margin-left: 0.4rem;
+      font-size: 1.8rem;
+    }
+
+    .back-link {
+      color: #2563eb;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 1rem;
+      transition: 0.15s;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .back-link:hover {
+      color: #1d4ed8;
+      text-decoration: underline;
+    }
+
+    /* ===== HERO ===== */
+    .course-hero {
+      background: linear-gradient(145deg, #ffffff 0%, #f1f7ff 100%);
+      border-radius: 48px;
+      padding: 3rem 2.5rem;
+      margin: 2rem 0;
+      border: 1px solid rgba(255, 255, 255, 0.6);
+      text-align: center;
+    }
+
+    .course-hero .badge {
+      background: #dbeafe;
+      color: #1e4ab0;
+      padding: 0.4rem 1.5rem;
+      border-radius: 60px;
+      font-weight: 600;
+      font-size: 0.9rem;
+      display: inline-block;
+      margin-bottom: 1rem;
+    }
+
+    .course-hero h1 {
+      font-size: 2.8rem;
+      font-weight: 800;
+      margin-bottom: 0.5rem;
+    }
+
+    .course-hero h1 span {
+      background: linear-gradient(135deg, #2563eb, #7c3aed);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .course-hero .subtitle {
+      font-size: 1.15rem;
+      color: #334155;
+      max-width: 700px;
+      margin: 0 auto 1.5rem;
+    }
+
+    .course-hero .stats {
+      display: flex;
+      justify-content: center;
+      gap: 2.5rem;
+      flex-wrap: wrap;
+    }
+
+    .course-hero .stats div {
+      text-align: center;
+    }
+
+    .course-hero .stats .number {
+      font-size: 1.6rem;
+      font-weight: 700;
+      color: #0b1a2e;
+    }
+
+    .course-hero .stats .label {
+      color: #64748b;
+      font-size: 0.9rem;
+    }
+
+    /* ===== المحتوى ===== */
+    .content-section {
+      background: white;
+      border-radius: 44px;
+      padding: 2.5rem;
+      margin-bottom: 2rem;
+      border: 1px solid #e9edf2;
+    }
+
+    .content-section h2 {
+      font-size: 1.8rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+
+    .content-section h2 i {
+      color: #2563eb;
+    }
+
+    .content-section p {
+      color: #1e293b;
+      margin-bottom: 1rem;
+      font-size: 1.05rem;
+    }
+
+    .content-section ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .content-section ul li {
+      padding: 0.8rem 0 0.8rem 2rem;
+      position: relative;
+      border-bottom: 1px solid #f1f5f9;
+      color: #1e293b;
+      font-size: 1.05rem;
+    }
+
+    .content-section ul li:last-child {
+      border-bottom: none;
+    }
+
+    .content-section ul li::before {
+      content: "▸";
+      position: absolute;
+      right: 0;
+      color: #2563eb;
+      font-weight: 700;
+    }
+
+    .highlight-box {
+      background: #f8fafc;
+      border-right: 4px solid #2563eb;
+      padding: 1.2rem 1.8rem;
+      border-radius: 16px;
+      margin: 1rem 0;
+      font-size: 1.05rem;
+    }
+
+    .highlight-box i {
+      color: #2563eb;
+      margin-left: 0.5rem;
+    }
+
+    .tip-box {
+      background: #fef3c7;
+      border-right: 4px solid #f59e0b;
+      padding: 1rem 1.5rem;
+      border-radius: 16px;
+      margin: 1rem 0;
+      font-size: 1.05rem;
+    }
+
+    .tip-box i {
+      color: #f59e0b;
+      margin-left: 0.5rem;
+    }
+
+    .warning-box {
+      background: #fee2e2;
+      border-right: 4px solid #ef4444;
+      padding: 1rem 1.5rem;
+      border-radius: 16px;
+      margin: 1rem 0;
+      font-size: 1.05rem;
+    }
+
+    .warning-box i {
+      color: #ef4444;
+      margin-left: 0.5rem;
+    }
+
+    .info-box {
+      background: #dbeafe;
+      border-right: 4px solid #2563eb;
+      padding: 1rem 1.5rem;
+      border-radius: 16px;
+      margin: 1rem 0;
+      font-size: 1.05rem;
+    }
+
+    .info-box i {
+      color: #2563eb;
+      margin-left: 0.5rem;
+    }
+
+    /* ===== الدروس (بطاقات) ===== */
+    .lessons-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5rem;
+      margin-top: 1.5rem;
+    }
+
+    .lesson-card {
+      background: #f8fafc;
+      border-radius: 28px;
+      padding: 1.8rem 1.5rem;
+      border: 1px solid #eef2f6;
+      transition: 0.2s;
+      cursor: pointer;
+      text-align: center;
+    }
+
+    .lesson-card:hover {
+      transform: translateY(-6px);
+      border-color: #2563eb;
+      box-shadow: 0 16px 30px -10px rgba(37, 99, 235, 0.08);
+    }
+
+    .lesson-card .lesson-number {
+      background: #2563eb;
+      color: white;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 0.8rem;
+      font-weight: 700;
+      font-size: 1.1rem;
+    }
+
+    .lesson-card h4 {
+      font-size: 1.2rem;
+      margin-bottom: 0.3rem;
+    }
+
+    .lesson-card p {
+      color: #64748b;
+      font-size: 0.95rem;
+    }
+
+    .lesson-card .lesson-icon {
+      font-size: 2.2rem;
+      color: #2563eb;
+      margin-bottom: 0.5rem;
+      display: block;
+    }
+
+    /* ===== صفحة الدرس المنفصلة ===== */
+    .lesson-page {
+      display: none;
+      animation: fadeUp 0.35s ease;
+    }
+
+    .lesson-page.active {
+      display: block;
+    }
+
+    @keyframes fadeUp {
+      0% { opacity: 0; transform: translateY(18px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+
+    .lesson-header {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+      flex-wrap: wrap;
+    }
+
+    .lesson-header .back-btn {
+      background: #eef2f6;
+      border: none;
+      padding: 0.4rem 1.2rem;
+      border-radius: 60px;
+      font-weight: 600;
+      color: #1e293b;
+      cursor: pointer;
+      transition: 0.15s;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .lesson-header .back-btn:hover {
+      background: #dbeafe;
+      color: #1e4ab0;
+    }
+
+    .lesson-header h2 {
+      font-size: 1.8rem;
+      font-weight: 700;
+      margin: 0;
+    }
+
+    .lesson-body {
+      line-height: 2.2;
+    }
+
+    .lesson-body h3 {
+      font-size: 1.3rem;
+      margin: 1.5rem 0 0.5rem;
+      color: #0b1a2e;
+    }
+
+    .lesson-body h3 i {
+      color: #2563eb;
+      margin-left: 0.4rem;
+    }
+
+    .lesson-body h4 {
+      font-size: 1.1rem;
+      margin: 1rem 0 0.3rem;
+      color: #1e293b;
+    }
+
+    /* ===== FOOTER ===== */
+    .footer {
+      background: #0b1a2e;
+      color: #e2e8f0;
+      padding: 2.5rem 0 1.2rem;
+      margin-top: 2rem;
+      border-radius: 44px 44px 0 0;
+    }
+
+    .footer .container {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 2rem;
+    }
+
+    .footer h4 {
+      color: white;
+      margin-bottom: 0.5rem;
+    }
+
+    .footer ul {
+      list-style: none;
+    }
+
+    .footer ul li {
+      margin-bottom: 0.3rem;
+    }
+
+    .footer ul li a {
+      color: #b0c4de;
+      text-decoration: none;
+      font-size: 0.95rem;
+    }
+
+    .footer ul li a:hover {
+      color: white;
+    }
+
+    .footer-bottom {
+      border-top: 1px solid #1e2a3a;
+      padding-top: 1rem;
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      font-size: 0.9rem;
+      color: #94a3b8;
+    }
+
+    /* ===== استجابة ===== */
+    @media (max-width: 700px) {
+      .course-hero h1 { font-size: 2rem; }
+      .container { padding: 0 1rem; }
+      .content-section { padding: 1.5rem; }
+      .course-hero { padding: 2rem 1.5rem; }
+      .lesson-header { flex-direction: column; align-items: flex-start; }
+      .course-hero .stats { gap: 1.5rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ===== HEADER ===== -->
+  <header class="navbar">
+    <div class="container">
+      <div class="logo"><i class="fas fa-graduation-cap"></i> بهاء الدين</div>
+      <a href="index.html" class="back-link"><i class="fas fa-arrow-right"></i> العودة إلى الرئيسية</a>
+    </div>
+  </header>
+
+  <!-- ===== MAIN CONTENT ===== -->
+  <div class="container">
+
+    <!-- ===== صفحة الكورس الرئيسية ===== -->
+    <div id="course-main">
+
+      <!-- Hero -->
+      <div class="course-hero">
+        <div class="badge"><i class="fas fa-rocket"></i> مسار تعليمي متكامل</div>
+        <h1>مدخل إلى <span>أساسيات البرمجة</span></h1>
+        <p class="subtitle">
+          هذا الكورس هو دليل شامل للمعلمين والطلاب، يغطي جميع مفاهيم البرمجة الأساسية
+          بشرح نظري مفصّل يمتد لعشرات الأسطر في كل درس، مع أمثلة تطبيقية لإثراء الفهم.
+        </p>
+        <div class="stats">
+          <div><span class="number">20</span> <div class="label">درساً شاملاً</div></div>
+          <div><span class="number">100%</span> <div class="label">شرح نظري مفصل</div></div>
+          <div><span class="number">✓</span> <div class="label">جاهز للتدريس</div></div>
+        </div>
+      </div>
+
+      <!-- قائمة الدروس -->
+      <div class="content-section">
+        <h2><i class="fas fa-book-open"></i> دروس المسار</h2>
+        <p style="color: #475569; margin-bottom: 0.5rem;">اضغط على أي درس لفتحه في صفحة منفصلة</p>
+        <div class="lessons-grid">
+          <div class="lesson-card" onclick="openLesson(1)">
+            <span class="lesson-icon"><i class="fas fa-terminal"></i></span>
+            <div class="lesson-number">1</div>
+            <h4>مفهوم البرمجة</h4>
+            <p>ما هي البرمجة؟ ولماذا نتعلمها؟</p>
+          </div>
+          <div class="lesson-card" onclick="openLesson(2)">
+            <span class="lesson-icon"><i class="fas fa-microchip"></i></span>
+            <div class="lesson-number">2</div>
+            <h4>كيف يعمل الحاسوب؟</h4>
+            <p>مكونات الحاسوب وآلية العمل</p>
+          </div>
+          <div class="lesson-card" onclick="openLesson(3)">
+            <span class="lesson-icon"><i class="fas fa-code"></i></span>
+            <div class="lesson-number">3</div>
+            <h4>لغات البرمجة</h4>
+            <p>أنواع اللغات وكيفية اختيارها</p>
+          </div>
+          <div class="lesson-card" onclick="openLesson(4)">
+            <span class="lesson-icon"><i class="fas fa-edit"></i></span>
+            <div class="lesson-number">4</div>
+            <h4>محرر الكود</h4>
+            <p>أدواتك الأولى في البرمجة</p>
+          </div>
+          <div class="lesson-card" onclick="openLesson(5)">
+            <span class="lesson-icon"><i class="fas fa-print"></i></span>
+            <div class="lesson-number">5</div>
+            <h4>أمر الطباعة</h4>
+            <p>أولى أوامر البرمجة</p>
+          </div>
+          <div class="lesson-card" onclick="openLesson(6)">
+            <span class="lesson-icon"><i class="fas fa-box"></i></span>
+            <div class="lesson-number">6</div>
+            <h4>المتغيرات</h4>
+            <p>تخزين البيانات واستخدامها</p>
+          </div>
+          <div class="lesson-card" onclick="openLesson(7)">
+            <span class="lesson-icon"><i class="fas fa-tag"></i></span>
+            <div class="lesson-number">7</div>
+            <h4>أنواع البيانات</h4>
+            <p>فهم أنواع القيم المختلفة</p>
+          </div>
+          <div class="lesson-card" onclick="openLesson(8)">
+            <span class="lesson-icon"><i class="fas fa-link"></i></span>
+            <div class="lesson-number">8</div>
+            <h4>دمج البيانات</h4>
+            <p>الربط بين النصوص والأرقام</p>
+          </div>
+          <div class="lesson-card" onclick="openLesson(9)">
+            <span class="lesson-icon"><i class="fas fa-arrow-left"></i></span>
+            <div class="lesson-number">9</div>
+            <h4>أحرف الهروب</h4>
+            <p>تنسيق النصوص</p>
+          </div>
+          <div class="lesson-card" onclick="openLesson(10)">
+            <span class="lesson-icon"><i class="fas fa-keyboard"></i></span>
+            <div class="lesson-number">10</div>
+            <h4>الإدخال من المستخدم</h4>
+            <p>جعل البرنامج يتفاعل</p>
+          </div>
+          <div class="lesson-card" onclick="openLesson(11)">
+            <span class="lesson-icon"><i class="fas fa-calculator"></i></span>
+            <div class="lesson-number">11</div>
+            <h4>العوامل الحسابية</h4>
+            <p>العمليات الرياضية</p>
+          </div>
+          <div class="lesson-card" onclick="openLesson(12)">
+            <span class="lesson-icon"><i class="fas fa-greater-than"></i></span>
+            <div class="lesson-number">12</div>
+            <h4>عوامل المقارنة</h4>
+            <p>مقارنة القيم</p>
+          </div>
+          <div class="lesson-card" onclick="openLesson(13)">
+            <span class="lesson-icon"><i class="fas fa-code-branch"></i></span>
+            <div class="lesson-number">13</div>
+            <h4>جمل الشرط</h4>
+            <p>اتخاذ القرارات</p>
+          </div>
+          <div class="lesson-card" onclick="openLesson(14)">
+            <span class="lesson-icon"><i class="fas fa-repeat"></i></span>
+            <div class="lesson-number">14</div>
+            <h4>الحلقات التكرارية</h4>
+            <p>تكرار الأوامر</p>
+          </div>
+          <div class="lesson-card" onclick="openLesson(15)">
+            <span class="lesson-icon"><i class="fas fa-project-diagram"></i></span>
+            <div class="lesson-number">15</div>
+            <h4>الدوال</h4>
+            <p>تنظيم الكود وإعادة استخدامه</p>
+          </div>
+          <div class="lesson-card" onclick="openLesson(16)">
+            <span class="lesson-icon"><i class="fas fa-list"></i></span>
+            <div class="lesson-number">16</div>
+            <h4>المصفوفات</h4>
+            <p>تخزين مجموعات من البيانات</p>
+          </div>
+          <div class="lesson-card" onclick="openLesson(17)">
+            <span class="lesson-icon"><i class="fas fa-search"></i></span>
+            <div class="lesson-number">17</div>
+            <h4>البحث في المصفوفات</h4>
+            <p>العثور على عناصر محددة</p>
+          </div>
+          <div class="lesson-card" onclick="openLesson(18)">
+            <span class="lesson-icon"><i class="fas fa-sort"></i></span>
+            <div class="lesson-number">18</div>
+            <h4>ترتيب المصفوفات</h4>
+            <p>تنظيم البيانات</p>
+          </div>
+          <div class="lesson-card" onclick="openLesson(19)">
+            <span class="lesson-icon"><i class="fas fa-object-group"></i></span>
+            <div class="lesson-number">19</div>
+            <h4>الكائنات</h4>
+            <p>تخزين بيانات معقدة</p>
+          </div>
+          <div class="lesson-card" onclick="openLesson(20)">
+            <span class="lesson-icon"><i class="fas fa-bug"></i></span>
+            <div class="lesson-number">20</div>
+            <h4>تصحيح الأخطاء</h4>
+            <p>كيفية إصلاح الكود</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ============================================================ -->
+    <!-- ===== الدرس 1: مفهوم البرمجة ===== -->
+    <!-- ============================================================ -->
+    <div id="lesson-1" class="lesson-page">
+      <div class="content-section">
+        <div class="lesson-header">
+          <button class="back-btn" onclick="closeLesson()"><i class="fas fa-arrow-right"></i> العودة للدروس</button>
+          <h2><i class="fas fa-terminal" style="color: #2563eb;"></i> الدرس الأول: مفهوم البرمجة</h2>
+        </div>
+        <div class="lesson-body">
+
+          <h3><i class="fas fa-bullseye"></i> مقدمة تعريفية</h3>
+          <p>
+            البرمجة هي عملية كتابة مجموعة من التعليمات والأوامر التي يفهمها الحاسوب، بهدف تنفيذ مهمة معينة أو حل مشكلة محددة. بمعنى آخر، البرمجة هي لغة التواصل بين الإنسان والحاسوب. عندما نكتب برنامجاً، فإننا نترجم أفكارنا وحلولنا إلى لغة يفهمها الحاسوب وينفذها. هذه العملية تتطلب منا التفكير بطريقة منظمة ومنطقية، وتقسيم المشكلات الكبيرة إلى أجزاء صغيرة قابلة للحل.
+          </p>
+          <p>
+            البرمجة ليست مجرد كتابة أكواد، بل هي فن حل المشكلات بطريقة إبداعية ومنظمة. المبرمج الجيد هو شخص يستطيع تحليل المشكلة، وتصميم الحل، ثم تنفيذه عبر الأكواد. البرمجة تطور العديد من المهارات مثل التفكير النقدي، حل المشكلات، الإبداع، والصبر. في عصرنا الحالي، أصبحت البرمجة مهارة أساسية في العديد من المجالات، من الطب إلى الهندسة إلى الفنون.
+          </p>
+
+          <h3><i class="fas fa-question-circle"></i> لماذا نتعلم البرمجة؟</h3>
+          <p>
+            هناك العديد من الأسباب التي تجعل تعلم البرمجة مهماً في حياتنا المعاصرة. أولاً، البرمجة تعزز التفكير المنطقي والتحليلي، حيث تتعلم كيفية تقسيم المشكلات الكبيرة إلى أجزاء صغيرة يمكن حلها بسهولة. ثانياً، البرمجة تفتح أمامك آفاقاً واسعة من الإبداع، حيث يمكنك بناء تطبيقات ومواقع وألعاب من الصفر. ثالثاً، الطلب على المبرمجين في سوق العمل في ازدياد مستمر، مما يجعل البرمجة مهارة مطلوبة بشدة.
+          </p>
+          <p>
+            بالإضافة إلى ذلك، البرمجة تمنحك فهماً عميقاً لكيفية عمل التكنولوجيا من حولك. عندما تفهم البرمجة، تصبح قادراً على فهم كيفية عمل الهواتف الذكية، مواقع التواصل الاجتماعي، وأنظمة الذكاء الاصطناعي. هذا الفهم يجعلك مستخدماً أكثر وعياً للتكنولوجيا. كما أن البرمجة تعلمك الصبر والمثابرة، فالأخطاء جزء طبيعي من عملية التعلم، وكل خطأ يعلمك شيئاً جديداً.
+          </p>
+
+          <h3><i class="fas fa-code"></i> ماذا يفعل المبرمج؟</h3>
+          <p>
+            عمل المبرمج يتجاوز مجرد كتابة الأكواد. المبرمج الجيد يبدأ بفهم المشكلة التي يريد حلها، ثم يقوم بتحليلها وتقسيمها إلى أجزاء. بعد ذلك، يبدأ في تصميم الحل المناسب، ثم يكتب الكود الذي ينفذ هذا الحل. الخطوة التالية هي اختبار الكود للتأكد من أنه يعمل بشكل صحيح، وتصحيح أي أخطاء تظهر أثناء التشغيل.
+          </p>
+          <p>
+            المبرمج أيضاً يعمل على تحسين أداء الكود وجعله أكثر كفاءة، كما يهتم بكتابة كود نظيف ومنظم يمكن للآخرين فهمه وتعديله بسهولة. في بيئة العمل، يتعاون المبرمج مع فريق من المطورين والمصممين والمختبرين لإنتاج برامج متكاملة. المبرمج أيضاً يتابع التطورات في مجاله، حيث أن التكنولوجيا تتغير باستمرار، ويتعلم تقنيات جديدة وأدوات حديثة.
+          </p>
+
+          <h3><i class="fas fa-road"></i> مراحل تعلم البرمجة</h3>
+          <p>
+            تعلم البرمجة رحلة مستمرة، لكنها تمر بمراحل محددة. المرحلة الأولى هي تعلم الأساسيات، وهي ما يغطيه هذا الكورس. في هذه المرحلة، تتعلم المفاهيم الأساسية مثل المتغيرات، الشروط، الحلقات والدوال. هذه المفاهيم هي لبنات البناء التي ستعتمد عليها في كل ما ستتعلمه لاحقاً.
+          </p>
+          <p>
+            المرحلة الثانية هي مرحلة التطبيق، حيث تبدأ في كتابة برامج بسيطة وتطبيق ما تعلمته. هذه المرحلة مهمة جداً لأنها تحول المعرفة النظرية إلى مهارة عملية. المرحلة الثالثة هي التخصص، حيث تختار مجالاً معيناً في البرمجة مثل تطوير الويب، الذكاء الاصطناعي، أو تطوير الألعاب. المرحلة الرابعة والأخيرة هي الاحتراف، حيث تصبح قادراً على بناء مشاريع متكاملة والتعامل مع المشكلات المعقدة.
+          </p>
+
+          <div class="tip-box">
+            <i class="fas fa-lightbulb"></i>
+            <strong>نصيحة للمعلم والطالب:</strong> أفضل طريقة لتعلم البرمجة هي الممارسة العملية. اكتب الكود بنفسك، وارتكب الأخطاء، وتعلم منها. لا تنتظر حتى تتقن كل شيء نظرياً، بل ابدأ بالتطبيق من اليوم الأول.
+          </div>
+
+          <h3><i class="fas fa-check-circle"></i> ملخص الدرس</h3>
+          <ul>
+            <li>البرمجة هي كتابة تعليمات للحاسوب لتنفيذ مهام محددة.</li>
+            <li>البرمجة تطور التفكير المنطقي ومهارات حل المشكلات والإبداع.</li>
+            <li>المبرمج يحلل، يصمم، يكتب، يختبر، ويحسن الأكواد.</li>
+            <li>تعلم البرمجة رحلة مستمرة تمر بمراحل: الأساسيات، التطبيق، التخصص، والاحتراف.</li>
+            <li>الممارسة العملية هي المفتاح الرئيسي لإتقان البرمجة.</li>
+          </ul>
+          <div class="info-box">
+            <i class="fas fa-info-circle"></i>
+            <strong>تذكير:</strong> هذا الدرس هو الأساس الذي ستبني عليه كل ما ستتعلمه لاحقاً. تأكد من فهمك الجيد للمفاهيم المطروحة قبل الانتقال إلى الدروس التالية.
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ============================================================ -->
+    <!-- ===== الدرس 2: كيف يعمل الحاسوب؟ ===== -->
+    <!-- ============================================================ -->
+    <div id="lesson-2" class="lesson-page">
+      <div class="content-section">
+        <div class="lesson-header">
+          <button class="back-btn" onclick="closeLesson()"><i class="fas fa-arrow-right"></i> العودة للدروس</button>
+          <h2><i class="fas fa-microchip" style="color: #2563eb;"></i> الدرس الثاني: كيف يعمل الحاسوب؟</h2>
+        </div>
+        <div class="lesson-body">
+
+          <h3><i class="fas fa-bullseye"></i> مقدمة عن مكونات الحاسوب</h3>
+          <p>
+            لفهم البرمجة بشكل أعمق، من الضروري معرفة المكونات الأساسية للحاسوب وكيفية عملها معاً. الحاسوب هو آلة إلكترونية تقوم بمعالجة البيانات وفق تعليمات محددة. يتكون الحاسوب من مجموعة من المكونات المادية (الهاردوير) والبرمجيات (السوفتوير). المكونات المادية هي الأجزاء التي يمكن رؤيتها ولمسها، بينما البرمجيات هي الأكواد والبرامج التي تجعل الحاسوب يؤدي وظائفه.
+          </p>
+          <p>
+            يمكن تشبيه الحاسوب بمكتب يعمل فيه موظف (المعالج) مع مساعدين (الذاكرة والقرص الصلب). الموظف يستخدم الطاولة (الذاكرة) لوضع الأوراق التي يعمل عليها حالياً، ويحفظ الأوراق المهمة في الخزانة (القرص الصلب) لاستخدامها لاحقاً. وحدة الإدخال هي ما يقدمه الموظف من معلومات، ووحدة الإخراج هي ما ينتجه من نتائج.
+          </p>
+
+          <h3><i class="fas fa-hard-drive"></i> المكونات الأساسية للحاسوب</h3>
+          <h4>1. المعالج (CPU)</h4>
+          <p>
+            المعالج هو العقل النابض للحاسوب. هو المسؤول عن تنفيذ التعليمات البرمجية وإجراء العمليات الحسابية والمنطقية. يقرأ المعالج التعليمات من الذاكرة، ويفسرها، ثم ينفذها. سرعة المعالج تقاس بالجيجاهيرتز (GHz)، وكلما كانت السرعة أعلى، كان الحاسوب أسرع في تنفيذ المهام. المعالج يتكون من وحدات داخلية مثل وحدة الحساب والمنطق (ALU) التي تقوم بالعمليات الحسابية، ووحدة التحكم التي تنظم تدفق التعليمات.
+          </p>
+
+          <h4>2. الذاكرة (RAM)</h4>
+          <p>
+            الذاكرة العشوائية (RAM) هي المساحة التي يخزن فيها الحاسوب البيانات مؤقتاً أثناء تشغيل البرامج. عندما تفتح برنامجاً، يتم نسخه من القرص الصلب إلى الذاكرة ليكون أسرع في الوصول إليه. الذاكرة أسرع بكثير من القرص الصلب، لكنها تفقد محتوياتها عند إطفاء الحاسوب. حجم الذاكرة يقاس بالجيجابايت (GB)، وكلما كانت أكبر، زاد عدد البرامج التي يمكن تشغيلها في وقت واحد.
+          </p>
+
+          <h4>3. القرص الصلب (Hard Disk)</h4>
+          <p>
+            القرص الصلب هو مكان التخزين الدائم في الحاسوب. يحفظ الملفات، البرامج، ونظام التشغيل بشكل دائم. عندما تطفئ الحاسوب، تبقى البيانات على القرص الصلب. هناك نوعان من الأقراص: الأقراص الميكانيكية (HDD) التي تعتمد على أقراص دوارة، والأقراص الصلبة (SSD) التي تعتمد على ذاكرة فلاش وتكون أسرع وأكثر متانة.
+          </p>
+
+          <h4>4. وحدات الإدخال والإخراج</h4>
+          <p>
+            وحدات الإدخال هي الأدوات التي يستخدمها المستخدم لإدخال البيانات إلى الحاسوب، مثل لوحة المفاتيح، الفأرة، الميكروفون، والكاميرا. وحدات الإخراج هي الأدوات التي يعرض الحاسوب من خلالها النتائج، مثل الشاشة، الطابعة، والسماعات. هذه الوحدات هي واجهة التواصل بين المستخدم والحاسوب.
+          </p>
+
+          <h3><i class="fas fa-cogs"></i> كيف تعمل البرمجة في الحاسوب؟</h3>
+          <p>
+            عندما تكتب كوداً برمجياً، فإنك تكتب تعليمات بلغة يفهمها البشر، مثل JavaScript أو Python. هذه التعليمات غير مفهومة للمعالج مباشرة، لذا يحتاج الحاسوب إلى مترجم أو مفسر لتحويلها إلى لغة الآلة. لغة الآلة هي سلسلة من الأصفار والواحدات (0 و 1) التي يفهمها المعالج. كل تعليمة برمجية تتحول إلى سلسلة من الأصفار والواحدات التي تخبر المعالج بما يجب فعله.
+          </p>
+          <p>
+            بعد الترجمة، يتم تخزين التعليمات في الذاكرة، ثم يقرأها المعالج وينفذها خطوة بخطوة. أثناء التنفيذ، قد يحتاج المعالج إلى قراءة بيانات من الذاكرة أو كتابة بيانات فيها. النتائج النهائية تظهر على الشاشة أو عبر أي وحدة إخراج أخرى. هذه العملية برمتها تتم في أجزاء من الثانية، مما يسمح للحاسوب بتنفيذ ملايين التعليمات في الثانية الواحدة.
+          </p>
+
+          <div class="highlight-box">
+            <i class="fas fa-info-circle"></i>
+            <strong>معلومة مهمة:</strong> لا تحتاج إلى فهم لغة الآلة لتصبح مبرمجاً. هذا هو دور المترجمات والمفسرات، التي تقوم بالترجمة نيابة عنك. كل ما عليك فعله هو كتابة الكود بلغة البرمجة التي تتعلمها.
+          </div>
+
+          <h3><i class="fas fa-check-circle"></i> ملخص الدرس</h3>
+          <ul>
+            <li>الحاسوب يتكون من معالج، ذاكرة، قرص صلب، ووحدات إدخال/إخراج.</li>
+            <li>المعالج هو المسؤول عن تنفيذ التعليمات.</li>
+            <li>الذاكرة تخزن البيانات مؤقتاً، والقرص الصلب يخزنها بشكل دائم.</li>
+            <li>البرمجة تكتب بلغة يفهمها البشر، ثم تترجم إلى لغة الآلة التي يفهمها المعالج.</li>
+            <li>المترجمات والمفسرات هي المسؤولة عن عملية الترجمة.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- ============================================================ -->
+    <!-- ===== الدرس 3: لغات البرمجة ===== -->
+    <!-- ============================================================ -->
+    <div id="lesson-3" class="lesson-page">
+      <div class="content-section">
+        <div class="lesson-header">
+          <button class="back-btn" onclick="closeLesson()"><i class="fas fa-arrow-right"></i> العودة للدروس</button>
+          <h2><i class="fas fa-code" style="color: #2563eb;"></i> الدرس الثالث: لغات البرمجة</h2>
+        </div>
+        <div class="lesson-body">
+
+          <h3><i class="fas fa-bullseye"></i> ما هي لغات البرمجة؟</h3>
+          <p>
+            لغة البرمجة هي مجموعة من القواعد والرموز التي يستخدمها المبرمج للتواصل مع الحاسوب وإعطائه التعليمات. تشبه لغات البرمجة اللغات البشرية من حيث أنها تمتلك قواعد نحوية (Syntax) ومفردات (Keywords) وطرقاً لتركيب الجمل (Statements). الفرق أن لغات البرمجة مصممة لتكون دقيقة وغير قابلة للتأويل، حيث أن الحاسوب لا يستطيع تفسير الأوامر الغامضة.
+          </p>
+          <p>
+            هناك المئات من لغات البرمجة، كل منها مصمم لأغراض محددة. بعض اللغات مصممة لتكون سهلة التعلم، وبعضها مصممة للأداء العالي، وبعضها مصممة لمجالات محددة مثل تطوير الويب أو الذكاء الاصطناعي. اختيار اللغة المناسبة يعتمد على الهدف من التعلم والمجال الذي ترغب في العمل فيه.
+          </p>
+
+          <h3><i class="fas fa-layer-group"></i> تصنيف لغات البرمجة</h3>
+          <h4>1. لغات منخفضة المستوى (Low-Level Languages)</h4>
+          <p>
+            اللغات المنخفضة المستوى هي الأقرب إلى لغة الآلة التي يفهمها الحاسوب مباشرة. لغة الآلة تتكون من أصفار وواحدات فقط، وهي صعبة الفهم والكتابة. لغة التجميع (Assembly) هي خطوة أعلى من لغة الآلة، حيث تستخدم رموزاً اختصاريه بدلاً من الأصفار والواحدات، لكنها لا تزال صعبة نسبياً. هذه اللغات تعطي المبرمج تحكماً كاملاً في عتاد الحاسوب، وتستخدم في الأنظمة المدمجة وبرامج تشغيل الأجهزة.
+          </p>
+
+          <h4>2. لغات عالية المستوى (High-Level Languages)</h4>
+          <p>
+            اللغات العالية المستوى هي الأقرب إلى اللغة البشرية، مما يجعلها أسهل في التعلم والكتابة. هذه اللغات تستخدم كلمات إنجليزية مألوفة مثل "if" و "for" و "function". من أمثلة هذه اللغات: Python، JavaScript، Java، C#، PHP. الميزة الأساسية لهذه اللغات هي سهولة القراءة والكتابة، وقابلية النقل بين أنظمة التشغيل المختلفة. العيب الوحيد هو أنها أبطأ قليلاً من اللغات المنخفضة المستوى.
+          </p>
+
+          <h3><i class="fas fa-cogs"></i> الفرق بين المترجم والمفسر</h3>
+          <p>
+            المترجم (Compiler) هو برنامج يقرأ الكود المصدري (Source Code) بالكامل، ويترجمه إلى لغة الآلة دفعة واحدة. إذا وجد المترجم أي خطأ في الكود، فإنه يوقف عملية الترجمة ويبلغ عن الخطأ. بعد الترجمة الناجحة، يتم إنتاج ملف تنفيذي يمكن تشغيله مباشرة. مثال على اللغات المترجمة: C، C++، Java.
+          </p>
+          <p>
+            المفسر (Interpreter) هو برنامج يقرأ الكود سطراً سطراً، وينفذ كل سطر فوراً دون الحاجة إلى ترجمة مسبقة. إذا واجه المفسر خطأ في سطر معين، فإنه يتوقف عن التنفيذ ويبلغ عن الخطأ. هذا يجعل عملية التطوير أسرع، لأن المبرمج يمكنه اختبار الكود فوراً. مثال على اللغات المفسرة: JavaScript، Python.
+          </p>
+
+          <h3><i class="fas fa-check-circle"></i> ملخص الدرس</h3>
+          <ul>
+            <li>لغة البرمجة هي وسيلة التواصل بين الإنسان والحاسوب.</li>
+            <li>اللغات المنخفضة المستوى قريبة من لغة الآلة، واللغات العالية المستوى قريبة من اللغة البشرية.</li>
+            <li>اللغات العالية المستوى أسهل في التعلم والكتابة.</li>
+            <li>المترجم يترجم الكود كاملاً دفعة واحدة، والمفسر ينفذ الكود سطراً سطراً.</li>
+            <li>في هذا الكورس، نستخدم JavaScript، وهي لغة مفسرة عالية المستوى.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- ============================================================ -->
+    <!-- ===== الدرس 4: محرر الكود ===== -->
+    <!-- ============================================================ -->
+    <div id="lesson-4" class="lesson-page">
+      <div class="content-section">
+        <div class="lesson-header">
+          <button class="back-btn" onclick="closeLesson()"><i class="fas fa-arrow-right"></i> العودة للدروس</button>
+          <h2><i class="fas fa-edit" style="color: #2563eb;"></i> الدرس الرابع: محرر الكود</h2>
+        </div>
+        <div class="lesson-body">
+
+          <h3><i class="fas fa-bullseye"></i> ما هو محرر الكود؟</h3>
+          <p>
+            محرر الكود هو البرنامج أو الأداة التي تستخدمها لكتابة الأوامر البرمجية. هو بمثابة الورقة والقلم للمبرمج، حيث يكتب فيه التعليمات التي يريد أن ينفذها الحاسوب. محررات الكود تختلف عن برامج تحرير النصوص العادية مثل "مفكرة" (Notepad) في أنها توفر ميزات متقدمة تساعد المبرمج في كتابة الكود بشكل أسرع وأكثر دقة.
+          </p>
+          <p>
+            من أهم ميزات محررات الكود: تمييز الأكواد (Syntax Highlighting) حيث يلون الكلمات المفتاحية والمتغيرات بألوان مختلفة لتسهيل القراءة، الإكمال التلقائي (Auto-completion) الذي يقترح الأوامر أثناء الكتابة، وترقيم الأسطر (Line Numbers) الذي يساعد في تحديد موقع الأخطاء. بعض المحررات تحتوي أيضاً على ميزات متقدمة مثل تصحيح الأخطاء (Debugging) وإدارة المشاريع.
+          </p>
+
+          <h3><i class="fas fa-pencil-alt"></i> أنواع محررات الأكواد</h3>
+          <p>
+            هناك ثلاثة أنواع رئيسية من محررات الأكواد. النوع الأول هو المحررات البسيطة مثل Notepad++ و Sublime Text، وهي خفيفة الوزن ومناسبة للمبتدئين. النوع الثاني هو بيئات التطوير المتكاملة (IDE) مثل Visual Studio Code و PyCharm، التي تحتوي على أدوات متقدمة لإدارة المشاريع وتصحيح الأخطاء. النوع الثالث هو المحررات عبر الإنترنت مثل CodePen و Replit، التي تسمح للمبرمج بكتابة الكود وتشغيله مباشرة من المتصفح دون الحاجة إلى تثبيت أي برامج.
+          </p>
+          <p>
+            في هذا المسار، نستخدم محرراً مدمجاً في المنصة التعليمية، مما يلغي الحاجة إلى تثبيت أي برامج إضافية. هذا المحرر مصمم خصيصاً لتجربة الكود بشكل مباشر وتفاعلي، مع أزرار تحكم بسيطة تسهل عملية الكتابة والتشغيل. كل ما تحتاجه هو متصفح إنترنت واتصال بالشبكة.
+          </p>
+
+          <h3><i class="fas fa-gamepad"></i> أزرار المحرر ووظائفها</h3>
+          <p>
+            المحرر يحتوي على مجموعة من الأزرار التي تسهل عملية كتابة وتنفيذ الكود. زر التشغيل (▶️) يقوم بتنفيذ الكود المكتوب في المحرر وعرض النتيجة في قسم النتائج. زر التنظيف (🧹) يمسح كل ما كتبته في المحرر ويزيل النتائج المعروضة، مما يمنحك مساحة نظيفة للبدء من جديد.
+          </p>
+          <p>
+            زر التحميل (⬇️) يحفظ الكود الذي كتبته كملف نصي على جهازك، لتتمكن من الاحتفاظ به والعودة إليه لاحقاً. زر الرفع (⬆️) يتيح لك فتح ملف كنت قد حملته مسبقاً واستئناف العمل عليه داخل المحرر. زر الرئيسية (🏠) ينقلك إلى الصفحة الرئيسية للمنصة. هذه الأزرار مصممة لتجعل تجربة التعلم سلسة ومريحة.
+          </p>
+
+          <div class="tip-box">
+            <i class="fas fa-lightbulb"></i>
+            <strong>نصيحة:</strong> استخدم زر التشغيل باستمرار لتجربة الكود الذي تكتبه. هذا يساعدك على رؤية النتائج فوراً وتصحيح الأخطاء بسرعة. لا تخف من استخدام زر التنظيف لبدء محاولة جديدة.
+          </div>
+
+          <h3><i class="fas fa-check-circle"></i> ملخص الدرس</h3>
+          <ul>
+            <li>محرر الكود هو الأداة الأساسية لكتابة الأوامر البرمجية.</li>
+            <li>المحرر الجيد يوفر تمييز الأكواد، إكمال تلقائي، وترقيم الأسطر.</li>
+            <li>هناك محررات بسيطة، بيئات تطوير متكاملة، ومحررات عبر الإنترنت.</li>
+            <li>أزرار المحرر الأساسية: تشغيل، تنظيف، تحميل، رفع، رئيسية.</li>
+            <li>المحرر المدمج في المنصة يلغي الحاجة إلى تثبيت برامج إضافية.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- ============================================================ -->
+    <!-- ===== الدرس 5: أمر الطباعة ===== -->
+    <!-- ============================================================ -->
+    <div id="lesson-5" class="lesson-page">
+      <div class="content-section">
+        <div class="lesson-header">
+          <button class="back-btn" onclick="closeLesson()"><i class="fas fa-arrow-right"></i> العودة للدروس</button>
+          <h2><i class="fas fa-print" style="color: #2563eb;"></i> الدرس الخامس: أمر الطباعة write()</h2>
+        </div>
+        <div class="lesson-body">
+
+          <h3><i class="fas fa-bullseye"></i> مفهوم الطباعة في البرمجة</h3>
+          <p>
+            الطباعة في عالم البرمجة تعني عرض أي شيء أمام المستخدم على الشاشة. هذا المفهوم هو أحد الأساسيات في أي لغة برمجة، لأنه يمثل الطريقة التي يتواصل بها البرنامج مع المستخدم. قد يكون الهدف من الطباعة عرض رسالة ترحيب، إظهار نتيجة عملية حسابية، أو طلب إدخال معلومات من المستخدم. في بعض اللغات، تُستخدم كلمة "print"، وفي أخرى "echo"، لكن الفكرة واحدة.
+          </p>
+          <p>
+            في هذا المسار، نستخدم الدالة <strong>write()</strong> للطباعة. هذه الدالة صُممت خصيصاً لتكون بسيطة وسهلة الاستخدام للمبتدئين. عند استدعاء write()، يقوم المحرر بعرض المحتوى الموجود بين قوسيها في منطقة النتائج. هذا المحتوى يمكن أن يكون نصاً، رقماً، أو حتى ناتج عملية حسابية.
+          </p>
+
+          <h3><i class="fas fa-pencil-alt"></i> أنواع المحتويات التي يمكن طباعتها</h3>
+          <p>
+            هناك ثلاثة أنواع رئيسية من المحتويات التي يمكنك طباعتها باستخدام write(). النوع الأول هو <strong>النصوص</strong>، وهي عبارة عن كلمات وجمل توضع بين علامتي تنصيص " ". النوع الثاني هو <strong>الأرقام</strong>، والتي تكتب مباشرة دون أي علامات إضافية. النوع الثالث هو <strong>العمليات الحسابية</strong>، حيث يمكنك وضع عملية حسابية داخل write() وسيقوم المحرر بحسابها وعرض الناتج.
+          </p>
+          <p>
+            من المهم أن تفهم الفرق بين النص والرقم. عندما تكتب write("100")، فإنك تطبع النص "100" الذي لا يمكن استخدامه في العمليات الحسابية. أما عندما تكتب write(100)، فإنك تطبع الرقم 100 الذي يمكن استخدامه في العمليات الحسابية. هذا الفرق أساسي في البرمجة، وسنتعرف عليه بشكل أعمق في دروس لاحقة.
+          </p>
+
+          <div class="highlight-box">
+            <i class="fas fa-info-circle"></i>
+            <strong>ملاحظة مهمة:</strong> علامات التنصيص (" ") تخبر المحرر أن ما بداخلها هو نص وليس أمراً برمجياً. بدون علامات التنصيص، سيعتقد المحرر أن الكلمة هي أمر أو متغير، مما قد يسبب خطأ.
+          </div>
+
+          <h3><i class="fas fa-code"></i> أمثلة على الطباعة</h3>
+          <p>
+            لنفترض أنك تريد طباعة عبارة "مرحباً بك في عالم البرمجة". ستكتب: write("مرحباً بك في عالم البرمجة");. إذا أردت طباعة رقم، مثل 100، ستكتب: write(100);. وإذا أردت طباعة ناتج عملية حسابية، مثل 5 + 3، ستكتب: write(5 + 3); وسيعرض المحرر النتيجة 8.
+          </p>
+          <p>
+            يمكنك أيضاً طباعة عدة أشياء في سطر واحد باستخدام عملية الدمج التي سنتعلمها لاحقاً. مثال: write("النتيجة: " + (10 + 5)); سيعرض "النتيجة: 15". هذا النوع من الطباعة مفيد جداً عندما تريد عرض معلومات معقدة للمستخدم.
+          </p>
+
+          <div class="tip-box">
+            <i class="fas fa-lightbulb"></i>
+            <strong>نصيحة:</strong> جرب كتابة أمثلة مختلفة في المحرر، غيّر النصوص والأرقام، وشاهد كيف تتغير النتائج. هذا التدريب البسيط سيساعدك على تثبيت المفهوم في ذهنك وفهم كيفية عمل write() بشكل عملي.
+          </div>
+
+          <h3><i class="fas fa-check-circle"></i> ملخص الدرس</h3>
+          <ul>
+            <li>الطباعة تعني عرض المعلومات على الشاشة باستخدام write().</li>
+            <li>يمكن طباعة نصوص (بين علامتي تنصيص)، أرقام (مباشرة)، وعمليات حسابية.</li>
+            <li>النصوص والأرقام تتصرف بشكل مختلف في البرمجة.</li>
+            <li>write() هي أولى الأدوات التي ستستخدمها للتواصل مع المستخدم.</li>
+            <li>الممارسة العملية هي المفتاح لإتقان استخدام write().</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- ============================================================ -->
+    <!-- ===== الدرس 6: المتغيرات ===== -->
+    <!-- ============================================================ -->
+    <div id="lesson-6" class="lesson-page">
+      <div class="content-section">
+        <div class="lesson-header">
+          <button class="back-btn" onclick="closeLesson()"><i class="fas fa-arrow-right"></i> العودة للدروس</button>
+          <h2><i class="fas fa-box" style="color: #2563eb;"></i> الدرس السادس: المتغيرات</h2>
+        </div>
+        <div class="lesson-body">
+
+          <h3><i class="fas fa-bullseye"></i> مفهوم المتغيرات</h3>
+          <p>
+            المتغير (Variable) هو مساحة يتم حجزها في الذاكرة (RAM) بهدف تخزين قيمة معينة فيها أثناء تشغيل البرنامج. يمكنك تخيل المتغير كصندوق له اسم، توضع فيه قيمة مؤقتة يمكنك استخدامها وتغييرها متى شئت. هذا الصندوق (المتغير) يبقى موجوداً طوال فترة تشغيل البرنامج، ويمكنك وضع قيمة جديدة فيه في أي وقت.
+          </p>
+          <p>
+            المتغيرات هي أساس البرمجة. بدونها، كان علينا كتابة كل قيمة مباشرة في كل مرة نستخدمها، مما يجعل الكود مكرراً وصعب التعديل. المتغيرات تسمح لنا بتخزين البيانات مرة واحدة واستخدامها في عدة أماكن، وتغييرها بسهولة عند الحاجة. على سبيل المثال، يمكنك تخزين اسم المستخدم في متغير، ثم استخدامه في عدة رسائل ترحيب دون الحاجة لإعادة كتابته.
+          </p>
+
+          <h3><i class="fas fa-code"></i> كيفية تعريف المتغيرات</h3>
+          <p>
+            لتعريف متغير في محرر الكود، نستخدم الكلمة المفتاحية <strong>var</strong> متبوعة باسم المتغير. يمكنك تعريف متغير بدون قيمة، أو إعطائه قيمة عند تعريفه. مثال على تعريف متغير بدون قيمة: var name;. ومثال على تعريف متغير بقيمة: var age = 25;. الأسماء التي تختارها للمتغيرات يجب أن تكون معبرة عن محتواها، مثل "userName" بدلاً من "x".
+          </p>
+          <p>
+            هناك قواعد لتسمية المتغيرات: يجب أن تبدأ بحرف أو _ أو $، ولا يمكن أن تبدأ برقم. يمكن أن تحتوي على حروف وأرقام و _ و $. المتغيرات حساسة لحالة الأحرف، مما يعني أن name و Name متغيران مختلفان. كما لا يمكن استخدام الكلمات المفتاحية مثل var و if و else كأسماء للمتغيرات.
+          </p>
+
+          <h3><i class="fas fa-pencil-alt"></i> إعطاء قيمة للمتغير</h3>
+          <p>
+            لإعطاء قيمة لمتغير، نستخدم رمز المساواة <strong>=</strong>. هذا الرمز يسمى عامل الإسناد (Assignment Operator). عندما تكتب var x = 10;، فإنك تخبر المحرر بأنشئ متغيراً اسمه x واجعل قيمته 10. يمكنك تغيير قيمة المتغير في أي وقت عن طريق إسناد قيمة جديدة له: x = 20;. هذه المرونة في تغيير القيم هي ما يجعل المتغيرات قوية ومفيدة.
+          </p>
+          <p>
+            القيمة الافتراضية للمتغير الذي لم يُعطَ قيمة هي <strong>undefined</strong>. هذا يعني أن المتغير موجود لكنه لا يحمل أي قيمة محددة. عندما تطبع متغيراً بقيمة undefined، سترى كلمة "undefined" في النتائج. هذا السلوك يساعدنا في اكتشاف الأخطاء عندما ننسى إعطاء قيمة لمتغير قبل استخدامه.
+          </p>
+
+          <h3><i class="fas fa-check-circle"></i> ملخص الدرس</h3>
+          <ul>
+            <li>المتغير هو مكان في الذاكرة لتخزين القيم مؤقتاً.</li>
+            <li>نستخدم var لتعريف متغير، و= لإعطائه قيمة.</li>
+            <li>أسماء المتغيرات يجب أن تكون معبرة وتتبع قواعد التسمية.</li>
+            <li>المتغير غير المعطى قيمة يحمل undefined.</li>
+            <li>المتغيرات تسمح لنا بتخزين البيانات وإعادة استخدامها بسهولة.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- ============================================================ -->
+    <!-- ===== الدرس 7: أنواع البيانات ===== -->
+    <!-- ============================================================ -->
+    <div id="lesson-7" class="lesson-page">
+      <div class="content-section">
+        <div class="lesson-header">
+          <button class="back-btn" onclick="closeLesson()"><i class="fas fa-arrow-right"></i> العودة للدروس</button>
+          <h2><i class="fas fa-tag" style="color: #2563eb;"></i> الدرس السابع: أنواع البيانات</h2>
+        </div>
+        <div class="lesson-body">
+
+          <h3><i class="fas fa-bullseye"></i> مفهوم أنواع البيانات</h3>
+          <p>
+            في البرمجة، كل قيمة نتعامل معها لها نوع محدد يسمى Data Type. هذا النوع يحدد ما يمكننا فعله بهذه القيمة وكيف ستتصرف في العمليات المختلفة. على سبيل المثال، البيانات الرقمية يمكننا إجراء عمليات حسابية عليها، بينما البيانات النصية يمكننا تعديل أحرفها ودمجها. فهم أنواع البيانات هو أساسي لتجنب الأخطاء وكتابة كود صحيح وفعال.
+          </p>
+          <p>
+            اللغة التي نستخدمها تحدد أنواع البيانات المتاحة، لكن معظم اللغات تشترك في ثلاثة أنواع أساسية: الرقمية، النصية، والمنطقية. كل نوع له خصائصه وسلوكياته التي يجب على المبرمج فهمها. عندما تخلط بين أنواع مختلفة من البيانات دون قصد، قد تحصل على نتائج غير متوقعة، لذا من المهم معرفة نوع كل قيمة تتعامل معها.
+          </p>
+
+          <h3><i class="fas fa-list"></i> أنواع البيانات الأساسية</h3>
+          <h4>1. النوع number (رقمي)</h4>
+          <p>
+            النوع number يستخدم للأعداد الصحيحة والعشرية. يمكن إجراء جميع العمليات الحسابية على هذا النوع من البيانات: الجمع، الطرح، الضرب، القسمة، وغيرها. الأعداد في البرمجة تُكتب بدون علامات تنصيص، وتُستخدم النقطة (.) للفصل بين الجزء الصحيح والعشري، وليس الفاصلة (,). مثال: 25، 3.14، -10. الأعداد العشرية تسمى "floating point numbers" لأنها تطفو (تتحرك) في الذاكرة.
+          </p>
+
+          <h4>2. النوع string (نصي)</h4>
+          <p>
+            النوع string يستخدم للنصوص والكلمات. يُكتب النص بين علامتي تنصيص مزدوجة " " أو مفردة ' '. النصوص يمكن دمجها مع بعضها البعض باستخدام عملية الدمج (Concatenation)، ويمكن استخراج أجزاء منها ومعالجتها. النصوص يمكن أن تحتوي على أي حروف، أرقام، ورموز. في البرمجة، النصوص ليست مجرد كلمات بل هي تسلسل من الأحرف (Characters) التي يمكن التعامل معها بشكل منفصل.
+          </p>
+
+          <h4>3. النوع boolean (منطقي)</h4>
+          <p>
+            النوع boolean يستخدم للتعبير عن قيمتين فقط: true (صحيح) و false (خاطئ). هذا النوع مهم جداً في الشروط واتخاذ القرارات. عندما تكتب شرطاً مثل 5 > 3، فإن الناتج هو قيمة منطقية (true). عندما تكتب 2 == 5، الناتج هو false. القيم المنطقية هي أساس التحكم في تدفق البرنامج، حيث تستخدم في جمل الشرط والحلقات لتحديد متى يتم تنفيذ أجزاء معينة من الكود.
+          </p>
+
+          <h3><i class="fas fa-code"></i> معرفة نوع البيانات: typeof()</h3>
+          <p>
+            في JavaScript، يمكننا استخدام الدالة <strong>typeof()</strong> لمعرفة نوع أي قيمة أو متغير. هذه الدالة مفيدة جداً عند تصحيح الأخطاء أو عندما تكون غير متأكد من نوع البيانات التي تتعامل معها. على سبيل المثال، typeof(100) يعيد "number"، typeof("Hello") يعيد "string"، و typeof(true) يعيد "boolean".
+          </p>
+          <p>
+            من المهم ملاحظة أن typeof() يعيد نوع القيمة كنص، لذلك يمكنك طباعته أو استخدامه في الشروط. إذا كنت تتعامل مع بيانات من مصادر مختلفة، مثل مدخلات المستخدم، فاستخدام typeof() يمكن أن يساعدك في التأكد من أن البيانات من النوع المتوقع قبل استخدامها في العمليات.
+          </p>
+
+          <div class="warning-box">
+            <i class="fas fa-exclamation-triangle"></i>
+            <strong>تنبيه:</strong> الأعداد العشرية في البرمجة تُكتب بنقطة (.) وليس بفاصلة (,). كتابة 1,5 تسبب خطأ لأن المحرر يفسرها كقيمتين منفصلتين. دائماً استخدم النقطة: 1.5.
+          </div>
+
+          <h3><i class="fas fa-check-circle"></i> ملخص الدرس</h3>
+          <ul>
+            <li>كل قيمة في البرمجة لها نوع محدد يحدد سلوكها.</li>
+            <li>الأنواع الأساسية: number (رقمي)، string (نصي)، boolean (منطقي).</li>
+            <li>الأنواع الرقمية تدعم العمليات الحسابية، والنصية تدعم معالجة النصوص.</li>
+            <li>الأنواع المنطقية (true/false) تستخدم في الشروط واتخاذ القرارات.</li>
+            <li>typeof() تُستخدم لمعرفة نوع أي قيمة أو متغير.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- ============================================================ -->
+    <!-- ===== الدرس 8: دمج البيانات ===== -->
+    <!-- ============================================================ -->
+    <div id="lesson-8" class="lesson-page">
+      <div class="content-section">
+        <div class="lesson-header">
+          <button class="back-btn" onclick="closeLesson()"><i class="fas fa-arrow-right"></i> العودة للدروس</button>
+          <h2><i class="fas fa-link" style="color: #2563eb;"></i> الدرس الثامن: دمج البيانات</h2>
+        </div>
+        <div class="lesson-body">
+
+          <h3><i class="fas fa-bullseye"></i> مفهوم الدمج</h3>
+          <p>
+            الدمج (Concatenation) هو عملية صفّ قيمتين أو أكثر - سواء كانت نصوصاً أو أرقاماً - بجانب بعضها البعض، بهدف عرضها معاً أو لتخزينها كنص واحد جديد. هذه العملية شائعة جداً في البرمجة، خاصة عند بناء رسائل للمستخدم أو إنشاء نصوص ديناميكية. في محرر الكود الخاص بنا، تستخدم الرمز <strong>+</strong> للقيام بعملية الدمج بين القيم المختلفة.
+          </p>
+          <p>
+            من المهم أن نفهم أن الدمج يختلف عن الجمع الحسابي. الجمع الحسابي يجمع الأرقام رياضياً، بينما الدمج يصف القيم بجانب بعضها لتكوين نص واحد. هذا الفرق هو مصدر العديد من الأخطاء عند المبتدئين، خاصة عندما يخلطون بين النصوص والأرقام في نفس العملية.
+          </p>
+
+          <h3><i class="fas fa-pencil-alt"></i> أنواع الدمج</h3>
+          <h4>1. دمج نص مع نص</h4>
+          <p>
+            هذا أبسط أنواع الدمج، حيث تظهر النصوص تماماً كما كتبتها، واحدة تلو الأخرى. عندما تدمج نصين معاً، الناتج هو نص جديد يحتوي على النصين معاً. مثال: "Hello" + " World" يعطي "Hello World". لاحظ أنه يمكنك إضافة مسافات يدوياً بين النصوص. يمكنك أيضاً دمج أكثر من نصين في عملية واحدة: "أنا" + " " + "أتعلم" + " " + "البرمجة".
+          </p>
+
+          <h4>2. دمج رقم مع نص</h4>
+          <p>
+            دمج النص مع الأرقام هو عملية شائعة جداً، لكنها تخضع لقواعد خاصة. عندما تدمج نصاً مع رقم، فإن الناتج هو دائماً نص. هذا يعني أن الرقم يتحول إلى نص ويُضاف إلى النص الأصلي. مثال: "النتيجة هي " + 10 يعطي "النتيجة هي 10". لكن إذا قمت بدمج عدة أرقام معاً في سياق نصي، فإنها ستُدمج كنصوص وليس كأرقام.
+          </p>
+          <p>
+            مثال على ذلك: "x = " + 1 + 2 يعطي "x = 12". هنا، لم يتم جمع 1 و 2، بل تم دمجهما كنصوص لأن العملية بدأت بنص. هذا السلوك قد يكون غير بديهي للمبتدئين، لكنه يتبع قواعد اللغة التي تحدد أن العملية تُقرأ من اليسار لليمين.
+          </p>
+
+          <h4>3. دمج نص مع ناتج عملية حسابية (القاعدة الذهبية)</h4>
+          <p>
+            عندما تريد دمج نص مع نتيجة عملية حسابية، يجب عليك وضع العملية الحسابية بين قوسين ( ). هذا يعطي الأولوية للعملية الحسابية، مما يجعلها تُنفذ أولاً قبل الدمج. مثال: "x = " + (1 + 2) يعطي "x = 3". بدون الأقواس، سيكون الناتج "x = 12" كما رأينا سابقاً.
+          </p>
+          <p>
+            هذه القاعدة الذهبية هي مفتاح تجنب الأخطاء عند دمج النصوص مع العمليات الحسابية. دائماً استخدم الأقواس عندما تريد التأكد من أن العملية الحسابية تُنفذ بشكل صحيح قبل الدمج مع النص.
+          </p>
+
+          <h4>4. حالة خاصة: أرقام في البداية قبل النص</h4>
+          <p>
+            عندما تبدأ عملية الدمج بأرقام متتالية قبل النص، يقوم المحرر بحسابها رياضياً أولاً، ثم يدمج الناتج مع بقية النص. مثال: 1 + 2 + " = x" يعطي "3 = x". هنا، تم جمع 1 و 2 أولاً (لأنهما في البداية قبل النص)، ثم تم دمج الناتج مع النص.
+          </p>
+          <p>
+            هذا السلوك يختلف عن الحالة التي يبدأ فيها النص أولاً. إذا بدأت بنص ثم أرقام، ستُدمج الأرقام كنصوص. لذلك، من المهم فهم ترتيب العناصر في عملية الدمج لتوقع النتيجة الصحيحة.
+          </p>
+
+          <div class="tip-box">
+            <i class="fas fa-lightbulb"></i>
+            <strong>نصيحة:</strong> استخدم الأقواس دائماً عندما تريد دمج نص مع عملية حسابية. هذا يضمن لك الحصول على النتيجة الصحيحة ويجعل الكود أكثر وضوحاً وقابلية للفهم.
+          </div>
+
+          <h3><i class="fas fa-check-circle"></i> ملخص سريع</h3>
+          <ul>
+            <li>الدمج هو صف القيم بجانب بعضها باستخدام +.</li>
+            <li>دمج نص مع نص يعطي نصاً جديداً.</li>
+            <li>دمج نص مع أرقام متتالية يدمج الأرقام كنصوص.</li>
+            <li>دمج نص مع عملية حسابية يتطلب وضع العملية بين قوسين ( ).</li>
+            <li>الأرقام في البداية تُحسب حسابياً قبل الدمج مع النص.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- ============================================================ -->
+    <!-- ===== الدرس 9: أحرف الهروب ===== -->
+    <!-- ============================================================ -->
+    <div id="lesson-9" class="lesson-page">
+      <div class="content-section">
+        <div class="lesson-header">
+          <button class="back-btn" onclick="closeLesson()"><i class="fas fa-arrow-right"></i> العودة للدروس</button>
+          <h2><i class="fas fa-arrow-left" style="color: #2563eb;"></i> الدرس التاسع: أحرف الهروب</h2>
+        </div>
+        <div class="lesson-body">
+
+          <h3><i class="fas fa-bullseye"></i> مفهوم أحرف الهروب</h3>
+          <p>
+            أحرف الهروب (Escape Characters) هي رموز خاصة تُستخدم في البرمجة للتحكم في طريقة عرض النص، وليس المقصود بها طباعتها كما هي. تبدأ جميعها بالرمز <strong>\</strong> (خط مائل عكسي) متبوعاً بحرف معين. تُستخدم أحرف الهروب لإضافة تنسيقات خاصة للنص، مثل السطر الجديد أو علامات التنصيص، دون أن تتسبب في أخطاء في الكود.
+          </p>
+          <p>
+            تخيل أنك تريد طباعة جملة تحتوي على علامة تنصيص، مثل: قال: "مرحباً". إذا كتبت write("قال: "مرحباً"");، سيحدث خطأ لأن المحرر سيعتقد أن النص انتهى عند علامة التنصيص الثانية. هنا يأتي دور حرف الهروب \" لحل هذه المشكلة. أحرف الهروب تسمح لنا بطباعة أحرف لها معنى خاص في اللغة البرمجية.
+          </p>
+
+          <h3><i class="fas fa-list"></i> أهم أحرف الهروب</h3>
+          <h4>1. \n (السطر الجديد)</h4>
+          <p>
+            حرف الهروب \n يُستخدم للنزول إلى سطر جديد في النص. عندما يقرأ المحرر \n، فإنه لا يطبعه كحرفين، بل ينفذ أمر الانتقال إلى سطر جديد. هذا مفيد جداً عند عرض نصوص متعددة الأسطر أو تنظيم المعلومات. مثال: write("سطر أول\nسطر ثاني"); سيعرض النص في سطرين منفصلين.
+          </p>
+          <p>
+            يمكن استخدام \n في عدة مواضع داخل النص لإنشاء فقرات أو فاصل بين الأجزاء المختلفة من النص. كما يمكن استخدامه مع أكثر من أمر طباعة للحصول على تنسيق أفضل. على سبيل المثال، يمكنك طباعة معلومات شخصية كل منها في سطر منفصل باستخدام \n بينها.
+          </p>
+
+          <h4>2. \" (طباعة علامة التنصيص المزدوجة)</h4>
+          <p>
+            عندما يكون النص محاطاً بعلامات تنصيص مزدوجة " "، وتريد طباعة علامة " داخل النص نفسه، يجب أن تسبقها بـ \. هذا يخبر المحرر أن هذه العلامة هي جزء من النص وليست نهاية النص. مثال: write("قال: \"مرحباً\""); سيعرض "قال: "مرحباً"" بشكل صحيح.
+          </p>
+          <p>
+            هناك حالة خاصة: إذا كان النص محاطاً بعلامات تنصيص مفردة ' '، يمكنك كتابة " داخله مباشرة دون حاجة لاستخدام \". هذا لأن المحرر يعرف أن النص ينتهي بعلامة ' وليس ". مثال: write('قال: "مرحباً"'); سيعمل بشكل صحيح.
+          </p>
+
+          <h4>3. \' (طباعة علامة التنصيص المفردة)</h4>
+          <p>
+            نفس المبدأ ينطبق على علامة التنصيص المفردة ' عندما يكون النص محاطاً بها. إذا أردت طباعة ' داخل نص محاط بعلامات تنصيص مفردة، استخدم \'. مثال: write('I like \'Harmash.com\''); سيعرض "I like 'Harmash.com'".
+          </p>
+          <p>
+            وبالمثل، إذا كان النص محاطاً بعلامات تنصيص مزدوجة " "، يمكنك كتابة ' داخله مباشرة دون حاجة لاستخدام \'. مثال: write("I like 'Harmash.com'"); سيعمل بشكل صحيح.
+          </p>
+
+          <h4>4. \\ (طباعة الرمز \ نفسه)</h4>
+          <p>
+            بما أن الرمز \ هو البادئة الخاصة بجميع أحرف الهروب، فلا يمكنك طباعته مباشرة. لطباعته كحرف عادي، استخدم \\، أي خط مائل عكسي مكرر. مثال: write("المسار: C:\\Users\\Desktop"); سيعرض "المسار: C:\Users\Desktop".
+          </p>
+          <p>
+            هذا الحرف مهم جداً عند التعامل مع مسارات الملفات في أنظمة التشغيل مثل ويندوز، حيث تستخدم \ لفصل المجلدات. بدون \\، سيعتقد المحرر أن \U أو \D هي أحرف هروب غير معروفة ويسبب خطأ.
+          </p>
+
+          <div class="tip-box">
+            <i class="fas fa-lightbulb"></i>
+            <strong>نصيحة:</strong> استخدم \n لتنظيم مخرجاتك وجعلها أكثر وضوحاً. استخدم \" أو \' عندما تريد طباعة علامات تنصيص من نفس النوع الذي يحيط بالنص. تذكر دائماً أن أحرف الهروب تبدأ بـ \.
+          </div>
+
+          <h3><i class="fas fa-check-circle"></i> خلاصة</h3>
+          <ul>
+            <li>أحرف الهروب تبدأ بـ \ وتستخدم للتحكم بتنسيق النص.</li>
+            <li>\n للسطر الجديد.</li>
+            <li>\" لطباعة علامة تنصيص مزدوجة داخل نص محاط بـ " ".</li>
+            <li>\' لطباعة علامة تنصيص مفردة داخل نص محاط بـ ' '.</li>
+            <li>\\ لطباعة الرمز \ نفسه.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- ============================================================ -->
+    <!-- ===== الدرس 10: الإدخال من المستخدم ===== -->
+    <!-- ============================================================ -->
+    <div id="lesson-10" class="lesson-page">
+      <div class="content-section">
+        <div class="lesson-header">
+          <button class="back-btn" onclick="closeLesson()"><i class="fas fa-arrow-right"></i> العودة للدروس</button>
+          <h2><i class="fas fa-keyboard" style="color: #2563eb;"></i> الدرس العاشر: الإدخال من المستخدم</h2>
+        </div>
+        <div class="lesson-body">
+
+          <h3><i class="fas fa-bullseye"></i> مفهوم الإدخال</h3>
+          <p>
+            في جميع الأمثلة السابقة، كنا نكتب الكود ثم نشغله فينفذ بالكامل دفعة واحدة دون أي تفاعل من المستخدم. لكن في البرامج الحقيقية، نحتاج غالباً إلى تفاعل المستخدم مع البرنامج. الإدخال (Input) هو عملية تسمح للمستخدم بإدخال بيانات أثناء تشغيل البرنامج، مثل كتابة اسمه، عمره، أو أي معلومات أخرى، ليتمكن البرنامج من التعامل مع هذه البيانات وتخصيص المخرجات بناءً عليها.
+          </p>
+          <p>
+            الإدخال هو ما يجعل البرامج تفاعلية ومفيدة. تخيل برنامج حاسبة لا يستقبل أرقاماً من المستخدم، أو برنامج ترحيب لا يعرف اسم الشخص الذي يتحدث إليه. الإدخال هو الجسر بين المستخدم والبرنامج، وهو ما يحول البرنامج من مجرد سلسلة من الأوامر الثابتة إلى أداة ديناميكية تتكيف مع احتياجات المستخدم.
+          </p>
+
+          <h3><i class="fas fa-code"></i> دالة الإدخال read()</h3>
+          <p>
+            لجعل البرنامج ينتظر المستخدم لإدخال قيمة، نستخدم الدالة <strong>read()</strong> التي صُممت خصيصاً لهذا الغرض. عند تنفيذ read()، يتوقف البرنامج مؤقتاً وينتظر حتى يكتب المستخدم شيئاً ويضغط Enter، ثم يعود بقيمة ما كتبه. هذه القيمة يمكن تخزينها في متغير واستخدامها في باقي البرنامج.
+          </p>
+          <p>
+            من المهم أن تفهم أن read() تعمل بشكل متزامن (Synchronous)، مما يعني أنها توقف تنفيذ البرنامج حتى يكمل المستخدم الإدخال. هذا السلوك طبيعي في البرامج النصية البسيطة، لكن في التطبيقات الأكثر تعقيداً قد تستخدم طرقاً غير متزامنة للتعامل مع الإدخال.
+          </p>
+
+          <h3><i class="fas fa-pencil-alt"></i> كيفية عمل read() بشكل ذكي</h3>
+          <p>
+            الدالة read() مصممة لتحليل ما يدخله المستخدم وإرجاعه بالنوع المناسب تلقائياً. إذا أدخل المستخدم نصاً (مثل "أحمد")، فستعيده كـ string. وإذا أدخل المستخدم رقماً (مثل 25)، فستعيده كـ number. هذا يعني أنك لا تحتاج للقلق بشأن تحويل البيانات بنفسك في هذه المرحلة، فالمحرر يقوم بذلك نيابة عنك.
+          </p>
+          <p>
+            هذه الميزة تجعل read() سهلة الاستخدام للمبتدئين، لكن يجب أن تكون على دراية بنوع البيانات التي تتوقعها من المستخدم. إذا كنت تنتظر رقماً وأدخل المستخدم نصاً، فقد تسبب ذلك في نتائج غير متوقعة. في الدروس المتقدمة، ستتعلم كيفية التحقق من صحة المدخلات والتأكد من أنها من النوع المناسب.
+          </p>
+
+          <h3><i class="fas fa-pencil-alt"></i> طريقتان لاستقبال المدخلات</h3>
+          <p>
+            هناك طريقتان لكتابة الكود عند استقبال المدخلات. الطريقة الأولى هي تعريف المتغير مسبقاً، ثم استخدامه لتخزين قيمة الإدخال لاحقاً. هذه الطريقة تجعل الكود منظم والمتغيرات ظاهرة في بداية البرنامج، مما يسهل قراءة الكود وتعديله لاحقاً. الطريقة الثانية هي التعريف المباشر، حيث تعرف المتغير وتخزن فيه قيمة read() في نفس السطر.
+          </p>
+          <p>
+            الطريقة الأولى هي الأفضل في البرامج الأطول والأكثر تعقيداً، لأنها تجعل هيكل البرنامج واضحاً منذ البداية. الطريقة الثانية مناسبة للبرامج القصيرة والبسيطة. الأهم هو أن يكون الكود واضحاً وقابلاً للفهم، سواء للقارئ أو لنفسك عندما تعود إلى الكود بعد فترة.
+          </p>
+
+          <div class="tip-box">
+            <i class="fas fa-lightbulb"></i>
+            <strong>نصيحة:</strong> استخدم الطريقة الأولى (تعريف المتغير مسبقاً) في البرامج الأطول، والطريقة الثانية (التعريف المباشر) في البرامج القصيرة. الأهم هو أن يكون الكود واضحاً وقابلاً للفهم.
+          </div>
+
+          <h3><i class="fas fa-check-circle"></i> خلاصة سريعة</h3>
+          <ul>
+            <li>الإدخال يسمح للمستخدم بالتفاعل مع البرنامج بإدخال بيانات.</li>
+            <li>read() تنتظر من المستخدم إدخال قيمة ثم تعيدها.</li>
+            <li>نخزن القيمة التي تعيدها read() في متغير لاستخدامها لاحقاً.</li>
+            <li>read() تحدد نوع البيانات تلقائياً (رقم أو نص).</li>
+            <li>استخدم write() لعرض رسائل توضيحية قبل read() لتوجيه المستخدم.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- ============================================================ -->
+    <!-- ===== الدرس 11: العوامل الحسابية ===== -->
+    <!-- ============================================================ -->
+    <div id="lesson-11" class="lesson-page">
+      <div class="content-section">
+        <div class="lesson-header">
+          <button class="back-btn" onclick="closeLesson()"><i class="fas fa-arrow-right"></i> العودة للدروس</button>
+          <h2><i class="fas fa-calculator" style="color: #2563eb;"></i> الدرس الحادي عشر: العوامل الحسابية</h2>
+        </div>
+        <div class="lesson-body">
+
+          <h3><i class="fas fa-bullseye"></i> مفهوم العوامل الحسابية</h3>
+          <p>
+            العوامل الحسابية (Arithmetic Operators) هي رموز تُستخدم لإجراء العمليات الرياضية على الأعداد. هذه العمليات هي الأساس في أي برنامج يتعامل مع الأرقام، سواء كان برنامجاً بسيطاً لحساب مجموع رقمين أو نظاماً معقداً لإدارة المخزون أو البيانات المالية. فهم العوامل الحسابية هو خطوة أساسية في تعلم البرمجة.
+          </p>
+          <p>
+            العوامل الحسابية تشبه العمليات التي نستخدمها في الرياضيات اليومية، لكن هناك بعض الاختلافات الطفيفة في الطريقة التي تُكتب بها. بالإضافة إلى العمليات الأساسية مثل الجمع والطرح، هناك عمليات خاصة بالبرمجة مثل باقي القسمة (المودولو) وعمليات الزيادة والإنقاص التي تسهل كتابة الكود وجعله أكثر كفاءة.
+          </p>
+
+          <h3><i class="fas fa-list"></i> قائمة العوامل الحسابية</h3>
+          <h4>1. الجمع (+) والطرح (-) والضرب (*) والقسمة (/)</h4>
+          <p>
+            هذه هي العمليات الحسابية الأساسية التي نستخدمها في حياتنا اليومية. في البرمجة، تعمل بنفس الطريقة: + تجمع قيمتين، - تطرح قيمة من أخرى، * تضرب قيمتين، و / تقسم قيمة على أخرى. من المهم أن تعرف أن القسمة في البرمجة تعيد عدداً عشرياً إذا لم تكن النتيجة عدداً صحيحاً، مثل 10 / 3 = 3.3333.
+          </p>
+          <p>
+            عند استخدام هذه العوامل، يجب الانتباه إلى نوع البيانات التي تتعامل معها. إذا جمعت نصاً مع رقم، ستحدث عملية دمج وليس جمعاً حسابياً. لذا تأكد من أن كلا المعاملين من النوع الرقمي لإجراء العمليات الحسابية بشكل صحيح.
+          </p>
+
+          <h4>2. باقي القسمة (المودولو) %</h4>
+          <p>
+            عامل المودولو % يعيد باقي القسمة، وليس ناتج القسمة. على سبيل المثال، 10 % 3 = 1 لأن 10 ÷ 3 = 3 والباقي 1. هذا العامل مفيد جداً في العديد من التطبيقات، مثل التحقق من الأعداد الزوجية (x % 2 == 0 تعني أن x زوجي) أو توزيع العناصر على مجموعات.
+          </p>
+          <p>
+            المودولو يستخدم أيضاً في خوارزميات التشفير، وتوليد الأرقام العشوائية، والعديد من التطبيقات الأخرى. فهم هذا العامل يفتح لك آفاقاً جديدة في حل المشكلات البرمجية.
+          </p>
+
+          <h4>3. عامل الزيادة ++ والإنقاص --</h4>
+          <p>
+            هذان العاملان يختصران عملية زيادة أو إنقاص قيمة المتغير بمقدار 1. ++x تعني x = x + 1، و --x تعني x = x - 1. هذه العوامل مفيدة جداً في الحلقات التكرارية وفي السيناريوهات التي تحتاج إلى تعديل قيمة متغير بشكل متكرر.
+          </p>
+          <p>
+            هناك فرق بين وضع العامل قبل المتغير (++x) أو بعده (x++). عندما يكون قبل المتغير، يتم زيادة القيمة ثم استخدامها. عندما يكون بعده، يتم استخدام القيمة ثم زيادتها. هذا الفرق مهم في بعض السياقات، لكن في معظم الحالات البسيطة، يمكنك استخدام أي منهما.
+          </p>
+
+          <h4>4. أولوية العمليات الحسابية</h4>
+          <p>
+            في البرمجة، تنطبق نفس قواعد الأولوية التي نتعلمها في الرياضيات. الأقواس ( ) لها الأولوية القصوى، ثم الضرب * والقسمة /، ثم الجمع + والطرح -. عند تساوي الأولوية، يُقرأ من اليسار إلى اليمين. استخدام الأقواس يجعل الكود أكثر وضوحاً ويمنع الأخطاء غير المتوقعة.
+          </p>
+          <p>
+            على سبيل المثال: 3 + 5 * 2 = 13 (الضرب أولاً)، و (3 + 5) * 2 = 16 (الأقواس أولاً). من الأفضل دائماً استخدام الأقواس لتوضيح الأولوية، حتى لو كانت غير ضرورية، لأن هذا يجعل الكود أكثر قابلية للفهم.
+          </p>
+
+          <div class="tip-box">
+            <i class="fas fa-lightbulb"></i>
+            <strong>نصيحة:</strong> استخدم الأقواس دائماً لتوضيح أولوية العمليات. هذا يجعل الكود أكثر وضوحاً ويمنع الأخطاء غير المتوقعة، خاصة عندما يقرأه شخص آخر أو عندما تعود إليه بعد فترة.
+          </div>
+
+          <h3><i class="fas fa-check-circle"></i> ملخص الدرس</h3>
+          <ul>
+            <li>العوامل الحسابية هي رموز لإجراء العمليات الرياضية.</li>
+            <li>العمليات الأساسية: +، -، *، /.</li>
+            <li>% تعيد باقي القسمة.</li>
+            <li>++ تزيد القيمة بمقدار 1، و-- تنقصها بمقدار 1.</li>
+            <li>الأقواس تغير أولوية العمليات وتجعل الكود أكثر وضوحاً.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- ============================================================ -->
+    <!-- ===== الدرس 12: عوامل المقارنة ===== -->
+    <!-- ============================================================ -->
+    <div id="lesson-12" class="lesson-page">
+      <div class="content-section">
+        <div class="lesson-header">
+          <button class="back-btn" onclick="closeLesson()"><i class="fas fa-arrow-right"></i> العودة للدروس</button>
+          <h2><i class="fas fa-greater-than" style="color: #2563eb;"></i> الدرس الثاني عشر: عوامل المقارنة</h2>
+        </div>
+        <div class="lesson-body">
+
+          <h3><i class="fas fa-bullseye"></i> مفهوم عوامل المقارنة</h3>
+          <p>
+            عوامل المقارنة (Comparison Operators) هي أدوات أساسية في البرمجة تُستخدم لمقارنة قيمتين مع بعضهما البعض. نتيجة المقارنة تكون دائماً قيمة منطقية (boolean): إما <strong>true</strong> (صحيح) إذا تحقق الشرط، أو <strong>false</strong> (خاطئ) إذا لم يتحقق. هذه النتائج هي الأساس الذي يبني عليه البرنامج قراراته، وتُستخدم بشكل مكثف في جمل الشرط والحلقات التكرارية.
+          </p>
+          <p>
+            تخيل أنك تريد أن يتحقق برنامجك من عمر المستخدم. إذا كان العمر 18 أو أكثر، فسيسمح له بالدخول، وإلا فسيمنعه. هذا القرار يعتمد على عملية مقارنة بسيطة: age >= 18. هذه المقارنة تعيد true إذا كان العمر 18 أو أكثر، و false إذا كان أقل. هذه هي الطريقة التي يتخذ بها البرنامج القرارات.
+          </p>
+
+          <h3><i class="fas fa-list"></i> قائمة عوامل المقارنة</h3>
+          <h4>1. يساوي (==) ولا يساوي (!=)</h4>
+          <p>
+            عامل التساوي == يتحقق من أن قيمتين متساويتين. إذا كانتا متساويتين، يعيد true، وإلا يعيد false. عامل عدم التساوي != يفعل العكس: يعيد true إذا كانت القيمتين غير متساويتين، و false إذا كانتا متساويتين. من المهم جداً التمييز بين = (الإسناد) و == (المقارنة). الإسناد يضع قيمة في متغير، بينما المقارنة تتحقق من التساوي.
+          </p>
+          <p>
+            خطأ شائع بين المبتدئين هو استخدام = بدلاً من == في الشروط، مما يؤدي إلى تغيير قيمة المتغير بدلاً من مقارنتها. دائماً تأكد من استخدام عامل المقارنة الصحيح في الشروط.
+          </p>
+
+          <h4>2. أكبر من (>) وأصغر من (<) وأكبر أو يساوي (>=) وأصغر أو يساوي (<=)</h4>
+          <p>
+            هذه العوامل تستخدم لمقارنة القيم العددية. > تتحقق من أن القيمة الأولى أكبر من الثانية، < تتحقق من أن الأولى أصغر من الثانية، >= تتحقق من أن الأولى أكبر أو تساوي الثانية، و <= تتحقق من أن الأولى أصغر أو تساوي الثانية. هذه العوامل مفيدة جداً في التحقق من الحدود والشروط الرقمية.
+          </p>
+          <p>
+            يمكن استخدام هذه العوامل ليس فقط مع الأرقام، ولكن أيضاً مع النصوص في بعض اللغات، حيث تقارن الترتيب الأبجدي. لكن في هذا الكورس، سنركز على استخدامها مع الأرقام.
+          </p>
+
+          <div class="warning-box">
+            <i class="fas fa-exclamation-triangle"></i>
+            <strong>⚠️ تحذير مهم:</strong> لا تخلط بين = و ==. = تُستخدم لإسناد قيمة لمتغير. == تُستخدم للمقارنة بين قيمتين. هذا الخطأ هو من أكثر الأخطاء شيوعاً بين المبتدئين، ويمكن أن يسبب نتائج غير متوقعة وصعبة التتبع.
+          </div>
+
+          <h3><i class="fas fa-pencil-alt"></i> استخدامات عوامل المقارنة</h3>
+          <p>
+            عوامل المقارنة تُستخدم في عدة سياقات مهمة في البرمجة. أولاً، في جمل الشرط (if، else if، else) لتحديد مسار تنفيذ البرنامج. ثانياً، في الحلقات التكرارية (for، while) للتحكم في عدد مرات التكرار. ثالثاً، في التحقق من صحة البيانات المدخلة من المستخدم، مثل التأكد من أن العمر أكبر من 0 وأقل من 120.
+          </p>
+          <p>
+            استخدام عوامل المقارنة بشكل صحيح هو مفتاح كتابة برامج تعمل كما هو متوقع. كلما تدربت على كتابة شروط مختلفة، كلما أصبحت أكثر مهارة في توجيه تدفق البرنامج وتحقيق النتائج المرجوة.
+          </p>
+
+          <div class="tip-box">
+            <i class="fas fa-lightbulb"></i>
+            <strong>نصيحة:</strong> تذكر دائماً أن عوامل المقارنة تعيد قيمة منطقية (true أو false). يمكنك تخزين هذه النتيجة في متغير من النوع boolean واستخدامها لاحقاً في البرنامج، مما يجعل الكود أكثر تنظيماً وقابلية للقراءة.
+          </div>
+
+          <h3><i class="fas fa-check-circle"></i> ملخص الدرس</h3>
+          <ul>
+            <li>عوامل المقارنة تُستخدم لمقارنة قيمتين.</li>
+            <li>نتيجة المقارنة دائماً true أو false.</li>
+            <li>العوامل الأساسية: ==، !=، >، <، >=، <=.</li>
+            <li>الفرق بين = و == مهم جداً.</li>
+            <li>عوامل المقارنة هي أساس اتخاذ القرارات في البرمجة.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- ============================================================ -->
+    <!-- ===== الدرس 13: جمل الشرط ===== -->
+    <!-- ============================================================ -->
+    <div id="lesson-13" class="lesson-page">
+      <div class="content-section">
+        <div class="lesson-header">
+          <button class="back-btn" onclick="closeLesson()"><i class="fas fa-arrow-right"></i> العودة للدروس</button>
+          <h2><i class="fas fa-code-branch" style="color: #2563eb;"></i> الدرس الثالث عشر: جمل الشرط</h2>
+        </div>
+        <div class="lesson-body">
+
+          <h3><i class="fas fa-bullseye"></i> مفهوم جمل الشرط</h3>
+          <p>
+            جمل الشرط هي أدوات تسمح للبرنامج باتخاذ قرارات مختلفة بناءً على تحقق شروط معينة. تخيل أنك تسأل سؤالاً، وعندما تكون الإجابة "نعم" تفعل شيئاً، وعندما تكون "لا" تفعل شيئاً آخر. هذا هو جوهر جمل الشرط. بدون جمل الشرط، كانت البرامج ستكون خطية وتنفذ نفس التعليمات في كل مرة، دون أي تكيف مع المدخلات أو الظروف المتغيرة.
+          </p>
+          <p>
+            جمل الشرط تجعل البرامج ذكية وقادرة على التكيف. يمكن للبرنامج أن يتحقق من عمر المستخدم، ويسمح له بالدخول إذا كان بالغاً، أو يمنعه إذا كان قاصراً. يمكنه التحقق من درجة الحرارة، ويشغل المكيف إذا كانت مرتفعة، أو المدفأة إذا كانت منخفضة. هذه القدرة على اتخاذ القرارات هي ما يجعل البرامج مفيدة في الحياة الواقعية.
+          </p>
+
+          <h3><i class="fas fa-code"></i> جملة الشرط if</h3>
+          <p>
+            جملة if هي أبسط أنواع جمل الشرط. تعني "إذا تحقق الشرط، نفّذ الكود". تستخدم if عندما تريد تنفيذ مجموعة من الأوامر فقط عند تحقق شرط معين. إذا لم يتحقق الشرط، يتم تخطي هذه الأوامر ويستمر البرنامج في تنفيذ ما بعده. الصيغة العامة هي: if (الشرط) { الأوامر }.
+          </p>
+          <p>
+            من المهم أن تفهم أن الأوامر داخل if تُنفذ فقط عندما يكون الشرط true. إذا كان الشرط false، يتم تخطيها تماماً. يمكنك وضع أي عدد من الأوامر داخل if، ويمكن أن تحتوي على أوامر شرطية أخرى (if متداخلة) لبناء منطق معقد.
+          </p>
+
+          <h4>جملة الشرط else</h4>
+          <p>
+            جملة else تأتي بعد if وتُستخدم لتنفيذ كود عندما لا يتحقق الشرط الموجود في if. تعني "وإلا، نفّذ هذا الكود". الصيغة العامة: if (الشرط) { الأوامر } else { الأوامر الأخرى }. في هذا الهيكل، يتم تنفيذ أحد الجزئين فقط: إما if أو else، وليس كلاهما معاً.
+          </p>
+          <p>
+            else مفيد جداً عندما يكون لديك مساران محتملان، وتريد تنفيذ أحدهما بناءً على الشرط. على سبيل المثال، إذا كان المستخدم بالغاً، امنحه صلاحية الدخول، وإلا امنعه. هذا هو سيناريو كلاسيكي لاستخدام if...else.
+          </p>
+
+          <h4>جملة الشرط else if</h4>
+          <p>
+            else if تأتي بعد if وقبل else، وتُستخدم لاختبار شروط إضافية عندما لا يتحقق الشرط الأول. تعني "وإلا إذا تحقق شرط آخر، نفّذ هذا الكود". يمكنك استخدام أكثر من else if في سلسلة الشرط الواحدة. الصيغة العامة: if (الشرط1) { } else if (الشرط2) { } else if (الشرط3) { } else { }.
+          </p>
+          <p>
+            من المهم أن تفهم أن else if يتم اختبارها فقط إذا فشلت جميع الشروط السابقة. بمجرد أن يتحقق أحد الشروط، يتم تنفيذ الكود الخاص به ويتم تخطي باقي else if و else. هذا يضمن تنفيذ جزء واحد فقط من الكود، مما يجعل البرنامج أكثر كفاءة ويمكن التنبؤ به.
+          </p>
+
+          <div class="highlight-box">
+            <i class="fas fa-info-circle"></i>
+            <strong>ملاحظة مهمة:</strong> الفرق بين استخدام if منفصلة و else if. إذا استخدمت if منفصلة، سيتم اختبار جميع الشروط وقد يتم تنفيذ أكثر من كود. إذا استخدمت else if، سيتم التوقف عند أول شرط يتحقق وتنفيذ كود واحد فقط. اختر النمط المناسب حسب احتياجات برنامجك.
+          </div>
+
+          <div class="tip-box">
+            <i class="fas fa-lightbulb"></i>
+            <strong>نصيحة:</strong> استخدم else if عندما يكون لديك عدة شروط متعارضة (حيث يمكن لشرط واحد فقط أن يتحقق). استخدم if منفصلة للشروط المستقلة التي قد تتحقق معاً.
+          </div>
+
+          <h3><i class="fas fa-check-circle"></i> خلاصة سريعة</h3>
+          <ul>
+            <li>if: تنفذ كوداً إذا تحقق الشرط.</li>
+            <li>else: تنفذ كوداً إذا لم يتحقق الشرط.</li>
+            <li>else if: تختبر شرطاً إضافياً بعد فشل الشروط السابقة.</li>
+            <li>يمكن استخدام أكثر من else if في سلسلة واحدة.</li>
+            <li>يتم تنفيذ جزء واحد فقط من سلسلة if...else if...else.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- ============================================================ -->
+    <!-- ===== الدرس 14: الحلقات التكرارية ===== -->
+    <!-- ============================================================ -->
+    <div id="lesson-14" class="lesson-page">
+      <div class="content-section">
+        <div class="lesson-header">
+          <button class="back-btn" onclick="closeLesson()"><i class="fas fa-arrow-right"></i> العودة للدروس</button>
+          <h2><i class="fas fa-repeat" style="color: #2563eb;"></i> الدرس الرابع عشر: الحلقات التكرارية</h2>
+        </div>
+        <div class="lesson-body">
+
+          <h3><i class="fas fa-bullseye"></i> مفهوم الحلقات التكرارية</h3>
+          <p>
+            الحلقات التكرارية (Loops) هي أداة برمجية تسمح لك بتكرار تنفيذ مجموعة من الأوامر عدة مرات. هذا يوفر عليك كتابة كود مكرر ويجعل برامجك أكثر كفاءة وقابلية للصيانة. تخيل أنك تريد طباعة الأرقام من 1 إلى 1000. بدون حلقات، كان عليك كتابة 1000 سطر من الكود! باستخدام حلقة، يمكنك فعل ذلك في 5 أسطر فقط.
+          </p>
+          <p>
+            الحلقات التكرارية هي أحد المفاهيم الأساسية في البرمجة، وتستخدم في كل المجالات تقريباً: من معالجة البيانات إلى الرسوميات إلى الذكاء الاصطناعي. فهم الحلقات وطريقة عملها يفتح لك آفاقاً واسعة في حل المشكلات البرمجية.
+          </p>
+
+          <h3><i class="fas fa-code"></i> أنواع الحلقات</h3>
+          <h4>1. حلقة for</h4>
+          <p>
+            حلقة for تُستخدم عندما تعرف عدد مرات التكرار مسبقاً. تتكون من ثلاثة أجزاء: تعريف متغير البداية، شرط الاستمرار، وعملية التحديث. الصيغة العامة: for (var i = 0; i < n; i++) { الأوامر }. تنفذ الحلقة الأوامر طالما أن الشرط (i < n) صحيح، وتتوقف عندما يصبح الشرط false.
+          </p>
+          <p>
+            حلقة for هي الأنسب للتكرار لعدد محدد من المرات، مثل التكرار على عناصر مصفوفة أو طباعة جدول ضرب. من السهل قراءة وفهم حلقة for لأن جميع مكونات التحكم موجودة في سطر واحد.
+          </p>
+
+          <h4>2. حلقة while</h4>
+          <p>
+            حلقة while تُستخدم عندما لا تعرف عدد مرات التكرار مسبقاً، وتستمر طالما أن الشرط صحيح. الصيغة العامة: while (الشرط) { الأوامر }. تنفذ الحلقة الأوامر بشكل متكرر طالما أن الشرط يظل true. يجب أن يكون هناك أمر داخل الحلقة يغير الشرط ليصبح false في النهاية، وإلا ستحدث حلقة لا نهائية.
+          </p>
+          <p>
+            حلقة while مفيدة جداً في السيناريوهات التي تعتمد على حالة متغيرة، مثل انتظار إدخال صحيح من المستخدم أو قراءة بيانات من ملف حتى نهايته.
+          </p>
+
+          <h4>3. حلقة do...while</h4>
+          <p>
+            حلقة do...while تشبه while، لكنها تضمن تنفيذ الأوامر مرة واحدة على الأقل قبل التحقق من الشرط. الصيغة العامة: do { الأوامر } while (الشرط). تنفذ الأوامر أولاً، ثم تتحقق من الشرط. إذا كان true، تعيد التنفيذ. إذا كان false، تتوقف.
+          </p>
+          <p>
+            هذه الحلقة مفيدة عندما تريد التأكد من تنفيذ الكود مرة واحدة على الأقل، بغض النظر عن حالة الشرط. مثال على ذلك: عرض قائمة خيارات للمستخدم وطلب اختيار، ثم تكرار العرض إذا كان الاختيار غير صحيح.
+          </p>
+
+          <div class="warning-box">
+            <i class="fas fa-exclamation-triangle"></i>
+            <strong>⚠️ تحذير مهم: الحلقات اللانهائية</strong>
+            <br />إذا نسيت تحديث المتغير في حلقة while أو do...while، قد تستمر الحلقة إلى الأبد وتُجمد البرنامج. تأكد دائماً من أن الشرط سينتهي في مرحلة ما.
+          </div>
+
+          <div class="tip-box">
+            <i class="fas fa-lightbulb"></i>
+            <strong>نصيحة:</strong> استخدم for عندما تعرف عدد التكرارات مسبقاً، و while عندما يعتمد التكرار على شرط متغير. تذكر دائماً تحديث المتغيرات داخل الحلقة لتجنب الحلقات اللانهائية.
+          </div>
+
+          <h3><i class="fas fa-check-circle"></i> ملخص الدرس</h3>
+          <ul>
+            <li>الحلقات تكرر تنفيذ الأوامر عدة مرات.</li>
+            <li>for تستخدم لعدد محدد من التكرارات.</li>
+            <li>while تستمر طالما الشرط صحيح.</li>
+            <li>do...while تنفذ مرة واحدة ثم تتحقق.</li>
+            <li>تجنب الحلقات اللانهائية بتحديث المتغيرات داخل الحلقة.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- ============================================================ -->
+    <!-- ===== الدرس 15: الدوال ===== -->
+    <!-- ============================================================ -->
+    <div id="lesson-15" class="lesson-page">
+      <div class="content-section">
+        <div class="lesson-header">
+          <button class="back-btn" onclick="closeLesson()"><i class="fas fa-arrow-right"></i> العودة للدروس</button>
+          <h2><i class="fas fa-project-diagram" style="color: #2563eb;"></i> الدرس الخامس عشر: الدوال</h2>
+        </div>
+        <div class="lesson-body">
+
+          <h3><i class="fas fa-bullseye"></i> مفهوم الدوال</h3>
+          <p>
+            الدالة (Function) هي مجموعة من الأوامر البرمجية التي تُجمع معاً تحت اسم واحد، ويمكن استدعاؤها (تنفيذها) في أي وقت من البرنامج. الدوال هي إحدى الأدوات الأساسية في البرمجة، وتستخدم لتنظيم الكود، وتقليل التكرار، وتسهيل الصيانة. يمكنك تخيل الدالة كآلة صغيرة: تدخل لها مواد خام (معاملات)، وتقوم بمعالجتها، وتخرج لك منتجاً (قيمة إرجاع).
+          </p>
+          <p>
+            الدوال تجعل البرنامج أكثر قابلية للفهم، لأنها تسمح لك بتجميع الأوامر ذات الصلة تحت اسم معبر. عندما تقرأ كوداً يحتوي على دوال، يمكنك فهم الغرض من كل جزء دون الحاجة لقراءة التفاصيل الداخلية لكل دالة. هذا يجعل الكود أسهل في الصيانة والتعديل.
+          </p>
+
+          <h3><i class="fas fa-code"></i> تعريف دالة واستدعاؤها</h3>
+          <p>
+            لتعريف دالة، نستخدم الكلمة المفتاحية <strong>function</strong> متبوعة باسم الدالة، ثم قوسين ( ) يحتويان على المعاملات (parameters)، ثم مجموعة الأوامر داخل قوسين مجعدين { }. لاستدعاء الدالة، نكتب اسمها متبوعاً بقوسين ( )، مع تمرير القيم المناسبة للمعاملات إذا كانت موجودة.
+          </p>
+          <p>
+            الدوال يمكن أن تكون بسيطة جداً (دون معاملات ودون قيمة إرجاع) أو معقدة جداً (مع عدة معاملات وقيمة إرجاع). اختيار هيكل الدالة يعتمد على المهمة التي تقوم بها. المبدأ الأساسي هو: كل دالة يجب أن تقوم بمهمة واحدة محددة بوضوح.
+          </p>
+
+          <h4>دالة مع معاملات</h4>
+          <p>
+            المعاملات هي قيم نمررها للدالة لتستخدمها في تنفيذ مهمتها. تسمح المعاملات للدالة بالعمل مع بيانات مختلفة في كل مرة تُستدعى. على سبيل المثال، دالة greet(name) يمكنها الترحيب بأي اسم نمرره إليها. المعاملات تجعل الدوال أكثر مرونة وقابلية لإعادة الاستخدام.
+          </p>
+          <p>
+            يمكن للدالة أن تأخذ أي عدد من المعاملات، مفصولة بفواصل. داخل الدالة، نتعامل مع المعاملات كما لو كانت متغيرات عادية. من المهم أن نعطي المعاملات أسماء معبرة تعكس الغرض منها.
+          </p>
+
+          <h4>دالة مع قيمة إرجاع (return)</h4>
+          <p>
+            يمكن للدالة أن <strong>تُعيد</strong> قيمة باستخدام الكلمة المفتاحية <strong>return</strong>. هذه القيمة يمكن استخدامها في باقي البرنامج، مثل تخزينها في متغير أو استخدامها في عملية حسابية. الدوال التي تعيد قيمة تسمى "دوال ذات قيمة إرجاع"، وهي مفيدة جداً عندما نريد حساب شيء ما واستخدام النتيجة في مكان آخر.
+          </p>
+          <p>
+            من المهم أن تعرف أنه عند تنفيذ return، تتوقف الدالة فوراً وتعيد القيمة المحددة. أي أوامر بعد return لن تُنفذ. يمكن للدالة أن تعيد قيمة واحدة فقط، لكن يمكن أن تكون هذه القيمة من أي نوع (رقم، نص، مصفوفة، كائن، إلخ).
+          </p>
+
+          <div class="highlight-box">
+            <i class="fas fa-info-circle"></i>
+            <strong>قاعدة ذهبية:</strong> كل دالة يجب أن تقوم بمهمة <strong>واحدة محددة</strong>. إذا وجدت دالة تقوم بأكثر من مهمة، فكر في تقسيمها إلى دوال أصغر. هذا يجعل الكود أكثر وضوحاً وأسهل في الصيانة والاختبار.
+          </div>
+
+          <div class="tip-box">
+            <i class="fas fa-lightbulb"></i>
+            <strong>نصيحة:</strong> سمِّ دوالك بأسماء تعبر عن وظيفتها (مثل calculateSum، greetUser، isValid). هذا يجعل الكود يقرأ وكأنه قصة مفهومة، ويسهل على الآخرين فهم ما يفعله كل جزء من البرنامج.
+          </div>
+
+          <h3><i class="fas fa-check-circle"></i> ملخص الدرس</h3>
+          <ul>
+            <li>الدالة مجموعة من الأوامر تحت اسم واحد.</li>
+            <li>تُعرّف بـ function وتُستدعى باسمها.</li>
+            <li>يمكن أن تأخذ معاملات (parameters) لقيم مدخلة.</li>
+            <li>يمكن أن تُعيد قيمة باستخدام return.</li>
+            <li>الدوال تجعل الكود منظم، قابل لإعادة الاستخدام، وسهل الصيانة.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- ============================================================ -->
+    <!-- ===== الدرس 16: المصفوفات ===== -->
+    <!-- ============================================================ -->
+    <div id="lesson-16" class="lesson-page">
+      <div class="content-section">
+        <div class="lesson-header">
+          <button class="back-btn" onclick="closeLesson()"><i class="fas fa-arrow-right"></i> العودة للدروس</button>
+          <h2><i class="fas fa-list" style="color: #2563eb;"></i> الدرس السادس عشر: المصفوفات</h2>
+        </div>
+        <div class="lesson-body">
+
+          <h3><i class="fas fa-bullseye"></i> مفهوم المصفوفات</h3>
+          <p>
+            المصفوفة (Array) هي بنية بيانات تسمح بتخزين مجموعة من العناصر في متغير واحد. تخيل أن لديك قائمة بأسماء الطلاب في فصل دراسي. بدلاً من تعريف 30 متغيراً منفصلاً (student1، student2، ...)، يمكنك وضع جميع الأسماء في مصفوفة واحدة. هذا يجعل التعامل مع البيانات أسهل وأكثر تنظيماً.
+          </p>
+          <p>
+            المصفوفات هي من أكثر هياكل البيانات استخداماً في البرمجة. تسمح لك بتخزين، تنظيم، والوصول إلى مجموعات من البيانات بكفاءة. يمكن للمصفوفة أن تحتوي على عناصر من أي نوع (أرقام، نصوص، كائنات، أو حتى مصفوفات أخرى). هذا التنوع يجعل المصفوفات أداة مرنة وقوية في يد المبرمج.
+          </p>
+
+          <h3><i class="fas fa-code"></i> تعريف مصفوفة والوصول إلى عناصرها</h3>
+          <p>
+            لتعريف مصفوفة، نستخدم القوسين المربعين [ ]، ونضع العناصر بينهما مفصولة بفواصل. مثال: var colors = ["أحمر", "أخضر", "أزرق"];. للوصول إلى عنصر معين في المصفوفة، نستخدم رقم الفهرس (Index) الذي يبدأ من 0. العنصر الأول له فهرس 0، الثاني له فهرس 1، وهكذا. مثال: colors[0] يعيد "أحمر".
+          </p>
+          <p>
+            يمكنك تغيير قيمة أي عنصر في المصفوفة عن طريق الإسناد إلى الفهرس المطلوب: colors[1] = "أصفر";. يمكنك أيضاً معرفة عدد العناصر في المصفوفة باستخدام الخاصية length: colors.length. هذه الخاصية مفيدة جداً عند التكرار على عناصر المصفوفة باستخدام الحلقات.
+          </p>
+
+          <h3><i class="fas fa-pencil-alt"></i> استخدامات المصفوفات</h3>
+          <p>
+            المصفوفات تستخدم في العديد من السيناريوهات البرمجية. من أكثر الاستخدامات شيوعاً: تخزين قوائم البيانات، مثل قائمة المنتجات في متجر إلكتروني، أو قائمة الأصدقاء في تطبيق تواصل اجتماعي. كما تستخدم في معالجة البيانات، مثل حساب متوسط درجات الطلاب أو إيجاد أعلى قيمة في مجموعة من الأرقام.
+          </p>
+          <p>
+            المصفوفات أيضاً أساسية في خوارزميات البحث والترتيب، حيث يتم تخزين البيانات في مصفوفات ثم تطبيق خوارزميات مختلفة للبحث عن عنصر معين أو ترتيب العناصر بترتيب معين. فهم المصفوفات يفتح لك الباب لتعلم هياكل بيانات أكثر تقدماً.
+          </p>
+
+          <div class="tip-box">
+            <i class="fas fa-lightbulb"></i>
+            <strong>نصيحة:</strong> تذكر دائماً أن فهرس المصفوفة يبدأ من 0. هذا يعني أن العنصر الأول هو [0]، وليس [1]. هذا خطأ شائع بين المبتدئين، وقد يسبب الوصول إلى عناصر خاطئة.
+          </div>
+
+          <h3><i class="fas fa-check-circle"></i> ملخص الدرس</h3>
+          <ul>
+            <li>المصفوفة تخزن مجموعة من العناصر في متغير واحد.</li>
+            <li>تُعرّف باستخدام [ ] وتفصل العناصر بفواصل.</li>
+            <li>الوصول إلى العناصر باستخدام الفهرس الذي يبدأ من 0.</li>
+            <li>length تعيد عدد العناصر في المصفوفة.</li>
+            <li>المصفوفات أساسية في تخزين ومعالجة مجموعات البيانات.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- ============================================================ -->
+    <!-- ===== الدرس 17: البحث في المصفوفات ===== -->
+    <!-- ============================================================ -->
+    <div id="lesson-17" class="lesson-page">
+      <div class="content-section">
+        <div class="lesson-header">
+          <button class="back-btn" onclick="closeLesson()"><i class="fas fa-arrow-right"></i> العودة للدروس</button>
+          <h2><i class="fas fa-search" style="color: #2563eb;"></i> الدرس السابع عشر: البحث في المصفوفات</h2>
+        </div>
+        <div class="lesson-body">
+
+          <h3><i class="fas fa-bullseye"></i> مفهوم البحث في المصفوفات</h3>
+          <p>
+            البحث في المصفوفات هو عملية العثور على عنصر معين داخل مصفوفة. هذه العملية شائعة جداً في البرمجة، وتستخدم في العديد من التطبيقات مثل البحث عن مستخدم في قاعدة بيانات، أو العثور على منتج في قائمة المنتجات، أو التحقق من وجود قيمة معينة في مجموعة من البيانات.
+          </p>
+          <p>
+            هناك عدة طرق للبحث في المصفوفات، تختلف في التعقيد والكفاءة. الطريقة الأساسية هي البحث الخطي (Linear Search)، حيث نمر على جميع عناصر المصفوفة واحداً تلو الآخر حتى نجد العنصر المطلوب. هذه الطريقة بسيطة لكنها قد تكون بطيئة مع المصفوفات الكبيرة.
+          </p>
+
+          <h3><i class="fas fa-code"></i> كيفية البحث في مصفوفة</h3>
+          <p>
+            للبحث عن عنصر في مصفوفة، نستخدم حلقة for للتكرار على جميع العناصر. في كل تكرار، نتحقق مما إذا كان العنصر الحالي يساوي القيمة المطلوبة. إذا وجدنا تطابقاً، نعلم أنه تم العثور على العنصر. إذا انتهت الحلقة دون إيجاد تطابق، نعلم أن العنصر غير موجود في المصفوفة.
+          </p>
+          <p>
+            يمكننا أيضاً تخزين موقع العنصر (الفهرس) عند العثور عليه، لاستخدامه لاحقاً. هذا مفيد عندما نريد تعديل العنصر أو حذفه. في بعض الحالات، قد نريد العثور على جميع التطابقات، وليس فقط التطابق الأول.
+          </p>
+
+          <div class="tip-box">
+            <i class="fas fa-lightbulb"></i>
+            <strong>نصيحة:</strong> عند البحث في مصفوفات كبيرة، فكر في استخدام خوارزميات بحث أكثر كفاءة مثل البحث الثنائي (Binary Search) إذا كانت المصفوفة مرتبة. لكن للمبتدئين، البحث الخطي هو نقطة بداية ممتازة.
+          </div>
+
+          <h3><i class="fas fa-check-circle"></i> ملخص الدرس</h3>
+          <ul>
+            <li>البحث في المصفوفات هو عملية العثور على عنصر معين.</li>
+            <li>البحث الخطي يمر على جميع العناصر واحداً تلو الآخر.</li>
+            <li>نستخدم حلقة for للتكرار على عناصر المصفوفة.</li>
+            <li>نستخدم if للتحقق من تطابق العنصر مع القيمة المطلوبة.</li>
+            <li>يمكن تخزين الفهرس عند العثور على العنصر.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- ============================================================ -->
+    <!-- ===== الدرس 18: ترتيب المصفوفات ===== -->
+    <!-- ============================================================ -->
+    <div id="lesson-18" class="lesson-page">
+      <div class="content-section">
+        <div class="lesson-header">
+          <button class="back-btn" onclick="closeLesson()"><i class="fas fa-arrow-right"></i> العودة للدروس</button>
+          <h2><i class="fas fa-sort" style="color: #2563eb;"></i> الدرس الثامن عشر: ترتيب المصفوفات</h2>
+        </div>
+        <div class="lesson-body">
+
+          <h3><i class="fas fa-bullseye"></i> مفهوم ترتيب المصفوفات</h3>
+          <p>
+            ترتيب المصفوفات هو عملية إعادة تنظيم عناصر المصفوفة بترتيب معين، مثل تصاعدياً (من الأصغر إلى الأكبر) أو تنازلياً (من الأكبر إلى الأصغر). هذه العملية مهمة جداً في العديد من التطبيقات، مثل عرض البيانات بترتيب منطقي، أو تسهيل البحث فيها، أو تحضيرها لخوارزميات أخرى تتطلب بيانات مرتبة.
+          </p>
+          <p>
+            هناك العديد من خوارزميات الترتيب، تتراوح من البسيطة إلى المعقدة. الخوارزمية الأكثر استخداماً وبساطة هي "الترتيب الفقاعي" (Bubble Sort)، لكن في اللغات الحديثة مثل JavaScript، هناك دوال مدمجة تقوم بالترتيب بسهولة.
+          </p>
+
+          <h3><i class="fas fa-code"></i> كيفية ترتيب مصفوفة</h3>
+          <p>
+            في JavaScript، يمكننا استخدام الدالة المدمجة <strong>sort()</strong> لترتيب عناصر المصفوفة. بشكل افتراضي، sort() ترتب العناصر كسلاسل نصية (أبجدياً). لترتيب الأرقام بشكل صحيح، نحتاج إلى تمرير دالة مقارنة إلى sort(). هذه الدالة تحدد كيفية مقارنة العناصر مع بعضها.
+          </p>
+          <p>
+            للترتيب التصاعدي للأرقام، نستخدم: numbers.sort(function(a, b) { return a - b; });. للترتيب التنازلي: numbers.sort(function(a, b) { return b - a; });. بعد الترتيب، يمكننا استخدام reverse() لعكس الترتيب إذا أردنا.
+          </p>
+
+          <div class="tip-box">
+            <i class="fas fa-lightbulb"></i>
+            <strong>نصيحة:</strong> تذكر أن sort() يغير المصفوفة الأصلية. إذا كنت تريد الاحتفاظ بالنسخة الأصلية، انسخ المصفوفة أولاً باستخدام slice() أو عامل الانتشار [...arr].
+          </div>
+
+          <h3><i class="fas fa-check-circle"></i> ملخص الدرس</h3>
+          <ul>
+            <li>ترتيب المصفوفات يعيد تنظيم العناصر بترتيب معين.</li>
+            <li>sort() ترتب العناصر أبجدياً بشكل افتراضي.</li>
+            <li>لترتيب الأرقام، نمرر دالة مقارنة إلى sort().</li>
+            <li>a - b للترتيب التصاعدي، b - a للترتيب التنازلي.</li>
+            <li>الترتيب يسهل البحث والعرض وتحليل البيانات.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- ============================================================ -->
+    <!-- ===== الدرس 19: الكائنات ===== -->
+    <!-- ============================================================ -->
+    <div id="lesson-19" class="lesson-page">
+      <div class="content-section">
+        <div class="lesson-header">
+          <button class="back-btn" onclick="closeLesson()"><i class="fas fa-arrow-right"></i> العودة للدروس</button>
+          <h2><i class="fas fa-object-group" style="color: #2563eb;"></i> الدرس التاسع عشر: الكائنات</h2>
+        </div>
+        <div class="lesson-body">
+
+          <h3><i class="fas fa-bullseye"></i> مفهوم الكائنات</h3>
+          <p>
+            الكائن (Object) هو بنية بيانات تحتوي على خصائص (Properties) وقيم (Values) مرتبطة بها. كل خاصية لها اسم (مفتاح) وقيمة. الكائنات تسمح لنا بتجميع البيانات ذات الصلة في هيكل واحد منظم. على سبيل المثال، يمكننا تمثيل طالب ككائن يحتوي على خصائص مثل الاسم، العمر، المدينة، والمعدل الدراسي.
+          </p>
+          <p>
+            الكائنات هي أساس البرمجة الكائنية التوجه (Object-Oriented Programming)، وهي طريقة شائعة لتنظيم الكود في برامج كبيرة. حتى لو لم تكن تستخدم البرمجة الكائنية بالكامل، فإن فهم الكائنات مهم جداً لأنها تستخدم في كل مكان في JavaScript، من معالجة البيانات إلى التعامل مع DOM.
+          </p>
+
+          <h3><i class="fas fa-code"></i> تعريف كائن والوصول إلى خصائصه</h3>
+          <p>
+            لتعريف كائن، نستخدم الأقواس المجعدة { }، ونضع الخصائص على شكل أزواج مفتاح: قيمة، مفصولة بفواصل. مثال: var student = { name: "أحمد", age: 20, city: "دمشق" };. للوصول إلى قيمة خاصية، يمكننا استخدام النقطة (.) أو الأقواس المربعة [ ].
+          </p>
+          <p>
+            استخدام النقطة هو الأكثر شيوعاً: student.name يعيد "أحمد". يمكننا أيضاً استخدام الأقواس المربعة: student["name"] يعيد "أحمد". الأقواس المربعة مفيدة عندما يكون اسم الخاصية متغيراً أو يحتوي على أحرف خاصة.
+          </p>
+
+          <h3><i class="fas fa-pencil-alt"></i> استخدامات الكائنات</h3>
+          <p>
+            الكائنات تستخدم في العديد من السيناريوهات البرمجية. من أكثر الاستخدامات شيوعاً: تمثيل البيانات المعقدة مثل معلومات المستخدمين، المنتجات، الطلبات، وغيرها. كما تستخدم في تمرير العديد من القيم إلى الدوال في معامل واحد، بدلاً من معاملات متعددة.
+          </p>
+          <p>
+            الكائنات أيضاً أساسية في التعامل مع JSON (JavaScript Object Notation)، وهو تنسيق شائع لتبادل البيانات بين الخوادم والتطبيقات. فهم الكائنات يفتح لك الباب للتعامل مع APIs وخدمات الويب.
+          </p>
+
+          <div class="tip-box">
+            <i class="fas fa-lightbulb"></i>
+            <strong>نصيحة:</strong> استخدم الكائنات لتنظيم البيانات ذات الصلة في هيكل واحد. هذا يجعل الكود أكثر تنظيماً وقابلية للفهم، ويسهل تمرير البيانات بين الدوال.
+          </div>
+
+          <h3><i class="fas fa-check-circle"></i> ملخص الدرس</h3>
+          <ul>
+            <li>الكائن يحتوي على خصائص وقيم مرتبطة بها.</li>
+            <li>تُعرّف باستخدام { } مع أزواج مفتاح: قيمة.</li>
+            <li>الوصول إلى الخصائص باستخدام النقطة (.) أو الأقواس المربعة [ ].</li>
+            <li>الكائنات تنظم البيانات المعقدة في هيكل واحد.</li>
+            <li>الكائنات أساسية في البرمجة الكائنية وفي التعامل مع JSON.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- ============================================================ -->
+    <!-- ===== الدرس 20: تصحيح الأخطاء ===== -->
+    <!-- ============================================================ -->
+    <div id="lesson-20" class="lesson-page">
+      <div class="content-section">
+        <div class="lesson-header">
+          <button class="back-btn" onclick="closeLesson()"><i class="fas fa-arrow-right"></i> العودة للدروس</button>
+          <h2><i class="fas fa-bug" style="color: #2563eb;"></i> الدرس العشرون: تصحيح الأخطاء</h2>
+        </div>
+        <div class="lesson-body">
+
+          <h3><i class="fas fa-bullseye"></i> مفهوم الأخطاء البرمجية</h3>
+          <p>
+            الأخطاء البرمجية (Bugs) هي جزء طبيعي من عملية البرمجة. حتى أكثر المبرمجين خبرة يرتكبون أخطاء. المهم هو معرفة كيفية التعرف على هذه الأخطاء وفهمها وإصلاحها. عملية تصحيح الأخطاء تسمى Debugging، وهي مهارة أساسية يجب على كل مبرمج تطويرها.
+          </p>
+          <p>
+            الأخطاء يمكن أن تكون بسيطة (مثل خطأ إملائي في اسم متغير) أو معقدة (مثل خطأ منطقي في خوارزمية). الخبر السار هو أن كل خطأ يعلمنا شيئاً جديداً، ويجعلنا مبرمجين أفضل. المبرمج الجيد لا يخاف من الأخطاء، بل ينظر إليها كفرص للتعلم والتحسين.
+          </p>
+
+          <h3><i class="fas fa-list"></i> أنواع الأخطاء الشائعة</h3>
+          <h4>1. أخطاء التركيب (Syntax Errors)</h4>
+          <p>
+            أخطاء التركيب تحدث عندما تكتب كوداً لا يتبع قواعد اللغة البرمجية. هذه الأخطاء هي الأسهل في الاكتشاف، لأن المحرر أو المفسر يخبرك بها فوراً. مثال على ذلك: نسيان قوس، أو كتابة كلمة مفتاحية بشكل خاطئ. رسالة الخطأ عادة تشير إلى مكان الخطأ بالضبط، مما يسهل إصلاحه.
+          </p>
+          <p>
+            لتجنب أخطاء التركيب، تأكد من كتابة الكود بدقة، وانتبه إلى الأقواس والفواصل وعلامات التنصيص. استخدام محرر كود جيد مع تمييز الأكواد يساعد في اكتشاف هذه الأخطاء بسرعة.
+          </p>
+
+          <h4>2. أخطاء منطقية (Logical Errors)</h4>
+          <p>
+            أخطاء منطقية هي أكثر الأخطاء صعوبة في الاكتشاف. تحدث عندما يعمل الكود (لا تظهر رسائل خطأ)، لكنه يعطي نتائج غير صحيحة. السبب هو أن المبرمج كتب كوداً يفعل شيئاً مختلفاً عما كان يقصده. هذه الأخطاء تتطلب فهماً عميقاً للكود وتتبعاً دقيقاً لتنفيذه.
+          </p>
+          <p>
+            لإصلاح الأخطاء المنطقية، استخدم تقنيات مثل طباعة قيم المتغيرات في نقاط مختلفة، أو استخدام مصحح الأخطاء (Debugger) لتتبع تنفيذ البرنامج خطوة بخطوة. تقسيم الكود إلى دوال صغيرة واختبار كل دالة على حدة يساعد أيضاً في تحديد موقع الخطأ.
+          </p>
+
+          <h4>3. أخطاء التشغيل (Runtime Errors)</h4>
+          <p>
+            أخطاء التشغيل تحدث أثناء تنفيذ البرنامج، وليس أثناء كتابته. مثال على ذلك: محاولة الوصول إلى متغير غير معرف، أو قسمة رقم على صفر. هذه الأخطاء تتوقف عندها البرامج وتظهر رسائل خطأ. بعض الأخطاء التشغيلية يمكن توقعها ومعالجتها باستخدام تقنيات مثل try...catch.
+          </p>
+          <p>
+            لتجنب أخطاء التشغيل، تأكد من أن جميع المتغيرات معرفة قبل استخدامها، وتحقق من صحة المدخلات من المستخدم، واستخدم الشروط لتجنب العمليات غير الصالحة مثل القسمة على صفر.
+          </p>
+
+          <h3><i class="fas fa-pencil-alt"></i> نصائح لتصحيح الأخطاء</h3>
+          <p>
+            هناك العديد من الاستراتيجيات التي يمكنك استخدامها لتصحيح الأخطاء بشكل فعال. أولاً، اقرأ رسالة الخطأ بعناية. رسائل الخطأ غالباً ما تحتوي على معلومات قيمة عن مكان ونوع الخطأ. ثانياً، استخدم write() لطباعة قيم المتغيرات في نقاط مختلفة من الكود لتتبع سير البرنامج.
+          </p>
+          <p>
+            ثالثاً، قسّم الكود إلى أجزاء صغيرة واختبر كل جزء على حدة. هذا يساعدك في تحديد أي جزء من الكود يسبب المشكلة. رابعاً، استخدم التعليقات لتوثيق الكود وتوضيح نيتك، مما يساعدك في اكتشاف التناقضات بين ما تريد فعله وما يفعله الكود فعلياً.
+          </p>
+
+          <div class="tip-box">
+            <i class="fas fa-lightbulb"></i>
+            <strong>نصيحة:</strong> لا تخف من الأخطاء! كل خطأ هو فرصة للتعلم. خذ وقتك في فهم الخطأ، وحاول إصلاحه بنفسك قبل طلب المساعدة. هذه هي الطريقة التي تصبح بها مبرمجاً أفضل.
+          </div>
+
+          <h3><i class="fas fa-check-circle"></i> ملخص الدرس</h3>
+          <ul>
+            <li>الأخطاء جزء طبيعي من البرمجة، وتعلم كيفية إصلاحها مهارة أساسية.</li>
+            <li>أخطاء التركيب تحدث بسبب انتهاك قواعد اللغة.</li>
+            <li>أخطاء منطقية تحدث عندما يعطي الكود نتائج غير صحيحة.</li>
+            <li>أخطاء التشغيل تحدث أثناء تنفيذ البرنامج.</li>
+            <li>استخدم write()، التقسيم إلى أجزاء، ورسائل الخطأ لتصحيح الأخطاء.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <h4><i class="fas fa-graduation-cap" style="margin-left: 0.3rem;"></i> بهاء الدين</h4>
+          <p style="color: #b0c4de;">أكاديمية برمجة معاصرة بتصميم عالمي.</p>
+        </div>
+        <div>
+          <h4>روابط سريعة</h4>
+          <ul>
+            <li><a href="index.html">الرئيسية</a></li>
+            <li><a href="index.html#courses">الدورات</a></li>
+            <li><a href="index.html#about">عن الأكاديمية</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>الدعم</h4>
+          <ul>
+            <li><a href="index.html#support">الأسئلة الشائعة</a></li>
+            <li><a href="index.html#privacy">سياسة الخصوصية</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2026 أكاديمية بهاء الدين التعليمية — كورس أساسيات البرمجة</span>
+        <span><i class="fas fa-code"></i> بهاء الدين الحسين</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ===== JavaScript ===== -->
+  <script>
+    // فتح درس معين
+    function openLesson(lessonNumber) {
+      document.getElementById('course-main').style.display = 'none';
+      
+      document.querySelectorAll('.lesson-page').forEach(el => {
+        el.classList.remove('active');
+      });
+      
+      const target = document.getElementById('lesson-' + lessonNumber);
+      if (target) {
+        target.classList.add('active');
+      }
+      
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    // العودة إلى قائمة الدروس
+    function closeLesson() {
+      document.querySelectorAll('.lesson-page').forEach(el => {
+        el.classList.remove('active');
+      });
+      
+      document.getElementById('course-main').style.display = 'block';
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    document.addEventListener('DOMContentLoaded', function() {
+      document.getElementById('course-main').style.display = 'block';
+    });
+  </script>
+
+</body>
+</html>
