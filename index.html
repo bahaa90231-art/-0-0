@@ -122,7 +122,18 @@
       border-radius: 60px;
       font-weight: 600;
       border: none;
-      cursor: default;
+      cursor: pointer;
+      transition: 0.15s;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-family: inherit;
+      font-size: 1rem;
+    }
+
+    .btn-join:hover {
+      transform: scale(1.05);
+      box-shadow: 0 8px 24px rgba(11, 26, 46, 0.3);
     }
 
     .btn-join i {
@@ -458,7 +469,174 @@
       font-weight: 600;
     }
 
-    /* ===== صفحات الدعم ===== */
+    /* ===== صفحة عن الأكاديمية ===== */
+    .about-page {
+      background: white;
+      border-radius: 44px;
+      padding: 2.5rem;
+      border: 1px solid #e9edf2;
+    }
+
+    .about-page h2 {
+      font-size: 2.2rem;
+      margin-bottom: 0.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+    }
+
+    .about-page h2 i {
+      color: #2563eb;
+    }
+
+    .about-page .about-text {
+      color: #1e293b;
+      font-size: 1.05rem;
+      line-height: 2;
+      margin-bottom: 1.5rem;
+    }
+
+    .about-page .about-text strong {
+      color: #2563eb;
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+      margin-top: 1.5rem;
+    }
+
+    .about-item {
+      background: #f8fafc;
+      padding: 2rem;
+      border-radius: 28px;
+      border: 1px solid #eef2f6;
+      transition: 0.2s;
+      text-align: center;
+    }
+
+    .about-item:hover {
+      transform: translateY(-4px);
+      border-color: #2563eb;
+      box-shadow: 0 12px 24px -8px rgba(37, 99, 235, 0.08);
+    }
+
+    .about-item i {
+      font-size: 2.8rem;
+      color: #2563eb;
+      background: #e0edff;
+      padding: 1rem;
+      border-radius: 50%;
+      margin-bottom: 1rem;
+    }
+
+    .about-item h4 {
+      font-size: 1.3rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .about-item p {
+      color: #475569;
+      font-size: 1rem;
+    }
+
+    /* ===== صفحة التواصل ===== */
+    .contact-page {
+      background: white;
+      border-radius: 44px;
+      padding: 2.5rem;
+      border: 1px solid #e9edf2;
+    }
+
+    .contact-page h2 {
+      font-size: 2.2rem;
+      margin-bottom: 0.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+    }
+
+    .contact-page h2 i {
+      color: #2563eb;
+    }
+
+    .contact-page .contact-text {
+      color: #475569;
+      font-size: 1.05rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 2rem;
+    }
+
+    .contact-item {
+      background: #f8fafc;
+      padding: 2rem;
+      border-radius: 28px;
+      border: 1px solid #eef2f6;
+      transition: 0.2s;
+      text-align: center;
+    }
+
+    .contact-item:hover {
+      transform: translateY(-4px);
+      border-color: #2563eb;
+      box-shadow: 0 12px 24px -8px rgba(37, 99, 235, 0.08);
+    }
+
+    .contact-item i {
+      font-size: 2.8rem;
+      color: #2563eb;
+      background: #e0edff;
+      padding: 1rem;
+      border-radius: 50%;
+      margin-bottom: 1rem;
+    }
+
+    .contact-item h4 {
+      font-size: 1.2rem;
+      margin-bottom: 0.3rem;
+    }
+
+    .contact-item p {
+      color: #475569;
+      font-size: 1.1rem;
+    }
+
+    .contact-item .arabic-number {
+      direction: ltr;
+    }
+
+    .whatsapp-btn {
+      display: inline-block;
+      background: #25D366;
+      color: white;
+      padding: 0.6rem 1.8rem;
+      border-radius: 60px;
+      text-decoration: none;
+      font-weight: 600;
+      margin-top: 0.8rem;
+      transition: 0.15s;
+    }
+
+    .whatsapp-btn:hover {
+      background: #1da851;
+      transform: scale(1.03);
+    }
+
+    .whatsapp-btn i {
+      background: transparent !important;
+      padding: 0 !important;
+      color: white !important;
+      font-size: 1.2rem !important;
+      margin-left: 0.4rem;
+    }
+
+    /* ===== صفحة الدعم ===== */
     .support-page {
       background: white;
       border-radius: 44px;
@@ -469,19 +647,31 @@
     .support-page h2 {
       font-size: 2.2rem;
       margin-bottom: 0.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+    }
+
+    .support-page h2 i {
+      color: #2563eb;
+    }
+
+    .support-page .support-text {
+      color: #475569;
+      font-size: 1.05rem;
+      margin-bottom: 1.5rem;
     }
 
     .support-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
       gap: 2rem;
-      margin-top: 2rem;
     }
 
     .support-item {
       background: #f8fafc;
       padding: 2rem;
-      border-radius: 32px;
+      border-radius: 28px;
       border: 1px solid #eef2f6;
       transition: 0.2s;
       text-align: center;
@@ -509,7 +699,8 @@
 
     .support-item p {
       color: #475569;
-      margin-bottom: 1rem;
+      font-size: 1rem;
+      margin-bottom: 0.8rem;
     }
 
     .support-item .btn-support {
@@ -529,155 +720,6 @@
     .support-item .btn-support:hover {
       background: #1d4ed8;
       transform: scale(1.03);
-    }
-
-    /* ===== صفحات الدعم الداخلية ===== */
-    .support-inner-page {
-      background: white;
-      border-radius: 44px;
-      padding: 2.5rem;
-      border: 1px solid #e9edf2;
-    }
-
-    .support-inner-page h2 {
-      font-size: 2.2rem;
-      margin-bottom: 0.5rem;
-      display: flex;
-      align-items: center;
-      gap: 0.8rem;
-    }
-
-    .support-inner-page h2 i {
-      color: #2563eb;
-    }
-
-    .support-inner-page .back-link {
-      display: inline-block;
-      margin-top: 1.5rem;
-      color: #2563eb;
-      font-weight: 600;
-      cursor: pointer;
-      transition: 0.15s;
-    }
-
-    .support-inner-page .back-link:hover {
-      color: #1d4ed8;
-      text-decoration: underline;
-    }
-
-    .support-inner-page ul {
-      list-style: none;
-      margin-top: 1rem;
-    }
-
-    .support-inner-page ul li {
-      background: #f8fafc;
-      padding: 1rem 1.5rem;
-      border-radius: 16px;
-      margin-bottom: 0.8rem;
-      border-right: 4px solid #2563eb;
-    }
-
-    .support-inner-page ul li strong {
-      display: block;
-      font-size: 1.1rem;
-      color: #0b1a2e;
-    }
-
-    .support-inner-page ul li p {
-      color: #475569;
-      margin-top: 0.3rem;
-    }
-
-    .privacy-text {
-      background: #f8fafc;
-      padding: 1.5rem;
-      border-radius: 16px;
-      margin: 1rem 0;
-      line-height: 1.8;
-    }
-
-    .privacy-text p {
-      margin-bottom: 0.8rem;
-      color: #1e293b;
-    }
-
-    /* ===== صفحة التواصل ===== */
-    .contact-wrapper {
-      background: white;
-      border-radius: 44px;
-      padding: 2.5rem;
-      border: 1px solid #e9edf2;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 2.5rem;
-      justify-content: center;
-    }
-
-    .contact-card {
-      background: #f8fafc;
-      padding: 2rem;
-      border-radius: 32px;
-      min-width: 200px;
-      flex: 1;
-      text-align: center;
-      transition: 0.2s;
-      border: 1px solid #eef2f6;
-    }
-
-    .contact-card:hover {
-      transform: translateY(-4px);
-      border-color: #b9c7db;
-      box-shadow: 0 12px 24px -8px rgba(0, 0, 0, 0.04);
-    }
-
-    .contact-card i {
-      font-size: 2.8rem;
-      color: #2563eb;
-      background: #e0edff;
-      padding: 1rem;
-      border-radius: 50%;
-      margin-bottom: 1rem;
-    }
-
-    .contact-card h4 {
-      font-size: 1.2rem;
-      margin-bottom: 0.3rem;
-    }
-
-    .contact-card p {
-      color: #475569;
-      font-size: 1.1rem;
-      direction: ltr;
-    }
-
-    .contact-card .arabic-number {
-      direction: rtl;
-    }
-
-    .whatsapp-link {
-      display: inline-block;
-      background: #25D366;
-      color: white;
-      padding: 0.6rem 1.8rem;
-      border-radius: 60px;
-      text-decoration: none;
-      font-weight: 600;
-      margin-top: 0.8rem;
-      transition: 0.15s;
-    }
-
-    .whatsapp-link:hover {
-      background: #1da851;
-      transform: scale(1.03);
-    }
-
-    .whatsapp-link i {
-      background: transparent !important;
-      padding: 0 !important;
-      color: white !important;
-      font-size: 1.2rem !important;
-      margin-left: 0.4rem;
     }
 
     /* ===== FOOTER ===== */
@@ -744,8 +786,9 @@
       .nav-links { justify-content: center; gap: 0.6rem; }
       .nav-links button { font-size: 0.9rem; padding: 0.3rem 0.6rem; }
       .founder-grid { flex-direction: column; align-items: center; text-align: center; }
-      .contact-wrapper { flex-direction: column; }
-      .support-inner-page h2 { font-size: 1.6rem; flex-wrap: wrap; }
+      .contact-grid { grid-template-columns: 1fr; }
+      .about-grid { grid-template-columns: 1fr; }
+      .support-grid { grid-template-columns: 1fr; }
       .hero-course-btn { font-size: 1rem; padding: 0.8rem 1.8rem; }
 
       .founder-image-wrapper {
@@ -783,8 +826,9 @@
         <button data-page="contact"><i class="fas fa-envelope"></i> تواصل</button>
         <button data-page="support"><i class="fas fa-headset"></i> الدعم</button>
         <a href="course-basics.html" class="btn-course"><i class="fas fa-graduation-cap"></i> الكورس</a>
-                <a href="https://script.google.com/macros/s/AKfycbx5a7vWFVuWxrEPW1nTMtdGOjbBlzZ-B_q7_QQSZgatB_r4jmaShEsp0qk66hFOzDpS/exec" class="btn-course"><i class="fas fa-graduation-cap"></i> تسجيل الدخول</a>
-
+        <button class="" onclick="window.open('https://script.google.com/macros/s/AKfycbx5a7vWFVuWxrEPW1nTMtdGOjbBlzZ-B_q7_QQSZgatB_r4jmaShEsp0qk66hFOzDpS/exec', '_blank')">
+          <i class="fas fa-user-plus"></i> انضم الآن
+        </button>
       </nav>
     </div>
   </header>
@@ -811,28 +855,22 @@
             <i class="fas fa-rocket"></i> ابدأ كورس أساسيات البرمجة الآن
           </a>
 
-          <!-- ===== قسم المبرمج مع الصورة ===== -->
+          <!-- قسم المبرمج -->
           <div class="founder-section">
             <h3><i class="fas fa-user-astronaut"></i> المبرمج بهاء الدين الحسين</h3>
             <div class="founder-grid">
-
-              <!-- صورة المبرمج -->
               <div class="founder-image-wrapper">
                 <img src="مبرمج.jpeg" alt="بهاء الدين الحسين - مؤسس الأكاديمية" />
                 <span class="camera-icon"><i class="fas fa-camera"></i></span>
               </div>
-
-              <!-- نص التعريف -->
               <div class="founder-desc">
                 <p>
                   <span class="highlight">بهاء الدين الحسين</span> — مطور ويب شغوف، يملك خبرة عملية تمتد لأربع سنوات في 
                   برمجة وتطوير الويب. أسس هذه الأكاديمية لمشاركة خبرته بأسلوب مبسط وعملي، 
                   مؤمنًا بأن التعليم الجيد هو المفتاح لبناء مبرمجين مبدعين.
                 </p>
-                <div class="social-links">
                 </div>
               </div>
-
             </div>
           </div>
 
@@ -844,30 +882,23 @@
         <h2 style="font-size: 2.2rem; font-weight: 700;">الدورات التعليمية</h2>
         <p style="color: #475569; margin-bottom: 0.5rem;">أساسيات البرمجة وتطوير الويب خطوة بخطوة</p>
         <div class="courses-grid">
-
-          <!-- 1. أساسيات البرمجة -->
+          <!-- الدورة 1: أساسيات البرمجة -->
           <a href="course-basics.html" class="course-card" style="border-color: #2563eb; border-width: 2px;">
             <i class="fas fa-code" style="background: linear-gradient(135deg, #2563eb, #7c3aed); color: white;"></i>
             <h4>أساسيات البرمجة</h4>
-            <div class="meta">
-              <span><i class="far fa-clock"></i> 20 درساً</span>
-              <span><i class="fas fa-signal"></i> مبتدىء</span>
-            </div>
+            <div class="meta"><span><i class="far fa-clock"></i> 20 درساً</span> <span><i class="fas fa-signal"></i> مبتدىء</span></div>
             <span class="badge-featured"><i class="fas fa-star"></i> مميز</span>
           </a>
 
-          <!-- 2. كورس HTML الشامل -->
+          <!-- الدورة 2: كورس HTML الشامل -->
           <a href="course-html.html" class="course-card" style="border-color: #e67e22; border-width: 2px;">
             <i class="fab fa-html5" style="background: linear-gradient(135deg, #e67e22, #d35400); color: white;"></i>
             <h4>كورس HTML الشامل</h4>
-            <div class="meta">
-              <span><i class="far fa-clock"></i> 25 درساً</span>
-              <span><i class="fas fa-signal"></i> مبتدىء</span>
-            </div>
+            <div class="meta"><span><i class="far fa-clock"></i> 25 درساً</span> <span><i class="fas fa-signal"></i> مبتدىء</span></div>
             <span class="badge-html"><i class="fas fa-fire"></i> جديد</span>
           </a>
 
-          <!-- 3. CSS -->
+          <!-- الدورة 3: CSS -->
           <div class="course-card">
             <i class="fab fa-css3-alt"></i>
             <h4>CSS</h4>
@@ -875,7 +906,7 @@
             <span class="badge-course">قريباً</span>
           </div>
 
-          <!-- 4. JavaScript -->
+          <!-- الدورة 4: JavaScript -->
           <div class="course-card">
             <i class="fab fa-js"></i>
             <h4>JavaScript</h4>
@@ -883,178 +914,236 @@
             <span class="badge-course">قريباً</span>
           </div>
 
-          <!-- 5. بايثون -->
+          <!-- الدورة 5: بايثون -->
           <div class="course-card">
             <i class="fab fa-python"></i>
             <h4>بايثون</h4>
             <div class="meta"><span><i class="far fa-clock"></i> 25 درساً</span> <span><i class="fas fa-signal"></i> متوسط</span></div>
             <span class="badge-course">قريباً</span>
           </div>
-
+        </div>
+      </div>
 
       <!-- ========== صفحة عن الأكاديمية ========== -->
       <div id="page-about" class="page">
-        <div class="support-page">
-          <h2>عن أكاديمية بهاء الدين</h2>
-          <p style="color: #334155; font-size: 1.1rem;">نسعى لتقديم تعليم برمجي بمعايير عالمية، مع التركيز على التطبيق العملي والمشاريع الحقيقية.</p>
-          <div class="support-grid" style="margin-top: 1.5rem;">
-            <div class="support-item">
+        <div class="about-page">
+          <h2><i class="fas fa-info-circle"></i> عن أكاديمية بهاء الدين</h2>
+          <p class="about-text">
+            <strong>أكاديمية بهاء الدين التعليمية</strong> هي منصة تعليمية متكاملة تأسست بهدف بسيط لكنه طموح: 
+            <strong>جعل البرمجة في متناول الجميع</strong>، بغض النظر عن خلفيتهم أو مستواهم أو أعمارهم. 
+            نحن نؤمن بأن البرمجة ليست حكراً على العباقرة أو أصحاب الشهادات العليا، بل هي مهارة يمكن لأي شخص 
+            يتقن أساسياتها أن يصبح مبدعاً وقادراً على بناء حلول تقنية مبتكرة.
+          </p>
+          <p class="about-text">
+            انطلقت الأكاديمية عام 2026 على يد المبرمج <strong>بهاء الدين الحسين</strong>، الذي جمع خبرته العملية 
+            في تطوير الويب ليقدمها بأسلوب مبسط ومنهجي. نقدم محتوى تعليمياً يركز على <strong>المفاهيم الأساسية 
+            المشتركة</strong> بين جميع لغات البرمجة، مما يمنحك القدرة على تعلم أي لغة تريدها بسهولة ويسر.
+          </p>
+
+          <h3 style="font-size: 1.5rem; margin-top: 1.5rem; color: #0b1a2e;"><i class="fas fa-bullseye" style="color: #2563eb;"></i> رؤيتنا ورسالتنا وقيمنا</h3>
+          <div class="about-grid">
+            <div class="about-item">
               <i class="fas fa-bullseye"></i>
               <h4>الرؤية</h4>
-              <p style="color: #475569;">تخريج مبرمجين قادرين على المنافسة في السوق العالمي.</p>
+              <p>أن نكون المنصة التعليمية الأولى في العالم العربي التي تخريج مبرمجين قادرين على المنافسة في السوق العالمي، وبناء مستقبل رقمي مشرق.</p>
             </div>
-            <div class="support-item">
+            <div class="about-item">
               <i class="fas fa-rocket"></i>
               <h4>الرسالة</h4>
-              <p style="color: #475569;">توفير محتوى تعليمي محدث وأدوات تفاعلية حديثة.</p>
+              <p>تقديم محتوى تعليمي عالي الجودة، محدث ومتجدد، بأسلوب مبسط ومنهجي، مع توفير أدوات تفاعلية حديثة تجعل التعلم تجربة ممتعة وفعالة.</p>
             </div>
-            <div class="support-item">
+            <div class="about-item">
               <i class="fas fa-handshake"></i>
               <h4>القيم</h4>
-              <p style="color: #475569;">الإبداع، الجودة، والالتزام تجاه المتعلمين.</p>
+              <p><strong>الإبداع:</strong> نشجع التفكير الإبداعي خارج الصندوق. <strong>الجودة:</strong> نقدم محتوى دقيقاً ومتقناً. <strong>الالتزام:</strong> نلتزم تجاه متعلمينا بكل مسؤولية.</p>
             </div>
+          </div>
+
+          <div style="margin-top: 2rem; background: #dbeafe; border-radius: 16px; padding: 1.5rem; border-right: 4px solid #2563eb;">
+            <p style="font-size: 1.1rem; color: #1e293b;">
+              <i class="fas fa-quote-right" style="color: #2563eb; font-size: 1.5rem;"></i>
+              <strong>كلمة المؤسس:</strong> "أسست هذه الأكاديمية لأنني أؤمن بأن التعليم الجيد هو المفتاح لبناء مبرمجين مبدعين. 
+              قررت أن أقدم تجربة تعليمية مختلفة، تركز على الجوهر وتجعل التعلم رحلة ممتعة وليس مجرد مهمة شاقة."
+              <br />
+              <span style="display: block; margin-top: 0.5rem; color: #2563eb;">— بهاء الدين الحسين، مؤسس الأكاديمية</span>
+            </p>
           </div>
         </div>
       </div>
 
       <!-- ========== صفحة التواصل ========== -->
       <div id="page-contact" class="page">
-        <div class="contact-wrapper">
-          <div class="contact-card">
-            <i class="fas fa-phone-alt"></i>
-            <h4>اتصال</h4>
-            <p class="arabic-number">0982520358</p>
+        <div class="contact-page">
+          <h2><i class="fas fa-envelope"></i> تواصل معنا</h2>
+          <p class="contact-text">
+            نحن هنا لمساعدتك! إذا كان لديك أي سؤال، استفسار، أو اقتراح، لا تتردد في التواصل معنا عبر إحدى القنوات التالية. 
+            فريقنا جاهز للرد عليك في أقرب وقت ممكن.
+          </p>
+
+          <div class="contact-grid">
+            <div class="contact-item">
+              <i class="fas fa-phone-alt"></i>
+              <h4>اتصال</h4>
+              <p class="arabic-number">0982520358</p>
+            </div>
+            <div class="contact-item">
+              <i class="fab fa-whatsapp"></i>
+              <h4>واتساب</h4>
+              <p class="arabic-number">0982520358</p>
+              <a href="https://wa.me/963982520358" target="_blank" class="whatsapp-btn">
+                <i class="fab fa-whatsapp"></i> تواصل عبر واتساب
+              </a>
+            </div>
+            <div class="contact-item">
+              <i class="fas fa-map-marker-alt"></i>
+              <h4>العنوان</h4>
+              <p>سوريا، إدلب</p>
+            </div>
+            <div class="contact-item">
+              <i class="fas fa-envelope"></i>
+              <h4>البريد الإلكتروني</h4>
+              <p>bahaa@academy.dev</p>
+            </div>
           </div>
-          <div class="contact-card">
-            <i class="fab fa-whatsapp"></i>
-            <h4>واتساب</h4>
-            <p class="arabic-number">0982520358</p>
-            <a href="https://wa.me/963982520358" target="_blank" class="whatsapp-link">
-              <i class="fab fa-whatsapp"></i> تواصل عبر واتساب
-            </a>
-          </div>
-          <div class="contact-card">
-            <i class="fas fa-map-marker-alt"></i>
-            <h4>العنوان</h4>
-            <p>سوريا، إدلب</p>
-          </div>
-          <div class="contact-card">
-            <i class="fas fa-envelope"></i>
-            <h4>البريد الإلكتروني</h4>
-            <p>bahaa@academy.dev</p>
+
+          <div style="margin-top: 2rem; background: #f1f5f9; border-radius: 16px; padding: 1.5rem; text-align: center; border: 1px dashed #2563eb;">
+            <p style="color: #475569; font-size: 1rem;">
+              <i class="fas fa-clock" style="color: #2563eb;"></i>
+              <strong>ساعات العمل:</strong> جميع أيام الأسبوع من 9 صباحاً حتى 10 مساءً (بتوقيت دمشق)
+            </p>
           </div>
         </div>
       </div>
 
-      <!-- ========== صفحة الدعم الرئيسية ========== -->
+      <!-- ========== صفحة الدعم ========== -->
       <div id="page-support" class="page">
         <div class="support-page">
-          <h2>مركز الدعم والمساعدة</h2>
-          <p style="color: #475569; font-size: 1.1rem;">اختر الخدمة التي تحتاجها من القائمة أدناه</p>
+          <h2><i class="fas fa-headset"></i> مركز الدعم والمساعدة</h2>
+          <p class="support-text">
+            ندرك أنك قد تواجه بعض التحديات أثناء رحلة التعلم، ولهذا خصصنا هذا المركز لمساعدتك. 
+            اختر الخدمة التي تناسبك من القائمة أدناه، وفريقنا سيكون سعيداً بمساعدتك.
+          </p>
+
           <div class="support-grid">
             <div class="support-item">
               <i class="fas fa-question-circle"></i>
               <h4>الأسئلة الشائعة</h4>
-              <p>إجابات على أكثر الأسئلة شيوعاً حول الأكاديمية والدورات</p>
+              <p>إجابات على أكثر الأسئلة شيوعاً حول الأكاديمية والدورات. ستجد هنا حلولاً سريعة لأكثر الاستفسارات تكراراً.</p>
               <button class="btn-support" onclick="switchPage('faq')">عرض الأسئلة</button>
             </div>
             <div class="support-item">
               <i class="fas fa-file-alt"></i>
               <h4>سياسة الخصوصية</h4>
-              <p>تعرف على كيفية تعاملنا مع بياناتك وحماية خصوصيتك</p>
+              <p>نحن نولي خصوصية بياناتك أهمية قصوى. تعرف على كيفية تعاملنا مع بياناتك وحماية خصوصيتك في هذه السياسة.</p>
               <button class="btn-support" onclick="switchPage('privacy')">قراءة السياسة</button>
             </div>
             <div class="support-item">
               <i class="fas fa-comment-dots"></i>
               <h4>الدعم الفني</h4>
-              <p>تواصل مع فريق الدعم الفني لحل أي مشكلة تقنية</p>
+              <p>واجهت مشكلة تقنية؟ تواصل مع فريق الدعم الفني المتخصص لحل أي مشكلة تواجهك في المنصة أو في الدروس.</p>
               <button class="btn-support" onclick="switchPage('contact')">تواصل معنا</button>
             </div>
             <div class="support-item">
               <i class="fas fa-book"></i>
               <h4>دليل المستخدم</h4>
-              <p>دليل شامل لاستخدام منصة الأكاديمية والاستفادة منها</p>
+              <p>دليل شامل لاستخدام منصة الأكاديمية والاستفادة منها. يشرح كل شيء من التسجيل إلى الحصول على الشهادة.</p>
               <button class="btn-support" onclick="switchPage('guide')">عرض الدليل</button>
             </div>
           </div>
-        </div>
-      </div>
 
-      <!-- ========== صفحة الأسئلة الشائعة ========== -->
-      <div id="page-faq" class="page">
-        <div class="support-inner-page">
-          <h2><i class="fas fa-question-circle"></i> الأسئلة الشائعة</h2>
-          <p style="color: #475569; margin-bottom: 1.5rem;">أكثر الأسئلة التي يطرحها الطلاب الجدد</p>
-          <ul>
-            <li>
-              <strong>كيف يمكنني التسجيل في الدورات؟</strong>
-              <p>يمكنك التسجيل من خلال الضغط على زر "انضم الآن" في أعلى الصفحة، ثم ملء بياناتك واختيار الدورة المناسبة.</p>
-            </li>
-            <li>
-              <strong>هل الدورات مجانية أم مدفوعة؟</strong>
-              <p>جميع الدورات المتاحة حالياً مجانية، ونعمل على إضافة دورات مدفوعة بمزايا إضافية في المستقبل.</p>
-            </li>
-            <li>
-              <strong>كم مدة كل دورة؟</strong>
-              <p>تتراوح مدة الدورات بين 6 إلى 14 ساعة دراسية، موزعة على عدة محاضرات حسب كل دورة.</p>
-            </li>
-            <li>
-              <strong>هل أحصل على شهادة بعد إتمام الدورة؟</strong>
-              <p>نعم، ستحصل على شهادة إتمام معتمدة من الأكاديمية بعد اجتياز جميع متطلبات الدورة.</p>
-            </li>
-            <li>
-              <strong>كيف يمكنني التواصل مع المدربين؟</strong>
-              <p>يمكنك التواصل مع المدربين عبر صفحة "تواصل" أو من خلال مجموعة الدعم الفني.</p>
-            </li>
-          </ul>
-          <span class="back-link" onclick="switchPage('support')"><i class="fas fa-arrow-right"></i> العودة إلى مركز الدعم</span>
-        </div>
-      </div>
-
-      <!-- ========== صفحة سياسة الخصوصية ========== -->
-      <div id="page-privacy" class="page">
-        <div class="support-inner-page">
-          <h2><i class="fas fa-file-alt"></i> سياسة الخصوصية</h2>
-          <p style="color: #475569; margin-bottom: 1rem;">نحن نولي خصوصية بياناتك أهمية كبيرة</p>
-          <div class="privacy-text">
-            <p><strong>1. جمع البيانات:</strong> نقوم بجمع البيانات الأساسية مثل الاسم والبريد الإلكتروني لغرض تحسين تجربة التعلم والتواصل معك.</p>
-            <p><strong>2. استخدام البيانات:</strong> نستخدم بياناتك فقط لتقديم الخدمات التعليمية، وإرسال تحديثات حول الدورات، والرد على استفساراتك.</p>
-            <p><strong>3. مشاركة البيانات:</strong> لا نقوم بمشاركة بياناتك مع أي طرف ثالث، إلا إذا تطلب الأمر ذلك قانونياً.</p>
-            <p><strong>4. حماية البيانات:</strong> نستخدم إجراءات أمنية مشددة لحماية بياناتك من الوصول غير المصرح به.</p>
-            <p><strong>5. حقوقك:</strong> لديك الحق في طلب تعديل أو حذف بياناتك في أي وقت من خلال التواصل معنا.</p>
+          <div style="margin-top: 2rem; background: #fef3c7; border-radius: 16px; padding: 1.5rem; border-right: 4px solid #f59e0b;">
+            <p style="color: #1e293b; font-size: 1rem;">
+              <i class="fas fa-lightbulb" style="color: #f59e0b;"></i>
+              <strong>نصيحة:</strong> قبل التواصل مع الدعم الفني، تأكد من مراجعة الأسئلة الشائعة ودليل المستخدم، فقد تجد إجابة سؤالك هناك!
+            </p>
           </div>
-          <span class="back-link" onclick="switchPage('support')"><i class="fas fa-arrow-right"></i> العودة إلى مركز الدعم</span>
         </div>
       </div>
 
-      <!-- ========== صفحة دليل المستخدم ========== -->
-      <div id="page-guide" class="page">
-        <div class="support-inner-page">
-          <h2><i class="fas fa-book"></i> دليل المستخدم</h2>
-          <p style="color: #475569; margin-bottom: 1.5rem;">كل ما تحتاج لمعرفته عن استخدام منصة الأكاديمية</p>
-          <ul>
-            <li>
-              <strong>التسجيل والدخول</strong>
-              <p>يمكنك التسجيل في الأكاديمية عبر زر "انضم الآن"، ثم تسجيل الدخول باستخدام بريدك الإلكتروني وكلمة المرور.</p>
+      <!-- ===== صفحة الأسئلة الشائعة ===== -->
+      <div id="page-faq" class="page">
+        <div class="support-page">
+          <h2><i class="fas fa-question-circle"></i> الأسئلة الشائعة</h2>
+          <p style="color: #475569; margin-bottom: 1.5rem;">أكثر الأسئلة التي يطرحها الطلاب الجدد مع إجاباتها الوافية</p>
+          <ul style="list-style: none; padding: 0;">
+            <li style="background: #f8fafc; padding: 1.2rem 1.5rem; border-radius: 16px; margin-bottom: 1rem; border-right: 4px solid #2563eb;">
+              <strong style="font-size: 1.1rem; color: #0b1a2e;">كيف يمكنني التسجيل في الدورات؟</strong>
+              <p style="color: #475569; margin-top: 0.3rem;">يمكنك التسجيل من خلال الضغط على زر "انضم الآن" في أعلى الصفحة، ثم ملء بياناتك واختيار الدورة المناسبة. التسجيل مجاني وسهل.</p>
             </li>
-            <li>
-              <strong>تصفح الدورات</strong>
-              <p>من خلال صفحة "الدورات" يمكنك مشاهدة جميع الدورات المتاحة، ومعرفة محتواها ومتطلباتها.</p>
+            <li style="background: #f8fafc; padding: 1.2rem 1.5rem; border-radius: 16px; margin-bottom: 1rem; border-right: 4px solid #2563eb;">
+              <strong style="font-size: 1.1rem; color: #0b1a2e;">هل الدورات مجانية أم مدفوعة؟</strong>
+              <p style="color: #475569; margin-top: 0.3rem;">جميع الدورات المتاحة حالياً مجانية بالكامل. نعمل على إضافة دورات مدفوعة بمزايا إضافية في المستقبل، لكن الأساسيات ستظل متاحة للجميع.</p>
             </li>
-            <li>
-              <strong>التقدم في الدورة</strong>
-              <p>بعد التسجيل في دورة، يمكنك متابعة المحاضرات وحل التمارين والتقييمات خطوة بخطوة.</p>
+            <li style="background: #f8fafc; padding: 1.2rem 1.5rem; border-radius: 16px; margin-bottom: 1rem; border-right: 4px solid #2563eb;">
+              <strong style="font-size: 1.1rem; color: #0b1a2e;">كم مدة كل دورة؟</strong>
+              <p style="color: #475569; margin-top: 0.3rem;">تختلف مدة الدورات حسب محتواها. تتراوح بين 10 إلى 25 درساً، يمكنك إكمالها بالوتيرة التي تناسبك، حيث لا يوجد وقت محدد للانتهاء.</p>
             </li>
-            <li>
-              <strong>لوحة التحكم</strong>
-              <p>من خلال لوحة التحكم الشخصية، يمكنك متابعة تقدمك في الدورات والحصول على الشهادات.</p>
+            <li style="background: #f8fafc; padding: 1.2rem 1.5rem; border-radius: 16px; margin-bottom: 1rem; border-right: 4px solid #2563eb;">
+              <strong style="font-size: 1.1rem; color: #0b1a2e;">هل أحصل على شهادة بعد إتمام الدورة؟</strong>
+              <p style="color: #475569; margin-top: 0.3rem;">نعم، ستحصل على شهادة إتمام معتمدة من الأكاديمية بعد اجتياز جميع متطلبات الدورة. الشهادة يمكن استخدامها في سيرتك الذاتية وإثبات مهاراتك.</p>
             </li>
-            <li>
-              <strong>المجتمع والتفاعل</strong>
-              <p>يمكنك التفاعل مع زملائك الطلاب وطرح الأسئلة في منتديات النقاش المخصصة لكل دورة.</p>
+            <li style="background: #f8fafc; padding: 1.2rem 1.5rem; border-radius: 16px; margin-bottom: 1rem; border-right: 4px solid #2563eb;">
+              <strong style="font-size: 1.1rem; color: #0b1a2e;">كيف يمكنني التواصل مع المدربين؟</strong>
+              <p style="color: #475569; margin-top: 0.3rem;">يمكنك التواصل مع المدربين عبر صفحة "تواصل" أو من خلال مجموعة الدعم الفني. نحن هنا لمساعدتك في كل خطوة.</p>
+            </li>
+            <li style="background: #f8fafc; padding: 1.2rem 1.5rem; border-radius: 16px; margin-bottom: 1rem; border-right: 4px solid #2563eb;">
+              <strong style="font-size: 1.1rem; color: #0b1a2e;">هل أحتاج إلى خبرة سابقة في البرمجة؟</strong>
+              <p style="color: #475569; margin-top: 0.3rem;">لا على الإطلاق! الدورات مصممة خصيصاً للمبتدئين الذين لا يملكون أي خبرة سابقة. كل ما تحتاجه هو رغبة في التعلم.</p>
             </li>
           </ul>
-          <span class="back-link" onclick="switchPage('support')"><i class="fas fa-arrow-right"></i> العودة إلى مركز الدعم</span>
+          <button class="btn-support" onclick="switchPage('support')" style="margin-top: 1.5rem; background: #eef2f6; color: #1e293b;"><i class="fas fa-arrow-right"></i> العودة إلى مركز الدعم</button>
+        </div>
+      </div>
+
+      <!-- ===== صفحة سياسة الخصوصية ===== -->
+      <div id="page-privacy" class="page">
+        <div class="support-page">
+          <h2><i class="fas fa-file-alt"></i> سياسة الخصوصية</h2>
+          <p style="color: #475569; margin-bottom: 1rem;">نحن نولي خصوصية بياناتك أهمية كبيرة، ونلتزم بحماية معلوماتك الشخصية.</p>
+          <div style="background: #f8fafc; padding: 1.5rem; border-radius: 16px; line-height: 2;">
+            <p><strong>1. جمع البيانات:</strong> نقوم بجمع البيانات الأساسية مثل الاسم والبريد الإلكتروني لغرض تحسين تجربة التعلم والتواصل معك. لا نجمع أي بيانات حساسة دون موافقتك.</p>
+            <p><strong>2. استخدام البيانات:</strong> نستخدم بياناتك فقط لتقديم الخدمات التعليمية، وإرسال تحديثات حول الدورات، والرد على استفساراتك. لا نستخدم بياناتك لأغراض تسويقية دون موافقتك.</p>
+            <p><strong>3. مشاركة البيانات:</strong> لا نقوم بمشاركة بياناتك مع أي طرف ثالث، إلا إذا تطلب الأمر ذلك قانونياً أو بموافقتك الصريحة.</p>
+            <p><strong>4. حماية البيانات:</strong> نستخدم إجراءات أمنية مشددة لحماية بياناتك من الوصول غير المصرح به، مثل التشفير وأنظمة الحماية المتطورة.</p>
+            <p><strong>5. حقوقك:</strong> لديك الحق في طلب تعديل أو حذف بياناتك في أي وقت من خلال التواصل معنا. كما يمكنك طلب نسخة من البيانات التي نحتفظ بها عنك.</p>
+            <p><strong>6. تحديث السياسة:</strong> قد نقوم بتحديث هذه السياسة بين الحين والآخر. سنقوم بإبلاغك بأي تغييرات جوهرية عبر البريد الإلكتروني أو من خلال المنصة.</p>
+          </div>
+          <button class="btn-support" onclick="switchPage('support')" style="margin-top: 1.5rem; background: #eef2f6; color: #1e293b;"><i class="fas fa-arrow-right"></i> العودة إلى مركز الدعم</button>
+        </div>
+      </div>
+
+      <!-- ===== صفحة دليل المستخدم ===== -->
+      <div id="page-guide" class="page">
+        <div class="support-page">
+          <h2><i class="fas fa-book"></i> دليل المستخدم</h2>
+          <p style="color: #475569; margin-bottom: 1.5rem;">كل ما تحتاج لمعرفته عن استخدام منصة الأكاديمية والاستفادة منها بشكل كامل</p>
+          <ul style="list-style: none; padding: 0;">
+            <li style="background: #f8fafc; padding: 1.2rem 1.5rem; border-radius: 16px; margin-bottom: 1rem; border-right: 4px solid #2563eb;">
+              <strong style="font-size: 1.1rem; color: #0b1a2e;">📝 التسجيل والدخول</strong>
+              <p style="color: #475569; margin-top: 0.3rem;">يمكنك التسجيل في الأكاديمية عبر زر "انضم الآن" في أعلى الصفحة. بعد التسجيل، ستتمكن من الدخول إلى حسابك باستخدام بريدك الإلكتروني وكلمة المرور.</p>
+            </li>
+            <li style="background: #f8fafc; padding: 1.2rem 1.5rem; border-radius: 16px; margin-bottom: 1rem; border-right: 4px solid #2563eb;">
+              <strong style="font-size: 1.1rem; color: #0b1a2e;">📚 تصفح الدورات</strong>
+              <p style="color: #475569; margin-top: 0.3rem;">من خلال صفحة "الدورات" يمكنك مشاهدة جميع الدورات المتاحة، ومعرفة محتواها، ومتطلباتها، وعدد الدروس فيها. اضغط على أي دورة لبدء التعلم.</p>
+            </li>
+            <li style="background: #f8fafc; padding: 1.2rem 1.5rem; border-radius: 16px; margin-bottom: 1rem; border-right: 4px solid #2563eb;">
+              <strong style="font-size: 1.1rem; color: #0b1a2e;">📖 التقدم في الدورة</strong>
+              <p style="color: #475569; margin-top: 0.3rem;">بعد التسجيل في دورة، يمكنك متابعة المحاضرات وحل التمارين والتقييمات خطوة بخطوة. يمكنك العودة إلى أي درس في أي وقت.</p>
+            </li>
+            <li style="background: #f8fafc; padding: 1.2rem 1.5rem; border-radius: 16px; margin-bottom: 1rem; border-right: 4px solid #2563eb;">
+              <strong style="font-size: 1.1rem; color: #0b1a2e;">🎓 لوحة التحكم</strong>
+              <p style="color: #475569; margin-top: 0.3rem;">من خلال لوحة التحكم الشخصية، يمكنك متابعة تقدمك في الدورات، معرفة النسبة المئوية للإنجاز، والحصول على الشهادات عند إكمال المتطلبات.</p>
+            </li>
+            <li style="background: #f8fafc; padding: 1.2rem 1.5rem; border-radius: 16px; margin-bottom: 1rem; border-right: 4px solid #2563eb;">
+              <strong style="font-size: 1.1rem; color: #0b1a2e;">💬 المجتمع والتفاعل</strong>
+              <p style="color: #475569; margin-top: 0.3rem;">يمكنك التفاعل مع زملائك الطلاب وطرح الأسئلة في منتديات النقاش المخصصة لكل دورة. تذكر أن التعلم الجماعي أكثر متعة وفعالية!</p>
+            </li>
+            <li style="background: #f8fafc; padding: 1.2rem 1.5rem; border-radius: 16px; margin-bottom: 1rem; border-right: 4px solid #2563eb;">
+              <strong style="font-size: 1.1rem; color: #0b1a2e;">❓ الحصول على المساعدة</strong>
+              <p style="color: #475569; margin-top: 0.3rem;">إذا واجهت أي مشكلة، يمكنك زيارة مركز الدعم أو التواصل مع فريق الدعم الفني. نحن هنا لمساعدتك في كل خطوة في رحلة التعلم.</p>
+            </li>
+          </ul>
+          <button class="btn-support" onclick="switchPage('support')" style="margin-top: 1.5rem; background: #eef2f6; color: #1e293b;"><i class="fas fa-arrow-right"></i> العودة إلى مركز الدعم</button>
         </div>
       </div>
 
