@@ -1,0 +1,2917 @@
+
+
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>كورس HTML الشامل - 25 درساً</title>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+        }
+
+        body {
+            background: #f6f9fc;
+            color: #0b1a2e;
+            line-height: 2;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* ===== HEADER ===== */
+        .navbar {
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+            padding: 0.6rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+        }
+
+        .navbar .container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .logo {
+            font-size: 1.6rem;
+            font-weight: 800;
+            letter-spacing: -0.5px;
+            background: linear-gradient(145deg, #0b1a2e, #1e3a6b);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .logo i {
+            -webkit-text-fill-color: #2563eb;
+            margin-left: 0.4rem;
+            font-size: 1.8rem;
+        }
+
+        .back-link {
+            color: #2563eb;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: 0.15s;
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+        }
+
+        .back-link:hover {
+            color: #1d4ed8;
+            text-decoration: underline;
+        }
+
+        /* ===== HERO ===== */
+        .course-hero {
+            background: linear-gradient(145deg, #ffffff 0%, #f1f7ff 100%);
+            border-radius: 48px;
+            padding: 3rem 2.5rem;
+            margin: 2rem 0;
+            border: 1px solid rgba(255, 255, 255, 0.6);
+            text-align: center;
+        }
+
+        .course-hero .badge {
+            background: #dbeafe;
+            color: #1e4ab0;
+            padding: 0.4rem 1.5rem;
+            border-radius: 60px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            display: inline-block;
+            margin-bottom: 1rem;
+        }
+
+        .course-hero h1 {
+            font-size: 2.8rem;
+            font-weight: 800;
+            margin-bottom: 0.5rem;
+        }
+
+        .course-hero h1 span {
+            background: linear-gradient(135deg, #e67e22, #d35400);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .course-hero .subtitle {
+            font-size: 1.15rem;
+            color: #334155;
+            max-width: 700px;
+            margin: 0 auto 1.5rem;
+        }
+
+        .course-hero .stats {
+            display: flex;
+            justify-content: center;
+            gap: 2.5rem;
+            flex-wrap: wrap;
+        }
+
+        .course-hero .stats div {
+            text-align: center;
+        }
+
+        .course-hero .stats .number {
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: #0b1a2e;
+        }
+
+        .course-hero .stats .label {
+            color: #64748b;
+            font-size: 0.9rem;
+        }
+
+        /* ===== المحتوى ===== */
+        .content-section {
+            background: white;
+            border-radius: 44px;
+            padding: 2.5rem;
+            margin-bottom: 2rem;
+            border: 1px solid #e9edf2;
+        }
+
+        .content-section h2 {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+        }
+
+        .content-section h2 i {
+            color: #e67e22;
+        }
+
+        .content-section p {
+            color: #1e293b;
+            margin-bottom: 1rem;
+            font-size: 1.05rem;
+        }
+
+        .content-section ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .content-section ul li {
+            padding: 0.8rem 0 0.8rem 2rem;
+            position: relative;
+            border-bottom: 1px solid #f1f5f9;
+            color: #1e293b;
+            font-size: 1.05rem;
+        }
+
+        .content-section ul li:last-child {
+            border-bottom: none;
+        }
+
+        .content-section ul li::before {
+            content: "▸";
+            position: absolute;
+            right: 0;
+            color: #e67e22;
+            font-weight: 700;
+        }
+
+        .highlight-box {
+            background: #f8fafc;
+            border-right: 4px solid #e67e22;
+            padding: 1.2rem 1.8rem;
+            border-radius: 16px;
+            margin: 1rem 0;
+            font-size: 1.05rem;
+        }
+
+        .highlight-box i {
+            color: #e67e22;
+            margin-left: 0.5rem;
+        }
+
+        .tip-box {
+            background: #fef3c7;
+            border-right: 4px solid #f59e0b;
+            padding: 1rem 1.5rem;
+            border-radius: 16px;
+            margin: 1rem 0;
+            font-size: 1.05rem;
+        }
+
+        .tip-box i {
+            color: #f59e0b;
+            margin-left: 0.5rem;
+        }
+
+        .warning-box {
+            background: #fee2e2;
+            border-right: 4px solid #ef4444;
+            padding: 1rem 1.5rem;
+            border-radius: 16px;
+            margin: 1rem 0;
+            font-size: 1.05rem;
+        }
+
+        .warning-box i {
+            color: #ef4444;
+            margin-left: 0.5rem;
+        }
+
+        .info-box {
+            background: #dbeafe;
+            border-right: 4px solid #2563eb;
+            padding: 1rem 1.5rem;
+            border-radius: 16px;
+            margin: 1rem 0;
+            font-size: 1.05rem;
+        }
+
+        .info-box i {
+            color: #2563eb;
+            margin-left: 0.5rem;
+        }
+
+        /* ===== أمثلة الأكواد ===== */
+        .code-example {
+            background: #0b1a2e;
+            color: #e2e8f0;
+            padding: 1.2rem 1.5rem;
+            border-radius: 16px;
+            font-family: 'Courier New', monospace;
+            font-size: 0.95rem;
+            direction: ltr;
+            text-align: left;
+            overflow-x: auto;
+            margin: 1rem 0;
+            white-space: pre-wrap;
+            line-height: 1.7;
+        }
+
+        .code-example .output {
+            color: #94a3b8;
+        }
+
+        .code-example .error {
+            color: #ef4444;
+        }
+
+        .code-example .success {
+            color: #22c55e;
+        }
+
+        .code-example .comment {
+            color: #6b7280;
+            font-style: italic;
+        }
+
+        .code-example .tag {
+            color: #f472b6;
+        }
+
+        .code-example .attr {
+            color: #60a5fa;
+        }
+
+        .code-example .value {
+            color: #fbbf24;
+        }
+
+        /* ===== الدروس (بطاقات) ===== */
+        .lessons-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+
+        .lesson-card {
+            background: #f8fafc;
+            border-radius: 28px;
+            padding: 1.8rem 1.5rem;
+            border: 1px solid #eef2f6;
+            transition: 0.2s;
+            cursor: pointer;
+            text-align: center;
+        }
+
+        .lesson-card:hover {
+            transform: translateY(-6px);
+            border-color: #e67e22;
+            box-shadow: 0 16px 30px -10px rgba(230, 126, 34, 0.15);
+        }
+
+        .lesson-card .lesson-number {
+            background: #e67e22;
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 0.8rem;
+            font-weight: 700;
+            font-size: 1.1rem;
+        }
+
+        .lesson-card h4 {
+            font-size: 1.2rem;
+            margin-bottom: 0.3rem;
+        }
+
+        .lesson-card p {
+            color: #64748b;
+            font-size: 0.95rem;
+        }
+
+        .lesson-card .lesson-icon {
+            font-size: 2.2rem;
+            color: #e67e22;
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+
+        /* ===== صفحة الدرس المنفصلة ===== */
+        .lesson-page {
+            display: none;
+            animation: fadeUp 0.35s ease;
+        }
+
+        .lesson-page.active {
+            display: block;
+        }
+
+        @keyframes fadeUp {
+            0% { opacity: 0; transform: translateY(18px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+
+        .lesson-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .lesson-header .back-btn {
+            background: #eef2f6;
+            border: none;
+            padding: 0.4rem 1.2rem;
+            border-radius: 60px;
+            font-weight: 600;
+            color: #1e293b;
+            cursor: pointer;
+            transition: 0.15s;
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+        }
+
+        .lesson-header .back-btn:hover {
+            background: #fdebd0;
+            color: #e67e22;
+        }
+
+        .lesson-header h2 {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin: 0;
+        }
+
+        .lesson-body {
+            line-height: 2.2;
+        }
+
+        .lesson-body h3 {
+            font-size: 1.3rem;
+            margin: 1.5rem 0 0.5rem;
+            color: #0b1a2e;
+        }
+
+        .lesson-body h3 i {
+            color: #e67e22;
+            margin-left: 0.4rem;
+        }
+
+        .lesson-body h4 {
+            font-size: 1.1rem;
+            margin: 1rem 0 0.3rem;
+            color: #1e293b;
+        }
+
+        /* ===== FOOTER ===== */
+        .footer {
+            background: #0b1a2e;
+            color: #e2e8f0;
+            padding: 2.5rem 0 1.2rem;
+            margin-top: 2rem;
+            border-radius: 44px 44px 0 0;
+        }
+
+        .footer .container {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 2rem;
+        }
+
+        .footer h4 {
+            color: white;
+            margin-bottom: 0.5rem;
+        }
+
+        .footer ul {
+            list-style: none;
+        }
+
+        .footer ul li {
+            margin-bottom: 0.3rem;
+        }
+
+        .footer ul li a {
+            color: #b0c4de;
+            text-decoration: none;
+            font-size: 0.95rem;
+        }
+
+        .footer ul li a:hover {
+            color: white;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid #1e2a3a;
+            padding-top: 1rem;
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            font-size: 0.9rem;
+            color: #94a3b8;
+        }
+
+        /* ===== استجابة ===== */
+        @media (max-width: 700px) {
+            .course-hero h1 { font-size: 2rem; }
+            .container { padding: 0 1rem; }
+            .content-section { padding: 1.5rem; }
+            .course-hero { padding: 2rem 1.5rem; }
+            .lesson-header { flex-direction: column; align-items: flex-start; }
+            .course-hero .stats { gap: 1.5rem; }
+        }
+    </style>
+
+</head>
+<body>
+
+    <!-- ===== HEADER ===== -->
+    <header class="navbar">
+        <div class="container">
+            <div class="logo"><i class="fas fa-graduation-cap"></i> بهاء الدين</div>
+            <a href="index.html" class="back-link"><i class="fas fa-arrow-right"></i> العودة إلى الرئيسية</a>
+        </div>
+    </header>
+
+    <!-- ===== MAIN CONTENT ===== -->
+    <div class="container">
+
+        <!-- ===== صفحة الكورس الرئيسية ===== -->
+        <div id="course-main">
+            <!-- Hero Section -->
+            <div class="course-hero">
+                <div class="badge"><i class="fas fa-rocket"></i> مسار تعليمي متكامل</div>
+                <h1>كورس <span>HTML</span> الشامل</h1>
+                <p class="subtitle">هذا الكورس هو دليل شامل لتعلم لغة HTML من الصفر إلى الاحتراف. يغطي جميع مفاهيم HTML الأساسية والمتقدمة في 25 درساً مفصلاً.</p>
+                <div class="stats">
+                    <div><span class="number">25</span> <div class="label">درساً شاملاً</div></div>
+                    <div><span class="number">100+</span> <div class="label">مثالاً توضيحياً</div></div>
+                    <div><span class="number">100%</span> <div class="label">جاهز للتدريس</div></div>
+                </div>
+            </div>
+
+            <!-- قائمة الدروس (25 درساً) -->
+            <div class="content-section">
+                <h2><i class="fas fa-book-open"></i> دروس المسار</h2>
+                <p style="color: #475569; margin-bottom: 0.5rem;">اضغط على أي درس لفتحه في صفحة منفصلة</p>
+                <div class="lessons-grid">
+                    <!-- 25 بطاقة درس -->
+                    <div class="lesson-card" onclick="openLesson(1)"><span class="lesson-icon"><i class="fab fa-html5"></i></span><div class="lesson-number">1</div><h4>مقدمة في HTML</h4><p>ما هي HTML؟ ولماذا نتعلمها؟</p></div>
+                    <div class="lesson-card" onclick="openLesson(2)"><span class="lesson-icon"><i class="fas fa-sitemap"></i></span><div class="lesson-number">2</div><h4>هيكل صفحة HTML</h4><p>الهيكل الأساسي لأي صفحة ويب</p></div>
+                    <div class="lesson-card" onclick="openLesson(3)"><span class="lesson-icon"><i class="fas fa-heading"></i></span><div class="lesson-number">3</div><h4>العناوين والفقرات</h4><p>تنظيم النصوص في الصفحة</p></div>
+                    <div class="lesson-card" onclick="openLesson(4)"><span class="lesson-icon"><i class="fas fa-list"></i></span><div class="lesson-number">4</div><h4>القوائم</h4><p>إنشاء قوائم مرتبة وغير مرتبة</p></div>
+                    <div class="lesson-card" onclick="openLesson(5)"><span class="lesson-icon"><i class="fas fa-link"></i></span><div class="lesson-number">5</div><h4>الروابط</h4><p>ربط الصفحات ببعضها</p></div>
+                    <div class="lesson-card" onclick="openLesson(6)"><span class="lesson-icon"><i class="fas fa-image"></i></span><div class="lesson-number">6</div><h4>الصور</h4><p>إدراج الصور في الصفحة</p></div>
+                    <div class="lesson-card" onclick="openLesson(7)"><span class="lesson-icon"><i class="fas fa-table"></i></span><div class="lesson-number">7</div><h4>الجداول</h4><p>تنظيم البيانات في جداول</p></div>
+                    <div class="lesson-card" onclick="openLesson(8)"><span class="lesson-icon"><i class="fas fa-forms"></i></span><div class="lesson-number">8</div><h4>النماذج</h4><p>إنشاء نماذج تفاعلية</p></div>
+                    <div class="lesson-card" onclick="openLesson(9)"><span class="lesson-icon"><i class="fas fa-tags"></i></span><div class="lesson-number">9</div><h4>الوسوم الدلالية</h4><p>تنظيم المحتوى بشكل دلالي</p></div>
+                    <div class="lesson-card" onclick="openLesson(10)"><span class="lesson-icon"><i class="fas fa-layer-group"></i></span><div class="lesson-number">10</div><h4>التقسيمات والتجميع</h4><p>تنظيم أجزاء الصفحة</p></div>
+                    <div class="lesson-card" onclick="openLesson(11)"><span class="lesson-icon"><i class="fas fa-play"></i></span><div class="lesson-number">11</div><h4>الفيديو والصوت</h4><p>إدراج الوسائط المتعددة</p></div>
+                    <div class="lesson-card" onclick="openLesson(12)"><span class="lesson-icon"><i class="fas fa-code"></i></span><div class="lesson-number">12</div><h4>الكود والاقتباسات</h4><p>عرض الكود والاقتباسات</p></div>
+                    <div class="lesson-card" onclick="openLesson(13)"><span class="lesson-icon"><i class="fas fa-pen-fancy"></i></span><div class="lesson-number">13</div><h4>تنسيق النصوص</h4><p>تنسيق الكلمات والجمل</p></div>
+                    <div class="lesson-card" onclick="openLesson(14)"><span class="lesson-icon"><i class="fas fa-cogs"></i></span><div class="lesson-number">14</div><h4>السمات العامة</h4><p>سمات HTML الشائعة</p></div>
+                    <div class="lesson-card" onclick="openLesson(15)"><span class="lesson-icon"><i class="fas fa-file-import"></i></span><div class="lesson-number">15</div><h4>الروابط المتقدمة</h4><p>أنواع الروابط المختلفة</p></div>
+                    <div class="lesson-card" onclick="openLesson(16)"><span class="lesson-icon"><i class="fas fa-images"></i></span><div class="lesson-number">16</div><h4>الصور المتقدمة</h4><p>صور خريطة وصور متجاوبة</p></div>
+                    <div class="lesson-card" onclick="openLesson(17)"><span class="lesson-icon"><i class="fas fa-table"></i></span><div class="lesson-number">17</div><h4>الجداول المتقدمة</h4><p>دمج الخلايا وتنسيق الجداول</p></div>
+                    <div class="lesson-card" onclick="openLesson(18)"><span class="lesson-icon"><i class="fas fa-forms"></i></span><div class="lesson-number">18</div><h4>النماذج المتقدمة</h4><p>أنواع الحقول والتحقق من الصحة</p></div>
+                    <div class="lesson-card" onclick="openLesson(19)"><span class="lesson-icon"><i class="fas fa-code-branch"></i></span><div class="lesson-number">19</div><h4>الوسوم الدلالية المتقدمة</h4><p>article, aside, figure, details</p></div>
+                    <div class="lesson-card" onclick="openLesson(20)"><span class="lesson-icon"><i class="fas fa-globe"></i></span><div class="lesson-number">20</div><h4>تحسين محركات البحث</h4><p>SEO وأساسيات تحسين الظهور</p></div>
+                    <div class="lesson-card" onclick="openLesson(21)"><span class="lesson-icon"><i class="fas fa-mobile-screen"></i></span><div class="lesson-number">21</div><h4>التصميم المتجاوب</h4><p>مفاهيم Responsive Design</p></div>
+                    <div class="lesson-card" onclick="openLesson(22)"><span class="lesson-icon"><i class="fas fa-palette"></i></span><div class="lesson-number">22</div><h4>دمج CSS مع HTML</h4><p>طرق دمج CSS في الصفحة</p></div>
+                    <div class="lesson-card" onclick="openLesson(23)"><span class="lesson-icon"><i class="fas fa-code"></i></span><div class="lesson-number">23</div><h4>دمج JavaScript مع HTML</h4><p>إضافة التفاعل للصفحة</p></div>
+                    <div class="lesson-card" onclick="openLesson(24)"><span class="lesson-icon"><i class="fas fa-cube"></i></span><div class="lesson-number">24</div><h4>مكتبات وإطارات العمل</h4><p>Bootstrap, Font Awesome, إلخ</p></div>
+                    <div class="lesson-card" onclick="openLesson(25)"><span class="lesson-icon"><i class="fas fa-check-double"></i></span><div class="lesson-number">25</div><h4>أفضل الممارسات</h4><p>نصائح لكتابة HTML احترافية</p></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ============================================================ -->
+        <!-- الدروس (جميع الدروس 1-25 مع شرح مفصل جداً) -->
+        <!-- ============================================================ -->
+
+        <!-- ============================================================ -->
+        <!-- الدرس 1: مقدمة في HTML (40+ سطر شرح) -->
+        <!-- ============================================================ -->
+        <div id="lesson-1" class="lesson-page">
+            <div class="content-section">
+                <div class="lesson-header">
+                    <button class="back-btn" onclick="closeLesson()"><i class="fas fa-arrow-right"></i> العودة للدروس</button>
+                    <h2><i class="fab fa-html5" style="color: #e67e22;"></i> الدرس الأول: مقدمة في HTML</h2>
+                </div>
+                <div class="lesson-body">
+
+                    <h3><i class="fas fa-bullseye"></i> ما هي HTML؟</h3>
+                    <p>
+                        HTML هي اختصار لـ <strong>HyperText Markup Language</strong>، وهي لغة ترميز تستخدم لإنشاء وتصميم صفحات الويب. HTML ليست لغة برمجة بالمعنى التقليدي، بل هي لغة وصفية (Markup Language) تخبر المتصفح بكيفية عرض المحتوى على الشاشة. كل صفحة ويب على الإنترنت مبنية باستخدام HTML، وهي العمود الفقري لأي موقع إلكتروني. عندما تزور أي موقع، فإن ما تراه هو نتيجة لكود HTML تم تفسيره وعرضه بواسطة متصفحك.
+                    </p>
+                    <p>
+                        لتوضيح الأمر بشكل أبسط، تخيل أنك تريد بناء منزل. HTML هي الهيكل الأساسي للمنزل: الجدران، الأبواب، النوافذ، والأسقف. أما CSS فهي الدهانات والزينة التي تجعل المنزل جميلاً، وJavaScript هي الكهرباء والسباكة التي تجعل المنزل يعمل ويتفاعل مع ساكنيه. بدون HTML، لا يمكن أن يوجد موقع ويب، فهي الأساس الذي يبنى عليه كل شيء آخر. لذلك، تعلم HTML هو الخطوة الأولى والأساسية في رحلة تعلم تطوير الويب.
+                    </p>
+
+                    <h3><i class="fas fa-question-circle"></i> لماذا نتعلم HTML؟</h3>
+                    <p>
+                        تعلم HTML هو الخطوة الأولى والأساسية في رحلة تطوير الويب. هناك العديد من الأسباب التي تجعل تعلم HTML ضرورياً لأي شخص يرغب في دخول عالم البرمجة وتطوير المواقع. أولاً، HTML هي أساس تطوير الويب، حيث أن كل مواقع الويب وتطبيقات الويب تعتمد على HTML في بنائها. ثانياً، HTML من أسهل اللغات التي يمكن تعلمها، ولا تحتاج إلى أي خلفية برمجية مسبقة، مما يجعلها نقطة انطلاق مثالية للمبتدئين.
+                    </p>
+                    <p>
+                        ثالثاً، HTML تقدم نتائج فورية، حيث يمكنك كتابة كود HTML وفتحه في المتصفح لترى النتيجة فوراً، وهذا يعطي شعوراً بالإنجاز ويحفز على الاستمرار. رابعاً، معرفة HTML هي مهارة أساسية مطلوبة في سوق العمل لأي مطور ويب، حتى لو كنت تتخصص في مجالات أخرى مثل التصميم أو التسويق الرقمي. خامساً، تعلم HTML يفتح الباب لتعلم تقنيات أخرى مثل CSS و JavaScript، مما يجعلك مطور ويب متكاملاً.
+                    </p>
+
+                    <h3><i class="fas fa-code"></i> كيف تعمل HTML؟</h3>
+                    <p>
+                        HTML تعمل من خلال ما يسمى بـ <strong>الوسوم (Tags)</strong>. الوسم هو كلمة أو اختصار محاط بعلامتي < >. معظم الوسوم تأتي على شكل زوج: وسم بداية ووسم نهاية. وسم النهاية يشبه وسم البداية لكن مع إضافة / قبله. على سبيل المثال، وسم الفقرة يكتب على الشكل التالي: <span class="tag">&lt;p&gt;</span> هذا نص داخل فقرة <span class="tag">&lt;/p&gt;</span>. المتصفح يقرأ ملف HTML ويترجم هذه الوسوم إلى عناصر مرئية على الشاشة، مثل النصوص والصور والروابط.
+                    </p>
+                    <p>
+                        كل وسم له معنى محدد ووظيفة معينة في الصفحة. على سبيل المثال، وسم <span class="tag">&lt;h1&gt;</span> يُستخدم للعنوان الرئيسي، وسم <span class="tag">&lt;p&gt;</span> للفقرة، وسم <span class="tag">&lt;a&gt;</span> للرابط، وسم <span class="tag">&lt;img&gt;</span> للصورة. هذه الوسوم تخبر المتصفح بكيفية عرض المحتوى، وأين يضعه في الصفحة. المتصفح يتجاهل المسافات الزائدة والأسطر الفارغة في الكود، ويعتمد فقط على الوسوم لتحديد بنية الصفحة.
+                    </p>
+
+                    <div class="code-example">
+                        <span class="comment">&lt;!-- هذا هو هيكل صفحة HTML بسيط --&gt;</span>
+                        <span class="tag">&lt;!DOCTYPE html&gt;</span>
+                        <span class="tag">&lt;html&gt;</span>
+                        <span class="tag">&lt;head&gt;</span>
+                            <span class="tag">&lt;title&gt;</span>صفحتي الأولى<span class="tag">&lt;/title&gt;</span>
+                        <span class="tag">&lt;/head&gt;</span>
+                        <span class="tag">&lt;body&gt;</span>
+                            <span class="tag">&lt;h1&gt;</span>مرحباً بك في موقعي<span class="tag">&lt;/h1&gt;</span>
+                            <span class="tag">&lt;p&gt;</span>هذا هو محتوى الصفحة الأولى التي أقوم بإنشائها.<span class="tag">&lt;/p&gt;</span>
+                        <span class="tag">&lt;/body&gt;</span>
+                        <span class="tag">&lt;/html&gt;</span>
+                    </div>
+
+                    <div class="highlight-box">
+                        <i class="fas fa-info-circle"></i>
+                        <strong>معلومة مهمة:</strong> HTML ليست حساسة لحالة الأحرف، أي أن <span class="tag">&lt;H1&gt;</span> و <span class="tag">&lt;h1&gt;</span> يعتبران نفس الشيء. لكن من الأفضل كتابة الوسوم بحروف صغيرة (lowercase) اتباعاً لأفضل الممارسات ولتكون متوافقة مع المعايير الحديثة.
+                    </div>
+
+                    <div class="tip-box">
+                        <i class="fas fa-lightbulb"></i>
+                        <strong>نصيحة:</strong> لا تحاول حفظ كل الوسوم دفعة واحدة. ابدأ بالوسوم الأساسية مثل العناوين والفقرات والروابط، وتعلم تدريجياً. مع الممارسة والتكرار، ستصبح كتابة الوسوم طبيعة لك ولن تحتاج حتى للتفكير فيها.
+                    </div>
+
+                    <h3><i class="fas fa-check-circle"></i> ملخص الدرس</h3>
+                    <ul>
+                        <li>HTML هي لغة ترميز تستخدم لإنشاء صفحات الويب، وهي العمود الفقري لأي موقع.</li>
+                        <li>HTML تعتمد على الوسوم (Tags) لتحديد عناصر الصفحة وترتيبها.</li>
+                        <li>معظم الوسوم تأتي على شكل زوج: وسم بداية &lt;tag&gt; ووسم نهاية &lt;/tag&gt;.</li>
+                        <li>HTML هي الأساس لأي موقع ويب، وتعلمها هو الخطوة الأولى في تطوير الويب.</li>
+                        <li>HTML سهلة التعلم وتقدم نتائج فورية، مما يحفز المبتدئين على الاستمرار.</li>
+                        <li>بعد HTML، يمكنك تعلم CSS لتنسيق الصفحة و JavaScript لإضافة التفاعل.</li>
+                    </ul>
+
+                    <div class="info-box">
+                        <i class="fas fa-info-circle"></i>
+                        <strong>تذكير:</strong> هذا الدرس هو الأساس الذي ستبني عليه كل ما ستتعلمه لاحقاً في عالم HTML. تأكد من فهمك الجيد للمفاهيم المطروحة قبل الانتقال إلى الدروس التالية. الممارسة العملية هي المفتاح الرئيسي لإتقان HTML، لذا لا تتردد في كتابة الأكواد بنفسك وتجربتها في المتصفح.
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <!-- ============================================================ -->
+        <!-- الدرس 2: هيكل صفحة HTML (40+ سطر شرح) -->
+        <!-- ============================================================ -->
+        <div id="lesson-2" class="lesson-page">
+            <div class="content-section">
+                <div class="lesson-header">
+                    <button class="back-btn" onclick="closeLesson()"><i class="fas fa-arrow-right"></i> العودة للدروس</button>
+                    <h2><i class="fas fa-sitemap" style="color: #e67e22;"></i> الدرس الثاني: هيكل صفحة HTML</h2>
+                </div>
+                <div class="lesson-body">
+
+                    <h3><i class="fas fa-bullseye"></i> الهيكل الأساسي لصفحة HTML</h3>
+                    <p>
+                        كل صفحة HTML، بغض النظر عن مدى تعقيدها، تتبع هيكلاً أساسياً ثابتاً. هذا الهيكل يشبه الهيكل العظمي للإنسان، حيث يحدد الأجزاء الأساسية التي تتكون منها الصفحة. فهم هذا الهيكل هو أول خطوة حقيقية في تعلم HTML، لأنه يمنحك فهمًا واضحًا لكيفية تنظيم المحتوى داخل الصفحة. الهيكل الأساسي يتكون من عدة عناصر رئيسية، كل عنصر له وظيفة محددة وموقع محدد داخل الصفحة.
+                    </p>
+                    <p>
+                        الهيكل الأساسي يتكون من أربعة أجزاء رئيسية بالترتيب: إعلان نوع المستند (DOCTYPE)، وسم الجذر <span class="tag">&lt;html&gt;</span>، وبداخله منطقة الرأس <span class="tag">&lt;head&gt;</span> ومنطقة الجسم <span class="tag">&lt;body&gt;</span>. هذه الأجزاء تشكل العمود الفقري لأي صفحة ويب، ويجب أن تكون موجودة في كل صفحة HTML تكتبها، حتى لو كانت الصفحة بسيطة جداً. إضافة إلى هذه الأجزاء، هناك عناصر إضافية قد توضع داخل الرأس مثل عنوان الصفحة والترميز والروابط إلى ملفات CSS.
+                    </p>
+                    <p>
+                        من المهم أن تفهم أن المتصفح يعتمد على هذا الهيكل لتفسير وعرض محتوى الصفحة بشكل صحيح. إذا كان الهيكل ناقصاً أو غير صحيح، فقد يعرض المتصفح الصفحة بشكل غير متوقع أو لا يعرضها على الإطلاق. لذلك، تأكد دائماً من أن كل صفحة تبدأ بهذا الهيكل الأساسي، وأن جميع الأوسمة مفتوحة ومغلقة بشكل صحيح.
+                    </p>
+
+                    <div class="code-example">
+                        <span class="comment">&lt;!-- الهيكل الأساسي لأي صفحة HTML --&gt;</span>
+                        <span class="tag">&lt;!DOCTYPE html&gt;</span>
+                        <span class="tag">&lt;html lang="ar"&gt;</span>
+                        <span class="tag">&lt;head&gt;</span>
+                            <span class="tag">&lt;meta charset="UTF-8"&gt;</span>
+                            <span class="tag">&lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;</span>
+                            <span class="tag">&lt;title&gt;</span>عنوان الصفحة<span class="tag">&lt;/title&gt;</span>
+                        <span class="tag">&lt;/head&gt;</span>
+                        <span class="tag">&lt;body&gt;</span>
+                            <span class="comment">&lt;!-- كل المحتوى المرئي يوضع هنا --&gt;</span>
+                            <span class="tag">&lt;h1&gt;</span>مرحباً بك في موقعي<span class="tag">&lt;/h1&gt;</span>
+                            <span class="tag">&lt;p&gt;</span>هذا هو محتوى الصفحة.<span class="tag">&lt;/p&gt;</span>
+                        <span class="tag">&lt;/body&gt;</span>
+                        <span class="tag">&lt;/html&gt;</span>
+                    </div>
+
+                    <h3><i class="fas fa-list"></i> شرح مكونات الهيكل بالتفصيل</h3>
+
+                    <h4>1. إعلان نوع المستند: &lt;!DOCTYPE html&gt;</h4>
+                    <p>
+                        هذا الإعلان هو أول سطر في أي ملف HTML. وظيفته هي إخبار المتصفح بأن هذه الصفحة مكتوبة بلغة HTML5، وهي أحدث إصدار من HTML. يجب أن يكون هذا السطر هو أول شيء في أي ملف HTML، قبل أي شيء آخر، حتى قبل الفراغات أو الأسطر الفارغة. بدون هذا الإعلان، قد يعرض المتصفح الصفحة في وضع التوافق (Quirks Mode) مما قد يؤدي إلى ظهور الصفحة بشكل غير صحيح أو غير متوقع. في الإصدارات السابقة من HTML، كان الإعلان أطول وأكثر تعقيداً، لكن في HTML5 أصبح بسيطاً جداً.
+                    </p>
+
+                    <h4>2. وسم الجذر: &lt;html&gt; ... &lt;/html&gt;</h4>
+                    <p>
+                        هذا هو الجذر أو الحاوية الرئيسية التي تحتوي على كل محتوى الصفحة. كل شيء بين وسم البداية <span class="tag">&lt;html&gt;</span> ووسم النهاية <span class="tag">&lt;/html&gt;</span> يعتبر جزءاً من صفحة HTML. يمكن إضافة سمة lang لتحديد لغة الصفحة، مثل <span class="tag">&lt;html lang="ar"&gt;</span> للغة العربية، وهذا يساعد محركات البحث والمترجمين الفوريين على فهم لغة المحتوى. وسم html هو الجذر الذي يحتوي على كل العناصر الأخرى في الصفحة، ولا يمكن أن يكون هناك أكثر من وسم html واحد في الصفحة.
+                    </p>
+
+                    <h4>3. منطقة الرأس: &lt;head&gt; ... &lt;/head&gt;</h4>
+                    <p>
+                        منطقة الرأس تحتوي على معلومات عن الصفحة لا تظهر مباشرة للمستخدم في المتصفح. هذه المعلومات تعتبر بيانات وصفية (Metadata) تساعد المتصفح ومحركات البحث في فهم الصفحة بشكل أفضل. من أهم العناصر التي توضع في الرأس: عنوان الصفحة (title) الذي يظهر في شريط عنوان المتصفح وفي نتائج البحث، ترميز الأحرف (charset) الذي يحدد طريقة ترميز النصوص مثل UTF-8 لدعم جميع اللغات، وصف الصفحة (description) الذي يظهر في نتائج البحث تحت عنوان الصفحة، والكلمات المفتاحية (keywords) التي تساعد محركات البحث في فهم محتوى الصفحة.
+                    </p>
+                    <p>
+                        بالإضافة إلى ذلك، يمكن وضع روابط لملفات CSS في الرأس لتنسيق الصفحة، وأكواد JavaScript للتفاعل، وأيقونة الموقع (favicon) التي تظهر في شريط المتصفح. كل هذه العناصر توضع في الرأس لأنها تؤثر على الصفحة بشكل عام وليست جزءاً من المحتوى المرئي الذي يراه المستخدم.
+                    </p>
+
+                    <h4>4. منطقة الجسم: &lt;body&gt; ... &lt;/body&gt;</h4>
+                    <p>
+                        منطقة الجسم تحتوي على كل المحتوى الذي يراه المستخدم على الشاشة: النصوص، الصور، الروابط، الجداول، النماذج، والفيديوهات، وكل شيء آخر. كل ما تكتبه داخل <span class="tag">&lt;body&gt;</span> سيعرض للمستخدم في المتصفح. هذه المنطقة هي الجزء المرئي من الصفحة، وهي التي يتفاعل معها المستخدم بشكل مباشر. يمكن تقسيم منطقة الجسم باستخدام الوسوم الدلالية مثل header و nav و main و section و footer لتنظيم المحتوى بشكل أفضل.
+                    </p>
+                    <p>
+                        من المهم أن تعرف أن المتصفح يتجاهل المسافات الزائدة والأسطر الفارغة في HTML. لتنظيم التنسيق والمظهر، نستخدم CSS. HTML تهتم بالهيكل والمحتوى، بينما CSS تهتم بالشكل والمظهر. هذا الفصل بين المحتوى والتنسيق هو أحد مبادئ تطوير الويب الحديثة، ويساعد في الحفاظ على كود نظيف ومنظم.
+                    </p>
+
+                    <div class="highlight-box">
+                        <i class="fas fa-info-circle"></i>
+                        <strong>ملاحظة مهمة:</strong> المتصفح يتجاهل أي شيء مكتوب خارج وسم <span class="tag">&lt;html&gt;</span>، لذلك تأكد دائماً من أن كل محتوى الصفحة موجود داخل هذا الوسم. كما يجب أن تكون جميع الأوسمة مفتوحة ومغلقة بشكل صحيح لتجنب الأخطاء.
+                    </div>
+
+                    <div class="tip-box">
+                        <i class="fas fa-lightbulb"></i>
+                        <strong>نصيحة:</strong> احرص دائماً على كتابة هيكل HTML كاملاً لكل صفحة. حتى الصفحات الصغيرة والبسيطة يجب أن تتبع هذا الهيكل لتكون متوافقة مع المعايير وتظهر بشكل صحيح في جميع المتصفحات. استخدم محرر كود جيد يساعدك في إكمال الأوسمة تلقائياً والتأكد من صحة الهيكل.
+                    </div>
+
+                    <h3><i class="fas fa-check-circle"></i> ملخص الدرس</h3>
+                    <ul>
+                        <li>كل صفحة HTML تبدأ بـ <span class="tag">&lt;!DOCTYPE html&gt;</span> لتحديد الإصدار.</li>
+                        <li>وسم <span class="tag">&lt;html&gt;</span> هو الجذر الذي يحتوي على كل محتوى الصفحة.</li>
+                        <li><span class="tag">&lt;head&gt;</span> يحتوي على معلومات غير مرئية عن الصفحة مثل العنوان والترميز.</li>
+                        <li><span class="tag">&lt;body&gt;</span> يحتوي على كل المحتوى المرئي للمستخدم مثل النصوص والصور.</li>
+                        <li>الهيكل الأساسي ثابت لأي صفحة ويب، بغض النظر عن حجمها أو تعقيدها.</li>
+                        <li>استخدم سمة lang في وسم html لتحديد لغة الصفحة، مثل lang="ar" للعربية.</li>
+                    </ul>
+
+                    <div class="info-box">
+                        <i class="fas fa-info-circle"></i>
+                        <strong>تذكير:</strong> تأكد دائماً من كتابة هذا الهيكل في كل صفحة جديدة تبدأ بإنشائها. يمكنك حفظه كقالب (Template) لاستخدامه في جميع صفحاتك لتوفير الوقت والتأكد من الاتساق بين الصفحات المختلفة.
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <!-- ============================================================ -->
+        <!-- الدرس 3: العناوين والفقرات (35+ سطر شرح) -->
+        <!-- ============================================================ -->
+        <div id="lesson-3" class="lesson-page">
+            <div class="content-section">
+                <div class="lesson-header">
+                    <button class="back-btn" onclick="closeLesson()"><i class="fas fa-arrow-right"></i> العودة للدروس</button>
+                    <h2><i class="fas fa-heading" style="color: #e67e22;"></i> الدرس الثالث: العناوين والفقرات</h2>
+                </div>
+                <div class="lesson-body">
+
+                    <h3><i class="fas fa-bullseye"></i> أهمية تنظيم النصوص في صفحات الويب</h3>
+                    <p>
+                        تنظيم النصوص هو عنصر أساسي في تصميم أي صفحة ويب ناجحة. عندما يدخل المستخدم إلى موقعك، يجب أن يجد النصوص منظمة وواضحة، بحيث يمكنه قراءة المحتوى بسهولة وفهمه بسرعة. النصوص غير المنظمة تجعل المستخدم يشعر بالارتباك وقد تدفعه لمغادرة الموقع. HTML توفر أدوات بسيطة وفعالة لتنظيم النصوص عبر العناوين والفقرات، وهذه الأدوات هي من أولى الأشياء التي يتعلمها أي مطور ويب مبتدئ.
+                    </p>
+                    <p>
+                        العناوين تساعد في تقسيم المحتوى إلى أقسام منطقية، وتوضح للمستخدم ما هي المواضيع الرئيسية والفرعية في الصفحة. الفقرات تقدم المحتوى التفصيلي بشكل مريح للقراءة، مع وجود مسافات بين الفقرات لتسهيل التنقل بين الأفكار. استخدام العناوين والفقرات بشكل صحيح لا يحسن فقط تجربة المستخدم، بل يساعد أيضاً محركات البحث في فهم بنية الصفحة ومحتواها، مما يحسن من ظهور الموقع في نتائج البحث.
+                    </p>
+
+                    <h3><i class="fas fa-list"></i> العناوين (Headings)</h3>
+                    <p>
+                        العناوين تستخدم لتحديد العناوين الرئيسية والفرعية في الصفحة. هناك ستة مستويات من العناوين، من <span class="tag">&lt;h1&gt;</span> إلى <span class="tag">&lt;h6&gt;</span>. كل مستوى له حجم وخط مختلف، حيث يكون <span class="tag">&lt;h1&gt;</span> هو الأكبر والأهم، و <span class="tag">&lt;h6&gt;</span> هو الأصغر والأقل أهمية. يجب استخدام هذه المستويات بتسلسل منطقي، بحيث يمثل <span class="tag">&lt;h1&gt;</span> العنوان الرئيسي للصفحة، و <span class="tag">&lt;h2&gt;</span> عناوين الأقسام الرئيسية، و <span class="tag">&lt;h3&gt;</span> عناوين الأقسام الفرعية، وهكذا.
+                    </p>
+                    <p>
+                        من المهم جداً أن يكون هناك <span class="tag">&lt;h1&gt;</span> واحد فقط في كل صفحة، وهذا يساعد محركات البحث على فهم الموضوع الرئيسي للصفحة. استخدام أكثر من h1 في الصفحة قد يسبب تشتتاً لمحركات البحث ويؤثر سلباً على ترتيب الصفحة في نتائج البحث. العناوين أيضاً تساعد المستخدمين في تصفح الصفحة بسرعة، حيث يمكنهم قراءة العناوين وفهم محتوى الصفحة دون الحاجة لقراءة كل النص.
+                    </p>
+
+                    <h3><i class="fas fa-list"></i> الفقرات (Paragraphs)</h3>
+                    <p>
+                        الفقرة هي كتلة من النص تُستخدم لعرض المحتوى التفصيلي. وسم <span class="tag">&lt;p&gt;</span> هو الوسم المستخدم لإنشاء فقرة في HTML. المتصفح يضيف مسافة (هامش) تلقائياً بين الفقرات لتسهيل القراءة، مما يجعل النص أكثر تنظيماً وأسهل في المتابعة. يمكنك وضع أي عدد من الفقرات في الصفحة، وكل فقرة تبدأ في سطر جديد مع مسافة بينها وبين الفقرة التي تسبقها.
+                    </p>
+                    <p>
+                        من المهم أن تعرف أن المتصفح يتجاهل الأسطر الجديدة والمسافات الزائدة في الكود داخل الفقرة. لعمل سطر جديد داخل الفقرة، يمكنك استخدام وسم <span class="tag">&lt;br&gt;</span> (Break) الذي يضيف فاصلاً سطرياً. لكن بشكل عام، من الأفضل استخدام فقرات منفصلة بدلاً من استخدام br داخل الفقرة، لأن هذا يحافظ على تنظيم المحتوى بشكل أفضل.
+                    </p>
+
+                    <div class="code-example">
+                        <span class="comment">&lt;!-- مثال على العناوين والفقرات --&gt;</span>
+                        <span class="tag">&lt;h1&gt;</span>العنوان الرئيسي للصفحة<span class="tag">&lt;/h1&gt;</span>
+                        <span class="tag">&lt;p&gt;</span>هذه هي الفقرة الأولى التي تقدم مقدمة عن الموضوع الرئيسي. تحتوي هذه الفقرة على شرح عام للمحتوى الذي سيعرض في الصفحة.<span class="tag">&lt;/p&gt;</span>
+
+                        <span class="tag">&lt;h2&gt;</span>القسم الأول: أساسيات الموضوع<span class="tag">&lt;/h2&gt;</span>
+                        <span class="tag">&lt;p&gt;</span>هذه الفقرة تشرح الأساسيات التي يجب أن يعرفها القارئ قبل الانتقال إلى التفاصيل. تحتوي على معلومات مهمة تمهد للدروس القادمة.<span class="tag">&lt;/p&gt;</span>
+
+                        <span class="tag">&lt;h3&gt;</span>نقطة فرعية مهمة<span class="tag">&lt;/h3&gt;</span>
+                        <span class="tag">&lt;p&gt;</span>هذه الفقرة تتعمق في نقطة فرعية محددة من القسم الأول. توفر تفاصيل إضافية وأمثلة توضيحية.<span class="tag">&lt;/p&gt;</span>
+                    </div>
+
+                    <div class="highlight-box">
+                        <i class="fas fa-info-circle"></i>
+                        <strong>ملاحظة:</strong> المتصفح يعطي تنسيقاً افتراضياً للعناوين والفقرات، حيث تكون العناوين بخط عريض (Bold) وبأحجام مختلفة، والفقرات بخط عادي مع مسافات بينها. يمكنك تغيير هذا التنسيق باستخدام CSS ليتناسب مع تصميم موقعك.
+                    </div>
+
+                    <div class="tip-box">
+                        <i class="fas fa-lightbulb"></i>
+                        <strong>نصيحة مهمة:</strong> استخدم العناوين والفقرات لتنظيم المحتوى بشكل هرمي ومنطقي. هذا يساعد القراء على فهم بنية المحتوى بسرعة، ويساعد محركات البحث في فهرسة الصفحة بشكل أفضل. تجنب استخدام العناوين لأغراض تنسيقية فقط، مثل جعل النص كبيراً أو عريضاً، واستخدم CSS لهذا الغرض.
+                    </div>
+
+                    <h3><i class="fas fa-check-circle"></i> ملخص الدرس</h3>
+                    <ul>
+                        <li>العناوين (h1-h6) تستخدم لتنظيم المحتوى هرمياً، حيث h1 هو الأعلى أهمية والأكبر حجماً.</li>
+                        <li>يجب أن يكون هناك h1 واحد فقط في الصفحة ليمثل العنوان الرئيسي.</li>
+                        <li>الفقرة (p) تستخدم لعرض كتل النص التفصيلية، ويضيف المتصفح مسافات بينها تلقائياً.</li>
+                        <li>استخدم العناوين لتقسيم المحتوى إلى أقسام وأقسام فرعية لتسهيل القراءة والتصفح.</li>
+                        <li>استخدام العناوين والفقرات بشكل صحيح يحسن تجربة المستخدم ويساعد في تحسين محركات البحث (SEO).</li>
+                        <li>يمكن استخدام وسم br لإضافة سطر جديد داخل الفقرة، لكن الأفضل استخدام فقرات منفصلة.</li>
+                    </ul>
+
+                    <div class="info-box">
+                        <i class="fas fa-info-circle"></i>
+                        <strong>تذكير:</strong> تنظيم المحتوى باستخدام العناوين والفقرات هو أساس كتابة محتوى ويب جيد. تأكد من أن كل صفحة تحتوي على عناوين واضحة وفقرات منظمة لتجعل المحتوى سهل القراءة والفهم.
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <!-- ============================================================ -->
+        <!-- الدرس 4: القوائم (35+ سطر شرح) -->
+        <!-- ============================================================ -->
+        <div id="lesson-4" class="lesson-page">
+            <div class="content-section">
+                <div class="lesson-header">
+                    <button class="back-btn" onclick="closeLesson()"><i class="fas fa-arrow-right"></i> العودة للدروس</button>
+                    <h2><i class="fas fa-list" style="color: #e67e22;"></i> الدرس الرابع: القوائم</h2>
+                </div>
+                <div class="lesson-body">
+
+                    <h3><i class="fas fa-bullseye"></i> ما هي القوائم في HTML؟</h3>
+                    <p>
+                        القوائم هي وسيلة فعالة لتنظيم وعرض مجموعة من العناصر المرتبطة ببعضها البعض. القوائم تجعل المحتوى أكثر تنظيماً، وأسهل في القراءة، وأكثر جاذبية بصرياً. في HTML، هناك ثلاثة أنواع رئيسية من القوائم: القوائم غير المرتبة (Unordered Lists)، القوائم المرتبة (Ordered Lists)، وقوائم التعريف (Definition Lists). كل نوع مناسب لسياق مختلف، وسنتعرف على كل نوع بالتفصيل.
+                    </p>
+                    <p>
+                        القوائم تستخدم في العديد من السياقات في تصميم المواقع. على سبيل المثال، يمكنك استخدام القوائم لعرض قائمة المنتجات في متجر إلكتروني، أو عرض قائمة بالخدمات التي تقدمها شركتك، أو عرض خطوات إعداد وصفة طعام، أو عرض مصطلحات مع تعريفاتها في مقال تعليمي. القوائم تجعل المحتوى أكثر تنظيمًا وتسهل على المستخدمين تصفحه وفهمه بسرعة.
+                    </p>
+
+                    <h3><i class="fas fa-list-ul"></i> 1. القوائم غير المرتبة (Unordered Lists)</h3>
+                    <p>
+                        تستخدم القوائم غير المرتبة عندما لا يكون ترتيب العناصر مهماً، أي عندما تكون العناصر متساوية في الأهمية. تظهر العناصر في هذه القوائم عادةً بنقاط (•) أو رموز أخرى مثل الدوائر أو المربعات. وسم <span class="tag">&lt;ul&gt;</span> (Unordered List) يستخدم لإنشاء قائمة غير مرتبة، وكل عنصر في القائمة يوضع داخل وسم <span class="tag">&lt;li&gt;</span> (List Item). هذه القوائم هي الأكثر استخداماً في تصميم المواقع لأنها بسيطة وسهلة القراءة.
+                    </p>
+                    <p>
+                        يمكن تخصيص شكل النقاط في القوائم غير المرتبة باستخدام CSS، حيث يمكن تغيير نوع النقطة من نقطة دائرية إلى مربع أو دائرة مجوفة أو حتى استخدام صور مخصصة كنقاط. هذا يمنح المصمم مرونة في تنسيق القوائم لتتناسب مع التصميم العام للموقع.
+                    </p>
+
+                    <h3><i class="fas fa-list-ol"></i> 2. القوائم المرتبة (Ordered Lists)</h3>
+                    <p>
+                        تستخدم القوائم المرتبة عندما يكون ترتيب العناصر مهماً، أي عندما يكون للعناصر تسلسل أو أولوية معينة. تظهر العناصر في هذه القوائم مرقمة (1، 2، 3، ...) أو بأحرف (أ، ب، ج، ...). وسم <span class="tag">&lt;ol&gt;</span> (Ordered List) يستخدم لإنشاء قائمة مرتبة، وكل عنصر يوضع داخل <span class="tag">&lt;li&gt;</span>. هذه القوائم مثالية لعرض التعليمات خطوة بخطوة، أو قوائم التصنيف، أو أي محتوى يتطلب تسلسلاً منطقياً.
+                    </p>
+                    <p>
+                        يمكن تخصيص نوع الترقيم في القوائم المرتبة باستخدام سمة type، حيث يمكن استخدام الأرقام (1)، الأحرف (a أو A)، الأرقام الرومانية (i أو I). كما يمكن تحديد نقطة البداية للترقيم باستخدام سمة start. هذه الخيارات تجعل القوائم المرتبة مرنة وتناسب مختلف الاحتياجات.
+                    </p>
+
+                    <h3><i class="fas fa-list-dl"></i> 3. قوائم التعريف (Definition Lists)</h3>
+                    <p>
+                        تستخدم قوائم التعريف لعرض مصطلحات وتعريفاتها. تتكون هذه القوائم من ثلاثة وسوم: <span class="tag">&lt;dl&gt;</span> (Definition List) للحاوية الرئيسية، <span class="tag">&lt;dt&gt;</span> (Definition Term) للمصطلح، و <span class="tag">&lt;dd&gt;</span> (Definition Description) للتعريف أو الوصف. هذه القوائم مفيدة جداً في الصفحات التعليمية، القواميس، أو أي محتوى يحتوي على مصطلحات تحتاج إلى شرح.
+                    </p>
+                    <p>
+                        قوائم التعريف تعطي بنية واضحة للمحتوى، حيث يتم عرض المصطلح متبوعاً بتعريفه في سطر جديد أو مع مسافة بادئة. يمكن استخدامها أيضاً لعرض الأسئلة الشائعة (FAQ) حيث يكون السؤال هو المصطلح والجواب هو التعريف.
+                    </p>
+
+                    <div class="code-example">
+                        <span class="comment">&lt;!-- قائمة غير مرتبة (نقاط) --&gt;</span>
+                        <span class="tag">&lt;ul&gt;</span>
+                            <span class="tag">&lt;li&gt;</span>تفاح<span class="tag">&lt;/li&gt;</span>
+                            <span class="tag">&lt;li&gt;</span>موز<span class="tag">&lt;/li&gt;</span>
+                            <span class="tag">&lt;li&gt;</span>برتقال<span class="tag">&lt;/li&gt;</span>
+                        <span class="tag">&lt;/ul&gt;</span>
+
+                        <span class="comment">&lt;!-- قائمة مرتبة (مرقمة) --&gt;</span>
+                        <span class="tag">&lt;ol&gt;</span>
+                            <span class="tag">&lt;li&gt;</span>تسخين الفرن إلى 180 درجة<span class="tag">&lt;/li&gt;</span>
+                            <span class="tag">&lt;li&gt;</span>خلط المكونات الجافة<span class="tag">&lt;/li&gt;</span>
+                            <span class="tag">&lt;li&gt;</span>إضافة المكونات السائلة<span class="tag">&lt;/li&gt;</span>
+                            <span class="tag">&lt;li&gt;</span>الخبز لمدة 30 دقيقة<span class="tag">&lt;/li&gt;</span>
+                        <span class="tag">&lt;/ol&gt;</span>
+
+                        <span class="comment">&lt;!-- قائمة تعريف --&gt;</span>
+                        <span class="tag">&lt;dl&gt;</span>
+                            <span class="tag">&lt;dt&gt;</span>HTML<span class="tag">&lt;/dt&gt;</span>
+                            <span class="tag">&lt;dd&gt;</span>لغة ترميز تستخدم لإنشاء صفحات الويب.<span class="tag">&lt;/dd&gt;</span>
+                            <span class="tag">&lt;dt&gt;</span>CSS<span class="tag">&lt;/dt&gt;</span>
+                            <span class="tag">&lt;dd&gt;</span>لغة تستخدم لتنسيق صفحات الويب وتصميمها.<span class="tag">&lt;/dd&gt;</span>
+                        <span class="tag">&lt;/dl&gt;</span>
+                    </div>
+
+                    <div class="highlight-box">
+                        <i class="fas fa-info-circle"></i>
+                        <strong>ملاحظة:</strong> القوائم يمكن تداخلها، أي يمكنك وضع قائمة داخل قائمة أخرى لإنشاء مستويات متعددة من التنظيم. هذا مفيد جداً في إنشاء قوائم فرعية أو جداول محتويات متعددة المستويات. عند تداخل القوائم، يجب الانتباه إلى أن كل قائمة فرعية توضع داخل وسم li الخاص بالقائمة الرئيسية.
+                    </div>
+
+                    <div class="tip-box">
+                        <i class="fas fa-lightbulb"></i>
+                        <strong>نصيحة:</strong> استخدم القوائم غير المرتبة (ul) لعرض مجموعة من العناصر المتشابهة التي لا تحتاج إلى ترتيب معين، مثل قائمة المهارات أو قائمة المميزات. استخدم القوائم المرتبة (ol) للخطوات أو التعليمات التي يجب اتباعها بتسلسل محدد. استخدم قوائم التعريف (dl) للمصطلحات والتعريفات أو للأسئلة الشائعة.
+                    </div>
+
+                    <h3><i class="fas fa-check-circle"></i> ملخص الدرس</h3>
+                    <ul>
+                        <li>القوائم تنظم العناصر بشكل منظم وقابل للقراءة، وتستخدم في العديد من سياقات تصميم المواقع.</li>
+                        <li>القوائم غير المرتبة (ul) تستخدم نقاطاً لعرض العناصر عندما لا يكون الترتيب مهماً.</li>
+                        <li>القوائم المرتبة (ol) تستخدم أرقاماً لعرض العناصر بترتيب محدد عندما يكون التسلسل مهماً.</li>
+                        <li>قوائم التعريف (dl) تستخدم لعرض مصطلحات وتعريفاتها باستخدام dt و dd.</li>
+                        <li>كل عنصر في القائمة يوضع داخل وسم &lt;li&gt; (List Item).</li>
+                        <li>يمكن تداخل القوائم لإنشاء مستويات متعددة من التنظيم.</li>
+                    </ul>
+
+                    <div class="info-box">
+                        <i class="fas fa-info-circle"></i>
+                        <strong>تذكير:</strong> القوائم هي أداة قوية لتنظيم المحتوى وجعله أكثر وضوحاً وجاذبية. استخدم النوع المناسب من القوائم حسب طبيعة المحتوى الذي تريد عرضه.
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <!-- ============================================================ -->
+        <!-- الدرس 5: الروابط (35+ سطر شرح) -->
+        <!-- ============================================================ -->
+        <div id="lesson-5" class="lesson-page">
+            <div class="content-section">
+                <div class="lesson-header">
+                    <button class="back-btn" onclick="closeLesson()"><i class="fas fa-arrow-right"></i> العودة للدروس</button>
+                    <h2><i class="fas fa-link" style="color: #e67e22;"></i> الدرس الخامس: الروابط</h2>
+                </div>
+                <div class="lesson-body">
+
+                    <h3><i class="fas fa-bullseye"></i> ما هي الروابط في HTML؟</h3>
+                    <p>
+                        الروابط (Links) هي العنصر الأساسي الذي يجعل الويب "شبكة" عالمية مترابطة. بدون الروابط، كانت كل صفحة ويب ستكون منعزلة عن الأخرى، ولن يكون هناك تصفح أو انتقال بين الصفحات. الروابط تسمح للمستخدم بالانتقال من صفحة إلى أخرى، ومن موقع إلى آخر، ومن جزء إلى آخر داخل نفس الصفحة، مما يخلق تجربة تصفح سلسة ومترابطة. الروابط هي ما يميز الويب عن أي وسيلة أخرى، وهي التي تجعل المعلومات متاحة ومتصلة بشكل لا نهائي.
+                    </p>
+                    <p>
+                        في HTML، يتم إنشاء الروابط باستخدام وسم <span class="tag">&lt;a&gt;</span> (Anchor). هذا الوسم يأتي مع سمة أساسية وهي <strong>href</strong> (Hypertext Reference) التي تحدد وجهة الرابط. النص أو المحتوى الذي يوضع بين وسمي البداية والنهاية لـ <span class="tag">&lt;a&gt;</span> هو ما سيراه المستخدم وينقر عليه للانتقال إلى الوجهة المحددة. الروابط يمكن أن تكون نصوصاً، صوراً، أو أي عنصر آخر قابل للنقر.
+                    </p>
+
+                    <h3><i class="fas fa-list"></i> أنواع الروابط</h3>
+
+                    <h4>1. روابط خارجية (External Links)</h4>
+                    <p>
+                        الروابط الخارجية هي الروابط التي تنقل المستخدم إلى صفحات على مواقع أخرى خارج موقعك الحالي. يجب أن تبدأ هذه الروابط بـ http:// أو https:// لتحديد البروتوكول المستخدم. هذه الروابط مفيدة للإشارة إلى مصادر خارجية، أو الاستشهاد بمحتوى من مواقع أخرى، أو توجيه المستخدم إلى خدمات خارجية. من المهم استخدام الروابط الخارجية بحكمة، وتأكد من أنها ذات صلة بمحتوى صفحتك.
+                    </p>
+
+                    <h4>2. روابط داخلية (Internal Links)</h4>
+                    <p>
+                        الروابط الداخلية هي الروابط التي تنقل المستخدم إلى صفحات أخرى داخل نفس الموقع. تكتب هذه الروابط عادةً باسم الملف أو المسار النسبي داخل الموقع. هذه الروابط تساعد في تحسين تجربة المستخدم بتوجيهه إلى محتوى ذي صلة داخل الموقع، كما أنها تساعد في تحسين هيكل الموقع ومحركات البحث. الروابط الداخلية هي أساس بناء هيكل موقع متماسك وسهل التصفح.
+                    </p>
+
+                    <h4>3. روابط داخل الصفحة (Anchor Links)</h4>
+                    <p>
+                        الروابط داخل الصفحة هي الروابط التي تنقل المستخدم إلى جزء معين من نفس الصفحة. تستخدم هذه الروابط المعرفات (id) لتحديد الوجهة داخل الصفحة. لإنشاء هذا النوع من الروابط، تحتاج إلى إضافة سمة id إلى العنصر الذي تريد الانتقال إليه، ثم استخدام # متبوعاً بالمعرف في سمة href. هذه الروابط مفيدة جداً في الصفحات الطويلة مثل المقالات أو صفحات الأسئلة الشائعة، حيث تسمح للمستخدم بالانتقال بسرعة إلى أقسام محددة.
+                    </p>
+
+                    <h4>4. روابط البريد الإلكتروني</h4>
+                    <p>
+                        روابط البريد الإلكتروني تفتح تطبيق البريد الإلكتروني الافتراضي للمستخدم لمراسلتك. تستخدم هذه الروابط بروتوكول mailto: متبوعاً بعنوان البريد الإلكتروني. يمكنك أيضاً إضافة موضوع (subject) ونص (body) إلى الرابط. هذه الروابط مفيدة لتوفير طريقة سهلة للمستخدمين للتواصل معك مباشرة من موقعك.
+                    </p>
+
+                    <div class="code-example">
+                        <span class="comment">&lt;!-- روابط خارجية --&gt;</span>
+                        <span class="tag">&lt;a href="https://www.google.com" target="_blank"&gt;</span>زيارة جوجل<span class="tag">&lt;/a&gt;</span>
+
+                        <span class="comment">&lt;!-- روابط داخلية --&gt;</span>
+                        <span class="tag">&lt;a href="about.html"&gt;</span>عن الموقع<span class="tag">&lt;/a&gt;</span>
+                        <span class="tag">&lt;a href="products/index.html"&gt;</span>المنتجات<span class="tag">&lt;/a&gt;</span>
+
+                        <span class="comment">&lt;!-- روابط داخل الصفحة --&gt;</span>
+                        <span class="tag">&lt;a href="#section1"&gt;</span>الانتقال إلى القسم الأول<span class="tag">&lt;/a&gt;</span>
+                        <span class="tag">&lt;h2 id="section1"&gt;</span>القسم الأول<span class="tag">&lt;/h2&gt;</span>
+
+                        <span class="comment">&lt;!-- روابط البريد الإلكتروني --&gt;</span>
+                        <span class="tag">&lt;a href="mailto:info@example.com"&gt;</span>راسلنا<span class="tag">&lt;/a&gt;</span>
+                        <span class="tag">&lt;a href="mailto:info@example.com?subject=استفسار"&gt;</span>راسلنا مع موضوع<span class="tag">&lt;/a&gt;</span>
+                    </div>
+
+                    <div class="highlight-box">
+                        <i class="fas fa-info-circle"></i>
+                        <strong>ملاحظة:</strong> يمكنك جعل الرابط يفتح في نافذة جديدة أو تبويب جديد باستخدام سمة <strong>target="_blank"</strong>. هذا مفيد للروابط الخارجية حتى لا يغادر المستخدم موقعك. لكن استخدم هذه الميزة بحكمة، ولا تفرض فتح جميع الروابط في نوافذ جديدة.
+                    </div>
+
+                    <div class="tip-box">
+                        <i class="fas fa-lightbulb"></i>
+                        <strong>نصيحة:</strong> اجعل النص الذي ينقر عليه المستخدم وصفياً وواضحاً، مثل "اقرأ المزيد" بدلاً من "اضغط هنا". هذا يساعد في تحسين تجربة المستخدم وفي تحسين محركات البحث (SEO). كما يجب أن يكون النص معبراً عن محتوى الرابط ليعرف المستخدم ما الذي سيجده عند النقر.
+                    </div>
+
+                    <h3><i class="fas fa-check-circle"></i> ملخص الدرس</h3>
+                    <ul>
+                        <li>الروابط تربط الصفحات ببعضها وتجعل الويب شبكة مترابطة.</li>
+                        <li>وسم &lt;a&gt; مع سمة href هو المسؤول عن إنشاء الروابط في HTML.</li>
+                        <li>الروابط يمكن أن تكون خارجية (لمواقع أخرى) أو داخلية (لصفحات في نفس الموقع).</li>
+                        <li>الروابط داخل الصفحة تستخدم المعرفات (id) للانتقال إلى أقسام محددة.</li>
+                        <li>روابط البريد الإلكتروني تستخدم mailto: لفتح تطبيق البريد.</li>
+                        <li>استخدم target="_blank" لفتح الرابط في نافذة جديدة، واجعل نصوص الروابط وصفية وواضحة.</li>
+                    </ul>
+
+                    <div class="info-box">
+                        <i class="fas fa-info-circle"></i>
+                        <strong>تذكير:</strong> الروابط هي جوهر تجربة المستخدم على الويب. تأكد من أن جميع الروابط في موقعك تعمل بشكل صحيح وتؤدي إلى المحتوى المطلوب. اختبر روابطك بانتظام للتأكد من أنها لم تصبح مكسورة.
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <!-- ============================================================ -->
+        <!-- الدرس 6: الصور (35+ سطر شرح) -->
+        <!-- ============================================================ -->
+        <div id="lesson-6" class="lesson-page">
+            <div class="content-section">
+                <div class="lesson-header">
+                    <button class="back-btn" onclick="closeLesson()"><i class="fas fa-arrow-right"></i> العودة للدروس</button>
+                    <h2><i class="fas fa-image" style="color: #e67e22;"></i> الدرس السادس: الصور</h2>
+                </div>
+                <div class="lesson-body">
+
+                    <h3><i class="fas fa-bullseye"></i> أهمية الصور في صفحات الويب</h3>
+                    <p>
+                        الصور هي عنصر أساسي في تصميم صفحات الويب الحديثة. الصور تجعل المواقع أكثر جاذبية واحترافية، وتساعد في جذب انتباه المستخدمين وإبقائهم على الصفحة لفترة أطول. الصورة قد تعبر عن آلاف الكلمات، وتساعد في توصيل المعلومات بشكل أسرع وأكثر فعالية من النص وحده. في عالم مليء بالمحتوى الرقمي، الصور الجيدة يمكن أن تكون الفرق بين موقع يلفت الانتباه وموقع يتم تجاهله.
+                    </p>
+                    <p>
+                        في HTML، نستخدم وسم <span class="tag">&lt;img&gt;</span> (Image) لإدراج الصور في الصفحة. هذا الوسم هو وسم فردي (Self-closing)، أي أنه لا يحتوي على وسم نهاية. يأتي مع مجموعة من السمات التي تحدد مصدر الصورة وحجمها ونصها البديل. فهم كيفية استخدام الصور بشكل صحيح هو مهارة أساسية لأي مطور ويب، حيث أن الصور تؤثر بشكل كبير على أداء الموقع وتجربة المستخدم.
+                    </p>
+
+                    <h3><i class="fas fa-list"></i> سمات الصورة المهمة</h3>
+
+                    <h4>1. سمة src (المصدر)</h4>
+                    <p>
+                        سمة src (Source) هي السمة الأساسية والأهم في وسم الصورة. تحدد هذه السمة مسار ملف الصورة الذي تريد عرضه. يمكن أن يكون المسار مطلقاً (يبدأ بـ http:// أو https://) لصور من مواقع خارجية، أو نسبياً (يبدأ من مجلد الموقع) لصور موجودة على الخادم الخاص بك. استخدام المسارات النسبية هو الأفضل عادةً لأنه يجعل الموقع أكثر قابلية للنقل وأقل اعتماداً على الروابط الخارجية.
+                    </p>
+
+                    <h4>2. سمة alt (النص البديل)</h4>
+                    <p>
+                        سمة alt (Alternative Text) توفر نصاً وصفياً للصورة. هذه السمة مهمة جداً لعدة أسباب: أولاً، يظهر النص البديل عندما لا تتحمّل الصورة بسبب مشكلة في الشبكة أو مسار خاطئ. ثانياً، يستخدم النص البديل في تحسين محركات البحث (SEO) حيث تساعد محركات البحث في فهم محتوى الصورة. ثالثاً، النص البديل يساعد المكفوفين الذين يستخدمون برامج قراءة الشاشة في فهم محتوى الصورة.
+                    </p>
+                    <p>
+                        من المهم أن يكون النص البديل وصفياً ودقيقاً، يعبر عن محتوى الصورة بشكل واضح. على سبيل المثال، بدلاً من كتابة alt="صورة"، اكتب alt="شعار الشركة الذي يظهر على خلفية زرقاء". هذا يساعد في تحسين إمكانية الوصول ويجعل موقعك أكثر شمولية للجميع.
+                    </p>
+
+                    <h4>3. سمة width و height (العرض والارتفاع)</h4>
+                    <p>
+                        تستخدم سمات width و height لتحديد حجم الصورة بالبكسل. تحديد حجم الصورة يساعد في تسريع تحميل الصفحة، لأن المتصفح يعرف المساحة التي ستشغلها الصورة قبل تحميلها، مما يمنع إعادة ترتيب الصفحة أثناء التحميل. من الممارسات الجيدة تحديد حجم الصورة، لكن من الأفضل استخدام CSS للتحكم في حجم الصور بدلاً من استخدام هذه السمات، لأن CSS توفر مرونة أكبر في التصميم المتجاوب.
+                    </p>
+
+                    <div class="code-example">
+                        <span class="comment">&lt;!-- صورة مع جميع السمات الأساسية --&gt;</span>
+                        <span class="tag">&lt;img src="images/logo.jpg" alt="شعار الموقع" width="200" height="100"&gt;</span>
+
+                        <span class="comment">&lt;!-- صورة من رابط خارجي --&gt;</span>
+                        <span class="tag">&lt;img src="https://example.com/image.jpg" alt="وصف الصورة"&gt;</span>
+
+                        <span class="comment">&lt;!-- صورة متجاوبة (بدون تحديد حجم ثابت) --&gt;</span>
+                        <span class="tag">&lt;img src="images/banner.jpg" alt="لافتة الموقع" style="max-width:100%;height:auto;"&gt;</span>
+                    </div>
+
+                    <div class="highlight-box">
+                        <i class="fas fa-info-circle"></i>
+                        <strong>ملاحظة:</strong> من الأفضل استخدام CSS لتحديد حجم الصور بدلاً من استخدام سمات width و height في HTML. هذا يسمح بجعل الصور متجاوبة مع جميع أحجام الشاشات. يمكنك استخدام max-width: 100% و height: auto لجعل الصور تتكيف مع حجم الحاوية التي تحتويها.
+                    </div>
+
+                    <div class="tip-box">
+                        <i class="fas fa-lightbulb"></i>
+                        <strong>نصيحة:</strong> استخدم صوراً محسّنة (مضغوطة) لتسريع تحميل الموقع. الصور الكبيرة غير المضغوطة تبطئ تحميل الصفحة وتؤثر سلباً على تجربة المستخدم وترتيب الموقع في محركات البحث. استخدم أدوات ضغط الصور مثل TinyPNG أو ImageOptim لتقليل حجم الصور دون فقدان الجودة.
+                    </div>
+
+                    <h3><i class="fas fa-check-circle"></i> ملخص الدرس</h3>
+                    <ul>
+                        <li>وسم &lt;img&gt; يُستخدم لإدراج الصور في صفحة HTML، وهو وسم فردي (بدون وسم نهاية).</li>
+                        <li>سمة src تحدد مسار ملف الصورة، ويمكن أن تكون مساراً مطلقاً أو نسبياً.</li>
+                        <li>سمة alt توفر نصاً بديلاً للصورة في حالة عدم تحميلها، وتحسن إمكانية الوصول وتحسين محركات البحث.</li>
+                        <li>استخدم width و height للتحكم في حجم الصورة، لكن يفضل استخدام CSS للتحكم بالحجم.</li>
+                        <li>حرص على تحسين حجم الصور لتسريع تحميل الموقع وتحسين تجربة المستخدم.</li>
+                        <li>استخدم النص البديل (alt) بشكل وصفي ودقيق لتحسين إمكانية الوصول ومحركات البحث.</li>
+                    </ul>
+
+                    <div class="info-box">
+                        <i class="fas fa-info-circle"></i>
+                        <strong>تذكير:</strong> الصور الجيدة تعزز جمال الموقع وتجذب الزوار، لكن الصور الكبيرة تبطئ التحميل. وازن بين جودة الصور وسرعة التحميل لتحصل على أفضل تجربة للمستخدم.
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <!-- ============================================================ -->
+        <!-- الدرس 7: الجداول (35+ سطر شرح) -->
+        <!-- ============================================================ -->
+        <div id="lesson-7" class="lesson-page">
+            <div class="content-section">
+                <div class="lesson-header">
+                    <button class="back-btn" onclick="closeLesson()"><i class="fas fa-arrow-right"></i> العودة للدروس</button>
+                    <h2><i class="fas fa-table" style="color: #e67e22;"></i> الدرس السابع: الجداول</h2>
+                </div>
+                <div class="lesson-body">
+
+                    <h3><i class="fas fa-bullseye"></i> ما هي الجداول في HTML؟</h3>
+                    <p>
+                        الجداول هي وسيلة قوية وفعالة لتنظيم وعرض البيانات في صفوف وأعمدة. تستخدم الجداول لعرض المعلومات المنظمة مثل جداول الأسعار، التقويمات، جداول البيانات، نتائج المباريات، البيانات الإحصائية، وأي نوع من البيانات التي تحتاج إلى عرض بتنسيق جدولي. HTML توفر مجموعة متكاملة من الوسوم لإنشاء جداول احترافية ومنظمة، مما يسهل عرض البيانات المعقدة بطريقة واضحة ومفهومة.
+                    </p>
+                    <p>
+                        من المهم أن نفهم أن الجداول في HTML كانت تستخدم في الماضي لتنسيق الصفحات بأكملها، لكن هذه الممارسة أصبحت قديمة وغير مستحسنة. في الوقت الحالي، يجب استخدام الجداول فقط لعرض البيانات الجدولية، واستخدام CSS لتنسيق الصفحات وترتيب العناصر. هذا الفصل بين المحتوى والتنسيق هو أحد مبادئ تصميم الويب الحديث.
+                    </p>
+
+                    <h3><i class="fas fa-list"></i> مكونات الجدول الأساسية</h3>
+
+                    <h4>1. وسم &lt;table&gt;</h4>
+                    <p>
+                        وسم <span class="tag">&lt;table&gt;</span> هو الحاوية الرئيسية التي تحتوي على كل عناصر الجدول. كل ما تريد عرضه في الجدول يجب أن يوضع داخل هذا الوسم. يمكن إضافة سمات مثل border لعرض حدود الجدول، لكن في الممارسة الحديثة، من الأفضل استخدام CSS لتنسيق حدود الجدول.
+                    </p>
+
+                    <h4>2. وسم &lt;tr&gt; (صف الجدول)</h4>
+                    <p>
+                        وسم <span class="tag">&lt;tr&gt;</span> (Table Row) يحدد صفاً واحداً في الجدول. كل صف يحتوي على مجموعة من الخلايا (أعمدة). عدد الخلايا في كل صف يحدد عدد الأعمدة في الجدول. يجب أن تكون جميع الصفوف في الجدول متسقة في عدد الخلايا، وإلا قد يظهر الجدول بشكل غير منتظم.
+                    </p>
+
+                    <h4>3. وسم &lt;td&gt; (خلية الجدول)</h4>
+                    <p>
+                        وسم <span class="tag">&lt;td&gt;</span> (Table Data) يحدد خلية بيانات عادية في الجدول. هذه الخلايا تحتوي على البيانات الفعلية التي تريد عرضها. يمكن أن تحتوي خلايا td على أي نوع من المحتوى: نصوص، صور، روابط، أو حتى جداول أخرى (جداول متداخلة).
+                    </p>
+
+                    <h4>4. وسم &lt;th&gt; (خلية الرأس)</h4>
+                    <p>
+                        وسم <span class="tag">&lt;th&gt;</span> (Table Header) يحدد خلية رأس في الجدول. تظهر هذه الخلايا عادةً بخط عريض ومنتصفة، وتستخدم لعناوين الأعمدة أو الصفوف. استخدام th يساعد في تحسين إمكانية الوصول للجدول، حيث تعرف برامج قراءة الشاشة أن هذه الخلايا هي عناوين وليست بيانات عادية.
+                    </p>
+
+                    <div class="code-example">
+                        <span class="comment">&lt;!-- جدول بسيط لعرض معلومات الطلاب --&gt;</span>
+                        <span class="tag">&lt;table&gt;</span>
+                            <span class="tag">&lt;tr&gt;</span>
+                                <span class="tag">&lt;th&gt;</span>الاسم<span class="tag">&lt;/th&gt;</span>
+                                <span class="tag">&lt;th&gt;</span>العمر<span class="tag">&lt;/th&gt;</span>
+                                <span class="tag">&lt;th&gt;</span>المدينة<span class="tag">&lt;/th&gt;</span>
+                            <span class="tag">&lt;/tr&gt;</span>
+                            <span class="tag">&lt;tr&gt;</span>
+                                <span class="tag">&lt;td&gt;</span>أحمد محمد<span class="tag">&lt;/td&gt;</span>
+                                <span class="tag">&lt;td&gt;</span>25<span class="tag">&lt;/td&gt;</span>
+                                <span class="tag">&lt;td&gt;</span>دمشق<span class="tag">&lt;/td&gt;</span>
+                            <span class="tag">&lt;/tr&gt;</span>
+                            <span class="tag">&lt;tr&gt;</span>
+                                <span class="tag">&lt;td&gt;</span>سارة علي<span class="tag">&lt;/td&gt;</span>
+                                <span class="tag">&lt;td&gt;</span>22<span class="tag">&lt;/td&gt;</span>
+                                <span class="tag">&lt;td&gt;</span>حلب<span class="tag">&lt;/td&gt;</span>
+                            <span class="tag">&lt;/tr&gt;</span>
+                            <span class="tag">&lt;tr&gt;</span>
+                                <span class="tag">&lt;td&gt;</span>خالد عمر<span class="tag">&lt;/td&gt;</span>
+                                <span class="tag">&lt;td&gt;</span>28<span class="tag">&lt;/td&gt;</span>
+                                <span class="tag">&lt;td&gt;</span>اللاذقية<span class="tag">&lt;/td&gt;</span>
+                            <span class="tag">&lt;/tr&gt;</span>
+                        <span class="tag">&lt;/table&gt;</span>
+                    </div>
+
+                    <div class="highlight-box">
+                        <i class="fas fa-info-circle"></i>
+                        <strong>ملاحظة:</strong> في HTML5، من الأفضل استخدام CSS لتنسيق الجداول بدلاً من سمات مثل border و cellpadding و cellspacing. هذا يسمح بفصل المحتوى عن التنسيق ويجعل الكود أنظف وأسهل في الصيانة.
+                    </div>
+
+                    <div class="tip-box">
+                        <i class="fas fa-lightbulb"></i>
+                        <strong>نصيحة:</strong> استخدم الجداول لعرض البيانات الجدولية فقط. لا تستخدمها لتنسيق الصفحة أو ترتيب العناصر (استخدم CSS بدلاً من ذلك). هذا يحسن من أداء الموقع ويسهل صيانته ويجعله متوافقاً مع معايير الويب الحديثة.
+                    </div>
+
+                    <h3><i class="fas fa-check-circle"></i> ملخص الدرس</h3>
+                    <ul>
+                        <li>الجداول تنظم البيانات في صفوف وأعمدة، وتستخدم لعرض المعلومات المنظمة.</li>
+                        <li>وسوم الجدول الأساسية: table (الحاوية)، tr (الصف)، td (الخلية)، th (خلية الرأس).</li>
+                        <li>استخدم th لعناوين الأعمدة أو الصفوف (تظهر بخط عريض ومنتصفة).</li>
+                        <li>يجب استخدام الجداول فقط لعرض البيانات الجدولية، وليس لتنسيق الصفحة.</li>
+                        <li>في الممارسة الحديثة، استخدم CSS لتنسيق الجداول بدلاً من سمات HTML القديمة.</li>
+                        <li>الجداول المتداخلة (جدول داخل جدول) ممكنة ولكن يجب استخدامها بحذر.</li>
+                    </ul>
+
+                    <div class="info-box">
+                        <i class="fas fa-info-circle"></i>
+                        <strong>تذكير:</strong> الجداول هي أداة قوية لعرض البيانات، لكن استخدامها بشكل غير صحيح يمكن أن يؤثر سلباً على أداء الموقع وتجربة المستخدم. استخدمها فقط عندما تكون البيانات بحاجة إلى عرض جدولي.
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <!-- ============================================================ -->
+        <!-- الدرس 8: النماذج (35+ سطر شرح) -->
+        <!-- ============================================================ -->
+        <div id="lesson-8" class="lesson-page">
+            <div class="content-section">
+                <div class="lesson-header">
+                    <button class="back-btn" onclick="closeLesson()"><i class="fas fa-arrow-right"></i> العودة للدروس</button>
+                    <h2><i class="fas fa-forms" style="color: #e67e22;"></i> الدرس الثامن: النماذج</h2>
+                </div>
+                <div class="lesson-body">
+
+                    <h3><i class="fas fa-bullseye"></i> ما هي النماذج في HTML؟</h3>
+                    <p>
+                        النماذج (Forms) هي الوسيلة الأساسية والأكثر شيوعاً لجمع البيانات من المستخدمين على الويب. تستخدم النماذج في إنشاء صفحات تسجيل الدخول، نماذج الاتصال، استطلاعات الرأي، نماذج البحث، نماذج التسجيل في الدورات، شراء المنتجات، وأي تطبيق آخر يحتاج إلى تفاعل مع المستخدم. النماذج هي البوابة التي يتفاعل من خلالها المستخدم مع الموقع، وتعتبر جزءاً أساسياً من أي موقع ويب تفاعلي.
+                    </p>
+                    <p>
+                        النماذج في HTML تتكون من مجموعة من العناصر التي تسمح للمستخدم بإدخال البيانات، مثل حقول النصوص، الأزرار، القوائم المنسدلة، مربعات الاختيار، وأزرار الاختيار. عند إرسال النموذج، يتم تجميع البيانات وإرسالها إلى الخادم للمعالجة، أو معالجتها باستخدام JavaScript على جانب العميل. فهم كيفية إنشاء النماذج وإدارتها هو مهارة أساسية لأي مطور ويب.
+                    </p>
+
+                    <h3><i class="fas fa-list"></i> هيكل النموذج الأساسي</h3>
+                    <p>
+                        النموذج يُنشأ باستخدام وسم <span class="tag">&lt;form&gt;</span> الذي يحتوي بداخله على عناصر الإدخال المختلفة. يمكن إضافة سمات مهمة إلى وسم form مثل action لتحديد عنوان الخادم الذي سترسل إليه البيانات، و method لتحديد طريقة الإرسال (GET أو POST). داخل النموذج، يتم استخدام مجموعة متنوعة من العناصر مثل input و textarea و select لجمع البيانات من المستخدم.
+                    </p>
+                    <p>
+                        من المهم استخدام وسم <span class="tag">&lt;label&gt;</span> مع كل عنصر إدخال لتوضيح الغرض من الحقل. هذا يحسن من إمكانية الوصول (Accessibility) للمستخدمين الذين يستخدمون برامج قراءة الشاشة، كما أنه يحسن تجربة المستخدم بشكل عام. عند النقر على النص الموجود داخل label، يتم تلقائياً التركيز على الحقل المرتبط به.
+                    </p>
+
+                    <div class="code-example">
+                        <span class="comment">&lt;!-- نموذج بسيط لجمع البيانات --&gt;</span>
+                        <span class="tag">&lt;form action="/submit" method="POST"&gt;</span>
+                            <span class="tag">&lt;label for="name"&gt;</span>الاسم الكامل:<span class="tag">&lt;/label&gt;</span>
+                            <span class="tag">&lt;input type="text" id="name" name="name" required&gt;</span>
+
+                            <span class="tag">&lt;label for="email"&gt;</span>البريد الإلكتروني:<span class="tag">&lt;/label&gt;</span>
+                            <span class="tag">&lt;input type="email" id="email" name="email" required&gt;</span>
+
+                            <span class="tag">&lt;label for="message"&gt;</span>الرسالة:<span class="tag">&lt;/label&gt;</span>
+                            <span class="tag">&lt;textarea id="message" name="message" rows="4"&gt;</span><span class="tag">&lt;/textarea&gt;</span>
+
+                            <span class="tag">&lt;input type="submit" value="إرسال"&gt;</span>
+                        <span class="tag">&lt;/form&gt;</span>
+                    </div>
+
+                    <h3><i class="fas fa-list"></i> أنواع عناصر الإدخال الشائعة</h3>
+
+                    <h4>1. input type="text"</h4>
+                    <p>
+                        حقل نصي عادي لإدخال النصوص القصيرة مثل الاسم أو العنوان. هذا هو النوع الأكثر استخداماً في النماذج.
+                    </p>
+
+                    <h4>2. input type="email"</h4>
+                    <p>
+                        حقل مخصص للبريد الإلكتروني، يتحقق من صحة الصيغة التي يدخلها المستخدم. إذا أدخل المستخدم صيغة غير صحيحة، سيظهر له تحذير.
+                    </p>
+
+                    <h4>3. input type="password"</h4>
+                    <p>
+                        حقل لكلمة المرور، يخفي الأحرف أثناء الكتابة لحماية الخصوصية. يستخدم في نماذج تسجيل الدخول والتسجيل.
+                    </p>
+
+                    <h4>4. input type="number"</h4>
+                    <p>
+                        حقل مخصص لإدخال الأرقام فقط، مع إمكانية تحديد الحد الأدنى والحد الأقصى باستخدام سمات min و max.
+                    </p>
+
+                    <h4>5. textarea</h4>
+                    <p>
+                        منطقة نصية متعددة الأسطر لإدخال النصوص الطويلة مثل الرسائل أو التعليقات. يمكن التحكم في عدد الصفوف والأعمدة باستخدام سمات rows و cols.
+                    </p>
+
+                    <h4>6. select / option</h4>
+                    <p>
+                        قائمة منسدلة (Dropdown) لاختيار خيار من بين عدة خيارات. تستخدم عندما يكون هناك العديد من الخيارات وتريد توفير مساحة في الصفحة.
+                    </p>
+
+                    <div class="highlight-box">
+                        <i class="fas fa-info-circle"></i>
+                        <strong>ملاحظة:</strong> سمة <strong>name</strong> مهمة جداً في عناصر الإدخال لأنها تحدد اسم الحقل عند إرسال البيانات إلى الخادم. بدون هذه السمة، لن يتم إرسال البيانات الخاصة بهذا الحقل.
+                    </div>
+
+                    <div class="tip-box">
+                        <i class="fas fa-lightbulb"></i>
+                        <strong>نصيحة:</strong> استخدم وسم <span class="tag">&lt;label&gt;</span> مع كل حقل إدخال، واربطه بالحقل باستخدام سمة for التي تشير إلى id الحقل. هذا يحسن إمكانية الوصول وتجربة المستخدم، ويجعل النموذج أكثر احترافية.
+                    </div>
+
+                    <h3><i class="fas fa-check-circle"></i> ملخص الدرس</h3>
+                    <ul>
+                        <li>النماذج تستخدم لجمع البيانات من المستخدمين في تطبيقات الويب.</li>
+                        <li>وسم &lt;form&gt; هو الحاوية الرئيسية للنموذج، مع سمات action و method.</li>
+                        <li>input هي العنصر الأكثر استخداماً مع أنواع مختلفة (text، email، password، number، ...).</li>
+                        <li>textarea يستخدم للنصوص الطويلة، و select للقوائم المنسدلة مع خيارات متعددة.</li>
+                        <li>استخدم label لتوضيح الغرض من كل حقل وتحسين إمكانية الوصول.</li>
+                        <li>سمة name ضرورية لكل عنصر إدخال لتحديد الحقل عند إرسال البيانات.</li>
+                    </ul>
+
+                    <div class="info-box">
+                        <i class="fas fa-info-circle"></i>
+                        <strong>تذكير:</strong> النماذج هي بوابة التفاعل مع المستخدم. تأكد من أن نماذجك سهلة الاستخدام، واضحة، ومريحة للمستخدم. اختبر النماذج بشكل جيد للتأكد من أنها تعمل كما هو متوقع.
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <!-- ============================================================ -->
+        <!-- الدرس 9: الوسوم الدلالية (35+ سطر شرح) -->
+        <!-- ============================================================ -->
+        <div id="lesson-9" class="lesson-page">
+            <div class="content-section">
+                <div class="lesson-header">
+                    <button class="back-btn" onclick="closeLesson()"><i class="fas fa-arrow-right"></i> العودة للدروس</button>
+                    <h2><i class="fas fa-tags" style="color: #e67e22;"></i> الدرس التاسع: الوسوم الدلالية</h2>
+                </div>
+                <div class="lesson-body">
+
+                    <h3><i class="fas fa-bullseye"></i> ما هي الوسوم الدلالية (Semantic Tags)؟</h3>
+                    <p>
+                        الوسوم الدلالية هي وسوم HTML التي تحمل معنى محدداً وتوضح الغرض من المحتوى الذي تحتويه. بدلاً من استخدام وسوم عامة مثل <span class="tag">&lt;div&gt;</span> لكل شيء، توفر الوسوم الدلالية هيكلاً واضحاً ومفهوماً للصفحة، سواء للمطورين أو لمحركات البحث. هذه الوسوم تساعد في وصف أجزاء الصفحة بشكل دلالي، مما يجعل الكود أكثر قابلية للقراءة والفهم.
+                    </p>
+                    <p>
+                        قبل ظهور HTML5، كان المطورون يستخدمون div مع سمات class أو id لتحديد أجزاء الصفحة، مثل <span class="tag">&lt;div class="header"&gt;</span>. هذا الأسلوب يعمل لكنه لا يحمل أي معنى دلالي للمتصفح أو لمحركات البحث. مع HTML5، تم تقديم مجموعة من الوسوم الدلالية التي تحمل معاني محددة، مما يسهل على محركات البحث فهم بنية الصفحة ومحتواها، ويحسن من ظهور الموقع في نتائج البحث.
+                    </p>
+
+                    <h3><i class="fas fa-list"></i> أهم الوسوم الدلالية في HTML5</h3>
+
+                    <h4>1. &lt;header&gt;</h4>
+                    <p>
+                        يمثل رأس الصفحة أو القسم. يحتوي عادةً على الشعار، شريط التنقل، وعنوان الصفحة أو القسم. يمكن استخدام header داخل body أو داخل أي قسم آخر مثل article أو section.
+                    </p>
+
+                    <h4>2. &lt;nav&gt;</h4>
+                    <p>
+                        يمثل مجموعة روابط التنقل في الموقع. يحتوي على الروابط الرئيسية التي تساعد المستخدم في التنقل بين صفحات الموقع.
+                    </p>
+
+                    <h4>3. &lt;main&gt;</h4>
+                    <p>
+                        يمثل المحتوى الرئيسي للصفحة. يجب أن يكون فريداً لكل صفحة، ولا يتكرر في الصفحة أكثر من مرة. يحتوي على المحتوى الأساسي الذي يهم المستخدم.
+                    </p>
+
+                    <h4>4. &lt;section&gt;</h4>
+                    <p>
+                        يمثل مجموعة من المحتوى ذات صلة بموضوع معين. يمكن استخدام section لتقسيم الصفحة إلى أقسام منطقية، مثل قسم المنتجات، قسم الخدمات، قسم الأخبار.
+                    </p>
+
+                    <h4>5. &lt;article&gt;</h4>
+                    <p>
+                        يمثل محتوى مستقل يمكن توزيعه بشكل منفصل، مثل مقال، خبر، مشاركة في مدونة، أو تعليق. يجب أن يكون المحتوى داخل article مفهوماً حتى لو تم فصله عن بقية الصفحة.
+                    </p>
+
+                    <h4>6. &lt;aside&gt;</h4>
+                    <p>
+                        يمثل محتوى جانبي متعلق بالمحتوى الرئيسي، مثل أشرطة جانبية، إعلانات، أو معلومات إضافية. المحتوى في aside ليس ضرورياً لفهم المحتوى الرئيسي.
+                    </p>
+
+                    <h4>7. &lt;footer&gt;</h4>
+                    <p>
+                        يمثل تذييل الصفحة أو القسم. يحتوي على معلومات مثل حقوق النشر، روابط الاتصال، سياسة الخصوصية، وروابط إضافية.
+                    </p>
+
+                    <div class="code-example">
+                        <span class="comment">&lt;!-- هيكل صفحة باستخدام الوسوم الدلالية --&gt;</span>
+                        <span class="tag">&lt;body&gt;</span>
+                            <span class="tag">&lt;header&gt;</span>
+                                <span class="tag">&lt;h1&gt;</span>موقع بهاء الدين التعليمي<span class="tag">&lt;/h1&gt;</span>
+                                <span class="tag">&lt;nav&gt;</span>
+                                    <span class="tag">&lt;a href="#"&gt;</span>الرئيسية<span class="tag">&lt;/a&gt;</span>
+                                    <span class="tag">&lt;a href="#"&gt;</span>الدورات<span class="tag">&lt;/a&gt;</span>
+                                    <span class="tag">&lt;a href="#"&gt;</span>عن الموقع<span class="tag">&lt;/a&gt;</span>
+                                <span class="tag">&lt;/nav&gt;</span>
+                            <span class="tag">&lt;/header&gt;</span>
+
+                            <span class="tag">&lt;main&gt;</span>
+                                <span class="tag">&lt;section&gt;</span>
+                                    <span class="tag">&lt;h2&gt;</span>أساسيات البرمجة<span class="tag">&lt;/h2&gt;</span>
+                                    <span class="tag">&lt;p&gt;</span>تعلم أساسيات البرمجة خطوة بخطوة.<span class="tag">&lt;/p&gt;</span>
+                                <span class="tag">&lt;/section&gt;</span>
+
+                                <span class="tag">&lt;article&gt;</span>
+                                    <span class="tag">&lt;h3&gt;</span>ما هي HTML؟<span class="tag">&lt;/h3&gt;</span>
+                                    <span class="tag">&lt;p&gt;</span>HTML هي لغة ترميز تستخدم لإنشاء صفحات الويب.<span class="tag">&lt;/p&gt;</span>
+                                <span class="tag">&lt;/article&gt;</span>
+
+                                <span class="tag">&lt;aside&gt;</span>
+                                    <span class="tag">&lt;h4&gt;</span>إعلان<span class="tag">&lt;/h4&gt;</span>
+                                    <span class="tag">&lt;p&gt;</span>اشترك في النشرة البريدية.<span class="tag">&lt;/p&gt;</span>
+                                <span class="tag">&lt;/aside&gt;</span>
+                            <span class="tag">&lt;/main&gt;</span>
+
+                            <span class="tag">&lt;footer&gt;</span>
+                                <span class="tag">&lt;p&gt;</span>جميع الحقوق محفوظة © 2026<span class="tag">&lt;/p&gt;</span>
+                            <span class="tag">&lt;/footer&gt;</span>
+                        <span class="tag">&lt;/body&gt;</span>
+                    </div>
+
+                    <div class="highlight-box">
+                        <i class="fas fa-info-circle"></i>
+                        <strong>ملاحظة:</strong> استخدام الوسوم الدلالية يحسن بنية الصفحة ويساعد محركات البحث في فهم المحتوى بشكل أفضل، مما يحسن من ترتيب الصفحة في نتائج البحث. كما أنها تحسن إمكانية الوصول للمكفوفين الذين يستخدمون برامج قراءة الشاشة.
+                    </div>
+
+                    <div class="tip-box">
+                        <i class="fas fa-lightbulb"></i>
+                        <strong>نصيحة:</strong> استخدم الوسوم الدلالية كلما أمكن بدلاً من <span class="tag">&lt;div&gt;</span>. هذا يجعل الكود أكثر وضوحاً، وأسهل في الصيانة، وأكثر توافقاً مع معايير الويب الحديثة.
+                    </div>
+
+                    <h3><i class="fas fa-check-circle"></i> ملخص الدرس</h3>
+                    <ul>
+                        <li>الوسوم الدلالية تحمل معنى محدداً وتوضح الغرض من المحتوى.</li>
+                        <li>أهم الوسوم الدلالية: header، nav، main، section، article، aside، footer.</li>
+                        <li>الوسوم الدلالية تحسن بنية الصفحة وتساعد محركات البحث في فهم المحتوى.</li>
+                        <li>استخدم الوسوم الدلالية بدلاً من div لتنظيم المحتوى وتحسين جودة الكود.</li>
+                        <li>الوسوم الدلالية تحسن إمكانية الوصول وتجعل الموقع أكثر شمولية.</li>
+                        <li>HTML5 قدمت هذه الوسوم لتحسين دلالة الكود وبنية الصفحات.</li>
+                    </ul>
+
+                    <div class="info-box">
+                        <i class="fas fa-info-circle"></i>
+                        <strong>تذكير:</strong> استخدام الوسوم الدلالية هو ممارسة حديثة ومهمة في تطوير الويب. اجعلها عادة لك في كتابة الكود، وستلاحظ الفرق في جودة ووضوح مشاريعك.
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <!-- ============================================================ -->
+        <!-- الدرس 10: التقسيمات والتجميع (35+ سطر شرح) -->
+        <!-- ============================================================ -->
+        <div id="lesson-10" class="lesson-page">
+            <div class="content-section">
+                <div class="lesson-header">
+                    <button class="back-btn" onclick="closeLesson()"><i class="fas fa-arrow-right"></i> العودة للدروس</button>
+                    <h2><i class="fas fa-layer-group" style="color: #e67e22;"></i> الدرس العاشر: التقسيمات والتجميع</h2>
+                </div>
+                <div class="lesson-body">
+
+                    <h3><i class="fas fa-bullseye"></i> ما هي التقسيمات والتجميع في HTML؟</h3>
+                    <p>
+                        التقسيمات والتجميع هي وسائل لتنظيم أجزاء الصفحة وتجميع العناصر ذات الصلة معاً. هذا يساعد في تنظيم الكود وتسهيل تطبيق التنسيقات باستخدام CSS. هناك وسمان رئيسيان لهذا الغرض: <span class="tag">&lt;div&gt;</span> و <span class="tag">&lt;span&gt;</span>. على الرغم من أن الوسوم الدلالية هي الأفضل في معظم الحالات، إلا أن div و span لا يزالان مهمين، خاصة عندما لا يوجد وسم دلالي مناسب للمحتوى الذي تريد تجميعه.
+                    </p>
+                    <p>
+                        الفرق الأساسي بين div و span هو أن div هو وسم حظر (Block-level)، بينما span هو وسم سطري (Inline-level). هذا يعني أن div يأخذ عرض الصفحة بالكامل ويضيف سطراً جديداً قبله وبعده، بينما span يأخذ فقط عرض المحتوى الذي يحتويه ولا يضيف سطوراً جديدة. هذا الفرق يحدد كيفية ظهور العناصر في الصفحة وكيفية تدفقها مع العناصر الأخرى.
+                    </p>
+
+                    <h3><i class="fas fa-code"></i> وسم &lt;div&gt;</h3>
+                    <p>
+                        وسم <span class="tag">&lt;div&gt;</span> هو وسم حظر (Block-level) يستخدم لتجميع مجموعة من العناصر في كتلة واحدة. يستخدم عادةً لإنشاء أقسام رئيسية في الصفحة مثل الرأس، القائمة، والمحتوى. div هو الوسم الأكثر استخداماً لتنظيم الصفحات، خاصة بالاشتراك مع CSS و JavaScript. يمكن اعتبار div كحاوية عامة لتجميع العناصر ذات الصلة.
+                    </p>
+                    <p>
+                        عند استخدام div، من الممارسات الجيدة إضافة سمات class أو id لتحديد الغرض من كل div. هذا يساعد في تنظيم الكود وتسهيل تطبيق التنسيقات باستخدام CSS. على سبيل المثال، <span class="tag">&lt;div class="container"&gt;</span> لتجميع المحتوى في حاوية مركزية، أو <span class="tag">&lt;div id="header"&gt;</span> لتحديد منطقة الرأس.
+                    </p>
+
+                    <h3><i class="fas fa-code"></i> وسم &lt;span&gt;</h3>
+                    <p>
+                        وسم <span class="tag">&lt;span&gt;</span> هو وسم سطري (Inline) يستخدم لتجميع أجزاء صغيرة من النص أو العناصر داخل سطر واحد. يستخدم عادةً لتطبيق تنسيقات محددة على جزء من النص دون التأثير على بقية النص. span لا يضيف أي تنسيق افتراضي، بل يوفر طريقة لاستهداف أجزاء محددة من النص باستخدام CSS أو JavaScript.
+                    </p>
+                    <p>
+                        من الاستخدامات الشائعة لـ span هو تمييز كلمات معينة في النص بلون مختلف، أو تغيير حجم الخط لجزء من الجملة. على سبيل المثال، <span class="tag">&lt;span class="highlight"&gt;</span> لتحديد نص مهم، أو <span class="tag">&lt;span style="color: red;"&gt;</span> لجعل النص أحمر. span مفيد جداً للتحكم الدقيق في تنسيق النص.
+                    </p>
+
+                    <div class="code-example">
+                        <span class="comment">&lt;!-- استخدام div لتجميع كتل كبيرة --&gt;</span>
+                        <span class="tag">&lt;div class="container"&gt;</span>
+                            <span class="tag">&lt;div class="header"&gt;</span>
+                                <span class="tag">&lt;h1&gt;</span>عنوان الموقع<span class="tag">&lt;/h1&gt;</span>
+                                <span class="tag">&lt;p&gt;</span>وصف الموقع<span class="tag">&lt;/p&gt;</span>
+                            <span class="tag">&lt;/div&gt;</span>
+
+                            <span class="tag">&lt;div class="content"&gt;</span>
+                                <span class="tag">&lt;p&gt;</span>هذا هو المحتوى الرئيسي للصفحة.<span class="tag">&lt;/p&gt;</span>
+                            <span class="tag">&lt;/div&gt;</span>
+                        <span class="tag">&lt;/div&gt;</span>
+
+                        <span class="comment">&lt;!-- استخدام span لتجميع أجزاء صغيرة من النص --&gt;</span>
+                        <span class="tag">&lt;p&gt;</span>هذا نص يحتوي على <span class="tag">&lt;span class="highlight"&gt;</span>جزء مميز<span class="tag">&lt;/span&gt;</span> داخل الفقرة.<span class="tag">&lt;/p&gt;</span>
+                        <span class="tag">&lt;p&gt;</span>سعر المنتج: <span class="tag">&lt;span style="color: red; font-weight: bold;"&gt;</span>100$<span class="tag">&lt;/span&gt;</span><span class="tag">&lt;/p&gt;</span>
+                    </div>
+
+                    <div class="highlight-box">
+                        <i class="fas fa-info-circle"></i>
+                        <strong>ملاحظة:</strong> استخدام div و span مع سمات class أو id يسهل تطبيق التنسيقات باستخدام CSS ومعالجتها باستخدام JavaScript. هذه الممارسة هي أساس بناء صفحات ويب ديناميكية وقابلة للصيانة.
+                    </div>
+
+                    <div class="tip-box">
+                        <i class="fas fa-lightbulb"></i>
+                        <strong>نصيحة:</strong> استخدم div لتجميع كتل كبيرة من المحتوى، و span لتجميع أجزاء صغيرة من النص داخل السطر. كلما أمكن، استخدم الوسوم الدلالية بدلاً من div لتحسين بنية الصفحة.
+                    </div>
+
+                    <h3><i class="fas fa-check-circle"></i> ملخص الدرس</h3>
+                    <ul>
+                        <li>div و span يستخدمان لتجميع وتنظيم العناصر في الصفحة.</li>
+                        <li>div هو وسم حظر (Block) يستخدم لتجميع كتل كبيرة من المحتوى.</li>
+                        <li>span هو وسم سطري (Inline) يستخدم لتجميع أجزاء صغيرة من النص.</li>
+                        <li>استخدم class و id مع div و span لتسهيل التنسيق والمعالجة باستخدام CSS وJavaScript.</li>
+                        <li>كلما أمكن، استخدم الوسوم الدلالية بدلاً من div لتحسين بنية الصفحة.</li>
+                        <li>div و span لا يضيفان أي تنسيق افتراضي، بل يوفران طريقة لاستهداف العناصر.</li>
+                    </ul>
+
+                    <div class="info-box">
+                        <i class="fas fa-info-circle"></i>
+                        <strong>تذكير:</strong> div و span هما من أكثر الوسوم استخداماً في HTML. إتقان استخدامهما بشكل صحيح هو أساس بناء صفحات ويب منظمة وقابلة للتخصيص.
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <!-- ============================================================ -->
+        <!-- الدرس 11: الفيديو والصوت (35+ سطر شرح) -->
+        <!-- ============================================================ -->
+        <div id="lesson-11" class="lesson-page">
+            <div class="content-section">
+                <div class="lesson-header">
+                    <button class="back-btn" onclick="closeLesson()"><i class="fas fa-arrow-right"></i> العودة للدروس</button>
+                    <h2><i class="fas fa-play" style="color: #e67e22;"></i> الدرس الحادي عشر: الفيديو والصوت</h2>
+                </div>
+                <div class="lesson-body">
+
+                    <h3><i class="fas fa-bullseye"></i> إدراج الوسائط المتعددة في HTML</h3>
+                    <p>
+                        HTML5 قدمت وسوماً مدمجة لإدراج الفيديو والصوت مباشرة في صفحات الويب دون الحاجة إلى استخدام برامج إضافية مثل Flash أو plug-ins خارجية. هذه الميزة جعلت تضمين الوسائط المتعددة سهلاً وآمناً ومتوافقاً مع جميع الأجهزة والمتصفحات الحديثة. باستخدام وسوم video و audio، يمكنك إضافة محتوى غني ومتنوع إلى موقعك دون تعقيدات.
+                    </p>
+                    <p>
+                        قبل HTML5، كان إدراج الفيديو في المواقع يتطلب استخدام تقنيات خارجية مثل Flash، والتي كانت غير متوافقة مع جميع الأجهزة، خاصة الأجهزة المحمولة. مع HTML5، أصبح بإمكان المطورين إدراج الفيديو والصوت باستخدام كود HTML بسيط، مع دعم مدمج للتحكم في التشغيل والتنسيقات المختلفة. هذه التطورات جعلت الويب أكثر غنى وتفاعلية.
+                    </p>
+
+                    <h3><i class="fas fa-code"></i> وسم الفيديو &lt;video&gt;</h3>
+                    <p>
+                        وسم <span class="tag">&lt;video&gt;</span> يستخدم لإدراج مقاطع فيديو في الصفحة. يدعم تنسيقات متعددة مثل MP4، WebM، و Ogg. لتوفير أقصى توافق مع جميع المتصفحات، من الأفضل تقديم الفيديو بأكثر من تنسيق باستخدام وسم source. يمكن إضافة سمات مثل controls لعرض أزرار التحكم، autoplay للتشغيل التلقائي، و loop للتكرار المستمر.
+                    </p>
+                    <p>
+                        من الممارسات الجيدة توفير صورة مصغرة (poster) للفيديو تظهر قبل بدء التشغيل، ونص بديل للمتصفحات التي لا تدعم تشغيل الفيديو. هذا يحسن من تجربة المستخدم ويضمن أن جميع الزوار يمكنهم التفاعل مع المحتوى. كما يمكن تخصيص حجم الفيديو باستخدام سمات width و height أو باستخدام CSS.
+                    </p>
+
+                    <h3><i class="fas fa-code"></i> وسم الصوت &lt;audio&gt;</h3>
+                    <p>
+                        وسم <span class="tag">&lt;audio&gt;</span> يستخدم لإدراج ملفات صوتية في الصفحة. يدعم تنسيقات مثل MP3، WAV، و Ogg. كما هو الحال مع الفيديو، يمكن استخدام source لتوفير تنسيقات متعددة. السمات الأساسية للصوت تشمل controls لعرض أزرار التحكم، autoplay للتشغيل التلقائي، و loop للتكرار.
+                    </p>
+                    <p>
+                        الصوت في الويب يستخدم في العديد من السياقات: الموسيقى، البودكاست، المؤثرات الصوتية، التعليم، وغيرها. يمكن تخصيص مشغل الصوت باستخدام CSS ليتناسب مع تصميم الموقع. من المهم أيضاً توفير نص بديل للمتصفحات التي لا تدعم تشغيل الصوت.
+                    </p>
+
+                    <div class="code-example">
+                        <span class="comment">&lt;!-- فيديو مع تحكمات وتنسيقات متعددة --&gt;</span>
+                        <span class="tag">&lt;video controls width="640" height="360" poster="poster.jpg"&gt;</span>
+                            <span class="tag">&lt;source src="video.mp4" type="video/mp4"&gt;</span>
+                            <span class="tag">&lt;source src="video.webm" type="video/webm"&gt;</span>
+                            متصفحك لا يدعم عرض الفيديو.
+                        <span class="tag">&lt;/video&gt;</span>
+
+                        <span class="comment">&lt;!-- ملف صوتي مع تحكمات --&gt;</span>
+                        <span class="tag">&lt;audio controls&gt;</span>
+                            <span class="tag">&lt;source src="audio.mp3" type="audio/mpeg"&gt;</span>
+                            <span class="tag">&lt;source src="audio.ogg" type="audio/ogg"&gt;</span>
+                            متصفحك لا يدعم تشغيل الصوت.
+                        <span class="tag">&lt;/audio&gt;</span>
+                    </div>
+
+                    <div class="highlight-box">
+                        <i class="fas fa-info-circle"></i>
+                        <strong>ملاحظة:</strong> استخدم تنسيقات متعددة (MP4 و WebM للفيديو، MP3 و Ogg للصوت) لضمان التوافق مع جميع المتصفحات. بعض المتصفحات تدعم تنسيقات معينة دون غيرها، لذا تقديم بدائل يضمن وصول المحتوى للجميع.
+                    </div>
+
+                    <div class="tip-box">
+                        <i class="fas fa-lightbulb"></i>
+                        <strong>نصيحة:</strong> لا تستخدم autoplay إلا عند الضرورة، لأنه قد يزعج المستخدم ويزيد من استهلاك البيانات، خاصة على الأجهزة المحمولة. اترك للمستخدم التحكم في بدء تشغيل الوسائط.
+                    </div>
+
+                    <h3><i class="fas fa-check-circle"></i> ملخص الدرس</h3>
+                    <ul>
+                        <li>وسم &lt;video&gt; يستخدم لإدراج مقاطع الفيديو في الصفحة مع دعم تنسيقات متعددة.</li>
+                        <li>وسم &lt;audio&gt; يستخدم لإدراج الملفات الصوتية مع دعم تنسيقات متعددة.</li>
+                        <li>استخدم سمة controls لعرض أزرار التحكم للمستخدم.</li>
+                        <li>قدم تنسيقات متعددة لضمان التوافق مع جميع المتصفحات والأجهزة.</li>
+                        <li>ضع نصاً بديلاً للمتصفحات التي لا تدعم الوسائط المتعددة.</li>
+                        <li>استخدم poster للفيديو لعرض صورة مصغرة قبل التشغيل.</li>
+                    </ul>
+
+                    <div class="info-box">
+                        <i class="fas fa-info-circle"></i>
+                        <strong>تذكير:</strong> الوسائط المتعددة تضيف قيمة كبيرة للمحتوى، لكن استخدامها بشكل غير مدروس قد يؤثر على أداء الموقع. وازن بين جودة المحتوى وسرعة التحميل.
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <!-- ============================================================ -->
+        <!-- الدرس 12: الكود والاقتباسات (35+ سطر شرح) -->
+        <!-- ============================================================ -->
+        <div id="lesson-12" class="lesson-page">
+            <div class="content-section">
+                <div class="lesson-header">
+                    <button class="back-btn" onclick="closeLesson()"><i class="fas fa-arrow-right"></i> العودة للدروس</button>
+                    <h2><i class="fas fa-code" style="color: #e67e22;"></i> الدرس الثاني عشر: الكود والاقتباسات</h2>
+                </div>
+                <div class="lesson-body">
+
+                    <h3><i class="fas fa-bullseye"></i> عرض الكود والاقتباسات في HTML</h3>
+                    <p>
+                        في صفحات الويب التي تتعامل مع المحتوى التقني أو الأدبي، نحتاج أحياناً إلى عرض أكواد برمجية أو اقتباسات نصية بشكل مميز. HTML توفر وسوماً خاصة لهذه الأغراض لتجعل المحتوى أكثر وضوحاً واحترافية. هذه الوسوم تساعد في تمييز الكود البرمجي عن النص العادي، وتسهل قراءة وفهم المحتوى التقني.
+                    </p>
+                    <p>
+                        عرض الكود البرمجي بشكل صحيح هو أمر مهم في المواقع التعليمية، المدونات التقنية، ووثائق البرمجة. استخدام الوسوم المناسبة يحافظ على تنسيق الكود ويجعله مقروءاً، مع الحفاظ على المسافات البادئة والأسطر الجديدة. بالنسبة للاقتباسات، تساعد الوسوم المناسبة في تمييز الأقوال والنصوص المقتبسة، مع إضافة تنسيقات خاصة مثل المسافات البادئة وعلامات التنصيص.
+                    </p>
+
+                    <h3><i class="fas fa-code"></i> عرض الكود البرمجي</h3>
+
+                    <h4>1. وسم &lt;code&gt;</h4>
+                    <p>
+                        يستخدم وسم <span class="tag">&lt;code&gt;</span> لعرض أجزاء صغيرة من الكود البرمجي داخل النص. يظهر النص بخط أحادي المسافة (monospace) ليميزه عن النص العادي. هذا الوسم مناسب لعرض أسماء الدوال، المتغيرات، أو أوامر برمجية قصيرة داخل الفقرات. على سبيل المثال، يمكنك كتابة <span class="tag">&lt;code&gt;</span>console.log()<span class="tag">&lt;/code&gt;</span> لعرض دالة في جافا سكريبت.
+                    </p>
+
+                    <h4>2. وسم &lt;pre&gt;</h4>
+                    <p>
+                        يستخدم وسم <span class="tag">&lt;pre&gt;</span> (Preformatted Text) لعرض نص منسق مسبقاً، حيث يحافظ على المسافات والأسطر الجديدة كما هي في الكود. هذا الوسم مثالي لعرض كتل كاملة من الكود البرمجي، حيث يظهر النص بخط أحادي المسافة ويحتفظ بالتنسيق الأصلي. يمكن استخدام <span class="tag">&lt;code&gt;</span> داخل <span class="tag">&lt;pre&gt;</span> للحصول على أفضل تنسيق للكود.
+                    </p>
+
+                    <h3><i class="fas fa-quote-right"></i> عرض الاقتباسات</h3>
+
+                    <h4>1. وسم &lt;q&gt; (اقتباس قصير)</h4>
+                    <p>
+                        يستخدم وسم <span class="tag">&lt;q&gt;</span> للاقتباسات القصيرة التي توضع داخل سطر النص. يضيف المتصفح علامات تنصيص تلقائياً حول النص المقتبس. هذا الوسم مناسب للاقتباسات القصيرة التي لا تتطلب فقرة منفصلة، مثل اقتباس جملة أو عبارة قصيرة.
+                    </p>
+
+                    <h4>2. وسم &lt;blockquote&gt; (اقتباس طويل)</h4>
+                    <p>
+                        يستخدم وسم <span class="tag">&lt;blockquote&gt;</span> للاقتباسات الطويلة التي تظهر في كتلة منفصلة عن النص الرئيسي. يضيف المتصفح مسافة بادئة (indent) للاقتباس لتمييزه عن النص العادي. يمكن استخدام سمة cite لتحديد مصدر الاقتباس، ويمكن إضافة عناصر مثل footer للإشارة إلى المؤلف.
+                    </p>
+
+                    <div class="code-example">
+                        <span class="comment">&lt;!-- عرض كود برمجي داخل النص --&gt;</span>
+                        <span class="tag">&lt;p&gt;</span>لطباعة نص في JavaScript نستخدم <span class="tag">&lt;code&gt;</span>console.log()<span class="tag">&lt;/code&gt;</span><span class="tag">&lt;/p&gt;</span>
+
+                        <span class="comment">&lt;!-- عرض كتلة كاملة من الكود --&gt;</span>
+                        <span class="tag">&lt;pre&gt;</span>
+                            <span class="tag">&lt;code&gt;</span>
+                            function greet(name) {
+                                console.log("Hello " + name);
+                            }
+                            <span class="tag">&lt;/code&gt;</span>
+                        <span class="tag">&lt;/pre&gt;</span>
+
+                        <span class="comment">&lt;!-- اقتباس قصير --&gt;</span>
+                        <span class="tag">&lt;p&gt;</span>قال رسول الله صلى الله عليه وسلم: <span class="tag">&lt;q&gt;</span>اطلبوا العلم ولو في الصين<span class="tag">&lt;/q&gt;</span><span class="tag">&lt;/p&gt;</span>
+
+                        <span class="comment">&lt;!-- اقتباس طويل --&gt;</span>
+                        <span class="tag">&lt;blockquote cite="https://example.com"&gt;</span>
+                            &quot;البرمجة ليست مجرد كتابة أكواد، بل هي فن حل المشكلات بطريقة إبداعية.&quot;
+                            <span class="tag">&lt;footer&gt;</span>— بهاء الدين الحسين<span class="tag">&lt;/footer&gt;</span>
+                        <span class="tag">&lt;/blockquote&gt;</span>
+                    </div>
+
+                    <div class="highlight-box">
+                        <i class="fas fa-info-circle"></i>
+                        <strong>ملاحظة:</strong> يمكن استخدام سمة <strong>cite</strong> في blockquote لتحديد مصدر الاقتباس (رابط أو مرجع). هذه الممارسة مفيدة للأمانة العلمية وتحسين مصداقية المحتوى.
+                    </div>
+
+                    <div class="tip-box">
+                        <i class="fas fa-lightbulb"></i>
+                        <strong>نصيحة:</strong> استخدم &lt;code&gt; للأجزاء الصغيرة من الكود داخل النص، و &lt;pre&gt; لعرض كتل كاملة من الكود مع الحفاظ على التنسيق. استخدم &lt;q&gt; للاقتباسات القصيرة و &lt;blockquote&gt; للاقتباسات الطويلة.
+                    </div>
+
+                    <h3><i class="fas fa-check-circle"></i> ملخص الدرس</h3>
+                    <ul>
+                        <li>&lt;code&gt; يعرض أجزاء صغيرة من الكود بخط أحادي المسافة داخل النص.</li>
+                        <li>&lt;pre&gt; يعرض النص المنسق مسبقاً مع الحفاظ على المسافات والأسطر الجديدة.</li>
+                        <li>&lt;q&gt; يستخدم للاقتباسات القصيرة ويضيف علامات تنصيص تلقائياً.</li>
+                        <li>&lt;blockquote&gt; يستخدم للاقتباسات الطويلة في كتلة منفصلة مع مسافة بادئة.</li>
+                        <li>استخدم هذه الوسوم لجعل المحتوى التقني والأدبي أكثر وضوحاً واحترافية.</li>
+                        <li>سمة cite في blockquote تحدد مصدر الاقتباس.</li>
+                    </ul>
+
+                    <div class="info-box">
+                        <i class="fas fa-info-circle"></i>
+                        <strong>تذكير:</strong> عرض الكود والاقتباسات بشكل صحيح يحسن من جودة المحتوى ويجعله أكثر احترافية. استخدم الوسوم المناسبة لكل نوع من المحتوى.
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <!-- ============================================================ -->
+        <!-- الدرس 13: تنسيق النصوص (35+ سطر شرح) -->
+        <!-- ============================================================ -->
+        <div id="lesson-13" class="lesson-page">
+            <div class="content-section">
+                <div class="lesson-header">
+                    <button class="back-btn" onclick="closeLesson()"><i class="fas fa-arrow-right"></i> العودة للدروس</button>
+                    <h2><i class="fas fa-pen-fancy" style="color: #e67e22;"></i> الدرس الثالث عشر: تنسيق النصوص</h2>
+                </div>
+                <div class="lesson-body">
+
+                    <h3><i class="fas fa-bullseye"></i> أهمية تنسيق النصوص في HTML</h3>
+                    <p>
+                        تنسيق النصوص يساعد في جعل المحتوى أكثر قابلية للقراءة وأكثر جاذبية للمستخدم. النصوص المنسقة بشكل جيد تجذب انتباه القارئ، وتوضح النقاط المهمة، وتجعل المحتوى أكثر تنظيماً. HTML توفر مجموعة من الوسوم لتنسيق النصوص، مما يسمح لك بإبراز كلمات معينة، تغيير مظهرها، أو إضافة معنى إضافي لها.
+                    </p>
+                    <p>
+                        من المهم أن نفهم أن تنسيق النصوص في HTML له جانبان: الجانب الدلالي (المعنى) والجانب التجميلي (المظهر). الوسوم الدلالية مثل strong و em تحمل معنى محدداً وتؤثر على كيفية فهم المحتوى، بينما الوسوم التجميلية مثل b و i تؤثر فقط على المظهر. في الممارسة الحديثة، يفضل استخدام الوسوم الدلالية مع CSS للتحكم في المظهر.
+                    </p>
+
+                    <h3><i class="fas fa-list"></i> وسوم تنسيق النصوص الأساسية</h3>
+
+                    <h4>1. &lt;strong&gt; (تأكيد قوي)</h4>
+                    <p>
+                        وسم <span class="tag">&lt;strong&gt;</span> يبرز النص بخط عريض (bold) للإشارة إلى أهميته أو خطورته. هذا وسم دلالي، أي أنه يحمل معنى وليس مجرد تنسيق. المتصفحات تعرضه عادةً بخط عريض، لكن يمكن تخصيص مظهره باستخدام CSS. يستخدم strong للإشارة إلى كلمات أو جمل مهمة يجب أن ينتبه لها القارئ.
+                    </p>
+
+                    <h4>2. &lt;em&gt; (تأكيد خفيف)</h4>
+                    <p>
+                        وسم <span class="tag">&lt;em&gt;</span> يبرز النص بخط مائل (italic) للإشارة إلى التركيز أو التأكيد الخفيف. مثل strong، هو وسم دلالي يحمل معنى التركيز. المتصفحات تعرضه عادةً بخط مائل. يستخدم em للإشارة إلى كلمات أو جمل يجب أن تُقرأ مع تركيز خاص.
+                    </p>
+
+                    <h4>3. &lt;u&gt; (تسطير)</h4>
+                    <p>
+                        وسم <span class="tag">&lt;u&gt;</span> يضيف خطاً تحت النص. في الماضي، كان يستخدم بشكل كبير، لكن في HTML5 أصبح له استخدامات محدودة مثل الإشارة إلى الأخطاء الإملائية أو النصوص غير القياسية. من الأفضل استخدام CSS للتحكم في تسطير النصوص.
+                    </p>
+
+                    <h4>4. &lt;mark&gt; (تمييز)</h4>
+                    <p>
+                        وسم <span class="tag">&lt;mark&gt;</span> يبرز النص بخلفية ملونة (عادةً أصفر) كأنه تم تمييزه بقلم تحديد. هذا وسم دلالي يشير إلى النص المميز أو المهم في سياق معين، مثل نتائج البحث أو الكلمات المفتاحية.
+                    </p>
+
+                    <h4>5. &lt;del&gt; (نص محذوف)</h4>
+                    <p>
+                        وسم <span class="tag">&lt;del&gt;</span> يظهر النص مشطوباً للإشارة إلى أنه تم حذفه أو تعديله. يستخدم في وثائق التعديل، أو للإشارة إلى معلومات قديمة أو غير صحيحة.
+                    </p>
+
+                    <h4>6. &lt;ins&gt; (نص مضاف)</h4>
+                    <p>
+                        وسم <span class="tag">&lt;ins&gt;</span> يظهر النص مسطراً للإشارة إلى أنه تم إضافته لاحقاً. يستخدم مع del في وثائق التعديل لإظهار التغييرات التي حدثت في النص.
+                    </p>
+
+                    <div class="code-example">
+                        <span class="comment">&lt;!-- أمثلة على تنسيق النصوص --&gt;</span>
+                        <span class="tag">&lt;p&gt;</span>هذا النص يحتوي على <span class="tag">&lt;strong&gt;</span>جزء مهم جدا<span class="tag">&lt;/strong&gt;</span> يجب الانتباه له.<span class="tag">&lt;/p&gt;</span>
+                        <span class="tag">&lt;p&gt;</span>هذه الجملة تحمل <span class="tag">&lt;em&gt;</span>معنى خاصاً<span class="tag">&lt;/em&gt;</span> يجب فهمه بشكل صحيح.<span class="tag">&lt;/p&gt;</span>
+                        <span class="tag">&lt;p&gt;</span>هذه كلمة <span class="tag">&lt;u&gt;</span>مهمة<span class="tag">&lt;/u&gt;</span> يجب ملاحظتها.<span class="tag">&lt;/p&gt;</span>
+                        <span class="tag">&lt;p&gt;</span>هذه <span class="tag">&lt;mark&gt;</span>معلومة مهمة جداً<span class="tag">&lt;/mark&gt;</span> يجب تذكرها.<span class="tag">&lt;/p&gt;</span>
+                        <span class="tag">&lt;p&gt;</span>السعر القديم: <span class="tag">&lt;del&gt;</span>100$<span class="tag">&lt;/del&gt;</span> السعر الجديد: <span class="tag">&lt;ins&gt;</span>80$<span class="tag">&lt;/ins&gt;</span><span class="tag">&lt;/p&gt;</span>
+                    </div>
+
+                    <div class="highlight-box">
+                        <i class="fas fa-info-circle"></i>
+                        <strong>ملاحظة:</strong> من الأفضل استخدام CSS لتنسيق النصوص بدلاً من الوسوم القديمة مثل &lt;b&gt; و &lt;i&gt; و &lt;u&gt; التي أصبحت مهملة أو محدودة الاستخدام في HTML5. استخدم strong و em بدلاً من b و i للدلالة على المعنى.
+                    </div>
+
+                    <div class="tip-box">
+                        <i class="fas fa-lightbulb"></i>
+                        <strong>نصيحة:</strong> استخدم &lt;strong&gt; للإشارة إلى أهمية المحتوى، و &lt;em&gt; للإشارة إلى التركيز. هذا يساعد محركات البحث في فهم أهمية المحتوى وتحسين ظهور الموقع في نتائج البحث.
+                    </div>
+
+                    <h3><i class="fas fa-check-circle"></i> ملخص الدرس</h3>
+                    <ul>
+                        <li>&lt;strong&gt; يجعل النص عريضاً للإشارة إلى الأهمية (دلالي).</li>
+                        <li>&lt;em&gt; يجعل النص مائلاً للإشارة إلى التركيز (دلالي).</li>
+                        <li>&lt;u&gt; يضيف خطاً تحت النص، لكن استخدامه محدود في HTML5.</li>
+                        <li>&lt;mark&gt; يبرز النص بخلفية ملونة للتمييز.</li>
+                        <li>&lt;del&gt; يظهر النص مشطوباً للحذف، و &lt;ins&gt; يظهر النص مسطراً للإضافة.</li>
+                        <li>استخدم الوسوم الدلالية مع CSS للتحكم في المظهر وتحسين جودة الكود.</li>
+                    </ul>
+
+                    <div class="info-box">
+                        <i class="fas fa-info-circle"></i>
+                        <strong>تذكير:</strong> تنسيق النصوص بشكل صحيح يحسن من تجربة القراءة ويساعد في إيصال الرسالة بشكل أفضل. استخدم التنسيق بحكمة ولا تفرط في استخدامه.
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <!-- ============================================================ -->
+        <!-- الدرس 14: السمات العامة (35+ سطر شرح) -->
+        <!-- ============================================================ -->
+        <div id="lesson-14" class="lesson-page">
+            <div class="content-section">
+                <div class="lesson-header">
+                    <button class="back-btn" onclick="closeLesson()"><i class="fas fa-arrow-right"></i> العودة للدروس</button>
+                    <h2><i class="fas fa-cogs" style="color: #e67e22;"></i> الدرس الرابع عشر: السمات العامة</h2>
+                </div>
+                <div class="lesson-body">
+
+                    <h3><i class="fas fa-bullseye"></i> ما هي السمات العامة (Global Attributes)؟</h3>
+                    <p>
+                        السمات العامة هي سمات يمكن استخدامها مع أي وسم HTML تقريباً. هذه السمات تضيف معلومات إضافية للعناصر وتسهل التحكم فيها باستخدام CSS و JavaScript. السمات العامة توفر طريقة موحدة لإضافة البيانات الوصفية إلى العناصر، وتجعل الكود أكثر مرونة وقابلية للصيانة. فهم السمات العامة واستخدامها بشكل صحيح هو مهارة أساسية لأي مطور ويب.
+                    </p>
+                    <p>
+                        السمات العامة ليست مقتصرة على نوع معين من العناصر، بل يمكن استخدامها مع جميع العناصر تقريباً. هذا يجعلها أداة قوية لتوحيد طريقة التعامل مع العناصر المختلفة في الصفحة. بعض السمات العامة مثل id و class هي من أكثر السمات استخداماً في تطوير الويب، وتشكل الأساس للتفاعل بين HTML و CSS و JavaScript.
+                    </p>
+
+                    <h3><i class="fas fa-list"></i> أهم السمات العامة</h3>
+
+                    <h4>1. سمة id</h4>
+                    <p>
+                        سمة id تعطي العنصر معرفاً فريداً في الصفحة. يجب أن يكون id فريداً، أي لا يمكن استخدام نفس id لأكثر من عنصر في الصفحة. هذا المعرف يمكن استخدامه لاستهداف العنصر باستخدام CSS أو JavaScript. في CSS، نستخدم # قبل id لتحديد العنصر (مثل #main-title). في JavaScript، يمكن استخدام document.getElementById() للوصول إلى العنصر. id مفيد للعناصر الفريدة التي تحتاج إلى معالجة خاصة.
+                    </p>
+
+                    <h4>2. سمة class</h4>
+                    <p>
+                        سمة class تصنف العنصر ضمن مجموعة معينة. يمكن استخدام نفس class لعناصر متعددة في الصفحة لتطبيق تنسيقات مشتركة. في CSS، نستخدم . قبل class لتحديد العناصر (مثل .highlight). في JavaScript، يمكن استخدام document.getElementsByClassName() للوصول إلى جميع العناصر التي تحمل class معين. class مفيد لتجميع العناصر المتشابهة وتطبيق تنسيقات أو سلوكيات مشتركة.
+                    </p>
+
+                    <h4>3. سمة style</h4>
+                    <p>
+                        سمة style تستخدم لتطبيق تنسيقات CSS مباشرة على العنصر. يفضل استخدامها للتنسيقات الصغيرة والمؤقتة، أو عندما تحتاج إلى تطبيق تنسيق فريد لا يستدعي إضافة class جديد. استخدام style بشكل مفرط قد يجعل الكود غير منظم، لذا يفضل استخدام class للتحكم في التنسيقات العامة.
+                    </p>
+
+                    <h4>4. سمة title</h4>
+                    <p>
+                        سمة title تضيف نصاً إضافياً يظهر عند تمرير الماوس فوق العنصر (Tooltip). مفيدة لتقديم معلومات إضافية أو توضيحات للمستخدم. هذه السمة تحسن من تجربة المستخدم بتوفير معلومات سياقية عند الحاجة.
+                    </p>
+
+                    <h4>5. سمة lang</h4>
+                    <p>
+                        سمة lang تحدد لغة محتوى العنصر. مفيدة لمحركات البحث وللمكفوفين الذين يستخدمون برامج قراءة الشاشة. يمكن استخدامها على وسم html لتحديد لغة الصفحة بأكملها، أو على عناصر محددة لتحديد لغة جزء معين من المحتوى.
+                    </p>
+
+                    <div class="code-example">
+                        <span class="comment">&lt;!-- أمثلة على السمات العامة --&gt;</span>
+                        <span class="tag">&lt;h1 id="main-title"&gt;</span>عنوان الصفحة<span class="tag">&lt;/h1&gt;</span>
+
+                        <span class="tag">&lt;p class="highlight"&gt;</span>نص مميز<span class="tag">&lt;/p&gt;</span>
+                        <span class="tag">&lt;p class="highlight"&gt;</span>نص مميز آخر<span class="tag">&lt;/p&gt;</span>
+
+                        <span class="tag">&lt;p style="color: red; font-size: 20px;"&gt;</span>هذا النص أحمر وكبير<span class="tag">&lt;/p&gt;</span>
+
+                        <span class="tag">&lt;abbr title="HyperText Markup Language"&gt;</span>HTML<span class="tag">&lt;/abbr&gt;</span>
+
+                        <span class="tag">&lt;p lang="ar"&gt;</span>هذا النص باللغة العربية<span class="tag">&lt;/p&gt;</span>
+                    </div>
+
+                    <div class="highlight-box">
+                        <i class="fas fa-info-circle"></i>
+                        <strong>ملاحظة:</strong> id و class هما من أكثر السمات استخداماً في تطوير الويب، حيث يربطان HTML بـ CSS و JavaScript. استخدم id للعناصر الفريدة و class للعناصر المتشابهة.
+                    </div>
+
+                    <div class="tip-box">
+                        <i class="fas fa-lightbulb"></i>
+                        <strong>نصيحة:</strong> استخدم class لتجميع العناصر المتشابهة، و id للعناصر الفريدة التي تحتاج إلى معالجة خاصة. استخدم أسماء وصفية ومعبرة لتسهيل فهم الكود وصيانته.
+                    </div>
+
+                    <h3><i class="fas fa-check-circle"></i> ملخص الدرس</h3>
+                    <ul>
+                        <li>السمات العامة يمكن استخدامها مع أي وسم HTML تقريباً.</li>
+                        <li>id يعطي معرفاً فريداً للعنصر، ويستخدم للعناصر الفريدة.</li>
+                        <li>class يصنف العنصر ضمن مجموعة، ويستخدم للعناصر المتشابهة.</li>
+                        <li>style يطبق تنسيقات CSS مباشرة على العنصر (للاستخدام المحدود).</li>
+                        <li>title يضيف نصاً إضافياً عند تمرير الماوس فوق العنصر.</li>
+                        <li>lang يحدد لغة المحتوى لتحسين إمكانية الوصول ومحركات البحث.</li>
+                    </ul>
+
+                    <div class="info-box">
+                        <i class="fas fa-info-circle"></i>
+                        <strong>تذكير:</strong> استخدام السمات العامة بشكل صحيح يحسن من جودة الكود ويسهل التعامل مع العناصر باستخدام CSS وJavaScript. اجعلها عادة لك في كتابة الكود.
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <!-- ============================================================ -->
+        <!-- الدرس 15: الروابط المتقدمة (35+ سطر شرح) -->
+        <!-- ============================================================ -->
+        <div id="lesson-15" class="lesson-page">
+            <div class="content-section">
+                <div class="lesson-header">
+                    <button class="back-btn" onclick="closeLesson()"><i class="fas fa-arrow-right"></i> العودة للدروس</button>
+                    <h2><i class="fas fa-file-import" style="color: #e67e22;"></i> الدرس الخامس عشر: الروابط المتقدمة</h2>
+                </div>
+                <div class="lesson-body">
+
+                    <h3><i class="fas fa-bullseye"></i> أنواع الروابط المتقدمة</h3>
+                    <p>
+                        بعد أن تعلمنا أساسيات الروابط في درس سابق، حان الوقت لاستكشاف أنواع أكثر تقدماً من الروابط التي تتيح لنا تفاعلات أكثر تعقيداً مع المستخدم والمحتوى. الروابط المتقدمة تشمل الروابط الداخلية (داخل الصفحة نفسها)، روابط البريد الإلكتروني، روابط التحميل، الروابط التي تفتح في نافذة جديدة، وغيرها. فهم هذه الأنواع المتقدمة يمنحك تحكماً أكبر في تجربة المستخدم.
+                    </p>
+                    <p>
+                        الروابط المتقدمة تسمح لك بتوجيه المستخدم بشكل أكثر دقة، سواء إلى أقسام محددة داخل الصفحة، أو لبدء تطبيقات خارجية مثل البريد الإلكتروني، أو لتنزيل ملفات. استخدام هذه الروابط بشكل صحيح يحسن من وظائفية الموقع ويجعل تجربة المستخدم أكثر سلاسة.
+                    </p>
+
+                    <h3><i class="fas fa-list"></i> أنواع الروابط المتقدمة</h3>
+
+                    <h4>1. الروابط الداخلية (Anchor Links)</h4>
+                    <p>
+                        الروابط الداخلية هي روابط تنقل المستخدم إلى جزء معين من نفس الصفحة. تستخدم هذه الروابط المعرفات (id) لتحديد الوجهة داخل الصفحة. لإنشاء هذا النوع من الروابط، تحتاج إلى إضافة سمة id إلى العنصر الذي تريد الانتقال إليه، ثم استخدام # متبوعاً بالمعرف في سمة href. هذه الروابط مفيدة جداً في الصفحات الطويلة مثل المقالات أو صفحات الأسئلة الشائعة، حيث تسمح للمستخدم بالانتقال بسرعة إلى أقسام محددة دون الحاجة للتمرير الطويل.
+                    </p>
+                    <p>
+                        الروابط الداخلية تحسن من تجربة المستخدم بشكل كبير، خاصة في الصفحات الطويلة التي تحتوي على محتوى مقسم إلى أقسام متعددة. يمكن استخدامها أيضاً لإنشاء جدول محتويات تفاعلي في بداية الصفحة.
+                    </p>
+
+                    <h4>2. روابط البريد الإلكتروني</h4>
+                    <p>
+                        روابط البريد الإلكتروني تفتح تطبيق البريد الإلكتروني الافتراضي للمستخدم لمراسلتك. تستخدم هذه الروابط بروتوكول mailto: متبوعاً بعنوان البريد الإلكتروني. يمكنك أيضاً إضافة موضوع (subject) ونص (body) إلى الرابط باستخدام معلمات إضافية. هذه الروابط مفيدة لتوفير طريقة سهلة للمستخدمين للتواصل معك مباشرة من موقعك، دون الحاجة لنسخ عنوان البريد الإلكتروني يدوياً.
+                    </p>
+
+                    <h4>3. روابط التحميل (Download Links)</h4>
+                    <p>
+                        روابط التحميل تسمح للمستخدم بتنزيل ملفات من موقعك مباشرة. لإضافة هذه الميزة، استخدم سمة download في وسم a، مع تحديد اسم الملف الذي سينزل به. هذه السمة تخبر المتصفح بتحميل الملف بدلاً من فتحه في المتصفح. هذه الروابط مفيدة لتوفير ملفات PDF، مستندات، صور عالية الجودة، أو أي ملفات أخرى قد يحتاج المستخدم إلى تنزيلها.
+                    </p>
+
+                    <div class="code-example">
+                        <span class="comment">&lt;!-- روابط متقدمة --&gt;</span>
+
+                        <span class="comment">&lt;!-- رابط داخلي --&gt;</span>
+                        <span class="tag">&lt;a href="#section1"&gt;</span>الانتقال إلى القسم الأول<span class="tag">&lt;/a&gt;</span>
+                        <span class="tag">&lt;h2 id="section1"&gt;</span>القسم الأول<span class="tag">&lt;/h2&gt;</span>
+
+                        <span class="comment">&lt;!-- رابط بريد إلكتروني --&gt;</span>
+                        <span class="tag">&lt;a href="mailto:info@example.com"&gt;</span>راسلنا<span class="tag">&lt;/a&gt;</span>
+                        <span class="tag">&lt;a href="mailto:info@example.com?subject=استفسار عن الدورات&amp;body=أريد معلومات عن الدورات"&gt;</span>استفسار<span class="tag">&lt;/a&gt;</span>
+
+                        <span class="comment">&lt;!-- رابط تحميل --&gt;</span>
+                        <span class="tag">&lt;a href="files/document.pdf" download="دليل-المستخدم.pdf"&gt;</span>تحميل دليل المستخدم<span class="tag">&lt;/a&gt;</span>
+                    </div>
+
+                    <div class="highlight-box">
+                        <i class="fas fa-info-circle"></i>
+                        <strong>ملاحظة:</strong> استخدم سمة target="_blank" لفتح الروابط الخارجية في نافذة جديدة. هذا مفيد للحفاظ على المستخدم في موقعك مع السماح له بزيارة روابط خارجية في تبويب منفصل.
+                    </div>
+
+                    <div class="tip-box">
+                        <i class="fas fa-lightbulb"></i>
+                        <strong>نصيحة:</strong> استخدم الروابط الداخلية (Anchor Links) لتحسين تجربة المستخدم في الصفحات الطويلة. استخدم روابط البريد الإلكتروني لتسهيل التواصل، وروابط التحميل لتوفير ملفات قابلة للتنزيل.
+                    </div>
+
+                    <h3><i class="fas fa-check-circle"></i> ملخص الدرس</h3>
+                    <ul>
+                        <li>الروابط الداخلية (#id) تنقل المستخدم إلى أقسام محددة داخل نفس الصفحة.</li>
+                        <li>روابط البريد الإلكتروني (mailto:) تفتح تطبيق البريد لمراسلتك.</li>
+                        <li>روابط التحميل (download) تسمح للمستخدم بتنزيل ملفات من الموقع.</li>
+                        <li>استخدم target="_blank" لفتح الروابط الخارجية في نافذة جديدة.</li>
+                        <li>الروابط المتقدمة تحسن من وظائفية الموقع وتجربة المستخدم.</li>
+                        <li>تأكد من أن جميع الروابط تعمل بشكل صحيح وتؤدي إلى الوجهة المطلوبة.</li>
+                    </ul>
+
+                    <div class="info-box">
+                        <i class="fas fa-info-circle"></i>
+                        <strong>تذكير:</strong> الروابط المتقدمة تضيف قيمة كبيرة للموقع وتجعل تجربة المستخدم أكثر غنى وتفاعلية. استخدمها بحكمة حسب احتياجات المحتوى.
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <!-- ============================================================ -->
+        <!-- الدرس 16: الصور المتقدمة (35+ سطر شرح) -->
+        <!-- ============================================================ -->
+        <div id="lesson-16" class="lesson-page">
+            <div class="content-section">
+                <div class="lesson-header">
+                    <button class="back-btn" onclick="closeLesson()"><i class="fas fa-arrow-right"></i> العودة للدروس</button>
+                    <h2><i class="fas fa-images" style="color: #e67e22;"></i> الدرس السادس عشر: الصور المتقدمة</h2>
+                </div>
+                <div class="lesson-body">
+
+                    <h3><i class="fas fa-bullseye"></i> الصور المتقدمة في HTML</h3>
+                    <p>
+                        بعد أن تعلمنا أساسيات إدراج الصور، حان الوقت لاستكشاف تقنيات أكثر تقدماً لاستخدام الصور في صفحات الويب. الصور المتقدمة تشمل جعل الصور متجاوبة مع أحجام الشاشات المختلفة، استخدام خريطة الصور (Image Maps) لتحديد مناطق قابلة للنقر داخل الصورة، واستخدام عناصر مثل figure و figcaption لتجميع الصور مع وصفها بشكل دلالي.
+                    </p>
+                    <p>
+                        تحسين استخدام الصور في المواقع هو جزء مهم من تطوير الويب الحديث. الصور المتجاوبة تضمن ظهور الموقع بشكل جيد على جميع الأجهزة، بينما خريطة الصور تتيح تفاعلات أكثر تعقيداً مع الصور. استخدام figure و figcaption يحسن من بنية المحتوى ويساعد في تنظيم الصور مع النص الوصفي.
+                    </p>
+
+                    <h3><i class="fas fa-list"></i> تقنيات الصور المتقدمة</h3>
+
+                    <h4>1. الصور المتجاوبة (Responsive Images)</h4>
+                    <p>
+                        الصور المتجاوبة هي صور تتكيف مع حجم الشاشة التي يتم عرضها عليها. هذا مهم جداً في عصر الأجهزة المحمولة، حيث يجب أن تظهر الصور بشكل جيد على الهواتف والأجهزة اللوحية وأجهزة الكمبيوتر. لجعل الصور متجاوبة، يمكن استخدام CSS مع max-width: 100% و height: auto، مما يجعل الصورة تأخذ عرض الحاوية التي تحتويها مع الحفاظ على النسبة.
+                    </p>
+                    <p>
+                        تقنية أكثر تقدماً هي استخدام وسم picture الذي يسمح بتحديد مصادر مختلفة للصورة حسب حجم الشاشة أو دقتها. هذا يسمح بتحميل صور أصغر للأجهزة المحمولة لتوفير البيانات، وصور أكبر للشاشات الكبيرة للحصول على جودة أفضل.
+                    </p>
+
+                    <h4>2. خريطة الصور (Image Maps)</h4>
+                    <p>
+                        خريطة الصور هي تقنية تسمح بتحديد مناطق قابلة للنقر داخل الصورة. كل منطقة يمكن أن تؤدي إلى رابط مختلف أو تنفيذ إجراء مختلف. تستخدم خريطة الصور عندما تريد جعل أجزاء مختلفة من الصورة تعمل كروابط منفصلة. هذه التقنية مفيدة في الخرائط التفاعلية، الرسوم البيانية، أو الصور التي تحتوي على عدة عناصر يمكن النقر عليها.
+                    </p>
+                    <p>
+                        لإنشاء خريطة صور، تستخدم وسم map مع وسم area لتحديد المناطق. كل area يحدد شكل المنطقة (مستطيل، دائرة، أو مضلع) وإحداثياتها والرابط الذي ستؤدي إليه. هذه التقنية تتطلب دقة في تحديد الإحداثيات، لكنها توفر تفاعلاً غنياً مع الصور.
+                    </p>
+
+                    <h4>3. وسم &lt;figure&gt; و &lt;figcaption&gt;</h4>
+                    <p>
+                        وسم figure يستخدم لتجميع الوسائط مثل الصور مع وصفها. وسم figcaption يوفر وصفاً أو عنواناً للصورة. هذا الهيكل الدلالي يحسن من تنظيم المحتوى ويساعد محركات البحث في فهم العلاقة بين الصورة ووصفها. يمكن استخدام figure مع الصور، الفيديوهات، أو أي محتوى آخر يحتاج إلى وصف.
+                    </p>
+
+                    <div class="code-example">
+                        <span class="comment">&lt;!-- صورة متجاوبة --&gt;</span>
+                        <span class="tag">&lt;img src="image.jpg" alt="وصف" style="max-width:100%;height:auto;"&gt;</span>
+
+                        <span class="comment">&lt;!-- خريطة صور --&gt;</span>
+                        <span class="tag">&lt;img src="map.jpg" alt="خريطة تفاعلية" usemap="#workmap"&gt;</span>
+                        <span class="tag">&lt;map name="workmap"&gt;</span>
+                            <span class="tag">&lt;area shape="rect" coords="0,0,100,100" href="page1.html" alt="المنطقة 1"&gt;</span>
+                            <span class="tag">&lt;area shape="circle" coords="200,200,50" href="page2.html" alt="المنطقة 2"&gt;</span>
+                        <span class="tag">&lt;/map&gt;</span>
+
+                        <span class="comment">&lt;!-- Figure مع وصف --&gt;</span>
+                        <span class="tag">&lt;figure&gt;</span>
+                            <span class="tag">&lt;img src="team.jpg" alt="فريق العمل"&gt;</span>
+                            <span class="tag">&lt;figcaption&gt;</span>فريق العمل في أكاديمية بهاء الدين<span class="tag">&lt;/figcaption&gt;</span>
+                        <span class="tag">&lt;/figure&gt;</span>
+                    </div>
+
+                    <div class="highlight-box">
+                        <i class="fas fa-info-circle"></i>
+                        <strong>ملاحظة:</strong> استخدام figure و figcaption يحسن من بنية المحتوى ويساعد في تنظيم الصور مع النص الوصفي، مما يحسن من إمكانية الوصول ومحركات البحث.
+                    </div>
+
+                    <div class="tip-box">
+                        <i class="fas fa-lightbulb"></i>
+                        <strong>نصيحة:</strong> استخدم max-width: 100% لجعل الصور متجاوبة مع جميع الشاشات. استخدم خريطة الصور للتفاعلات المتقدمة مع الصور، و figure لتجميع الصور مع وصفها.
+                    </div>
+
+                    <h3><i class="fas fa-check-circle"></i> ملخص الدرس</h3>
+                    <ul>
+                        <li>الصور المتجاوبة تتكيف مع حجم الشاشة باستخدام max-width: 100% و height: auto.</li>
+                        <li>خريطة الصور (map و area) تحدد مناطق قابلة للنقر داخل الصورة.</li>
+                        <li>figure و figcaption يستخدمان لتجميع الصور مع وصفها بشكل دلالي.</li>
+                        <li>استخدام وسم picture يسمح بتحميل صور مختلفة حسب حجم الشاشة.</li>
+                        <li>التقنيات المتقدمة تحسن تجربة المستخدم وتجعل الموقع أكثر احترافية.</li>
+                        <li>تأكد من أن الصور محسّنة من حيث الحجم والجودة لتسريع التحميل.</li>
+                    </ul>
+
+                    <div class="info-box">
+                        <i class="fas fa-info-circle"></i>
+                        <strong>تذكير:</strong> الصور المتقدمة تجعل الموقع أكثر تفاعلية وجاذبية. استخدم هذه التقنيات بحكمة لتحسين تجربة المستخدم.
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <!-- ============================================================ -->
+        <!-- الدرس 17: الجداول المتقدمة (35+ سطر شرح) -->
+        <!-- ============================================================ -->
+        <div id="lesson-17" class="lesson-page">
+            <div class="content-section">
+                <div class="lesson-header">
+                    <button class="back-btn" onclick="closeLesson()"><i class="fas fa-arrow-right"></i> العودة للدروس</button>
+                    <h2><i class="fas fa-table" style="color: #e67e22;"></i> الدرس السابع عشر: الجداول المتقدمة</h2>
+                </div>
+                <div class="lesson-body">
+
+                    <h3><i class="fas fa-bullseye"></i> الجداول المتقدمة في HTML</h3>
+                    <p>
+                        الجداول المتقدمة تسمح بدمج الخلايا وتنسيق الجداول بشكل أكثر احترافية. في بعض الأحيان، تحتاج الجداول إلى خلايا تمتد عبر عدة أعمدة أو صفوف لاستيعاب بيانات معقدة. HTML توفر سمات colspan و rowspan لتحقيق هذا الغرض. بالإضافة إلى ذلك، يمكن تنسيق الجداول باستخدام CSS لجعلها أكثر جاذبية وسهولة في القراءة.
+                    </p>
+                    <p>
+                        الجداول المتقدمة تستخدم في عرض البيانات المعقدة مثل جداول الأسعار، جداول البيانات الإحصائية، أو أي نوع من البيانات التي تحتاج إلى دمج خلايا لتقديمها بشكل أوضح. فهم كيفية استخدام colspan و rowspan يسمح لك بإنشاء جداول أكثر تنظيماً واحترافية.
+                    </p>
+
+                    <h3><i class="fas fa-list"></i> تقنيات الجداول المتقدمة</h3>
+
+                    <h4>1. دمج الخلايا باستخدام colspan</h4>
+                    <p>
+                        سمة colspan تستخدم لدمج خلايا في نفس الصف. عند استخدام colspan، تأخذ الخلية مساحة عدد من الأعمدة بدلاً من عمود واحد. هذا مفيد عندما تريد أن تمتد خلية عبر عدة أعمدة، مثل عنوان رئيسي يغطي عدة أعمدة فرعية. قيمة colspan تحدد عدد الأعمدة التي ستدمجها الخلية.
+                    </p>
+
+                    <h4>2. دمج الخلايا باستخدام rowspan</h4>
+                    <p>
+                        سمة rowspan تستخدم لدمج خلايا في نفس العمود. عند استخدام rowspan، تأخذ الخلية مساحة عدد من الصفوف بدلاً من صف واحد. هذا مفيد عندما تريد أن تمتد خلية عبر عدة صفوف، مثل تصنيف رئيسي يغطي عدة صفوف فرعية. قيمة rowspan تحدد عدد الصفوف التي ستدمجها الخلية.
+                    </p>
+
+                    <h4>3. تنسيق الجداول باستخدام CSS</h4>
+                    <p>
+                        تنسيق الجداول باستخدام CSS يجعلها أكثر جاذبية وسهولة في القراءة. يمكن استخدام CSS للتحكم في حدود الجدول، الألوان، التباعد، والمحاذاة. من الممارسات الجيدة استخدام CSS لتنسيق الجداول بدلاً من سمات HTML القديمة مثل border و cellpadding و cellspacing.
+                    </p>
+
+                    <div class="code-example">
+                        <span class="comment">&lt;!-- جدول متقدم مع دمج خلايا --&gt;</span>
+                        <span class="tag">&lt;table border="1" style="border-collapse: collapse; width: 100%;"&gt;</span>
+                            <span class="tag">&lt;tr&gt;</span>
+                                <span class="tag">&lt;th colspan="2" style="background: #2563eb; color: white;"&gt;</span>معلومات الطالب<span class="tag">&lt;/th&gt;</span>
+                            <span class="tag">&lt;/tr&gt;</span>
+                            <span class="tag">&lt;tr&gt;</span>
+                                <span class="tag">&lt;td rowspan="2" style="background: #f1f5f9; font-weight: bold;"&gt;</span>بيانات شخصية<span class="tag">&lt;/td&gt;</span>
+                                <span class="tag">&lt;td&gt;</span>الاسم: أحمد محمد<span class="tag">&lt;/td&gt;</span>
+                            <span class="tag">&lt;/tr&gt;</span>
+                            <span class="tag">&lt;tr&gt;</span>
+                                <span class="tag">&lt;td&gt;</span>العمر: 25 سنة<span class="tag">&lt;/td&gt;</span>
+                            <span class="tag">&lt;/tr&gt;</span>
+                            <span class="tag">&lt;tr&gt;</span>
+                                <span class="tag">&lt;td rowspan="2" style="background: #f1f5f9; font-weight: bold;"&gt;</span>معلومات أكاديمية<span class="tag">&lt;/td&gt;</span>
+                                <span class="tag">&lt;td&gt;</span>المعدل: 85%<span class="tag">&lt;/td&gt;</span>
+                            <span class="tag">&lt;/tr&gt;</span>
+                            <span class="tag">&lt;tr&gt;</span>
+                                <span class="tag">&lt;td&gt;</span>التخصص: علوم الحاسوب<span class="tag">&lt;/td&gt;</span>
+                            <span class="tag">&lt;/tr&gt;</span>
+                        <span class="tag">&lt;/table&gt;</span>
+                    </div>
+
+                    <div class="highlight-box">
+                        <i class="fas fa-info-circle"></i>
+                        <strong>ملاحظة:</strong> استخدم CSS لتنسيق الجداول بدلاً من سمات HTML القديمة. هذا يسمح بفصل المحتوى عن التنسيق ويجعل الكود أنظف وأسهل في الصيانة.
+                    </div>
+
+                    <div class="tip-box">
+                        <i class="fas fa-lightbulb"></i>
+                        <strong>نصيحة:</strong> استخدم colspan و rowspan بحكمة لدمج الخلايا عند الحاجة فقط. الإفراط في دمج الخلايا قد يجعل الجدول صعب القراءة والفهم. استخدم CSS لتنسيق الجداول وجعلها أكثر جاذبية.
+                    </div>
+
+                    <h3><i class="fas fa-check-circle"></i> ملخص الدرس</h3>
+                    <ul>
+                        <li>colspan: دمج خلايا في نفس الصف (تمتد عبر عدة أعمدة).</li>
+                        <li>rowspan: دمج خلايا في نفس العمود (تمتد عبر عدة صفوف).</li>
+                        <li>استخدم CSS لتنسيق الجداول بدلاً من سمات HTML القديمة.</li>
+                        <li>استخدم colspan و rowspan عند الحاجة لتحسين عرض البيانات المعقدة.</li>
+                        <li>تنسيق الجداول بشكل جيد يحسن من قراءة البيانات وجمالية الصفحة.</li>
+                        <li>تأكد من أن الجداول مفهومة وسهلة القراءة للمستخدم.</li>
+                    </ul>
+
+                    <div class="info-box">
+                        <i class="fas fa-info-circle"></i>
+                        <strong>تذكير:</strong> الجداول المتقدمة تسمح بعرض بيانات معقدة بشكل منظم. استخدم هذه التقنيات بحكمة لتحسين عرض البيانات في موقعك.
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <!-- ============================================================ -->
+        <!-- الدرس 18: النماذج المتقدمة (35+ سطر شرح) -->
+        <!-- ============================================================ -->
+        <div id="lesson-18" class="lesson-page">
+            <div class="content-section">
+                <div class="lesson-header">
+                    <button class="back-btn" onclick="closeLesson()"><i class="fas fa-arrow-right"></i> العودة للدروس</button>
+                    <h2><i class="fas fa-forms" style="color: #e67e22;"></i> الدرس الثامن عشر: النماذج المتقدمة</h2>
+                </div>
+                <div class="lesson-body">
+
+                    <h3><i class="fas fa-bullseye"></i> النماذج المتقدمة في HTML</h3>
+                    <p>
+                        النماذج المتقدمة تقدم مجموعة واسعة من أنواع الحقول وخيارات التحقق من الصحة (Validation) التي تجعل النماذج أكثر قوة وتفاعلية. باستخدام أنواع input المتقدمة مثل email، number، date، color، و range، يمكنك تحسين تجربة المستخدم وتقليل الأخطاء في إدخال البيانات. بالإضافة إلى ذلك، يمكن استخدام سمات مثل required، min، max، و pattern للتحقق من صحة البيانات المدخلة قبل إرسالها.
+                    </p>
+                    <p>
+                        النماذج المتقدمة هي جزء أساسي من تطبيقات الويب الحديثة. استخدام أنواع الحقول المناسبة والتحقق من صحة البيانات يحسن من جودة البيانات المدخلة ويقلل من الأخطاء. كما أن النماذج المصممة بشكل جيد تعطي انطباعاً احترافياً عن الموقع وتزيد من ثقة المستخدم.
+                    </p>
+
+                    <h3><i class="fas fa-list"></i> أنواع الحقول المتقدمة</h3>
+
+                    <h4>1. input type="email"</h4>
+                    <p>
+                        حقل مخصص للبريد الإلكتروني، يتحقق من صحة الصيغة التي يدخلها المستخدم. إذا أدخل المستخدم صيغة غير صحيحة، سيظهر له تحذير. هذا النوع يحسن من جودة البيانات ويقلل من الأخطاء في إدخال البريد الإلكتروني.
+                    </p>
+
+                    <h4>2. input type="number"</h4>
+                    <p>
+                        حقل مخصص لإدخال الأرقام فقط، مع إمكانية تحديد الحد الأدنى (min) والحد الأقصى (max) والخطوة (step). هذا النوع يمنع إدخال نصوص أو أحرف في الحقل، ويوفر أزراراً لزيادة أو إنقاص القيمة.
+                    </p>
+
+                    <h4>3. input type="date"</h4>
+                    <p>
+                        حقل لاختيار التاريخ من تقويم منبثق. يوفر واجهة سهلة للمستخدم لاختيار التاريخ بدلاً من كتابته يدوياً، مما يقلل من الأخطاء ويحسن من تجربة المستخدم.
+                    </p>
+
+                    <h4>4. input type="color"</h4>
+                    <p>
+                        حقل لاختيار اللون من منتقي الألوان. يعيد قيمة اللون بصيغة Hex (مثل #FF0000). مفيد في تطبيقات التصميم أو الإعدادات التي تتطلب اختيار ألوان.
+                    </p>
+
+                    <h4>5. input type="range"</h4>
+                    <p>
+                        حقل شريط تمرير (Slider) لاختيار قيمة ضمن نطاق معين. يوفر واجهة مرئية لاختيار القيم، مثل اختيار مستوى الصوت أو التقييم.
+                    </p>
+
+                    <h4>6. سمات التحقق من الصحة</h4>
+                    <p>
+                        سمات مثل required (إلزامي)، min و max (للأرقام والتواريخ)، و pattern (نمط مخصص باستخدام التعبيرات النمطية) تسمح بالتحقق من صحة البيانات المدخلة قبل إرسال النموذج. هذا يحسن من جودة البيانات ويقلل من الأخطاء.
+                    </p>
+
+                    <div class="code-example">
+                        <span class="comment">&lt;!-- نموذج متقدم مع أنواع حقول متنوعة --&gt;</span>
+                        <span class="tag">&lt;form&gt;</span>
+                            <span class="tag">&lt;label for="email"&gt;</span>البريد الإلكتروني:<span class="tag">&lt;/label&gt;</span>
+                            <span class="tag">&lt;input type="email" id="email" name="email" required&gt;</span>
+
+                            <span class="tag">&lt;label for="age"&gt;</span>العمر:<span class="tag">&lt;/label&gt;</span>
+                            <span class="tag">&lt;input type="number" id="age" name="age" min="18" max="100" required&gt;</span>
+
+                            <span class="tag">&lt;label for="birthdate"&gt;</span>تاريخ الميلاد:<span class="tag">&lt;/label&gt;</span>
+                            <span class="tag">&lt;input type="date" id="birthdate" name="birthdate" required&gt;</span>
+
+                            <span class="tag">&lt;label for="color"&gt;</span>اللون المفضل:<span class="tag">&lt;/label&gt;</span>
+                            <span class="tag">&lt;input type="color" id="color" name="color" value="#2563eb"&gt;</span>
+
+                            <span class="tag">&lt;label for="rating"&gt;</span>التقييم:<span class="tag">&lt;/label&gt;</span>
+                            <span class="tag">&lt;input type="range" id="rating" name="rating" min="1" max="10" value="5"&gt;</span>
+
+                            <span class="tag">&lt;input type="submit" value="إرسال"&gt;</span>
+                        <span class="tag">&lt;/form&gt;</span>
+                    </div>
+
+                    <div class="highlight-box">
+                        <i class="fas fa-info-circle"></i>
+                        <strong>ملاحظة:</strong> استخدام سمات التحقق من الصحة مثل required و min و max يحسن من جودة البيانات المدخلة ويقلل من الأخطاء. هذه السمات تعمل على جانب العميل (في المتصفح) وتوفر تغذية راجعة فورية للمستخدم.
+                    </div>
+
+                    <div class="tip-box">
+                        <i class="fas fa-lightbulb"></i>
+                        <strong>نصيحة:</strong> استخدم أنواع الحقول المناسبة لكل نوع من البيانات لتحسين تجربة المستخدم. استخدم التحقق من الصحة على جانب العميل (Client-side validation) لتوفير تغذية راجعة فورية للمستخدم، ولا تنسى التحقق من البيانات على جانب الخادم أيضاً للأمان.
+                    </div>
+
+                    <h3><i class="fas fa-check-circle"></i> ملخص الدرس</h3>
+                    <ul>
+                        <li>أنواع الحقول المتقدمة: email، number، date، color، range، وغيرها.</li>
+                        <li>التحقق من الصحة: required، min، max، pattern، وغيرها.</li>
+                        <li>استخدام types المناسبة يحسن من تجربة المستخدم ويقلل من الأخطاء.</li>
+                        <li>التحقق من الصحة على جانب العميل يوفر تغذية راجعة فورية.</li>
+                        <li>لا تنسى التحقق من البيانات على جانب الخادم للأمان.</li>
+                        <li>النماذج المتقدمة تجعل الموقع أكثر احترافية وتفاعلية.</li>
+                    </ul>
+
+                    <div class="info-box">
+                        <i class="fas fa-info-circle"></i>
+                        <strong>تذكير:</strong> النماذج المتقدمة تحسن من جودة البيانات وتجربة المستخدم. استخدمها لتقديم نماذج احترافية وسهلة الاستخدام.
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <!-- ============================================================ -->
+        <!-- الدرس 19: الوسوم الدلالية المتقدمة (35+ سطر شرح) -->
+        <!-- ============================================================ -->
+        <div id="lesson-19" class="lesson-page">
+            <div class="content-section">
+                <div class="lesson-header">
+                    <button class="back-btn" onclick="closeLesson()"><i class="fas fa-arrow-right"></i> العودة للدروس</button>
+                    <h2><i class="fas fa-code-branch" style="color: #e67e22;"></i> الدرس التاسع عشر: الوسوم الدلالية المتقدمة</h2>
+                </div>
+                <div class="lesson-body">
+
+                    <h3><i class="fas fa-bullseye"></i> الوسوم الدلالية المتقدمة في HTML5</h3>
+                    <p>
+                        بالإضافة إلى الوسوم الدلالية الأساسية التي تعلمناها سابقاً، هناك مجموعة من الوسوم الدلالية المتقدمة التي توفر دلالات أكثر تحديداً للمحتوى. هذه الوسوم تشمل figure، figcaption، details، summary، time، و mark. استخدام هذه الوسوم يحسن من بنية الصفحة ويساعد محركات البحث وبرامج قراءة الشاشة في فهم المحتوى بشكل أفضل.
+                    </p>
+                    <p>
+                        الوسوم الدلالية المتقدمة تعطي معنى أكثر دقة للمحتوى، مما يجعل الكود أكثر وضوحاً وقابلية للفهم. على سبيل المثال، وسم time يحدد التواريخ والأوقات بشكل دلالي، وسم details يسمح بإنشاء محتوى قابل للطي، وسم figure يربط الوسائط بوصفها. استخدام هذه الوسوم يعكس احترافية المطور واهتمامه بجودة الكود.
+                    </p>
+
+                    <h3><i class="fas fa-list"></i> أهم الوسوم الدلالية المتقدمة</h3>
+
+                    <h4>1. &lt;figure&gt; و &lt;figcaption&gt;</h4>
+                    <p>
+                        وسم figure يستخدم لتجميع الوسائط مثل الصور، الفيديوهات، أو المخططات مع وصفها. وسم figcaption يوفر وصفاً أو عنواناً للمحتوى داخل figure. هذا الهيكل الدلالي يحسن من تنظيم المحتوى ويساعد محركات البحث في فهم العلاقة بين الوسائط ووصفها. يمكن استخدام figure مع أي نوع من المحتوى الذي يحتاج إلى وصف.
+                    </p>
+
+                    <h4>2. &lt;details&gt; و &lt;summary&gt;</h4>
+                    <p>
+                        وسم details يستخدم لإنشاء محتوى قابل للطي (Toggleable content). وسم summary يوفر العنوان أو النص الذي يظهر دائماً، وعند النقر عليه يتم عرض المحتوى المخفي داخل details. هذا الوسم مفيد جداً للأسئلة الشائعة، الأقسام القابلة للطي، أو أي محتوى تريد إخفاءه بشكل افتراضي مع إمكانية عرضه عند الطلب.
+                    </p>
+
+                    <h4>3. &lt;time&gt;</h4>
+                    <p>
+                        وسم time يستخدم لتحديد التواريخ والأوقات بشكل دلالي. يمكن استخدام سمة datetime لتحديد التاريخ والوقت بتنسيق آلي يمكن قراءته بواسطة الحاسوب. هذا الوسم مفيد للمقالات، الأخبار، الأحداث، أو أي محتوى يحتوي على تواريخ وأوقات.
+                    </p>
+
+                    <h4>4. &lt;mark&gt;</h4>
+                    <p>
+                        وسم mark يستخدم لتمييز النص المميز أو المحدد في سياق معين. عادةً ما يظهر بخلفية صفراء (مثل قلم التحديد). يستخدم mark للإشارة إلى نتائج البحث، الكلمات المفتاحية، أو أي نص يحتاج إلى إبراز خاص.
+                    </p>
+
+                    <div class="code-example">
+                        <span class="comment">&lt;!-- figure مع وصف --&gt;</span>
+                        <span class="tag">&lt;figure&gt;</span>
+                            <span class="tag">&lt;img src="diagram.jpg" alt="مخطط توضيحي"&gt;</span>
+                            <span class="tag">&lt;figcaption&gt;</span>الشكل 1: مخطط يوضح هيكل صفحة HTML<span class="tag">&lt;/figcaption&gt;</span>
+                        <span class="tag">&lt;/figure&gt;</span>
+
+                        <span class="comment">&lt;!-- details و summary (محتوى قابل للطي) --&gt;</span>
+                        <span class="tag">&lt;details&gt;</span>
+                            <span class="tag">&lt;summary&gt;</span>عرض المزيد من المعلومات<span class="tag">&lt;/summary&gt;</span>
+                            <span class="tag">&lt;p&gt;</span>هذا هو المحتوى المخفي الذي يظهر عند النقر على العنوان.<span class="tag">&lt;/p&gt;</span>
+                            <span class="tag">&lt;p&gt;</span>يمكنك وضع أي محتوى هنا: نصوص، صور، روابط، أو حتى جداول.<span class="tag">&lt;/p&gt;</span>
+                        <span class="tag">&lt;/details&gt;</span>
+
+                        <span class="comment">&lt;!-- time لتحديد التاريخ --&gt;</span>
+                        <span class="tag">&lt;time datetime="2026-07-28"&gt;</span>28 يوليو 2026<span class="tag">&lt;/time&gt;</span>
+
+                        <span class="comment">&lt;!-- mark لتمييز النص --&gt;</span>
+                        <span class="tag">&lt;p&gt;</span>نتائج البحث عن <span class="tag">&lt;mark&gt;</span>HTML<span class="tag">&lt;/mark&gt;</span> في الموقع.<span class="tag">&lt;/p&gt;</span>
+                    </div>
+
+                    <div class="highlight-box">
+                        <i class="fas fa-info-circle"></i>
+                        <strong>ملاحظة:</strong> استخدام الوسوم الدلالية المتقدمة يحسن من بنية الصفحة ويساعد محركات البحث وبرامج قراءة الشاشة في فهم المحتوى بشكل أفضل. هذه الممارسة تعكس احترافية المطور وتجعل الموقع أكثر توافقاً مع معايير الويب.
+                    </div>
+
+                    <div class="tip-box">
+                        <i class="fas fa-lightbulb"></i>
+                        <strong>نصيحة:</strong> استخدم figure لتجميع الوسائط مع وصفها، details للمحتوى القابل للطي، time للتواريخ والأوقات، و mark لتمييز النص المهم. هذه الوسوم تجعل الكود أكثر دلالة وقابلية للفهم.
+                    </div>
+
+                    <h3><i class="fas fa-check-circle"></i> ملخص الدرس</h3>
+                    <ul>
+                        <li>figure و figcaption: لتجميع الوسائط مع وصفها.</li>
+                        <li>details و summary: لإنشاء محتوى قابل للطي.</li>
+                        <li>time: لتحديد التواريخ والأوقات بشكل دلالي.</li>
+                        <li>mark: لتمييز النص المميز أو المحدد.</li>
+                        <li>الوسوم الدلالية المتقدمة تحسن بنية الصفحة وتجعل الكود أكثر وضوحاً.</li>
+                        <li>استخدام هذه الوسوم يعكس احترافية المطور.</li>
+                    </ul>
+
+                    <div class="info-box">
+                        <i class="fas fa-info-circle"></i>
+                        <strong>تذكير:</strong> الوسوم الدلالية المتقدمة تضيف قيمة كبيرة للمحتوى وتحسن من جودة الكود. اجعلها عادة لك في كتابة الكود.
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <!-- ============================================================ -->
+        <!-- الدرس 20: تحسين محركات البحث SEO (35+ سطر شرح) -->
+        <!-- ============================================================ -->
+        <div id="lesson-20" class="lesson-page">
+            <div class="content-section">
+                <div class="lesson-header">
+                    <button class="back-btn" onclick="closeLesson()"><i class="fas fa-arrow-right"></i> العودة للدروس</button>
+                    <h2><i class="fas fa-globe" style="color: #e67e22;"></i> الدرس العشرون: تحسين محركات البحث SEO</h2>
+                </div>
+                <div class="lesson-body">
+
+                    <h3><i class="fas fa-bullseye"></i> ما هو تحسين محركات البحث (SEO)؟</h3>
+                    <p>
+                        تحسين محركات البحث (Search Engine Optimization - SEO) هو مجموعة من الممارسات والتقنيات التي تهدف إلى تحسين ظهور موقعك في نتائج محركات البحث مثل Google و Bing. كلما كان موقعك أكثر ظهوراً في نتائج البحث، زادت فرصة جذب الزوار الجدد. SEO يشمل تحسين المحتوى، الهيكل، والأداء الفني للموقع لجعله أكثر جاذبية لمحركات البحث.
+                    </p>
+                    <p>
+                        HTML تلعب دوراً مهماً في SEO من خلال العناصر الدلالية والبيانات الوصفية. استخدام العناوين بشكل هرمي (h1، h2، h3)، إضافة النص البديل للصور (alt)، كتابة عناوين الصفحات (title) وأوصافها (meta description)، واستخدام الوسوم الدلالية كلها عوامل تساعد محركات البحث في فهم محتوى الصفحة وترتيبها في نتائج البحث. تحسين هذه العناصر هو جزء أساسي من استراتيجية SEO الناجحة.
+                    </p>
+
+                    <h3><i class="fas fa-list"></i> عناصر HTML المهمة لـ SEO</h3>
+
+                    <h4>1. عنوان الصفحة &lt;title&gt;</h4>
+                    <p>
+                        عنوان الصفحة هو أحد أهم عوامل SEO. يظهر في شريط عنوان المتصفح وفي نتائج البحث كعنوان للنتيجة. يجب أن يكون العنوان وصفياً، موجزاً (60-70 حرفاً)، ويحتوي على الكلمات المفتاحية الرئيسية للصفحة. العنوان الجيد يجذب النقرات ويساعد محركات البحث في فهم موضوع الصفحة.
+                    </p>
+
+                    <h4>2. وصف الصفحة &lt;meta description&gt;</h4>
+                    <p>
+                        وصف الصفحة هو نص قصير (150-160 حرفاً) يظهر تحت عنوان الصفحة في نتائج البحث. يقدم ملخصاً لمحتوى الصفحة ويشجع المستخدمين على النقر. على الرغم من أن الوصف لا يؤثر مباشرة على ترتيب الصفحة، إلا أنه يؤثر على نسبة النقر (CTR) مما يؤثر بشكل غير مباشر على الترتيب.
+                    </p>
+
+                    <h4>3. العناوين الهرمية (h1، h2، h3، ...)</h4>
+                    <p>
+                        استخدام العناوين بشكل هرمي (h1 للعنوان الرئيسي، h2 للأقسام الرئيسية، h3 للأقسام الفرعية) يساعد محركات البحث في فهم بنية المحتوى وترتيب أهميته. يجب أن يحتوي h1 على الكلمات المفتاحية الرئيسية، وأن تكون العناوين الفرعية منطقية ومتسلسلة.
+                    </p>
+
+                    <h4>4. النص البديل للصور (alt)</h4>
+                    <p>
+                        النص البديل للصور يساعد محركات البحث في فهم محتوى الصورة. يجب أن يكون النص وصفياً ويعبر عن محتوى الصورة. هذا يساعد في ظهور الصور في نتائج البحث (Google Images) ويحسن من إمكانية الوصول للمكفوفين.
+                    </p>
+
+                    <h4>5. الرابط الأساسي (Canonical Link)</h4>
+                    <p>
+                        الرابط الأساسي (rel="canonical") يحدد النسخة الأساسية من الصفحة في حالة وجود عدة نسخ (مثل نفس المحتوى على روابط مختلفة). هذا يمنع مشاكل المحتوى المكرر التي قد تؤثر سلباً على ترتيب الصفحة.
+                    </p>
+
+                    <div class="code-example">
+                        <span class="comment">&lt;!-- عناصر SEO مهمة في HTML --&gt;</span>
+                        <span class="tag">&lt;head&gt;</span>
+                            <span class="tag">&lt;title&gt;</span>كورس HTML الشامل - تعلم HTML من الصفر للاحتراف<span class="tag">&lt;/title&gt;</span>
+                            <span class="tag">&lt;meta name="description" content="كورس HTML شامل يغطي جميع مفاهيم HTML من الأساسيات إلى المتقدم في 25 درساً مفصلاً مع أمثلة عملية."&gt;</span>
+                            <span class="tag">&lt;meta name="keywords" content="HTML, تعلم HTML, كورس HTML, أساسيات HTML"&gt;</span>
+                            <span class="tag">&lt;link rel="canonical" href="https://example.com/course-html.html"&gt;</span>
+                            <span class="tag">&lt;meta property="og:title" content="كورس HTML الشامل - أكاديمية بهاء الدين"&gt;</span>
+                            <span class="tag">&lt;meta property="og:description" content="تعلم HTML من الصفر إلى الاحتراف في 25 درساً مفصلاً."&gt;</span>
+                        <span class="tag">&lt;/head&gt;</span>
+                    </div>
+
+                    <div class="highlight-box">
+                        <i class="fas fa-info-circle"></i>
+                        <strong>ملاحظة:</strong> استخدام العناوين الهرمية (h1، h2، h3) والنص البديل للصور (alt) ليس فقط مفيداً لـ SEO، بل يحسن أيضاً من إمكانية الوصول (Accessibility) للمستخدمين الذين يستخدمون برامج قراءة الشاشة.
+                    </div>
+
+                    <div class="tip-box">
+                        <i class="fas fa-lightbulb"></i>
+                        <strong>نصيحة:</strong> اكتب عناوين وأوصافاً جذابة ووصفية تحتوي على الكلمات المفتاحية الرئيسية. استخدم العناوين بشكل هرمي ومنطقي. أضف نصاً بديلاً وصفياً لجميع الصور. هذه الممارسات البسيطة تحسن بشكل كبير من ظهور موقعك في نتائج البحث.
+                    </div>
+
+                    <h3><i class="fas fa-check-circle"></i> ملخص الدرس</h3>
+                    <ul>
+                        <li>SEO يساعد في تحسين ظهور الموقع في نتائج محركات البحث.</li>
+                        <li>عنوان الصفحة (title) هو أحد أهم عوامل SEO.</li>
+                        <li>وصف الصفحة (meta description) يؤثر على نسبة النقر (CTR).</li>
+                        <li>استخدم العناوين الهرمية (h1، h2، h3) لتنظيم المحتوى.</li>
+                        <li>أضف نصاً بديلاً وصفياً للصور (alt).</li>
+                        <li>استخدم الرابط الأساسي (canonical) لتجنب مشاكل المحتوى المكرر.</li>
+                    </ul>
+
+                    <div class="info-box">
+                        <i class="fas fa-info-circle"></i>
+                        <strong>تذكير:</strong> تحسين محركات البحث هو عملية مستمرة. احرص على تطبيق أفضل ممارسات SEO في كل صفحة تنشئها لتحسين ظهور موقعك وجذب المزيد من الزوار.
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <!-- ============================================================ -->
+        <!-- الدرس 21: التصميم المتجاوب (35+ سطر شرح) -->
+        <!-- ============================================================ -->
+        <div id="lesson-21" class="lesson-page">
+            <div class="content-section">
+                <div class="lesson-header">
+                    <button class="back-btn" onclick="closeLesson()"><i class="fas fa-arrow-right"></i> العودة للدروس</button>
+                    <h2><i class="fas fa-mobile-screen" style="color: #e67e22;"></i> الدرس الحادي والعشرون: التصميم المتجاوب</h2>
+                </div>
+                <div class="lesson-body">
+
+                    <h3><i class="fas fa-bullseye"></i> ما هو التصميم المتجاوب (Responsive Design)؟</h3>
+                    <p>
+                        التصميم المتجاوب (Responsive Design) هو أسلوب في تطوير الويب يهدف إلى جعل صفحات الويب تظهر بشكل جيد على جميع الأجهزة، من شاشات الكمبيوتر الكبيرة إلى الهواتف الذكية الصغيرة والأجهزة اللوحية. الفكرة الأساسية هي أن الصفحة تتكيف تلقائياً مع حجم الشاشة التي يتم عرضها عليها، دون الحاجة إلى إنشاء نسخ منفصلة لكل نوع من الأجهزة.
+                    </p>
+                    <p>
+                        مع تزايد استخدام الأجهزة المحمولة للوصول إلى الإنترنت، أصبح التصميم المتجاوب ضرورة وليس رفاهية. موقع غير متجاوب قد يكون غير قابل للاستخدام على الهواتف، مما يدفع المستخدمين لمغادرة الموقع والبحث عن بدائل. التصميم المتجاوب يحسن من تجربة المستخدم، ويساعد في تحسين ترتيب الموقع في محركات البحث (خاصة بعد أن أصبح Google يستخدم التوافق مع الأجهزة المحمولة كعامل ترتيب).
+                    </p>
+
+                    <h3><i class="fas fa-list"></i> مفاهيم التصميم المتجاوب</h3>
+
+                    <h4>1. وسم viewport</h4>
+                    <p>
+                        وسم viewport هو أول خطوة في جعل الموقع متجاوباً. يخبر هذا الوسم المتصفح بكيفية التحكم في حجم الصفحة وعرضها على الأجهزة المحمولة. السمة width=device-width تجعل عرض الصفحة يتناسب مع عرض الجهاز، والسمة initial-scale=1.0 تمنع التكبير التلقائي. هذا الوسم أساسي لأي موقع متجاوب.
+                    </p>
+
+                    <h4>2. الوحدات النسبية (Relative Units)</h4>
+                    <p>
+                        استخدام الوحدات النسبية مثل %، em، rem، vw، vh بدلاً من الوحدات الثابتة مثل px يجعل العناصر تتكيف مع حجم الشاشة. على سبيل المثال، استخدام width: 100% يجعل العنصر يأخذ عرض الحاوية بالكامل، بينما font-size: 1.2em يجعل حجم النص يتناسب مع حجم الخط الأساسي.
+                    </p>
+
+                    <h4>3. Media Queries</h4>
+                    <p>
+                        Media Queries هي تقنية CSS تسمح بتطبيق أنماط مختلفة حسب خصائص الجهاز، مثل عرض الشاشة أو ارتفاعها أو دقتها. باستخدام media queries، يمكنك تغيير تنسيق الصفحة لتناسب أحجام الشاشات المختلفة. على سبيل المثال، يمكنك جعل العناصر تظهر في عمود واحد على الهواتف وفي عدة أعمدة على أجهزة الكمبيوتر.
+                    </p>
+
+                    <h4>4. الصور المتجاوبة</h4>
+                    <p>
+                        الصور المتجاوبة هي صور تتكيف مع حجم الشاشة. يمكن تحقيق ذلك باستخدام max-width: 100% و height: auto في CSS، أو باستخدام وسم picture لتوفير مصادر مختلفة للصور حسب حجم الشاشة. الصور المتجاوبة تحسن من أداء الموقع وتوفر البيانات على الأجهزة المحمولة.
+                    </p>
+
+                    <div class="code-example">
+                        <span class="comment">&lt;!-- viewport ضروري للتصميم المتجاوب --&gt;</span>
+                        <span class="tag">&lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;</span>
+
+                        <span class="comment">&lt;!-- أمثلة على CSS المتجاوب --&gt;</span>
+                        /* استخدام وحدات نسبية */
+                        .container {
+                            width: 100%;
+                            max-width: 1200px;
+                            margin: 0 auto;
+                            padding: 0 2%;
+                        }
+
+                        /* Media Queries */
+                        @media (max-width: 768px) {
+                            .sidebar {
+                                display: none;
+                            }
+                            .content {
+                                width: 100%;
+                            }
+                        }
+
+                        @media (max-width: 480px) {
+                            .container {
+                                padding: 0 1rem;
+                            }
+                            h1 {
+                                font-size: 1.8rem;
+                            }
+                        }
+                    </div>
+
+                    <div class="highlight-box">
+                        <i class="fas fa-info-circle"></i>
+                        <strong>ملاحظة:</strong> التصميم المتجاوب ليس مجرد جعل الموقع يبدو جيداً على الهواتف، بل هو تحسين تجربة المستخدم على جميع الأجهزة. موقع متجاوب يسهل التنقل والقراءة والتفاعل بغض النظر عن الجهاز المستخدم.
+                    </div>
+
+                    <div class="tip-box">
+                        <i class="fas fa-lightbulb"></i>
+                        <strong>نصيحة:</strong> اختبر موقعك على أحجام شاشات مختلفة باستخدام أدوات المطور في المتصفح (Developer Tools). تأكد من أن جميع العناصر قابلة للقراءة وسهلة التفاعل على جميع الأجهزة. استخدم وحدات نسبية و media queries لتحقيق التجاوب المطلوب.
+                    </div>
+
+                    <h3><i class="fas fa-check-circle"></i> ملخص الدرس</h3>
+                    <ul>
+                        <li>التصميم المتجاوب يجعل الموقع يظهر بشكل جيد على جميع الأجهزة.</li>
+                        <li>استخدم وسم viewport للتحكم في عرض الصفحة على الأجهزة المحمولة.</li>
+                        <li>استخدم الوحدات النسبية (%，em، rem) بدلاً من الوحدات الثابتة.</li>
+                        <li>استخدم Media Queries لتطبيق أنماط مختلفة حسب حجم الشاشة.</li>
+                        <li>اجعل الصور متجاوبة باستخدام max-width: 100% و height: auto.</li>
+                        <li>التصميم المتجاوب يحسن تجربة المستخدم ويساعد في تحسين SEO.</li>
+                    </ul>
+
+                    <div class="info-box">
+                        <i class="fas fa-info-circle"></i>
+                        <strong>تذكير:</strong> التصميم المتجاوب هو معيار أساسي في تطوير الويب الحديث. تأكد من أن جميع صفحات موقعك متجاوبة لتوفير أفضل تجربة للمستخدمين على جميع الأجهزة.
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <!-- ============================================================ -->
+        <!-- الدرس 22: دمج CSS مع HTML (35+ سطر شرح) -->
+        <!-- ============================================================ -->
+        <div id="lesson-22" class="lesson-page">
+            <div class="content-section">
+                <div class="lesson-header">
+                    <button class="back-btn" onclick="closeLesson()"><i class="fas fa-arrow-right"></i> العودة للدروس</button>
+                    <h2><i class="fas fa-palette" style="color: #e67e22;"></i> الدرس الثاني والعشرون: دمج CSS مع HTML</h2>
+                </div>
+                <div class="lesson-body">
+
+                    <h3><i class="fas fa-bullseye"></i> طرق دمج CSS مع HTML</h3>
+                    <p>
+                        CSS (Cascading Style Sheets) هي لغة تستخدم لتنسيق وتصميم صفحات الويب. يتم دمج CSS مع HTML بثلاث طرق رئيسية: الدمج الداخلي (Internal CSS)، الدمج الخارجي (External CSS)، والدمج المباشر (Inline CSS). كل طريقة لها استخداماتها ومزاياها، واختيار الطريقة المناسبة يعتمد على حجم المشروع واحتياجاته.
+                    </p>
+                    <p>
+                        فصل المحتوى (HTML) عن التنسيق (CSS) هو من أهم مبادئ تطوير الويب الحديث. هذا الفصل يجعل الكود أكثر تنظيماً، وأسهل في الصيانة، وأكثر قابلية لإعادة الاستخدام. باستخدام CSS، يمكنك تغيير مظهر الموقع بالكامل دون الحاجة إلى تعديل HTML، مما يوفر الوقت والجهد.
+                    </p>
+
+                    <h3><i class="fas fa-list"></i> طرق دمج CSS</h3>
+
+                    <h4>1. الدمج المباشر (Inline CSS)</h4>
+                    <p>
+                        الدمج المباشر يتم عن طريق إضافة سمة style إلى وسم HTML. هذه الطريقة تؤثر فقط على العنصر الذي تمت إضافتها إليه. تستخدم هذه الطريقة للتنسيقات الصغيرة والمؤقتة، أو عندما تحتاج إلى تطبيق تنسيق فريد لا يستدعي إضافة class جديد. لكن استخدامها بشكل مفرط يجعل الكود غير منظم ويصعب صيانته.
+                    </p>
+
+                    <h4>2. الدمج الداخلي (Internal CSS)</h4>
+                    <p>
+                        الدمج الداخلي يتم عن طريق كتابة أكواد CSS داخل وسم style في منطقة head من الصفحة. هذه الطريقة تؤثر على جميع عناصر الصفحة. تستخدم في الصفحات الفردية أو عندما يكون التنسيق خاصاً بصفحة معينة. هذه الطريقة أفضل من الدمج المباشر لأنها تفصل التنسيق عن المحتوى جزئياً، لكنها لا تزال غير مثالية للمشاريع الكبيرة.
+                    </p>
+
+                    <h4>3. الدمج الخارجي (External CSS)</h4>
+                    <p>
+                        الدمج الخارجي هو أفضل الممارسات في تطوير الويب. يتم عن طريق ربط ملف CSS خارجي باستخدام وسم link في منطقة head. هذه الطريقة تسمح بإعادة استخدام نفس ملف CSS في عدة صفحات، مما يجعل الموقع أكثر اتساقاً وأسهل في الصيانة. تغيير ملف CSS واحد يؤثر على جميع الصفحات المرتبطة به.
+                    </p>
+
+                    <div class="code-example">
+                        <span class="comment">&lt;!-- 1. دمج مباشر (Inline) --&gt;</span>
+                        <span class="tag">&lt;p style="color: red; font-size: 20px;"&gt;</span>هذا النص أحمر وكبير<span class="tag">&lt;/p&gt;</span>
+
+                        <span class="comment">&lt;!-- 2. دمج داخلي (Internal) --&gt;</span>
+                        <span class="tag">&lt;head&gt;</span>
+                            <span class="tag">&lt;style&gt;</span>
+                                body { background: #f6f9fc; }
+                                h1 { color: #2563eb; }
+                            <span class="tag">&lt;/style&gt;</span>
+                        <span class="tag">&lt;/head&gt;</span>
+
+                        <span class="comment">&lt;!-- 3. دمج خارجي (External) - الأفضل --&gt;</span>
+                        <span class="tag">&lt;head&gt;</span>
+                            <span class="tag">&lt;link rel="stylesheet" href="styles.css"&gt;</span>
+                        <span class="tag">&lt;/head&gt;</span>
+                    </div>
+
+                    <div class="highlight-box">
+                        <i class="fas fa-info-circle"></i>
+                        <strong>ملاحظة:</strong> الدمج الخارجي هو الطريقة المفضلة في المشاريع الكبيرة، حيث يسمح بفصل المحتوى عن التنسيق بشكل كامل، ويجعل الكود أكثر تنظيماً وقابلية للصيانة وإعادة الاستخدام.
+                    </div>
+
+                    <div class="tip-box">
+                        <i class="fas fa-lightbulb"></i>
+                        <strong>نصيحة:</strong> استخدم الدمج الخارجي (External CSS) للمشاريع الكبيرة والمتوسطة. استخدم الدمج الداخلي للصفحات الفردية التي تحتاج إلى تنسيق خاص. استخدم الدمج المباشر فقط للتنسيقات المؤقتة والصغيرة جداً.
+                    </div>
+
+                    <h3><i class="fas fa-check-circle"></i> ملخص الدرس</h3>
+                    <ul>
+                        <li>الدمج المباشر (Inline): باستخدام سمة style، يؤثر على عنصر واحد فقط.</li>
+                        <li>الدمج الداخلي (Internal): باستخدام وسم style في الـ head، يؤثر على الصفحة بأكملها.</li>
+                        <li>الدمج الخارجي (External): باستخدام وسم link لربط ملف CSS خارجي، الأفضل للمشاريع الكبيرة.</li>
+                        <li>فصل المحتوى (HTML) عن التنسيق (CSS) هو مبدأ أساسي في تطوير الويب.</li>
+                        <li>استخدام الدمج الخارجي يجعل الموقع أكثر اتساقاً وأسهل في الصيانة.</li>
+                        <li>اختر الطريقة المناسبة حسب حجم المشروع واحتياجاته.</li>
+                    </ul>
+
+                    <div class="info-box">
+                        <i class="fas fa-info-circle"></i>
+                        <strong>تذكير:</strong> فصل HTML عن CSS هو ممارسة أساسية في تطوير الويب الحديث. اجعلها عادة لك لتكتب كوداً نظيفاً ومنظماً.
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <!-- ============================================================ -->
+        <!-- الدرس 23: دمج JavaScript مع HTML (35+ سطر شرح) -->
+        <!-- ============================================================ -->
+        <div id="lesson-23" class="lesson-page">
+            <div class="content-section">
+                <div class="lesson-header">
+                    <button class="back-btn" onclick="closeLesson()"><i class="fas fa-arrow-right"></i> العودة للدروس</button>
+                    <h2><i class="fas fa-code" style="color: #e67e22;"></i> الدرس الثالث والعشرون: دمج JavaScript مع HTML</h2>
+                </div>
+                <div class="lesson-body">
+
+                    <h3><i class="fas fa-bullseye"></i> إضافة التفاعل للصفحة باستخدام JavaScript</h3>
+                    <p>
+                        JavaScript هي لغة برمجة تجعل صفحات الويب تفاعلية وديناميكية. بينما HTML توفر الهيكل و CSS توفر التنسيق، JavaScript تضيف السلوك والتفاعل. باستخدام JavaScript، يمكنك إنشاء تأثيرات، التحقق من صحة النماذج، تحديث المحتوى ديناميكياً، التعامل مع الأحداث، والكثير من الميزات التفاعلية الأخرى التي تجعل المواقع أكثر جاذبية ووظائفية.
+                    </p>
+                    <p>
+                        يمكن دمج JavaScript مع HTML بطريقتين رئيسيتين: الدمج الداخلي (داخل وسم script في الصفحة) والدمج الخارجي (ملف منفصل). الدمج الخارجي هو الأفضل للمشاريع الكبيرة لأنه يسمح بتنظيم الكود وإعادة استخدامه عبر صفحات متعددة. JavaScript يمكن وضعها في أي مكان في الصفحة، لكن يفضل وضعها قبل نهاية وسم body لضمان تحميل المحتوى أولاً.
+                    </p>
+
+                    <h3><i class="fas fa-list"></i> طرق دمج JavaScript</h3>
+
+                    <h4>1. الدمج الداخلي (Internal JavaScript)</h4>
+                    <p>
+                        الدمج الداخلي يتم عن طريق كتابة أكواد JavaScript داخل وسم script في الصفحة. يمكن وضع وسم script في منطقة head أو body. هذه الطريقة مناسبة للكود القصير أو عندما يكون التفاعل خاصاً بصفحة معينة. لكنها غير مناسبة للمشاريع الكبيرة لأنها تخلط بين المحتوى والسلوك.
+                    </p>
+
+                    <h4>2. الدمج الخارجي (External JavaScript)</h4>
+                    <p>
+                        الدمج الخارجي هو أفضل الممارسات. يتم عن طريق ربط ملف JavaScript خارجي باستخدام وسم script مع سمة src. هذه الطريقة تسمح بإعادة استخدام نفس ملف JavaScript في عدة صفحات، مما يجعل الموقع أكثر تنظيماً وأسهل في الصيانة. تغيير ملف JavaScript واحد يؤثر على جميع الصفحات المرتبطة به.
+                    </p>
+
+                    <h4>3. التعامل مع الأحداث (Event Handling)</h4>
+                    <p>
+                        JavaScript يمكنها التعامل مع الأحداث مثل النقر، تمرير الماوس، إرسال النماذج، والكثير من التفاعلات الأخرى. يمكن إضافة معالجات الأحداث مباشرة في HTML باستخدام سمات مثل onclick، أو بشكل أكثر تنظيماً باستخدام JavaScript لإضافة مستمعات الأحداث.
+                    </p>
+
+                    <div class="code-example">
+                        <span class="comment">&lt;!-- 1. دمج داخلي --&gt;</span>
+                        <span class="tag">&lt;script&gt;</span>
+                            <span class="comment">// كود JavaScript</span>
+                            alert("مرحباً بك في الموقع!");
+                        <span class="tag">&lt;/script&gt;</span>
+
+                        <span class="comment">&lt;!-- 2. دمج خارجي --&gt;</span>
+                        <span class="tag">&lt;script src="script.js"&gt;</span><span class="tag">&lt;/script&gt;</span>
+
+                        <span class="comment">&lt;!-- 3. التعامل مع الأحداث --&gt;</span>
+                        <span class="tag">&lt;button onclick="alert('تم الضغط!')"&gt;</span>اضغط هنا<span class="tag">&lt;/button&gt;</span>
+
+                        <span class="comment">&lt;!-- 4. وضع JavaScript في نهاية body لتحسين الأداء --&gt;</span>
+                        <span class="tag">&lt;body&gt;</span>
+                            <span class="comment">&lt;!-- المحتوى --&gt;</span>
+                            <span class="tag">&lt;script src="script.js"&gt;</span><span class="tag">&lt;/script&gt;</span>
+                        <span class="tag">&lt;/body&gt;</span>
+                    </div>
+
+                    <div class="highlight-box">
+                        <i class="fas fa-info-circle"></i>
+                        <strong>ملاحظة:</strong> يفضل وضع أكواد JavaScript قبل نهاية وسم body لضمان تحميل HTML و CSS أولاً. هذا يحسن من أداء الموقع ويجعل الصفحة تظهر بشكل أسرع للمستخدم.
+                    </div>
+
+                    <div class="tip-box">
+                        <i class="fas fa-lightbulb"></i>
+                        <strong>نصيحة:</strong> استخدم الدمج الخارجي للمشاريع الكبيرة لتنظيم الكود وتسهيل الصيانة. استخدم الدمج الداخلي للكود القصير الذي يخص صفحة معينة. ضع أكواد JavaScript قبل نهاية body لتحسين الأداء.
+                    </div>
+
+                    <h3><i class="fas fa-check-circle"></i> ملخص الدرس</h3>
+                    <ul>
+                        <li>JavaScript تجعل صفحات الويب تفاعلية وديناميكية.</li>
+                        <li>الدمج الداخلي: باستخدام وسم script داخل الصفحة.</li>
+                        <li>الدمج الخارجي: باستخدام وسم script مع src لربط ملف خارجي (الأفضل).</li>
+                        <li>يمكن التعامل مع الأحداث باستخدام سمات مثل onclick أو مستمعات الأحداث في JavaScript.</li>
+                        <li>ضع أكواد JavaScript قبل نهاية body لتحسين أداء الموقع.</li>
+                        <li>فصل السلوك (JavaScript) عن المحتوى (HTML) يحسن من جودة الكود.</li>
+                    </ul>
+
+                    <div class="info-box">
+                        <i class="fas fa-info-circle"></i>
+                        <strong>تذكير:</strong> JavaScript هي لغة قوية تضيف حياة لصفحات الويب. تعلم أساسياتها يفتح لك آفاقاً واسعة في تطوير الويب التفاعلي.
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <!-- ============================================================ -->
+        <!-- الدرس 24: مكتبات وإطارات العمل (35+ سطر شرح) -->
+        <!-- ============================================================ -->
+        <div id="lesson-24" class="lesson-page">
+            <div class="content-section">
+                <div class="lesson-header">
+                    <button class="back-btn" onclick="closeLesson()"><i class="fas fa-arrow-right"></i> العودة للدروس</button>
+                    <h2><i class="fas fa-cube" style="color: #e67e22;"></i> الدرس الرابع والعشرون: مكتبات وإطارات العمل</h2>
+                </div>
+                <div class="lesson-body">
+
+                    <h3><i class="fas fa-bullseye"></i> استخدام المكتبات وإطارات العمل في HTML</h3>
+                    <p>
+                        المكتبات (Libraries) وإطارات العمل (Frameworks) هي مجموعات من الأكواد الجاهزة التي تسهل وتسريع عملية تطوير المواقع. بدلاً من كتابة كل شيء من الصفر، يمكنك استخدام هذه الأدوات للاستفادة من حلول مجربة وفعالة لمشاكل شائعة في تطوير الويب. المكتبات وإطارات العمل توفر الوقت والجهد، وتساعد في بناء مواقع احترافية بسرعة.
+                    </p>
+                    <p>
+                        من أشهر المكتبات وإطارات العمل: Bootstrap لتنسيق المواقع بسرعة، Font Awesome للأيقونات، jQuery لتسهيل التعامل مع JavaScript، و React و Vue.js لبناء تطبيقات ويب تفاعلية. استخدام هذه الأدوات يرفع من جودة المشروع ويقلل من الأخطاء، حيث أن هذه المكتبات تم اختبارها واستخدامها من قبل ملايين المطورين حول العالم.
+                    </p>
+
+                    <h3><i class="fas fa-list"></i> أشهر المكتبات وإطارات العمل</h3>
+
+                    <h4>1. Bootstrap</h4>
+                    <p>
+                        Bootstrap هو إطار العمل الأكثر شهرة لتطوير الواجهات الأمامية. يوفر مجموعة من القوالب الجاهزة للتصميم، وأدوات لتنسيق النصوص، والأزرار، والنماذج، والجداول، والقوائم، وغيرها. Bootstrap يسهل إنشاء مواقع متجاوبة (Responsive) بسرعة، ويوفر نظام شبكة (Grid System) مرن لترتيب المحتوى.
+                    </p>
+
+                    <h4>2. Font Awesome</h4>
+                    <p>
+                        Font Awesome هي مكتبة أيقونات ضخمة تحتوي على آلاف الأيقونات الجاهزة للاستخدام. يمكن إدراج هذه الأيقونات بسهولة في صفحات HTML باستخدام وسم i أو span مع class المناسب. استخدام Font Awesome يضيف جاذبية بصرية للموقع دون الحاجة لإنشاء صور أيقونات بنفسك.
+                    </p>
+
+                    <h4>3. jQuery</h4>
+                    <p>
+                        jQuery هي مكتبة JavaScript تسهل التعامل مع HTML، التعامل مع الأحداث، التأثيرات البصرية، وطلب البيانات من الخادم. تقوم jQuery بتبسيط العديد من المهام التي تكون معقدة في JavaScript العادي، وتوفر واجهة برمجة سهلة ومتوافقة مع جميع المتصفحات.
+                    </p>
+
+                    <h4>4. إطارات عمل JavaScript</h4>
+                    <p>
+                        React و Vue.js و Angular هي إطارات عمل (Frameworks) لبناء تطبيقات ويب تفاعلية ومعقدة. هذه الأدوات تساعد في بناء تطبيقات من صفحة واحدة (SPA) وتوفير تجربة مستخدم سلسة. تعلم هذه الإطارات هو خطوة متقدمة بعد إتقان HTML و CSS و JavaScript.
+                    </p>
+
+                    <div class="code-example">
+                        <span class="comment">&lt;!-- استخدام Bootstrap --&gt;</span>
+                        <span class="tag">&lt;link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"&gt;</span>
+                        <span class="tag">&lt;button class="btn btn-primary"&gt;</span>زر Bootstrap<span class="tag">&lt;/button&gt;</span>
+
+                        <span class="comment">&lt;!-- استخدام Font Awesome --&gt;</span>
+                        <span class="tag">&lt;link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"&gt;</span>
+                        <span class="tag">&lt;i class="fas fa-star"&gt;</span><span class="tag">&lt;/i&gt;</span> أيقونة نجمة
+
+                        <span class="comment">&lt;!-- استخدام jQuery --&gt;</span>
+                        <span class="tag">&lt;script src="https://code.jquery.com/jquery-3.6.0.min.js"&gt;</span><span class="tag">&lt;/script&gt;</span>
+                        <span class="tag">&lt;script&gt;</span>
+                            $(document).ready(function(){
+                                $("button").click(function(){
+                                    alert("تم النقر!");
+                                });
+                            });
+                        <span class="tag">&lt;/script&gt;</span>
+                    </div>
+
+                    <div class="highlight-box">
+                        <i class="fas fa-info-circle"></i>
+                        <strong>ملاحظة:</strong> استخدام شبكات توصيل المحتوى (CDN) لتحميل المكتبات وإطارات العمل يسرع من تحميل الموقع، حيث يتم تحميل الملفات من خوادم قريبة من المستخدم.
+                    </div>
+
+                    <div class="tip-box">
+                        <i class="fas fa-lightbulb"></i>
+                        <strong>نصيحة:</strong> ابدأ بتعلم Bootstrap و Font Awesome كخطوة أولى في استخدام المكتبات. هذه الأدوات سهلة التعلم وتضيف قيمة كبيرة لمشاريعك. بعد ذلك، يمكنك التوجه إلى إطارات العمل الأكثر تقدماً مثل React أو Vue.js.
+                    </div>
+
+                    <h3><i class="fas fa-check-circle"></i> ملخص الدرس</h3>
+                    <ul>
+                        <li>المكتبات وإطارات العمل تسهل وتسريع عملية تطوير المواقع.</li>
+                        <li>Bootstrap: لتنسيق المواقع بسرعة وتصميم متجاوب.</li>
+                        <li>Font Awesome: لأيقونات جاهزة ومتنوعة.</li>
+                        <li>jQuery: لتسهيل التعامل مع JavaScript.</li>
+                        <li>React، Vue.js، Angular: لبناء تطبيقات ويب تفاعلية ومعقدة.</li>
+                        <li>استخدم CDN لتحميل المكتبات بسرعة وكفاءة.</li>
+                    </ul>
+
+                    <div class="info-box">
+                        <i class="fas fa-info-circle"></i>
+                        <strong>تذكير:</strong> المكتبات وإطارات العمل هي أدوات قوية، لكن يجب فهم الأساسيات (HTML، CSS، JavaScript) أولاً قبل الانتقال إليها. الأساسيات القوية تجعل التعامل مع هذه الأدوات أكثر سهولة وفعالية.
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <!-- ============================================================ -->
+        <!-- الدرس 25: أفضل الممارسات (35+ سطر شرح) -->
+        <!-- ============================================================ -->
+        <div id="lesson-25" class="lesson-page">
+            <div class="content-section">
+                <div class="lesson-header">
+                    <button class="back-btn" onclick="closeLesson()"><i class="fas fa-arrow-right"></i> العودة للدروس</button>
+                    <h2><i class="fas fa-check-double" style="color: #e67e22;"></i> الدرس الخامس والعشرون: أفضل الممارسات</h2>
+                </div>
+                <div class="lesson-body">
+
+                    <h3><i class="fas fa-bullseye"></i> لماذا نهتم بأفضل الممارسات؟</h3>
+                    <p>
+                        أفضل الممارسات (Best Practices) هي مجموعة من الإرشادات والمبادئ التي تساعدك في كتابة كود HTML نظيف، منظم، سهل الصيانة، ومتوافق مع المعايير. اتباع هذه الممارسات يحسن من أداء الموقع، تجربة المستخدم، ويجعل التعاون مع مطورين آخرين أسهل. الكود النظيف ليس مجرد رفاهية، بل هو استثمار في مستقبل مشروعك.
+                    </p>
+                    <p>
+                        عندما تكتب كوداً نظيفاً ومنظماً، فإنك تسهل على نفسك وعلى الآخرين فهمه وتعديله وتطويره. هذا يقلل من الوقت المستغرق في تصحيح الأخطاء، ويجعل الموقع أكثر استقراراً وأسرع في التحميل. بالإضافة إلى ذلك، الكود النظيف يحسن من ظهور الموقع في محركات البحث ويسهل صيانته على المدى الطويل.
+                    </p>
+
+                    <h3><i class="fas fa-list"></i> أهم أفضل الممارسات في HTML</h3>
+
+                    <h4>1. استخدم الـDOCTYPE الصحيح</h4>
+                    <p>
+                        تأكد من أن كل صفحة تبدأ بـ <span class="tag">&lt;!DOCTYPE html&gt;</span> لتحديد إصدار HTML5. هذا يضمن أن المتصفح يعرض الصفحة بشكل صحيح في وضع المعايير (Standards Mode).
+                    </p>
+
+                    <h4>2. استخدم الترميز الصحيح</h4>
+                    <p>
+                        استخدم سمة charset لتحديد ترميز UTF-8 في <span class="tag">&lt;head&gt;</span> لدعم جميع الأحرف واللغات. هذا يضمن عرض النصوص بشكل صحيح بغض النظر عن اللغة المستخدمة.
+                    </p>
+
+                    <h4>3. أكتب وسوم HTML بحروف صغيرة</h4>
+                    <p>
+                        استخدم أحرف صغيرة (lowercase) لجميع الوسوم والسمات. هذا يجعل الكود أكثر اتساقاً وسهولة في القراءة، وهو متوافق مع معايير HTML5.
+                    </p>
+
+                    <h4>4. أغلق جميع الوسوم</h4>
+                    <p>
+                        تأكد من إغلاق جميع الوسوم، حتى الوسوم الفردية مثل <span class="tag">&lt;img&gt;</span> و <span class="tag">&lt;br&gt;</span>. هذا يمنع الأخطاء ويجعل الكود أكثر اتساقاً.
+                    </p>
+
+                    <h4>5. استخدم أسماء وصفية للسمات</h4>
+                    <p>
+                        اختر أسماء معبرة لـ id و class لتوضيح الغرض منها، مثل <span class="tag">class="main-title"</span> بدلاً من <span class="tag">class="c1"</span>. هذا يساعد في فهم الكود وتسهيل صيانته.
+                    </p>
+
+                    <h4>6. استخدم الوسوم الدلالية</h4>
+                    <p>
+                        استخدم الوسوم الدلالية مثل header، nav، main، section، article، footer بدلاً من div لكل شيء. هذا يحسن من بنية الصفحة ويساعد محركات البحث في فهم المحتوى.
+                    </p>
+
+                    <h4>7. احرص على إمكانية الوصول (Accessibility)</h4>
+                    <p>
+                        استخدم سمة alt في الصور، و label في النماذج، لتسهيل استخدام الموقع للمكفوفين وذوي الاحتياجات الخاصة. هذا يجعل موقعك أكثر شمولية ويساعد في تحسين SEO.
+                    </p>
+
+                    <h4>8. نظم الكود باستخدام المسافات البادئة</h4>
+                    <p>
+                        استخدم المسافات البادئة (indentation) لتنظيم الكود وجعله أكثر قابلية للقراءة. هذا يساعد في فهم بنية الكود ويسهل اكتشاف الأخطاء.
+                    </p>
+
+                    <div class="code-example">
+                        <span class="comment">&lt;!-- مثال على كود HTML نظيف ومنظم --&gt;</span>
+                        <span class="tag">&lt;!DOCTYPE html&gt;</span>
+                        <span class="tag">&lt;html lang="ar"&gt;</span>
+                        <span class="tag">&lt;head&gt;</span>
+                            <span class="tag">&lt;meta charset="UTF-8"&gt;</span>
+                            <span class="tag">&lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;</span>
+                            <span class="tag">&lt;title&gt;</span>صفحة مثال<span class="tag">&lt;/title&gt;</span>
+                        <span class="tag">&lt;/head&gt;</span>
+                        <span class="tag">&lt;body&gt;</span>
+                            <span class="tag">&lt;header&gt;</span>
+                                <span class="tag">&lt;h1&gt;</span>العنوان الرئيسي<span class="tag">&lt;/h1&gt;</span>
+                                <span class="tag">&lt;nav&gt;</span>
+                                    <span class="tag">&lt;ul&gt;</span>
+                                        <span class="tag">&lt;li&gt;</span><span class="tag">&lt;a href="#"&gt;</span>الرئيسية<span class="tag">&lt;/a&gt;</span><span class="tag">&lt;/li&gt;</span>
+                                        <span class="tag">&lt;li&gt;</span><span class="tag">&lt;a href="#"&gt;</span>عن الموقع<span class="tag">&lt;/a&gt;</span><span class="tag">&lt;/li&gt;</span>
+                                    <span class="tag">&lt;/ul&gt;</span>
+                                <span class="tag">&lt;/nav&gt;</span>
+                            <span class="tag">&lt;/header&gt;</span>
+                            <span class="tag">&lt;main&gt;</span>
+                                <span class="tag">&lt;section&gt;</span>
+                                    <span class="tag">&lt;h2&gt;</span>القسم الأول<span class="tag">&lt;/h2&gt;</span>
+                                    <span class="tag">&lt;p&gt;</span>هذا هو محتوى القسم الأول.<span class="tag">&lt;/p&gt;</span>
+                                <span class="tag">&lt;/section&gt;</span>
+                            <span class="tag">&lt;/main&gt;</span>
+                            <span class="tag">&lt;footer&gt;</span>
+                                <span class="tag">&lt;p&gt;</span>جميع الحقوق محفوظة © 2026<span class="tag">&lt;/p&gt;</span>
+                            <span class="tag">&lt;/footer&gt;</span>
+                        <span class="tag">&lt;/body&gt;</span>
+                        <span class="tag">&lt;/html&gt;</span>
+                    </div>
+
+                    <div class="highlight-box">
+                        <i class="fas fa-info-circle"></i>
+                        <strong>ملاحظة:</strong> كتابة كود نظيف ومنظم ليس رفاهية، بل هو استثمار في مستقبل مشروعك. كود منظم أسهل في التعديل والتصحيح، وأقل عرضة للأخطاء، وأسهل في التعاون مع فريق العمل.
+                    </div>
+
+                    <div class="tip-box">
+                        <i class="fas fa-lightbulb"></i>
+                        <strong>نصيحة:</strong> استخدم أدوات مثل محررات الكود التي تدعم تمييز الأكواد والإكمال التلقائي والتحقق من صحة الكود. هذه الأدوات تساعدك في كتابة كود نظيف وتكتشف الأخطاء مبكراً. كما يمكنك استخدام أدوات التحقق من صحة HTML (HTML Validator) للتأكد من أن كودك خالٍ من الأخطاء.
+                    </div>
+
+                    <h3><i class="fas fa-check-circle"></i> ملخص الدرس</h3>
+                    <ul>
+                        <li>استخدم الـDOCTYPE والترميز الصحيح (UTF-8).</li>
+                        <li>اكتب الوسوم والسمات بأحرف صغيرة (lowercase).</li>
+                        <li>أغلق جميع الوسوم بشكل صحيح.</li>
+                        <li>استخدم أسماء وصفية للسمات (id و class).</li>
+                        <li>استخدم الوسوم الدلالية بدلاً من div.</li>
+                        <li>احرص على إمكانية الوصول (alt، label).</li>
+                        <li>نظم الكود باستخدام المسافات البادئة.</li>
+                        <li>الكود النظيف أسهل في الصيانة والتطوير وأقل عرضة للأخطاء.</li>
+                    </ul>
+
+                    <div class="info-box">
+                        <i class="fas fa-info-circle"></i>
+                        <strong>تذكير:</strong> أفضل الممارسات هي عادة يجب أن تتبناها منذ البداية. اجعل كتابة كود نظيف ومنظم جزءاً من أسلوب عملك، وستلاحظ الفرق في جودة مشاريعك وسهولة تطويرها.
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div>
+                    <h4><i class="fas fa-graduation-cap" style="margin-left: 0.3rem;"></i> بهاء الدين</h4>
+                    <p style="color: #b0c4de;">أكاديمية برمجة معاصرة بتصميم عالمي.</p>
+                </div>
+                <div>
+                    <h4>روابط سريعة</h4>
+                    <ul>
+                        <li><a href="index.html">الرئيسية</a></li>
+                        <li><a href="index.html#courses">الدورات</a></li>
+                        <li><a href="index.html#about">عن الأكاديمية</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>الدعم</h4>
+                    <ul>
+                        <li><a href="index.html#support">الأسئلة الشائعة</a></li>
+                        <li><a href="index.html#privacy">سياسة الخصوصية</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <span>© 2026 أكاديمية بهاء الدين التعليمية — كورس HTML الشامل (25 درساً)</span>
+                <span><i class="fas fa-code"></i> بهاء الدين الحسين</span>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ===== JavaScript ===== -->
+    <script>
+        // فتح درس معين
+        function openLesson(lessonNumber) {
+            document.getElementById('course-main').style.display = 'none';
+
+            document.querySelectorAll('.lesson-page').forEach(el => {
+                el.classList.remove('active');
+            });
+
+            const target = document.getElementById('lesson-' + lessonNumber);
+            if (target) {
+                target.classList.add('active');
+            }
+
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // العودة إلى قائمة الدروس
+        function closeLesson() {
+            document.querySelectorAll('.lesson-page').forEach(el => {
+                el.classList.remove('active');
+            });
+
+            document.getElementById('course-main').style.display = 'block';
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            document.getElementById('course-main').style.display = 'block';
+        });
+    </script>
+
+</body>
+</html>
