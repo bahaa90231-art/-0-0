@@ -1,1496 +1,1573 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>أكاديمية بهاء الدين التعليمية</title>
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&display=swap" rel="stylesheet" />
-    <style>
-        /* ============================================================
-                   RESET & BASE
-                   ============================================================ */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Cairo', 'Segoe UI', system-ui, sans-serif;
-            background: #f8fafc;
-            color: #0b1a2e;
-            line-height: 1.7;
-            overflow-x: hidden;
-        }
-
-        .container {
-            max-width: 1300px;
-            margin: 0 auto;
-            padding: 0 2rem;
-        }
-
-        /* ============================================================
-                   GLASSMORPHISM HEADER
-                   ============================================================ */
-        .navbar {
-            background: rgba(255, 255, 255, 0.75);
-            backdrop-filter: blur(16px) saturate(180%);
-            -webkit-backdrop-filter: blur(16px) saturate(180%);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.5);
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.04);
-            padding: 0.5rem 0;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            transition: all 0.3s ease;
-        }
-
-        .navbar .container {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            flex-wrap: wrap;
-            gap: 1rem;
-        }
-
-        .logo {
-            font-size: 1.8rem;
-            font-weight: 900;
-            letter-spacing: -0.5px;
-            background: linear-gradient(145deg, #0b1a2e, #1e3a6b);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            display: flex;
-            align-items: center;
-            gap: 0.4rem;
-        }
-
-        .logo i {
-            -webkit-text-fill-color: #2563eb;
-            font-size: 2rem;
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 0.8rem;
-            align-items: center;
-            flex-wrap: wrap;
-        }
-
-        .nav-links button {
-            background: transparent;
-            border: none;
-            font-weight: 600;
-            font-size: 0.95rem;
-            color: #1e2a3a;
-            padding: 0.4rem 1rem;
-            border-radius: 60px;
-            cursor: pointer;
-            transition: 0.2s;
-            display: flex;
-            align-items: center;
-            gap: 0.4rem;
-            font-family: inherit;
-            position: relative;
-        }
-
-        .nav-links button i {
-            color: #64748b;
-            font-size: 0.9rem;
-            transition: 0.2s;
-        }
-
-        .nav-links button::after {
-            content: '';
-            position: absolute;
-            bottom: 4px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 0;
-            height: 2px;
-            background: #2563eb;
-            border-radius: 4px;
-            transition: 0.3s;
-        }
-
-        .nav-links button:hover::after {
-            width: 60%;
-        }
-
-        .nav-links button:hover {
-            background: rgba(37, 99, 235, 0.06);
-            color: #0b1a2e;
-        }
-
-        .nav-links button:hover i {
-            color: #2563eb;
-        }
-
-        .nav-links .active-page {
-            background: #2563eb;
-            color: white !important;
-            box-shadow: 0 6px 20px rgba(37, 99, 235, 0.25);
-        }
-
-        .nav-links .active-page i {
-            color: white !important;
-        }
-
-        .nav-links .active-page::after {
-            display: none;
-        }
-
-        .nav-links .active-page:hover {
-            background: #1d4ed8;
-            transform: translateY(-1px);
-        }
-
-        .btn-join {
-            background: linear-gradient(135deg, #0b1a2e, #1e3a6b) !important;
-            color: white !important;
-            padding: 0.5rem 1.8rem !important;
-            border-radius: 60px;
-            font-weight: 700;
-            border: none;
-            cursor: pointer;
-            transition: 0.3s;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            font-family: inherit;
-            font-size: 0.95rem;
-            box-shadow: 0 4px 16px rgba(11, 26, 46, 0.15);
-        }
-
-        .btn-join:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 28px rgba(11, 26, 46, 0.25);
-        }
-
-        .btn-join i {
-            color: #94a3b8 !important;
-        }
-
-        .btn-course {
-            background: linear-gradient(135deg, #2563eb, #7c3aed) !important;
-            color: white !important;
-            padding: 0.5rem 1.8rem !important;
-            border-radius: 60px;
-            font-weight: 700;
-            border: none;
-            cursor: pointer;
-            transition: 0.3s;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            font-family: inherit;
-            font-size: 0.95rem;
-            box-shadow: 0 4px 16px rgba(37, 99, 235, 0.25);
-        }
-
-        .btn-course:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 28px rgba(37, 99, 235, 0.35);
-        }
-
-        .btn-course i {
-            color: white !important;
-        }
-
-        /* ============================================================
-                   HERO SECTION
-                   ============================================================ */
-        .hero {
-            background: linear-gradient(145deg, #ffffff 0%, #f0f7ff 100%);
-            border-radius: 48px;
-            padding: 4rem 3rem;
-            margin: 2rem 0 0;
-            border: 1px solid rgba(255, 255, 255, 0.6);
-            box-shadow: 0 20px 60px -16px rgba(0, 0, 0, 0.04);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: -30%;
-            right: -10%;
-            width: 500px;
-            height: 500px;
-            background: radial-gradient(circle, rgba(37, 99, 235, 0.06), transparent 70%);
-            border-radius: 50%;
-            pointer-events: none;
-        }
-
-        .hero::after {
-            content: '';
-            position: absolute;
-            bottom: -20%;
-            left: -10%;
-            width: 400px;
-            height: 400px;
-            background: radial-gradient(circle, rgba(124, 58, 237, 0.05), transparent 70%);
-            border-radius: 50%;
-            pointer-events: none;
-        }
-
-        .hero-content {
-            position: relative;
-            z-index: 2;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            text-align: center;
-        }
-
-        .hero-badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.6rem;
-            background: rgba(37, 99, 235, 0.08);
-            color: #1e4ab0;
-            padding: 0.5rem 1.8rem;
-            border-radius: 60px;
-            font-weight: 700;
-            font-size: 0.9rem;
-            margin-bottom: 1.5rem;
-            border: 1px solid rgba(37, 99, 235, 0.1);
-        }
-
-        .hero h1 {
-            font-size: 3.8rem;
-            font-weight: 900;
-            line-height: 1.15;
-            margin-bottom: 0.5rem;
-            max-width: 800px;
-        }
-
-        .hero h1 span {
-            background: linear-gradient(135deg, #2563eb, #7c3aed);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        .hero-subhead {
-            font-size: 1.2rem;
-            color: #475569;
-            max-width: 600px;
-            margin: 0.5rem auto 2rem;
-            line-height: 1.8;
-        }
-
-        .hero-actions {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 1rem;
-            justify-content: center;
-            margin-bottom: 1.5rem;
-        }
-
-        .hero-btn-primary {
-            display: inline-block;
-            background: linear-gradient(135deg, #2563eb, #7c3aed);
-            color: white;
-            padding: 1rem 2.8rem;
-            border-radius: 60px;
-            font-weight: 700;
-            font-size: 1.1rem;
-            text-decoration: none;
-            transition: 0.3s;
-            box-shadow: 0 8px 32px rgba(37, 99, 235, 0.3);
-            border: none;
-            cursor: pointer;
-        }
-
-        .hero-btn-primary:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 12px 40px rgba(37, 99, 235, 0.4);
-        }
-
-        .hero-btn-secondary {
-            display: inline-block;
-            background: rgba(255, 255, 255, 0.7);
-            backdrop-filter: blur(4px);
-            color: #0b1a2e;
-            padding: 1rem 2.8rem;
-            border-radius: 60px;
-            font-weight: 700;
-            font-size: 1.1rem;
-            text-decoration: none;
-            transition: 0.3s;
-            border: 1.5px solid rgba(0, 0, 0, 0.06);
-        }
-
-        .hero-btn-secondary:hover {
-            background: white;
-            transform: translateY(-3px);
-            box-shadow: 0 8px 28px rgba(0, 0, 0, 0.06);
-        }
-
-        .hero-stats {
-            display: flex;
-            gap: 3rem;
-            justify-content: center;
-            flex-wrap: wrap;
-            margin-top: 1rem;
-            padding-top: 1.5rem;
-            border-top: 1px solid rgba(0, 0, 0, 0.04);
-            width: 100%;
-        }
-
-        .hero-stats .stat-item {
-            text-align: center;
-        }
-
-        .hero-stats .stat-number {
-            font-size: 1.8rem;
-            font-weight: 900;
-            color: #0b1a2e;
-            display: block;
-        }
-
-        .hero-stats .stat-label {
-            font-size: 0.9rem;
-            color: #64748b;
-        }
-
-        /* ============================================================
-                   FOUNDER SECTION
-                   ============================================================ */
-        .founder-section {
-            background: white;
-            border-radius: 40px;
-            padding: 2.5rem 3rem;
-            margin-top: 2.5rem;
-            border: 1px solid #e9edf2;
-            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.02);
-            transition: 0.3s;
-        }
-
-        .founder-section:hover {
-            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.04);
-        }
-
-        .founder-section h3 {
-            font-size: 1.8rem;
-            font-weight: 800;
-            margin-bottom: 0.5rem;
-            display: flex;
-            align-items: center;
-            gap: 0.8rem;
-            justify-content: center;
-            color: #0b1a2e;
-        }
-
-        .founder-section h3 i {
-            color: #2563eb;
-        }
-
-        .founder-grid {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 2.5rem;
-            align-items: center;
-            justify-content: center;
-            margin-top: 1.5rem;
-        }
-
-        .founder-image-wrapper {
-            flex-shrink: 0;
-            position: relative;
-            width: 180px;
-            height: 180px;
-            border-radius: 50%;
-            overflow: hidden;
-            box-shadow: 0 12px 40px rgba(37, 99, 235, 0.15);
-            border: 4px solid #2563eb;
-            transition: 0.4s;
-        }
-
-        .founder-image-wrapper:hover {
-            transform: scale(1.03);
-            box-shadow: 0 16px 50px rgba(37, 99, 235, 0.25);
-        }
-
-        .founder-image-wrapper img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            display: block;
-        }
-
-        .founder-image-wrapper .camera-icon {
-            position: absolute;
-            bottom: 8px;
-            right: 8px;
-            background: #2563eb;
-            color: white;
-            width: 36px;
-            height: 36px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1rem;
-            border: 2px solid white;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-            z-index: 2;
-        }
-
-        .founder-desc {
-            flex: 1;
-            min-width: 250px;
-            text-align: right;
-        }
-
-        .founder-desc p {
-            color: #1e293b;
-            font-size: 1.05rem;
-            line-height: 1.8;
-        }
-
-        .founder-desc .highlight {
-            color: #2563eb;
-            font-weight: 700;
-        }
-
-        .social-links {
-            display: flex;
-            gap: 0.8rem;
-            margin-top: 0.8rem;
-            justify-content: flex-start;
-        }
-
-        .social-links a {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 44px;
-            height: 44px;
-            border-radius: 50%;
-            background: #f1f5f9;
-            color: #475569;
-            transition: 0.25s;
-            text-decoration: none;
-            font-size: 1.2rem;
-        }
-
-        .social-links a:hover {
-            background: #2563eb;
-            color: white;
-            transform: translateY(-3px);
-            box-shadow: 0 6px 16px rgba(37, 99, 235, 0.2);
-        }
-
-        /* ============================================================
-                   SECTION TITLES
-                   ============================================================ */
-        .section-title {
-            font-size: 2.2rem;
-            font-weight: 800;
-            margin-bottom: 0.5rem;
-            display: flex;
-            align-items: center;
-            gap: 0.8rem;
-            color: #0b1a2e;
-        }
-
-        .section-title i {
-            color: #2563eb;
-        }
-
-        .section-subtitle {
-            color: #64748b;
-            font-size: 1.05rem;
-            margin-bottom: 1.5rem;
-        }
-
-        /* ============================================================
-                   COURSES GRID
-                   ============================================================ */
-        .courses-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-            gap: 2rem;
-            margin-top: 1.5rem;
-        }
-
-        .course-card {
-            background: white;
-            border-radius: 32px;
-            padding: 2rem 1.5rem;
-            border: 1px solid #eef2f6;
-            transition: 0.3s;
-            text-align: center;
-            text-decoration: none;
-            color: inherit;
-            display: block;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .course-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 4px;
-            background: linear-gradient(90deg, #2563eb, #7c3aed);
-            opacity: 0;
-            transition: 0.3s;
-        }
-
-        .course-card:hover {
-            transform: translateY(-8px);
-            border-color: #2563eb;
-            box-shadow: 0 20px 48px -12px rgba(37, 99, 235, 0.12);
-        }
-
-        .course-card:hover::before {
-            opacity: 1;
-        }
-
-        .course-card .icon-wrapper {
-            width: 72px;
-            height: 72px;
-            border-radius: 24px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 1rem;
-            font-size: 2.2rem;
-            transition: 0.3s;
-        }
-
-        .course-card:hover .icon-wrapper {
-            transform: scale(1.05) rotate(-2deg);
-        }
-
-        .course-card h4 {
-            font-size: 1.25rem;
-            font-weight: 700;
-            margin-bottom: 0.2rem;
-        }
-
-        .course-card .meta {
-            font-size: 0.85rem;
-            color: #64748b;
-            margin: 0.3rem 0;
-            display: flex;
-            justify-content: center;
-            gap: 1rem;
-        }
-
-        .course-card .badge {
-            display: inline-block;
-            padding: 0.2rem 1rem;
-            border-radius: 60px;
-            font-size: 0.75rem;
-            font-weight: 700;
-        }
-
-        .badge-featured {
-            background: linear-gradient(135deg, #2563eb, #7c3aed);
-            color: white;
-        }
-
-        .badge-html {
-            background: linear-gradient(135deg, #e67e22, #d35400);
-            color: white;
-        }
-
-        .badge-course {
-            background: #dbeafe;
-            color: #1e4ab0;
-        }
-
-        /* ============================================================
-                   ABOUT / CONTACT / SUPPORT PAGES
-                   ============================================================ */
-        .page-card {
-            background: white;
-            border-radius: 44px;
-            padding: 2.5rem;
-            border: 1px solid #e9edf2;
-            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.02);
-        }
-
-        .page-card h2 {
-            font-size: 2rem;
-            font-weight: 800;
-            display: flex;
-            align-items: center;
-            gap: 0.8rem;
-            margin-bottom: 0.5rem;
-        }
-
-        .page-card h2 i {
-            color: #2563eb;
-        }
-
-        .page-text {
-            color: #1e293b;
-            font-size: 1.05rem;
-            line-height: 2;
-            margin-bottom: 1.5rem;
-        }
-
-        .grid-3 {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-            gap: 2rem;
-            margin-top: 1.5rem;
-        }
-
-        .grid-item {
-            background: #f8fafc;
-            padding: 2rem;
-            border-radius: 28px;
-            border: 1px solid #eef2f6;
-            transition: 0.3s;
-            text-align: center;
-        }
-
-        .grid-item:hover {
-            transform: translateY(-4px);
-            border-color: #2563eb;
-            box-shadow: 0 12px 28px -8px rgba(37, 99, 235, 0.06);
-        }
-
-        .grid-item i {
-            font-size: 2.8rem;
-            color: #2563eb;
-            background: #e0edff;
-            padding: 1rem;
-            border-radius: 50%;
-            margin-bottom: 1rem;
-        }
-
-        .grid-item h4 {
-            font-size: 1.2rem;
-            margin-bottom: 0.3rem;
-        }
-
-        .grid-item p {
-            color: #475569;
-            font-size: 0.95rem;
-        }
-
-        .btn-support {
-            display: inline-block;
-            background: #2563eb;
-            color: white;
-            padding: 0.5rem 1.8rem;
-            border-radius: 60px;
-            text-decoration: none;
-            font-weight: 600;
-            transition: 0.3s;
-            border: none;
-            cursor: pointer;
-            font-size: 0.95rem;
-        }
-
-        .btn-support:hover {
-            background: #1d4ed8;
-            transform: translateY(-2px);
-            box-shadow: 0 8px 20px rgba(37, 99, 235, 0.2);
-        }
-
-        .btn-support-outline {
-            background: #eef2f6;
-            color: #1e293b;
-        }
-
-        .btn-support-outline:hover {
-            background: #dbeafe;
-            color: #1e4ab0;
-        }
-
-        .contact-item {
-            background: #f8fafc;
-            padding: 2rem;
-            border-radius: 28px;
-            border: 1px solid #eef2f6;
-            transition: 0.3s;
-            text-align: center;
-        }
-
-        .contact-item:hover {
-            transform: translateY(-4px);
-            border-color: #2563eb;
-            box-shadow: 0 12px 28px -8px rgba(37, 99, 235, 0.06);
-        }
-
-        .contact-item i {
-            font-size: 2.8rem;
-            color: #2563eb;
-            background: #e0edff;
-            padding: 1rem;
-            border-radius: 50%;
-            margin-bottom: 1rem;
-        }
-
-        .contact-item h4 {
-            font-size: 1.2rem;
-        }
-
-        .contact-item p {
-            color: #475569;
-            font-size: 1.05rem;
-        }
-
-        .whatsapp-btn {
-            display: inline-block;
-            background: #25D366;
-            color: white;
-            padding: 0.6rem 1.8rem;
-            border-radius: 60px;
-            text-decoration: none;
-            font-weight: 600;
-            margin-top: 0.5rem;
-            transition: 0.3s;
-        }
-
-        .whatsapp-btn:hover {
-            background: #1da851;
-            transform: scale(1.03);
-        }
-
-        .faq-item {
-            background: #f8fafc;
-            padding: 1.2rem 1.5rem;
-            border-radius: 16px;
-            margin-bottom: 1rem;
-            border-right: 4px solid #2563eb;
-            transition: 0.2s;
-        }
-
-        .faq-item:hover {
-            background: #f1f5f9;
-        }
-
-        .faq-item strong {
-            display: block;
-            font-size: 1.05rem;
-            color: #0b1a2e;
-        }
-
-        .faq-item p {
-            color: #475569;
-            margin-top: 0.3rem;
-        }
-
-        /* ============================================================
-                   FOOTER
-                   ============================================================ */
-        .footer {
-            background: #0b1a2e;
-            color: #e2e8f0;
-            padding: 2.5rem 0 1.2rem;
-            margin-top: 2rem;
-            border-radius: 44px 44px 0 0;
-        }
-
-        .footer .container {
-            display: flex;
-            flex-direction: column;
-            gap: 1.5rem;
-        }
-
-        .footer-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-            gap: 2rem;
-        }
-
-        .footer h4 {
-            color: white;
-            margin-bottom: 0.5rem;
-            font-size: 1.1rem;
-        }
-
-        .footer ul {
-            list-style: none;
-        }
-
-        .footer ul li {
-            margin-bottom: 0.3rem;
-        }
-
-        .footer ul li a {
-            color: #b0c4de;
-            text-decoration: none;
-            font-size: 0.95rem;
-            transition: 0.2s;
-            cursor: pointer;
-        }
-
-        .footer ul li a:hover {
-            color: white;
-            text-decoration: underline;
-        }
-
-        .footer-bottom {
-            border-top: 1px solid #1e2a3a;
-            padding-top: 1rem;
-            display: flex;
-            justify-content: space-between;
-            flex-wrap: wrap;
-            font-size: 0.9rem;
-            color: #94a3b8;
-        }
-
-        /* ============================================================
-                   RESPONSIVE
-                   ============================================================ */
-        @media (max-width: 768px) {
-            .container {
-                padding: 0 1rem;
-            }
-
-            .hero {
-                padding: 2rem 1.5rem;
-                border-radius: 32px;
-            }
-
-            .hero h1 {
-                font-size: 2.4rem;
-            }
-
-            .hero-stats {
-                gap: 1.5rem;
-            }
-
-            .founder-section {
-                padding: 1.5rem;
-            }
-
-            .founder-image-wrapper {
-                width: 140px;
-                height: 140px;
-            }
-
-            .founder-grid {
-                flex-direction: column;
-                text-align: center;
-            }
-
-            .social-links {
-                justify-content: center;
-            }
-
-            .navbar .container {
-                flex-direction: column;
-                align-items: stretch;
-            }
-
-            .nav-links {
-                justify-content: center;
-                gap: 0.4rem;
-            }
-
-            .nav-links button {
-                font-size: 0.85rem;
-                padding: 0.3rem 0.7rem;
-            }
-
-            .btn-join,
-            .btn-course {
-                padding: 0.4rem 1.2rem !important;
-                font-size: 0.85rem !important;
-            }
-
-            .hero-actions {
-                flex-direction: column;
-                align-items: center;
-            }
-
-            .hero-btn-primary,
-            .hero-btn-secondary {
-                width: 100%;
-                text-align: center;
-                padding: 0.8rem 1.5rem;
-                font-size: 1rem;
-            }
-
-            .courses-grid {
-                grid-template-columns: 1fr 1fr;
-            }
-
-            .grid-3 {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .courses-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .hero h1 {
-                font-size: 2rem;
-            }
-
-            .hero-stats .stat-number {
-                font-size: 1.4rem;
-            }
-        }
-
-        /* ============================================================
-                   UTILITY / ANIMATIONS
-                   ============================================================ */
-        .fade-up {
-            opacity: 0;
-            transform: translateY(24px);
-            animation: fadeUp 0.6s ease forwards;
-        }
-
-        .fade-up-d1 {
-            animation-delay: 0.1s;
-        }
-        .fade-up-d2 {
-            animation-delay: 0.2s;
-        }
-        .fade-up-d3 {
-            animation-delay: 0.3s;
-        }
-
-        @keyframes fadeUp {
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .rotate-border {
-            animation: rotateBorder 8s linear infinite;
-        }
-
-        @keyframes rotateBorder {
-            0% {
-                transform: rotate(0deg);
-            }
-            100% {
-                transform: rotate(360deg);
-            }
-        }
-
-        /* ============================================================
-                   PAGE SWITCHING
-                   ============================================================ */
-        .page {
-            display: none;
-            animation: pageFade 0.4s ease;
-        }
-
-        .page.active-page-content {
-            display: block;
-        }
-
-        @keyframes pageFade {
-            0% {
-                opacity: 0;
-                transform: translateY(16px);
-            }
-            100% {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>أكاديمية بهاء الدين التعليمية</title>
+  
+  <!-- ============================================================
+  PWA / APP MANIFEST (مضمن داخل الصفحة)
+  ============================================================ -->
+  <link rel="manifest" href="data:application/json;base64,ewogICJuYW1lIjogIs2Y2YUg2YLYrNiv2YbYsdipINin2YTYs9in2YbYqSDYp9mE2YXYudmK2YQiLAogICJzaG9ydF9uYW1lIjogItmF2YUg2YLYrAogICJkZXNjcmlwdGlvbiI6ICLYp9mE2YXZhNmK2YQg2K3Yp9mF2Kkg2KfZhNiz2KfZhtipINin2YTZhdi52YrZhCIsCiAgInN0YXJ0X3VybCI6ICIvaW5kZXguaHRtbCIsCiAgImRpc3BsYXkiOiAic3RhbmRhbG9uZSIsCiAgImJhY2tncm91bmRfY29sb3IiOiAiI2Y2ZjlmYyIsCiAgInRoZW1lX2NvbG9yIjogIiMyNTYzZWIiLAogICJvcmllbnRhdGlvbiI6ICJwb3J0cmFpdC1wcmltYXJ5IiwKICAiaWNvbnMiOiBbCiAgICB7ICJzcmMiOiAiZGF0YTppbWFnZS9zdmcreG1sLDxzdmcgeG1sbnM9J2h0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnJyB2aWV3Qm94PScwIDAgNTEyIDUxMicgd2lkdGg9JzUxMicgaGVpZ2h0PSc1MTInPjxyZWN0IHdpZHRoPSc1MTInIGhlaWdodD0nNTEyJyByeD0nNjQnIGZpbGw9JyMyNTYzZWInLz48dGV4dCB4PScyNTYnIHk9JzI4MCcgZm9udC1zaXplPScyMDAnIHRleHQtYW5jaG9yPSdtaWRkbGUnIGZpbGw9J3doaXRlJyBmb250LWZhbWlseT0nc2Fucy1zZXJpZic+2YXYqjwvdGV4dD48L3N2Zz4iLCAic2l6ZXMiOiAiNTEyeDUxMiIsICJ0eXBlIjogImltYWdlL3N2Zyt4bWwiIH0KICBdCn0=" />
+
+  <!-- Apple Touch Icon (لأجهزة آيفون) -->
+  <link rel="apple-touch-icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'%3E%3Crect width='512' height='512' rx='64' fill='%232563eb'/%3E%3Ctext x='256' y='280' font-size='200' text-anchor='middle' fill='white' font-family='sans-serif'%3E%3C/text%3E%3C/svg%3E" />
+
+  <!-- Meta Tags للتطبيق -->
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="theme-color" content="#2563eb" />
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&display=swap" rel="stylesheet" />
+
+  <style>
+    /* ============================================================
+       RESET & BASE
+       ============================================================ */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Cairo', 'Segoe UI', system-ui, sans-serif;
+      background: #f8fafc;
+      color: #0b1a2e;
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+
+    .container {
+      max-width: 1300px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+
+    /* ============================================================
+       GLASSMORPHISM HEADER
+       ============================================================ */
+    .navbar {
+      background: rgba(255, 255, 255, 0.75);
+      backdrop-filter: blur(16px) saturate(180%);
+      -webkit-backdrop-filter: blur(16px) saturate(180%);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.04);
+      padding: 0.5rem 0;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      transition: all 0.3s ease;
+    }
+
+    .navbar .container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .logo {
+      font-size: 1.8rem;
+      font-weight: 900;
+      letter-spacing: -0.5px;
+      background: linear-gradient(145deg, #0b1a2e, #1e3a6b);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .logo i {
+      -webkit-text-fill-color: #2563eb;
+      font-size: 2rem;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 0.8rem;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .nav-links button {
+      background: transparent;
+      border: none;
+      font-weight: 600;
+      font-size: 0.95rem;
+      color: #1e2a3a;
+      padding: 0.4rem 1rem;
+      border-radius: 60px;
+      cursor: pointer;
+      transition: 0.2s;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-family: inherit;
+      position: relative;
+    }
+
+    .nav-links button i {
+      color: #64748b;
+      font-size: 0.9rem;
+      transition: 0.2s;
+    }
+
+    .nav-links button::after {
+      content: '';
+      position: absolute;
+      bottom: 4px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 0;
+      height: 2px;
+      background: #2563eb;
+      border-radius: 4px;
+      transition: 0.3s;
+    }
+
+    .nav-links button:hover::after {
+      width: 60%;
+    }
+
+    .nav-links button:hover {
+      background: rgba(37, 99, 235, 0.06);
+      color: #0b1a2e;
+    }
+
+    .nav-links button:hover i {
+      color: #2563eb;
+    }
+
+    .nav-links .active-page {
+      background: #2563eb;
+      color: white !important;
+      box-shadow: 0 6px 20px rgba(37, 99, 235, 0.25);
+    }
+
+    .nav-links .active-page i {
+      color: white !important;
+    }
+
+    .nav-links .active-page::after {
+      display: none;
+    }
+
+    .nav-links .active-page:hover {
+      background: #1d4ed8;
+      transform: translateY(-1px);
+    }
+
+    .btn-join {
+      background: linear-gradient(135deg, #0b1a2e, #1e3a6b) !important;
+      color: white !important;
+      padding: 0.5rem 1.8rem !important;
+      border-radius: 60px;
+      font-weight: 700;
+      border: none;
+      cursor: pointer;
+      transition: 0.3s;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-family: inherit;
+      font-size: 0.95rem;
+      box-shadow: 0 4px 16px rgba(11, 26, 46, 0.15);
+    }
+
+    .btn-join:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 28px rgba(11, 26, 46, 0.25);
+    }
+
+    .btn-join i {
+      color: #94a3b8 !important;
+    }
+
+    .btn-course {
+      background: linear-gradient(135deg, #2563eb, #7c3aed) !important;
+      color: white !important;
+      padding: 0.5rem 1.8rem !important;
+      border-radius: 60px;
+      font-weight: 700;
+      border: none;
+      cursor: pointer;
+      transition: 0.3s;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-family: inherit;
+      font-size: 0.95rem;
+      box-shadow: 0 4px 16px rgba(37, 99, 235, 0.25);
+    }
+
+    .btn-course:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 28px rgba(37, 99, 235, 0.35);
+    }
+
+    .btn-course i {
+      color: white !important;
+    }
+
+    /* ============================================================
+       HERO SECTION
+       ============================================================ */
+    .hero {
+      background: linear-gradient(145deg, #ffffff 0%, #f0f7ff 100%);
+      border-radius: 48px;
+      padding: 4rem 3rem;
+      margin: 2rem 0 0;
+      border: 1px solid rgba(255, 255, 255, 0.6);
+      box-shadow: 0 20px 60px -16px rgba(0, 0, 0, 0.04);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -30%;
+      right: -10%;
+      width: 500px;
+      height: 500px;
+      background: radial-gradient(circle, rgba(37, 99, 235, 0.06), transparent 70%);
+      border-radius: 50%;
+      pointer-events: none;
+    }
+
+    .hero::after {
+      content: '';
+      position: absolute;
+      bottom: -20%;
+      left: -10%;
+      width: 400px;
+      height: 400px;
+      background: radial-gradient(circle, rgba(124, 58, 237, 0.05), transparent 70%);
+      border-radius: 50%;
+      pointer-events: none;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      background: rgba(37, 99, 235, 0.08);
+      color: #1e4ab0;
+      padding: 0.5rem 1.8rem;
+      border-radius: 60px;
+      font-weight: 700;
+      font-size: 0.9rem;
+      margin-bottom: 1.5rem;
+      border: 1px solid rgba(37, 99, 235, 0.1);
+    }
+
+    .hero h1 {
+      font-size: 3.8rem;
+      font-weight: 900;
+      line-height: 1.15;
+      margin-bottom: 0.5rem;
+      max-width: 800px;
+    }
+
+    .hero h1 span {
+      background: linear-gradient(135deg, #2563eb, #7c3aed);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .hero-subhead {
+      font-size: 1.2rem;
+      color: #475569;
+      max-width: 600px;
+      margin: 0.5rem auto 2rem;
+      line-height: 1.8;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      justify-content: center;
+      margin-bottom: 1.5rem;
+    }
+
+    .hero-btn-primary {
+      display: inline-block;
+      background: linear-gradient(135deg, #2563eb, #7c3aed);
+      color: white;
+      padding: 1rem 2.8rem;
+      border-radius: 60px;
+      font-weight: 700;
+      font-size: 1.1rem;
+      text-decoration: none;
+      transition: 0.3s;
+      box-shadow: 0 8px 32px rgba(37, 99, 235, 0.3);
+      border: none;
+      cursor: pointer;
+    }
+
+    .hero-btn-primary:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 12px 40px rgba(37, 99, 235, 0.4);
+    }
+
+    .hero-btn-secondary {
+      display: inline-block;
+      background: rgba(255, 255, 255, 0.7);
+      backdrop-filter: blur(4px);
+      color: #0b1a2e;
+      padding: 1rem 2.8rem;
+      border-radius: 60px;
+      font-weight: 700;
+      font-size: 1.1rem;
+      text-decoration: none;
+      transition: 0.3s;
+      border: 1.5px solid rgba(0, 0, 0, 0.06);
+    }
+
+    .hero-btn-secondary:hover {
+      background: white;
+      transform: translateY(-3px);
+      box-shadow: 0 8px 28px rgba(0, 0, 0, 0.06);
+    }
+
+    .hero-stats {
+      display: flex;
+      gap: 3rem;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-top: 1rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid rgba(0, 0, 0, 0.04);
+      width: 100%;
+    }
+
+    .hero-stats .stat-item {
+      text-align: center;
+    }
+
+    .hero-stats .stat-number {
+      font-size: 1.8rem;
+      font-weight: 900;
+      color: #0b1a2e;
+      display: block;
+    }
+
+    .hero-stats .stat-label {
+      font-size: 0.9rem;
+      color: #64748b;
+    }
+
+    /* ============================================================
+       FOUNDER SECTION
+       ============================================================ */
+    .founder-section {
+      background: white;
+      border-radius: 40px;
+      padding: 2.5rem 3rem;
+      margin-top: 2.5rem;
+      border: 1px solid #e9edf2;
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.02);
+      transition: 0.3s;
+    }
+
+    .founder-section:hover {
+      box-shadow: 0 12px 40px rgba(0, 0, 0, 0.04);
+    }
+
+    .founder-section h3 {
+      font-size: 1.8rem;
+      font-weight: 800;
+      margin-bottom: 0.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+      justify-content: center;
+      color: #0b1a2e;
+    }
+
+    .founder-section h3 i {
+      color: #2563eb;
+    }
+
+    .founder-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2.5rem;
+      align-items: center;
+      justify-content: center;
+      margin-top: 1.5rem;
+    }
+
+    .founder-image-wrapper {
+      flex-shrink: 0;
+      position: relative;
+      width: 180px;
+      height: 180px;
+      border-radius: 50%;
+      overflow: hidden;
+      box-shadow: 0 12px 40px rgba(37, 99, 235, 0.15);
+      border: 4px solid #2563eb;
+      transition: 0.4s;
+    }
+
+    .founder-image-wrapper:hover {
+      transform: scale(1.03);
+      box-shadow: 0 16px 50px rgba(37, 99, 235, 0.25);
+    }
+
+    .founder-image-wrapper img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .founder-image-wrapper .camera-icon {
+      position: absolute;
+      bottom: 8px;
+      right: 8px;
+      background: #2563eb;
+      color: white;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1rem;
+      border: 2px solid white;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+      z-index: 2;
+    }
+
+    .founder-desc {
+      flex: 1;
+      min-width: 250px;
+      text-align: right;
+    }
+
+    .founder-desc p {
+      color: #1e293b;
+      font-size: 1.05rem;
+      line-height: 1.8;
+    }
+
+    .founder-desc .highlight {
+      color: #2563eb;
+      font-weight: 700;
+    }
+
+    .social-links {
+      display: flex;
+      gap: 0.8rem;
+      margin-top: 0.8rem;
+      justify-content: flex-start;
+    }
+
+    .social-links a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: #f1f5f9;
+      color: #475569;
+      transition: 0.25s;
+      text-decoration: none;
+      font-size: 1.2rem;
+    }
+
+    .social-links a:hover {
+      background: #2563eb;
+      color: white;
+      transform: translateY(-3px);
+      box-shadow: 0 6px 16px rgba(37, 99, 235, 0.2);
+    }
+
+    /* ============================================================
+       SECTION TITLES
+       ============================================================ */
+    .section-title {
+      font-size: 2.2rem;
+      font-weight: 800;
+      margin-bottom: 0.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+      color: #0b1a2e;
+    }
+
+    .section-title i {
+      color: #2563eb;
+    }
+
+    .section-subtitle {
+      color: #64748b;
+      font-size: 1.05rem;
+      margin-bottom: 1.5rem;
+    }
+
+    /* ============================================================
+       COURSES GRID
+       ============================================================ */
+    .courses-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 2rem;
+      margin-top: 1.5rem;
+    }
+
+    .course-card {
+      background: white;
+      border-radius: 32px;
+      padding: 2rem 1.5rem;
+      border: 1px solid #eef2f6;
+      transition: 0.3s;
+      text-align: center;
+      text-decoration: none;
+      color: inherit;
+      display: block;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .course-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, #2563eb, #7c3aed);
+      opacity: 0;
+      transition: 0.3s;
+    }
+
+    .course-card:hover {
+      transform: translateY(-8px);
+      border-color: #2563eb;
+      box-shadow: 0 20px 48px -12px rgba(37, 99, 235, 0.12);
+    }
+
+    .course-card:hover::before {
+      opacity: 1;
+    }
+
+    .course-card .icon-wrapper {
+      width: 72px;
+      height: 72px;
+      border-radius: 24px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 1rem;
+      font-size: 2.2rem;
+      transition: 0.3s;
+    }
+
+    .course-card:hover .icon-wrapper {
+      transform: scale(1.05) rotate(-2deg);
+    }
+
+    .course-card h4 {
+      font-size: 1.25rem;
+      font-weight: 700;
+      margin-bottom: 0.2rem;
+    }
+
+    .course-card .meta {
+      font-size: 0.85rem;
+      color: #64748b;
+      margin: 0.3rem 0;
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+    }
+
+    .course-card .badge {
+      display: inline-block;
+      padding: 0.2rem 1rem;
+      border-radius: 60px;
+      font-size: 0.75rem;
+      font-weight: 700;
+    }
+
+    .badge-featured {
+      background: linear-gradient(135deg, #2563eb, #7c3aed);
+      color: white;
+    }
+
+    .badge-html {
+      background: linear-gradient(135deg, #e67e22, #d35400);
+      color: white;
+    }
+
+    .badge-course {
+      background: #dbeafe;
+      color: #1e4ab0;
+    }
+
+    /* ============================================================
+       ABOUT / CONTACT / SUPPORT PAGES
+       ============================================================ */
+    .page-card {
+      background: white;
+      border-radius: 44px;
+      padding: 2.5rem;
+      border: 1px solid #e9edf2;
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.02);
+    }
+
+    .page-card h2 {
+      font-size: 2rem;
+      font-weight: 800;
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .page-card h2 i {
+      color: #2563eb;
+    }
+
+    .page-text {
+      color: #1e293b;
+      font-size: 1.05rem;
+      line-height: 2;
+      margin-bottom: 1.5rem;
+    }
+
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 2rem;
+      margin-top: 1.5rem;
+    }
+
+    .grid-item {
+      background: #f8fafc;
+      padding: 2rem;
+      border-radius: 28px;
+      border: 1px solid #eef2f6;
+      transition: 0.3s;
+      text-align: center;
+    }
+
+    .grid-item:hover {
+      transform: translateY(-4px);
+      border-color: #2563eb;
+      box-shadow: 0 12px 28px -8px rgba(37, 99, 235, 0.06);
+    }
+
+    .grid-item i {
+      font-size: 2.8rem;
+      color: #2563eb;
+      background: #e0edff;
+      padding: 1rem;
+      border-radius: 50%;
+      margin-bottom: 1rem;
+    }
+
+    .grid-item h4 {
+      font-size: 1.2rem;
+      margin-bottom: 0.3rem;
+    }
+
+    .grid-item p {
+      color: #475569;
+      font-size: 0.95rem;
+    }
+
+    .btn-support {
+      display: inline-block;
+      background: #2563eb;
+      color: white;
+      padding: 0.5rem 1.8rem;
+      border-radius: 60px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: 0.3s;
+      border: none;
+      cursor: pointer;
+      font-size: 0.95rem;
+    }
+
+    .btn-support:hover {
+      background: #1d4ed8;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(37, 99, 235, 0.2);
+    }
+
+    .btn-support-outline {
+      background: #eef2f6;
+      color: #1e293b;
+    }
+
+    .btn-support-outline:hover {
+      background: #dbeafe;
+      color: #1e4ab0;
+    }
+
+    .contact-item {
+      background: #f8fafc;
+      padding: 2rem;
+      border-radius: 28px;
+      border: 1px solid #eef2f6;
+      transition: 0.3s;
+      text-align: center;
+    }
+
+    .contact-item:hover {
+      transform: translateY(-4px);
+      border-color: #2563eb;
+      box-shadow: 0 12px 28px -8px rgba(37, 99, 235, 0.06);
+    }
+
+    .contact-item i {
+      font-size: 2.8rem;
+      color: #2563eb;
+      background: #e0edff;
+      padding: 1rem;
+      border-radius: 50%;
+      margin-bottom: 1rem;
+    }
+
+    .contact-item h4 {
+      font-size: 1.2rem;
+    }
+
+    .contact-item p {
+      color: #475569;
+      font-size: 1.05rem;
+    }
+
+    .whatsapp-btn {
+      display: inline-block;
+      background: #25D366;
+      color: white;
+      padding: 0.6rem 1.8rem;
+      border-radius: 60px;
+      text-decoration: none;
+      font-weight: 600;
+      margin-top: 0.5rem;
+      transition: 0.3s;
+    }
+
+    .whatsapp-btn:hover {
+      background: #1da851;
+      transform: scale(1.03);
+    }
+
+    .faq-item {
+      background: #f8fafc;
+      padding: 1.2rem 1.5rem;
+      border-radius: 16px;
+      margin-bottom: 1rem;
+      border-right: 4px solid #2563eb;
+      transition: 0.2s;
+    }
+
+    .faq-item:hover {
+      background: #f1f5f9;
+    }
+
+    .faq-item strong {
+      display: block;
+      font-size: 1.05rem;
+      color: #0b1a2e;
+    }
+
+    .faq-item p {
+      color: #475569;
+      margin-top: 0.3rem;
+    }
+
+    /* ============================================================
+       FOOTER
+       ============================================================ */
+    .footer {
+      background: #0b1a2e;
+      color: #e2e8f0;
+      padding: 2.5rem 0 1.2rem;
+      margin-top: 2rem;
+      border-radius: 44px 44px 0 0;
+    }
+
+    .footer .container {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 2rem;
+    }
+
+    .footer h4 {
+      color: white;
+      margin-bottom: 0.5rem;
+      font-size: 1.1rem;
+    }
+
+    .footer ul {
+      list-style: none;
+    }
+
+    .footer ul li {
+      margin-bottom: 0.3rem;
+    }
+
+    .footer ul li a {
+      color: #b0c4de;
+      text-decoration: none;
+      font-size: 0.95rem;
+      transition: 0.2s;
+      cursor: pointer;
+    }
+
+    .footer ul li a:hover {
+      color: white;
+      text-decoration: underline;
+    }
+
+    .footer-bottom {
+      border-top: 1px solid #1e2a3a;
+      padding-top: 1rem;
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      font-size: 0.9rem;
+      color: #94a3b8;
+    }
+
+    /* ============================================================
+       RESPONSIVE
+       ============================================================ */
+    @media (max-width: 768px) {
+      .container {
+        padding: 0 1rem;
+      }
+
+      .hero {
+        padding: 2rem 1.5rem;
+        border-radius: 32px;
+      }
+
+      .hero h1 {
+        font-size: 2.4rem;
+      }
+
+      .hero-stats {
+        gap: 1.5rem;
+      }
+
+      .founder-section {
+        padding: 1.5rem;
+      }
+
+      .founder-image-wrapper {
+        width: 140px;
+        height: 140px;
+      }
+
+      .founder-grid {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .social-links {
+        justify-content: center;
+      }
+
+      .navbar .container {
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      .nav-links {
+        justify-content: center;
+        gap: 0.4rem;
+      }
+
+      .nav-links button {
+        font-size: 0.85rem;
+        padding: 0.3rem 0.7rem;
+      }
+
+      .btn-join,
+      .btn-course {
+        padding: 0.4rem 1.2rem !important;
+        font-size: 0.85rem !important;
+      }
+
+      .hero-actions {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .hero-btn-primary,
+      .hero-btn-secondary {
+        width: 100%;
+        text-align: center;
+        padding: 0.8rem 1.5rem;
+        font-size: 1rem;
+      }
+
+      .courses-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .grid-3 {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .courses-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero h1 {
+        font-size: 2rem;
+      }
+
+      .hero-stats .stat-number {
+        font-size: 1.4rem;
+      }
+    }
+
+    /* ============================================================
+       UTILITY / ANIMATIONS
+       ============================================================ */
+    .fade-up {
+      opacity: 0;
+      transform: translateY(24px);
+      animation: fadeUp 0.6s ease forwards;
+    }
+
+    .fade-up-d1 {
+      animation-delay: 0.1s;
+    }
+    .fade-up-d2 {
+      animation-delay: 0.2s;
+    }
+    .fade-up-d3 {
+      animation-delay: 0.3s;
+    }
+
+    @keyframes fadeUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .rotate-border {
+      animation: rotateBorder 8s linear infinite;
+    }
+
+    @keyframes rotateBorder {
+      0% {
+        transform: rotate(0deg);
+      }
+      100% {
+        transform: rotate(360deg);
+      }
+    }
+
+    /* ============================================================
+       PAGE SWITCHING
+       ============================================================ */
+    .page {
+      display: none;
+      animation: pageFade 0.4s ease;
+    }
+
+    .page.active-page-content {
+      display: block;
+    }
+
+    @keyframes pageFade {
+      0% {
+        opacity: 0;
+        transform: translateY(16px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  </style>
 </head>
 <body>
 
-    <!-- ===== HEADER ===== -->
-    <header class="navbar">
-        <div class="container">
-            <div class="logo"><i class="fas fa-graduation-cap"></i> بهاء الدين</div>
-            <nav class="nav-links" id="navLinks">
-                <button class="active-page" data-page="home"><i class="fas fa-home"></i> الرئيسية</button>
-                <button data-page="courses"><i class="fas fa-book-open"></i> الدورات</button>
-                <button data-page="about"><i class="fas fa-info-circle"></i> عن الأكاديمية</button>
-                <button data-page="contact"><i class="fas fa-envelope"></i> تواصل</button>
-                <button data-page="support"><i class="fas fa-headset"></i> الدعم</button>
-                <a href="course-basics.html" class="btn-course"><i class="fas fa-graduation-cap"></i> الكورس</a>
-                <button class="btn-join" onclick="window.open('https://script.google.com/macros/s/AKfycbx5a7vWFVuWxrEPW1nTMtdGOjbBlzZ-B_q7_QQSZgatB_r4jmaShEsp0qk66hFOzDpS/exec', '_blank')">
-                    <i class="fas fa-user-plus"></i> انضم الآن
-                </button>
-            </nav>
+  <!-- ===== HEADER ===== -->
+  <header class="navbar">
+    <div class="container">
+      <div class="logo"><i class="fas fa-graduation-cap"></i> بهاء الدين</div>
+      <nav class="nav-links" id="navLinks">
+        <button class="active-page" data-page="home"><i class="fas fa-home"></i> الرئيسية</button>
+        <button data-page="courses"><i class="fas fa-book-open"></i> الدورات</button>
+        <button data-page="about"><i class="fas fa-info-circle"></i> عن الأكاديمية</button>
+        <button data-page="contact"><i class="fas fa-envelope"></i> تواصل</button>
+        <button data-page="support"><i class="fas fa-headset"></i> الدعم</button>
+        <a href="course-basics.html" class="btn-course"><i class="fas fa-graduation-cap"></i> الكورس</a>
+        <button class="btn-join" onclick="window.open('https://script.google.com/macros/s/AKfycbx5a7vWFVuWxrEPW1nTMtdGOjbBlzZ-B_q7_QQSZgatB_r4jmaShEsp0qk66hFOzDpS/exec', '_blank')">
+          <i class="fas fa-user-plus"></i> انضم الآن
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ===== PAGE CONTAINER ===== -->
+  <section class="page-content">
+    <div class="container">
+
+      <!-- ============================================================
+      HOME PAGE
+      ============================================================ -->
+      <div id="page-home" class="page active-page-content">
+
+        <div class="hero fade-up">
+          <div class="hero-content">
+            <div class="hero-badge">
+              <i class="fas fa-crown"></i> أكاديمية بهاء الدين التعليمية
+            </div>
+            <h1>
+              <span>رحلة</span> الإتقان تبدأ من هنا
+            </h1>
+            <p class="hero-subhead">
+              منصة تعليمية متكاملة أسسها المبرمج <strong>بهاء الدين الحسين</strong>
+              لتقديم تجربة أكاديمية احترافية ومشوقة.
+            </p>
+            <div class="hero-actions">
+              <a href="course-basics.html" class="hero-btn-primary">
+                <i class="fas fa-rocket"></i> ابدأ كورس أساسيات البرمجة الآن
+              </a>
+              <a href="#page-courses" class="hero-btn-secondary" onclick="switchPage('courses')">
+                <i class="fas fa-arrow-left"></i> استعرض جميع الدورات
+              </a>
+            </div>
+            <div class="hero-stats">
+              <div class="stat-item">
+                <span class="stat-number">25+</span>
+                <span class="stat-label">دورة تعليمية</span>
+              </div>
+              <div class="stat-item">
+                <span class="stat-number">100%</span>
+                <span class="stat-label">مجاني للمبتدئين</span>
+              </div>
+              <div class="stat-item">
+                <span class="stat-number">24/7</span>
+                <span class="stat-label">دعم فني</span>
+              </div>
+            </div>
+          </div>
         </div>
-    </header>
 
-    <!-- ===== PAGE CONTAINER ===== -->
-    <section class="page-content">
-        <div class="container">
-
-            <!-- ============================================================
-            HOME PAGE
-            ============================================================ -->
-            <div id="page-home" class="page active-page-content">
-
-                <div class="hero fade-up">
-                    <div class="hero-content">
-                        <div class="hero-badge">
-                            <i class="fas fa-crown"></i> أكاديمية بهاء الدين التعليمية
-                        </div>
-                        <h1>
-                            <span>رحلة</span> الإتقان تبدأ من هنا
-                        </h1>
-                        <p class="hero-subhead">
-                            منصة تعليمية متكاملة أسسها المبرمج <strong>بهاء الدين الحسين</strong>
-                            لتقديم تجربة أكاديمية احترافية ومشوقة.
-                        </p>
-                        <div class="hero-actions">
-                            <a href="course-basics.html" class="hero-btn-primary">
-                                <i class="fas fa-rocket"></i> ابدأ كورس أساسيات البرمجة الآن
-                            </a>
-                            <a href="#page-courses" class="hero-btn-secondary" onclick="switchPage('courses')">
-                                <i class="fas fa-arrow-left"></i> استعرض جميع الدورات
-                            </a>
-                        </div>
-                        <div class="hero-stats">
-                            <div class="stat-item">
-                                <span class="stat-number">25+</span>
-                                <span class="stat-label">دورة تعليمية</span>
-                            </div>
-                            <div class="stat-item">
-                                <span class="stat-number">100%</span>
-                                <span class="stat-label">مجاني للمبتدئين</span>
-                            </div>
-                            <div class="stat-item">
-                                <span class="stat-number">24/7</span>
-                                <span class="stat-label">دعم فني</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Founder -->
-                <div class="founder-section fade-up fade-up-d1">
-                    <h3><i class="fas fa-user-astronaut"></i> المبرمج بهاء الدين الحسين</h3>
-                    <div class="founder-grid">
-                        <div class="founder-image-wrapper">
-                            <img src="مبرمج.jpeg" alt="بهاء الدين الحسين" />
-                            <span class="camera-icon"><i class="fas fa-camera"></i></span>
-                        </div>
-                        <div class="founder-desc">
-                            <p>
-                                <span class="highlight">بهاء الدين الحسين</span> — مطور ويب شغوف، يملك خبرة عملية تمتد لأربع سنوات في
-                                برمجة وتطوير الويب. أسس هذه الأكاديمية لمشاركة خبرته بأسلوب مبسط وعملي،
-                                مؤمنًا بأن التعليم الجيد هو المفتاح لبناء مبرمجين مبدعين.
-                            </p>
-                            <div class="social-links">
-                            </div>
-                        </div>
-                    </div>
-                </div>
+        <!-- Founder -->
+        <div class="founder-section fade-up fade-up-d1">
+          <h3><i class="fas fa-user-astronaut"></i> المبرمج بهاء الدين الحسين</h3>
+          <div class="founder-grid">
+            <div class="founder-image-wrapper">
+              <img src="مبرمج.jpeg" alt="بهاء الدين الحسين" />
+              <span class="camera-icon"><i class="fas fa-camera"></i></span>
             </div>
-
-            <!-- ============================================================
-            COURSES PAGE
-            ============================================================ -->
-            <div id="page-courses" class="page">
-                <h2 class="section-title"><i class="fas fa-book-open"></i> الدورات التعليمية</h2>
-                <p class="section-subtitle">أساسيات البرمجة وتطوير الويب خطوة بخطوة</p>
-                <div class="courses-grid">
-                    <!-- الدورة 1 -->
-                    <a href="course-basics.html" class="course-card">
-                        <div class="icon-wrapper" style="background: linear-gradient(135deg, #2563eb, #7c3aed); color: white;">
-                            <i class="fas fa-code"></i>
-                        </div>
-                        <h4>أساسيات البرمجة</h4>
-                        <div class="meta">
-                            <span><i class="far fa-clock"></i> 20 درساً</span>
-                            <span><i class="fas fa-signal"></i> مبتدىء</span>
-                        </div>
-                        <span class="badge badge-featured"><i class="fas fa-star"></i> مميز</span>
-                    </a>
-
-                    <!-- الدورة 2 -->
-                    <a href="course-html.html" class="course-card">
-                        <div class="icon-wrapper" style="background: linear-gradient(135deg, #e67e22, #d35400); color: white;">
-                            <i class="fab fa-html5"></i>
-                        </div>
-                        <h4>كورس HTML الشامل</h4>
-                        <div class="meta">
-                            <span><i class="far fa-clock"></i> 25 درساً</span>
-                            <span><i class="fas fa-signal"></i> مبتدىء</span>
-                        </div>
-                        <span class="badge badge-html"><i class="fas fa-fire"></i> جديد</span>
-                    </a>
-
-                    <!-- الدورة 3 -->
-                    <div class="course-card">
-                        <div class="icon-wrapper" style="background: #dbeafe; color: #2563eb;">
-                            <i class="fab fa-css3-alt"></i>
-                        </div>
-                        <h4>CSS</h4>
-                        <div class="meta">
-                            <span><i class="far fa-clock"></i> 25 درساً</span>
-                            <span><i class="fas fa-signal"></i> مبتدىء</span>
-                        </div>
-                        <span class="badge badge-course">قريباً</span>
-                    </div>
-
-                    <!-- الدورة 4 -->
-                    <div class="course-card">
-                        <div class="icon-wrapper" style="background: #dbeafe; color: #2563eb;">
-                            <i class="fab fa-js"></i>
-                        </div>
-                        <h4>JavaScript</h4>
-                        <div class="meta">
-                            <span><i class="far fa-clock"></i> 25 درساً</span>
-                            <span><i class="fas fa-signal"></i> متوسط</span>
-                        </div>
-                        <span class="badge badge-course">قريباً</span>
-                    </div>
-
-                    <!-- الدورة 5 -->
-                    <div class="course-card">
-                        <div class="icon-wrapper" style="background: #dbeafe; color: #2563eb;">
-                            <i class="fab fa-python"></i>
-                        </div>
-                        <h4>بايثون</h4>
-                        <div class="meta">
-                            <span><i class="far fa-clock"></i> 25 درساً</span>
-                            <span><i class="fas fa-signal"></i> متوسط</span>
-                        </div>
-                        <span class="badge badge-course">قريباً</span>
-                    </div>
-                </div>
+            <div class="founder-desc">
+              <p>
+                <span class="highlight">بهاء الدين الحسين</span> — مطور ويب شغوف، يملك خبرة عملية تمتد لأربع سنوات في
+                برمجة وتطوير الويب. أسس هذه الأكاديمية لمشاركة خبرته بأسلوب مبسط وعملي،
+                مؤمنًا بأن التعليم الجيد هو المفتاح لبناء مبرمجين مبدعين.
+              </p>
+              <div class="social-links">
+              </div>
             </div>
-
-            <!-- ============================================================
-            ABOUT PAGE
-            ============================================================ -->
-            <div id="page-about" class="page">
-                <div class="page-card">
-                    <h2><i class="fas fa-info-circle"></i> عن أكاديمية بهاء الدين</h2>
-                    <p class="page-text">
-                        <strong>أكاديمية بهاء الدين التعليمية</strong> هي منصة تعليمية متكاملة تأسست بهدف بسيط لكنه طموح:
-                        <strong>جعل البرمجة في متناول الجميع</strong>، بغض النظر عن خلفيتهم أو مستواهم أو أعمارهم.
-                        نحن نؤمن بأن البرمجة ليست حكراً على العباقرة أو أصحاب الشهادات العليا، بل هي مهارة يمكن لأي شخص
-                        يتقن أساسياتها أن يصبح مبدعاً وقادراً على بناء حلول تقنية مبتكرة.
-                    </p>
-                    <p class="page-text">
-                        انطلقت الأكاديمية عام 2026 على يد المبرمج <strong>بهاء الدين الحسين</strong>، الذي جمع خبرته العملية
-                        في تطوير الويب ليقدمها بأسلوب مبسط ومنهجي. نقدم محتوى تعليمياً يركز على <strong>المفاهيم الأساسية
-                        المشتركة</strong> بين جميع لغات البرمجة، مما يمنحك القدرة على تعلم أي لغة تريدها بسهولة ويسر.
-                    </p>
-
-                    <h3 style="font-size: 1.4rem; margin-top: 1.5rem; display: flex; align-items: center; gap: 0.6rem;">
-                        <i class="fas fa-bullseye" style="color: #2563eb;"></i> رؤيتنا ورسالتنا وقيمنا
-                    </h3>
-                    <div class="grid-3">
-                        <div class="grid-item">
-                            <i class="fas fa-bullseye"></i>
-                            <h4>الرؤية</h4>
-                            <p>أن نكون المنصة التعليمية الأولى في العالم العربي التي تخريج مبرمجين قادرين على المنافسة في السوق العالمي.</p>
-                        </div>
-                        <div class="grid-item">
-                            <i class="fas fa-rocket"></i>
-                            <h4>الرسالة</h4>
-                            <p>تقديم محتوى تعليمي عالي الجودة، محدث ومتجدد، بأسلوب مبسط ومنهجي، مع توفير أدوات تفاعلية حديثة.</p>
-                        </div>
-                        <div class="grid-item">
-                            <i class="fas fa-handshake"></i>
-                            <h4>القيم</h4>
-                            <p><strong>الإبداع</strong> — <strong>الجودة</strong> — <strong>الالتزام</strong></p>
-                        </div>
-                    </div>
-
-                    <div style="margin-top: 2rem; background: #dbeafe; border-radius: 16px; padding: 1.5rem; border-right: 4px solid #2563eb;">
-                        <p style="font-size: 1.05rem; color: #1e293b;">
-                            <i class="fas fa-quote-right" style="color: #2563eb; font-size: 1.4rem;"></i>
-                            <strong>كلمة المؤسس:</strong> "أسست هذه الأكاديمية لأنني أؤمن بأن التعليم الجيد هو المفتاح لبناء مبرمجين مبدعين.
-                            قررت أن أقدم تجربة تعليمية مختلفة، تركز على الجوهر وتجعل التعلم رحلة ممتعة وليس مجرد مهمة شاقة."
-                            <br />
-                            <span style="display: block; margin-top: 0.5rem; color: #2563eb;">— بهاء الدين الحسين، مؤسس الأكاديمية</span>
-                        </p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- ============================================================
-            CONTACT PAGE
-            ============================================================ -->
-            <div id="page-contact" class="page">
-                <div class="page-card">
-                    <h2><i class="fas fa-envelope"></i> تواصل معنا</h2>
-                    <p class="page-text">
-                        نحن هنا لمساعدتك! إذا كان لديك أي سؤال، استفسار، أو اقتراح، لا تتردد في التواصل معنا عبر إحدى القنوات التالية.
-                        فريقنا جاهز للرد عليك في أقرب وقت ممكن.
-                    </p>
-                    <div class="grid-3">
-                        <div class="contact-item">
-                            <i class="fas fa-phone-alt"></i>
-                            <h4>اتصال</h4>
-                            <p dir="ltr">0982520358</p>
-                        </div>
-                        <div class="contact-item">
-                            <i class="fab fa-whatsapp"></i>
-                            <h4>واتساب</h4>
-                            <p dir="ltr">0982520358</p>
-                            <a href="https://wa.me/963982520358" target="_blank" class="whatsapp-btn">
-                                <i class="fab fa-whatsapp"></i> تواصل عبر واتساب
-                            </a>
-                        </div>
-                        <div class="contact-item">
-                            <i class="fas fa-map-marker-alt"></i>
-                            <h4>العنوان</h4>
-                            <p>سوريا، إدلب</p>
-                        </div>
-                        <div class="contact-item">
-                            <i class="fas fa-envelope"></i>
-                            <h4>البريد الإلكتروني</h4>
-                            <p>bahaa@academy.dev</p>
-                        </div>
-                    </div>
-                    <div style="margin-top: 2rem; background: #f1f5f9; border-radius: 16px; padding: 1.2rem; text-align: center; border: 1px dashed #2563eb;">
-                        <p style="color: #475569;">
-                            <i class="fas fa-clock" style="color: #2563eb;"></i>
-                            <strong>ساعات العمل:</strong> جميع أيام الأسبوع من 9 صباحاً حتى 10 مساءً (بتوقيت دمشق)
-                        </p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- ============================================================
-            SUPPORT PAGE
-            ============================================================ -->
-            <div id="page-support" class="page">
-                <div class="page-card">
-                    <h2><i class="fas fa-headset"></i> مركز الدعم والمساعدة</h2>
-                    <p class="page-text">
-                        ندرك أنك قد تواجه بعض التحديات أثناء رحلة التعلم، ولهذا خصصنا هذا المركز لمساعدتك.
-                        اختر الخدمة التي تناسبك من القائمة أدناه، وفريقنا سيكون سعيداً بمساعدتك.
-                    </p>
-                    <div class="grid-3">
-                        <div class="grid-item">
-                            <i class="fas fa-question-circle"></i>
-                            <h4>الأسئلة الشائعة</h4>
-                            <p>إجابات على أكثر الأسئلة شيوعاً حول الأكاديمية والدورات.</p>
-                            <button class="btn-support" onclick="switchPage('faq')">عرض الأسئلة</button>
-                        </div>
-                        <div class="grid-item">
-                            <i class="fas fa-file-alt"></i>
-                            <h4>سياسة الخصوصية</h4>
-                            <p>تعرف على كيفية تعاملنا مع بياناتك وحماية خصوصيتك.</p>
-                            <button class="btn-support" onclick="switchPage('privacy')">قراءة السياسة</button>
-                        </div>
-                        <div class="grid-item">
-                            <i class="fas fa-comment-dots"></i>
-                            <h4>الدعم الفني</h4>
-                            <p>تواصل مع فريق الدعم الفني لحل أي مشكلة تقنية.</p>
-                            <button class="btn-support" onclick="switchPage('contact')">تواصل معنا</button>
-                        </div>
-                        <div class="grid-item">
-                            <i class="fas fa-book"></i>
-                            <h4>دليل المستخدم</h4>
-                            <p>دليل شامل لاستخدام منصة الأكاديمية والاستفادة منها.</p>
-                            <button class="btn-support" onclick="switchPage('guide')">عرض الدليل</button>
-                        </div>
-                    </div>
-                    <div style="margin-top: 2rem; background: #fef3c7; border-radius: 16px; padding: 1.2rem; border-right: 4px solid #f59e0b;">
-                        <p style="color: #1e293b;">
-                            <i class="fas fa-lightbulb" style="color: #f59e0b;"></i>
-                            <strong>نصيحة:</strong> قبل التواصل مع الدعم الفني، تأكد من مراجعة الأسئلة الشائعة ودليل المستخدم.
-                        </p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- ============================================================
-            FAQ PAGE
-            ============================================================ -->
-            <div id="page-faq" class="page">
-                <div class="page-card">
-                    <h2><i class="fas fa-question-circle"></i> الأسئلة الشائعة</h2>
-                    <p style="color: #475569; margin-bottom: 1.5rem;">أكثر الأسئلة التي يطرحها الطلاب الجدد مع إجاباتها الوافية</p>
-                    <div class="faq-item">
-                        <strong>كيف يمكنني التسجيل في الدورات؟</strong>
-                        <p>يمكنك التسجيل من خلال الضغط على زر "انضم الآن" في أعلى الصفحة، ثم ملء بياناتك واختيار الدورة المناسبة.</p>
-                    </div>
-                    <div class="faq-item">
-                        <strong>هل الدورات مجانية أم مدفوعة؟</strong>
-                        <p>جميع الدورات المتاحة حالياً مجانية بالكامل. نعمل على إضافة دورات مدفوعة بمزايا إضافية في المستقبل.</p>
-                    </div>
-                    <div class="faq-item">
-                        <strong>كم مدة كل دورة؟</strong>
-                        <p>تتراوح مدة الدورات بين 10 إلى 25 درساً، يمكنك إكمالها بالوتيرة التي تناسبك.</p>
-                    </div>
-                    <div class="faq-item">
-                        <strong>هل أحصل على شهادة بعد إتمام الدورة؟</strong>
-                        <p>نعم، ستحصل على شهادة إتمام معتمدة من الأكاديمية بعد اجتياز جميع متطلبات الدورة.</p>
-                    </div>
-                    <div class="faq-item">
-                        <strong>كيف يمكنني التواصل مع المدربين؟</strong>
-                        <p>يمكنك التواصل مع المدربين عبر صفحة "تواصل" أو من خلال مجموعة الدعم الفني.</p>
-                    </div>
-                    <div class="faq-item">
-                        <strong>هل أحتاج إلى خبرة سابقة في البرمجة؟</strong>
-                        <p>لا على الإطلاق! الدورات مصممة خصيصاً للمبتدئين الذين لا يملكون أي خبرة سابقة.</p>
-                    </div>
-                    <button class="btn-support btn-support-outline" onclick="switchPage('support')" style="margin-top: 1.5rem;">
-                        <i class="fas fa-arrow-right"></i> العودة إلى مركز الدعم
-                    </button>
-                </div>
-            </div>
-
-            <!-- ============================================================
-            PRIVACY PAGE
-            ============================================================ -->
-            <div id="page-privacy" class="page">
-                <div class="page-card">
-                    <h2><i class="fas fa-file-alt"></i> سياسة الخصوصية</h2>
-                    <p style="color: #475569; margin-bottom: 1rem;">نحن نولي خصوصية بياناتك أهمية كبيرة، ونلتزم بحماية معلوماتك الشخصية.</p>
-                    <div style="background: #f8fafc; padding: 1.5rem; border-radius: 16px; line-height: 2.2;">
-                        <p><strong>1. جمع البيانات:</strong> نقوم بجمع البيانات الأساسية مثل الاسم والبريد الإلكتروني لغرض تحسين تجربة التعلم والتواصل معك.</p>
-                        <p><strong>2. استخدام البيانات:</strong> نستخدم بياناتك فقط لتقديم الخدمات التعليمية، وإرسال تحديثات حول الدورات، والرد على استفساراتك.</p>
-                        <p><strong>3. مشاركة البيانات:</strong> لا نقوم بمشاركة بياناتك مع أي طرف ثالث، إلا إذا تطلب الأمر ذلك قانونياً.</p>
-                        <p><strong>4. حماية البيانات:</strong> نستخدم إجراءات أمنية مشددة لحماية بياناتك من الوصول غير المصرح به.</p>
-                        <p><strong>5. حقوقك:</strong> لديك الحق في طلب تعديل أو حذف بياناتك في أي وقت من خلال التواصل معنا.</p>
-                        <p><strong>6. تحديث السياسة:</strong> قد نقوم بتحديث هذه السياسة بين الحين والآخر.</p>
-                    </div>
-                    <button class="btn-support btn-support-outline" onclick="switchPage('support')" style="margin-top: 1.5rem;">
-                        <i class="fas fa-arrow-right"></i> العودة إلى مركز الدعم
-                    </button>
-                </div>
-            </div>
-
-            <!-- ============================================================
-            GUIDE PAGE
-            ============================================================ -->
-            <div id="page-guide" class="page">
-                <div class="page-card">
-                    <h2><i class="fas fa-book"></i> دليل المستخدم</h2>
-                    <p style="color: #475569; margin-bottom: 1.5rem;">كل ما تحتاج لمعرفته عن استخدام منصة الأكاديمية والاستفادة منها بشكل كامل</p>
-                    <div class="faq-item">
-                        <strong>📝 التسجيل والدخول</strong>
-                        <p>يمكنك التسجيل في الأكاديمية عبر زر "انضم الآن" في أعلى الصفحة. بعد التسجيل، ستتمكن من الدخول إلى حسابك باستخدام بريدك الإلكتروني وكلمة المرور.</p>
-                    </div>
-                    <div class="faq-item">
-                        <strong>📚 تصفح الدورات</strong>
-                        <p>من خلال صفحة "الدورات" يمكنك مشاهدة جميع الدورات المتاحة، ومعرفة محتواها، ومتطلباتها، وعدد الدروس فيها.</p>
-                    </div>
-                    <div class="faq-item">
-                        <strong>📖 التقدم في الدورة</strong>
-                        <p>بعد التسجيل في دورة، يمكنك متابعة المحاضرات وحل التمارين والتقييمات خطوة بخطوة.</p>
-                    </div>
-                    <div class="faq-item">
-                        <strong>🎓 لوحة التحكم</strong>
-                        <p>من خلال لوحة التحكم الشخصية، يمكنك متابعة تقدمك في الدورات، معرفة النسبة المئوية للإنجاز، والحصول على الشهادات.</p>
-                    </div>
-                    <div class="faq-item">
-                        <strong>💬 المجتمع والتفاعل</strong>
-                        <p>يمكنك التفاعل مع زملائك الطلاب وطرح الأسئلة في منتديات النقاش المخصصة لكل دورة.</p>
-                    </div>
-                    <div class="faq-item">
-                        <strong>❓ الحصول على المساعدة</strong>
-                        <p>إذا واجهت أي مشكلة، يمكنك زيارة مركز الدعم أو التواصل مع فريق الدعم الفني.</p>
-                    </div>
-                    <button class="btn-support btn-support-outline" onclick="switchPage('support')" style="margin-top: 1.5rem;">
-                        <i class="fas fa-arrow-right"></i> العودة إلى مركز الدعم
-                    </button>
-                </div>
-            </div>
-
+          </div>
         </div>
-    </section>
+      </div>
 
-    <!-- ===== FOOTER ===== -->
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-grid">
-                <div>
-                    <h4><i class="fas fa-graduation-cap" style="margin-left: 0.3rem;"></i> بهاء الدين</h4>
-                    <p style="color: #b0c4de;">أكاديمية برمجة معاصرة بتصميم عالمي.</p>
-                </div>
-                <div>
-                    <h4>روابط سريعة</h4>
-                    <ul>
-                        <li><a onclick="switchPage('home')">الرئيسية</a></li>
-                        <li><a onclick="switchPage('courses')">الدورات</a></li>
-                        <li><a onclick="switchPage('about')">عن الأكاديمية</a></li>
-                        <li><a href="course-basics.html">أساسيات البرمجة</a></li>
-                        <li><a href="course-html.html">كورس HTML</a></li>
-                    </ul>
-                </div>
-                <div>
-                    <h4>الدعم</h4>
-                    <ul>
-                        <li><a onclick="switchPage('faq')">الأسئلة الشائعة</a></li>
-                        <li><a onclick="switchPage('privacy')">سياسة الخصوصية</a></li>
-                        <li><a onclick="switchPage('guide')">دليل المستخدم</a></li>
-                    </ul>
-                </div>
+      <!-- ============================================================
+      COURSES PAGE
+      ============================================================ -->
+      <div id="page-courses" class="page">
+        <h2 class="section-title"><i class="fas fa-book-open"></i> الدورات التعليمية</h2>
+        <p class="section-subtitle">أساسيات البرمجة وتطوير الويب خطوة بخطوة</p>
+        <div class="courses-grid">
+          <!-- الدورة 1 -->
+          <a href="course-basics.html" class="course-card">
+            <div class="icon-wrapper" style="background: linear-gradient(135deg, #2563eb, #7c3aed); color: white;">
+              <i class="fas fa-code"></i>
             </div>
-            <div class="footer-bottom">
-                <span>© 2026 أكاديمية بهاء الدين التعليمية — بتصميم أنيق وعصري</span>
-                <span><i class="fas fa-code"></i> بهاء الدين الحسين</span>
+            <h4>أساسيات البرمجة</h4>
+            <div class="meta">
+              <span><i class="far fa-clock"></i> 20 درساً</span>
+              <span><i class="fas fa-signal"></i> مبتدىء</span>
             </div>
+            <span class="badge badge-featured"><i class="fas fa-star"></i> مميز</span>
+          </a>
+
+          <!-- الدورة 2 -->
+          <a href="course-html.html" class="course-card">
+            <div class="icon-wrapper" style="background: linear-gradient(135deg, #e67e22, #d35400); color: white;">
+              <i class="fab fa-html5"></i>
+            </div>
+            <h4>كورس HTML الشامل</h4>
+            <div class="meta">
+              <span><i class="far fa-clock"></i> 25 درساً</span>
+              <span><i class="fas fa-signal"></i> مبتدىء</span>
+            </div>
+            <span class="badge badge-html"><i class="fas fa-fire"></i> جديد</span>
+          </a>
+
+          <!-- الدورة 3 -->
+          <div class="course-card">
+            <div class="icon-wrapper" style="background: #dbeafe; color: #2563eb;">
+              <i class="fab fa-css3-alt"></i>
+            </div>
+            <h4>CSS</h4>
+            <div class="meta">
+              <span><i class="far fa-clock"></i> 25 درساً</span>
+              <span><i class="fas fa-signal"></i> مبتدىء</span>
+            </div>
+            <span class="badge badge-course">قريباً</span>
+          </div>
+
+          <!-- الدورة 4 -->
+          <div class="course-card">
+            <div class="icon-wrapper" style="background: #dbeafe; color: #2563eb;">
+              <i class="fab fa-js"></i>
+            </div>
+            <h4>JavaScript</h4>
+            <div class="meta">
+              <span><i class="far fa-clock"></i> 25 درساً</span>
+              <span><i class="fas fa-signal"></i> متوسط</span>
+            </div>
+            <span class="badge badge-course">قريباً</span>
+          </div>
+
+          <!-- الدورة 5 -->
+          <div class="course-card">
+            <div class="icon-wrapper" style="background: #dbeafe; color: #2563eb;">
+              <i class="fab fa-python"></i>
+            </div>
+            <h4>بايثون</h4>
+            <div class="meta">
+              <span><i class="far fa-clock"></i> 25 درساً</span>
+              <span><i class="fas fa-signal"></i> متوسط</span>
+            </div>
+            <span class="badge badge-course">قريباً</span>
+          </div>
         </div>
-    </footer>
+      </div>
 
-    <!-- ===== JAVASCRIPT ===== -->
-    <script>
-        // ============================================================
-        // PAGE SWITCHING
-        // ============================================================
-        function switchPage(pageId) {
-            document.querySelectorAll('.page').forEach(el => {
-                el.classList.remove('active-page-content');
-            });
-            const target = document.getElementById('page-' + pageId);
-            if (target) {
-                target.classList.add('active-page-content');
-            }
+      <!-- ============================================================
+      ABOUT PAGE
+      ============================================================ -->
+      <div id="page-about" class="page">
+        <div class="page-card">
+          <h2><i class="fas fa-info-circle"></i> عن أكاديمية بهاء الدين</h2>
+          <p class="page-text">
+            <strong>أكاديمية بهاء الدين التعليمية</strong> هي منصة تعليمية متكاملة تأسست بهدف بسيط لكنه طموح:
+            <strong>جعل البرمجة في متناول الجميع</strong>، بغض النظر عن خلفيتهم أو مستواهم أو أعمارهم.
+            نحن نؤمن بأن البرمجة ليست حكراً على العباقرة أو أصحاب الشهادات العليا، بل هي مهارة يمكن لأي شخص
+            يتقن أساسياتها أن يصبح مبدعاً وقادراً على بناء حلول تقنية مبتكرة.
+          </p>
+          <p class="page-text">
+            انطلقت الأكاديمية عام 2026 على يد المبرمج <strong>بهاء الدين الحسين</strong>، الذي جمع خبرته العملية
+            في تطوير الويب ليقدمها بأسلوب مبسط ومنهجي. نقدم محتوى تعليمياً يركز على <strong>المفاهيم الأساسية
+            المشتركة</strong> بين جميع لغات البرمجة، مما يمنحك القدرة على تعلم أي لغة تريدها بسهولة ويسر.
+          </p>
 
-            document.querySelectorAll('.nav-links button[data-page]').forEach(btn => {
-                btn.classList.remove('active-page');
-                if (btn.getAttribute('data-page') === pageId) {
-                    btn.classList.add('active-page');
-                }
-            });
+          <h3 style="font-size: 1.4rem; margin-top: 1.5rem; display: flex; align-items: center; gap: 0.6rem;">
+            <i class="fas fa-bullseye" style="color: #2563eb;"></i> رؤيتنا ورسالتنا وقيمنا
+          </h3>
+          <div class="grid-3">
+            <div class="grid-item">
+              <i class="fas fa-bullseye"></i>
+              <h4>الرؤية</h4>
+              <p>أن نكون المنصة التعليمية الأولى في العالم العربي التي تخريج مبرمجين قادرين على المنافسة في السوق العالمي.</p>
+            </div>
+            <div class="grid-item">
+              <i class="fas fa-rocket"></i>
+              <h4>الرسالة</h4>
+              <p>تقديم محتوى تعليمي عالي الجودة، محدث ومتجدد، بأسلوب مبسط ومنهجي، مع توفير أدوات تفاعلية حديثة.</p>
+            </div>
+            <div class="grid-item">
+              <i class="fas fa-handshake"></i>
+              <h4>القيم</h4>
+              <p><strong>الإبداع</strong> — <strong>الجودة</strong> — <strong>الالتزام</strong></p>
+            </div>
+          </div>
 
-            window.scrollTo({ top: 0, behavior: 'smooth' });
+          <div style="margin-top: 2rem; background: #dbeafe; border-radius: 16px; padding: 1.5rem; border-right: 4px solid #2563eb;">
+            <p style="font-size: 1.05rem; color: #1e293b;">
+              <i class="fas fa-quote-right" style="color: #2563eb; font-size: 1.4rem;"></i>
+              <strong>كلمة المؤسس:</strong> "أسست هذه الأكاديمية لأنني أؤمن بأن التعليم الجيد هو المفتاح لبناء مبرمجين مبدعين.
+              قررت أن أقدم تجربة تعليمية مختلفة، تركز على الجوهر وتجعل التعلم رحلة ممتعة وليس مجرد مهمة شاقة."
+              <br />
+              <span style="display: block; margin-top: 0.5rem; color: #2563eb;">— بهاء الدين الحسين، مؤسس الأكاديمية</span>
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- ============================================================
+      CONTACT PAGE
+      ============================================================ -->
+      <div id="page-contact" class="page">
+        <div class="page-card">
+          <h2><i class="fas fa-envelope"></i> تواصل معنا</h2>
+          <p class="page-text">
+            نحن هنا لمساعدتك! إذا كان لديك أي سؤال، استفسار، أو اقتراح، لا تتردد في التواصل معنا عبر إحدى القنوات التالية.
+            فريقنا جاهز للرد عليك في أقرب وقت ممكن.
+          </p>
+          <div class="grid-3">
+            <div class="contact-item">
+              <i class="fas fa-phone-alt"></i>
+              <h4>اتصال</h4>
+              <p dir="ltr">0982520358</p>
+            </div>
+            <div class="contact-item">
+              <i class="fab fa-whatsapp"></i>
+              <h4>واتساب</h4>
+              <p dir="ltr">0982520358</p>
+              <a href="https://wa.me/963982520358" target="_blank" class="whatsapp-btn">
+                <i class="fab fa-whatsapp"></i> تواصل عبر واتساب
+              </a>
+            </div>
+            <div class="contact-item">
+              <i class="fas fa-map-marker-alt"></i>
+              <h4>العنوان</h4>
+              <p>سوريا، إدلب</p>
+            </div>
+            <div class="contact-item">
+              <i class="fas fa-envelope"></i>
+              <h4>البريد الإلكتروني</h4>
+              <p>bahaa@academy.dev</p>
+            </div>
+          </div>
+          <div style="margin-top: 2rem; background: #f1f5f9; border-radius: 16px; padding: 1.2rem; text-align: center; border: 1px dashed #2563eb;">
+            <p style="color: #475569;">
+              <i class="fas fa-clock" style="color: #2563eb;"></i>
+              <strong>ساعات العمل:</strong> جميع أيام الأسبوع من 9 صباحاً حتى 10 مساءً (بتوقيت دمشق)
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- ============================================================
+      SUPPORT PAGE
+      ============================================================ -->
+      <div id="page-support" class="page">
+        <div class="page-card">
+          <h2><i class="fas fa-headset"></i> مركز الدعم والمساعدة</h2>
+          <p class="page-text">
+            ندرك أنك قد تواجه بعض التحديات أثناء رحلة التعلم، ولهذا خصصنا هذا المركز لمساعدتك.
+            اختر الخدمة التي تناسبك من القائمة أدناه، وفريقنا سيكون سعيداً بمساعدتك.
+          </p>
+          <div class="grid-3">
+            <div class="grid-item">
+              <i class="fas fa-question-circle"></i>
+              <h4>الأسئلة الشائعة</h4>
+              <p>إجابات على أكثر الأسئلة شيوعاً حول الأكاديمية والدورات.</p>
+              <button class="btn-support" onclick="switchPage('faq')">عرض الأسئلة</button>
+            </div>
+            <div class="grid-item">
+              <i class="fas fa-file-alt"></i>
+              <h4>سياسة الخصوصية</h4>
+              <p>تعرف على كيفية تعاملنا مع بياناتك وحماية خصوصيتك.</p>
+              <button class="btn-support" onclick="switchPage('privacy')">قراءة السياسة</button>
+            </div>
+            <div class="grid-item">
+              <i class="fas fa-comment-dots"></i>
+              <h4>الدعم الفني</h4>
+              <p>تواصل مع فريق الدعم الفني لحل أي مشكلة تقنية.</p>
+              <button class="btn-support" onclick="switchPage('contact')">تواصل معنا</button>
+            </div>
+            <div class="grid-item">
+              <i class="fas fa-book"></i>
+              <h4>دليل المستخدم</h4>
+              <p>دليل شامل لاستخدام منصة الأكاديمية والاستفادة منها.</p>
+              <button class="btn-support" onclick="switchPage('guide')">عرض الدليل</button>
+            </div>
+          </div>
+          <div style="margin-top: 2rem; background: #fef3c7; border-radius: 16px; padding: 1.2rem; border-right: 4px solid #f59e0b;">
+            <p style="color: #1e293b;">
+              <i class="fas fa-lightbulb" style="color: #f59e0b;"></i>
+              <strong>نصيحة:</strong> قبل التواصل مع الدعم الفني، تأكد من مراجعة الأسئلة الشائعة ودليل المستخدم.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- ============================================================
+      FAQ PAGE
+      ============================================================ -->
+      <div id="page-faq" class="page">
+        <div class="page-card">
+          <h2><i class="fas fa-question-circle"></i> الأسئلة الشائعة</h2>
+          <p style="color: #475569; margin-bottom: 1.5rem;">أكثر الأسئلة التي يطرحها الطلاب الجدد مع إجاباتها الوافية</p>
+          <div class="faq-item">
+            <strong>كيف يمكنني التسجيل في الدورات؟</strong>
+            <p>يمكنك التسجيل من خلال الضغط على زر "انضم الآن" في أعلى الصفحة، ثم ملء بياناتك واختيار الدورة المناسبة.</p>
+          </div>
+          <div class="faq-item">
+            <strong>هل الدورات مجانية أم مدفوعة؟</strong>
+            <p>جميع الدورات المتاحة حالياً مجانية بالكامل. نعمل على إضافة دورات مدفوعة بمزايا إضافية في المستقبل.</p>
+          </div>
+          <div class="faq-item">
+            <strong>كم مدة كل دورة؟</strong>
+            <p>تتراوح مدة الدورات بين 10 إلى 25 درساً، يمكنك إكمالها بالوتيرة التي تناسبك.</p>
+          </div>
+          <div class="faq-item">
+            <strong>هل أحصل على شهادة بعد إتمام الدورة؟</strong>
+            <p>نعم، ستحصل على شهادة إتمام معتمدة من الأكاديمية بعد اجتياز جميع متطلبات الدورة.</p>
+          </div>
+          <div class="faq-item">
+            <strong>كيف يمكنني التواصل مع المدربين؟</strong>
+            <p>يمكنك التواصل مع المدربين عبر صفحة "تواصل" أو من خلال مجموعة الدعم الفني.</p>
+          </div>
+          <div class="faq-item">
+            <strong>هل أحتاج إلى خبرة سابقة في البرمجة؟</strong>
+            <p>لا على الإطلاق! الدورات مصممة خصيصاً للمبتدئين الذين لا يملكون أي خبرة سابقة.</p>
+          </div>
+          <button class="btn-support btn-support-outline" onclick="switchPage('support')" style="margin-top: 1.5rem;">
+            <i class="fas fa-arrow-right"></i> العودة إلى مركز الدعم
+          </button>
+        </div>
+      </div>
+
+      <!-- ============================================================
+      PRIVACY PAGE
+      ============================================================ -->
+      <div id="page-privacy" class="page">
+        <div class="page-card">
+          <h2><i class="fas fa-file-alt"></i> سياسة الخصوصية</h2>
+          <p style="color: #475569; margin-bottom: 1rem;">نحن نولي خصوصية بياناتك أهمية كبيرة، ونلتزم بحماية معلوماتك الشخصية.</p>
+          <div style="background: #f8fafc; padding: 1.5rem; border-radius: 16px; line-height: 2.2;">
+            <p><strong>1. جمع البيانات:</strong> نقوم بجمع البيانات الأساسية مثل الاسم والبريد الإلكتروني لغرض تحسين تجربة التعلم والتواصل معك.</p>
+            <p><strong>2. استخدام البيانات:</strong> نستخدم بياناتك فقط لتقديم الخدمات التعليمية، وإرسال تحديثات حول الدورات، والرد على استفساراتك.</p>
+            <p><strong>3. مشاركة البيانات:</strong> لا نقوم بمشاركة بياناتك مع أي طرف ثالث، إلا إذا تطلب الأمر ذلك قانونياً.</p>
+            <p><strong>4. حماية البيانات:</strong> نستخدم إجراءات أمنية مشددة لحماية بياناتك من الوصول غير المصرح به.</p>
+            <p><strong>5. حقوقك:</strong> لديك الحق في طلب تعديل أو حذف بياناتك في أي وقت من خلال التواصل معنا.</p>
+            <p><strong>6. تحديث السياسة:</strong> قد نقوم بتحديث هذه السياسة بين الحين والآخر.</p>
+          </div>
+          <button class="btn-support btn-support-outline" onclick="switchPage('support')" style="margin-top: 1.5rem;">
+            <i class="fas fa-arrow-right"></i> العودة إلى مركز الدعم
+          </button>
+        </div>
+      </div>
+
+      <!-- ============================================================
+      GUIDE PAGE
+      ============================================================ -->
+      <div id="page-guide" class="page">
+        <div class="page-card">
+          <h2><i class="fas fa-book"></i> دليل المستخدم</h2>
+          <p style="color: #475569; margin-bottom: 1.5rem;">كل ما تحتاج لمعرفته عن استخدام منصة الأكاديمية والاستفادة منها بشكل كامل</p>
+          <div class="faq-item">
+            <strong>📝 التسجيل والدخول</strong>
+            <p>يمكنك التسجيل في الأكاديمية عبر زر "انضم الآن" في أعلى الصفحة. بعد التسجيل، ستتمكن من الدخول إلى حسابك باستخدام بريدك الإلكتروني وكلمة المرور.</p>
+          </div>
+          <div class="faq-item">
+            <strong>📚 تصفح الدورات</strong>
+            <p>من خلال صفحة "الدورات" يمكنك مشاهدة جميع الدورات المتاحة، ومعرفة محتواها، ومتطلباتها، وعدد الدروس فيها.</p>
+          </div>
+          <div class="faq-item">
+            <strong>📖 التقدم في الدورة</strong>
+            <p>بعد التسجيل في دورة، يمكنك متابعة المحاضرات وحل التمارين والتقييمات خطوة بخطوة.</p>
+          </div>
+          <div class="faq-item">
+            <strong>🎓 لوحة التحكم</strong>
+            <p>من خلال لوحة التحكم الشخصية، يمكنك متابعة تقدمك في الدورات، معرفة النسبة المئوية للإنجاز، والحصول على الشهادات.</p>
+          </div>
+          <div class="faq-item">
+            <strong>💬 المجتمع والتفاعل</strong>
+            <p>يمكنك التفاعل مع زملائك الطلاب وطرح الأسئلة في منتديات النقاش المخصصة لكل دورة.</p>
+          </div>
+          <div class="faq-item">
+            <strong>❓ الحصول على المساعدة</strong>
+            <p>إذا واجهت أي مشكلة، يمكنك زيارة مركز الدعم أو التواصل مع فريق الدعم الفني.</p>
+          </div>
+          <button class="btn-support btn-support-outline" onclick="switchPage('support')" style="margin-top: 1.5rem;">
+            <i class="fas fa-arrow-right"></i> العودة إلى مركز الدعم
+          </button>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <h4><i class="fas fa-graduation-cap" style="margin-left: 0.3rem;"></i> بهاء الدين</h4>
+          <p style="color: #b0c4de;">أكاديمية برمجة معاصرة بتصميم عالمي.</p>
+        </div>
+        <div>
+          <h4>روابط سريعة</h4>
+          <ul>
+            <li><a onclick="switchPage('home')">الرئيسية</a></li>
+            <li><a onclick="switchPage('courses')">الدورات</a></li>
+            <li><a onclick="switchPage('about')">عن الأكاديمية</a></li>
+            <li><a href="course-basics.html">أساسيات البرمجة</a></li>
+            <li><a href="course-html.html">كورس HTML</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>الدعم</h4>
+          <ul>
+            <li><a onclick="switchPage('faq')">الأسئلة الشائعة</a></li>
+            <li><a onclick="switchPage('privacy')">سياسة الخصوصية</a></li>
+            <li><a onclick="switchPage('guide')">دليل المستخدم</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2026 أكاديمية بهاء الدين التعليمية — بتصميم أنيق وعصري</span>
+        <span><i class="fas fa-code"></i> بهاء الدين الحسين</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ===== JAVASCRIPT ===== -->
+  <script>
+    // ============================================================
+    // PAGE SWITCHING
+    // ============================================================
+    function switchPage(pageId) {
+      document.querySelectorAll('.page').forEach(el => {
+        el.classList.remove('active-page-content');
+      });
+      const target = document.getElementById('page-' + pageId);
+      if (target) {
+        target.classList.add('active-page-content');
+      }
+
+      document.querySelectorAll('.nav-links button[data-page]').forEach(btn => {
+        btn.classList.remove('active-page');
+        if (btn.getAttribute('data-page') === pageId) {
+          btn.classList.add('active-page');
         }
+      });
 
-        // NAV BUTTONS
-        document.querySelectorAll('.nav-links button[data-page]').forEach(btn => {
-            btn.addEventListener('click', function() {
-                const page = this.getAttribute('data-page');
-                switchPage(page);
-            });
-        });
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
 
-        // FOOTER LINKS
-        document.querySelectorAll('.footer a').forEach(link => {
-            link.addEventListener('click', function(e) {
-                if (this.getAttribute('href') === 'course-basics.html') return;
-                if (this.getAttribute('href') === 'course-html.html') return;
-                e.preventDefault();
-                const text = this.textContent.trim();
-                if (text === 'الرئيسية') switchPage('home');
-                else if (text === 'الدورات') switchPage('courses');
-                else if (text === 'عن الأكاديمية') switchPage('about');
-                else if (text === 'الأسئلة الشائعة') switchPage('faq');
-                else if (text === 'سياسة الخصوصية') switchPage('privacy');
-                else if (text === 'دليل المستخدم') switchPage('guide');
-            });
-        });
+    // NAV BUTTONS
+    document.querySelectorAll('.nav-links button[data-page]').forEach(btn => {
+      btn.addEventListener('click', function() {
+        const page = this.getAttribute('data-page');
+        switchPage(page);
+      });
+    });
 
-        // DEFAULT PAGE
-        document.addEventListener('DOMContentLoaded', function() {
-            switchPage('home');
-        });
-    </script>
+    // FOOTER LINKS
+    document.querySelectorAll('.footer a').forEach(link => {
+      link.addEventListener('click', function(e) {
+        if (this.getAttribute('href') === 'course-basics.html') return;
+        if (this.getAttribute('href') === 'course-html.html') return;
+        e.preventDefault();
+        const text = this.textContent.trim();
+        if (text === 'الرئيسية') switchPage('home');
+        else if (text === 'الدورات') switchPage('courses');
+        else if (text === 'عن الأكاديمية') switchPage('about');
+        else if (text === 'الأسئلة الشائعة') switchPage('faq');
+        else if (text === 'سياسة الخصوصية') switchPage('privacy');
+        else if (text === 'دليل المستخدم') switchPage('guide');
+      });
+    });
+
+    // DEFAULT PAGE
+    document.addEventListener('DOMContentLoaded', function() {
+      switchPage('home');
+    });
+
+    // ============================================================
+    // SERVICE WORKER (PWA) - يُفعّل التثبيت كتطبيق
+    // ============================================================
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', function() {
+        // نستخدم Service Worker مضمن داخل الصفحة عبر Blob URL
+        const swCode = `
+          const CACHE_NAME = 'academy-cache-v1';
+          const urlsToCache = [
+            '/',
+            '/index.html',
+            '/course-basics.html',
+            '/course-html.html',
+            '/images/founder.jpg'
+          ];
+
+          self.addEventListener('install', function(event) {
+            event.waitUntil(
+              caches.open(CACHE_NAME)
+                .then(function(cache) {
+                  return cache.addAll(urlsToCache);
+                })
+            );
+          });
+
+          self.addEventListener('fetch', function(event) {
+            event.respondWith(
+              caches.match(event.request)
+                .then(function(response) {
+                  return response || fetch(event.request);
+                })
+            );
+          });
+
+          self.addEventListener('activate', function(event) {
+            event.waitUntil(
+              caches.keys().then(function(cacheNames) {
+                return Promise.all(
+                  cacheNames.map(function(cacheName) {
+                    if (cacheName !== CACHE_NAME) {
+                      return caches.delete(cacheName);
+                    }
+                  })
+                );
+              })
+            );
+          });
+        `;
+
+        const blob = new Blob([swCode], { type: 'application/javascript' });
+        const swUrl = URL.createObjectURL(blob);
+
+        navigator.serviceWorker.register(swUrl)
+          .then(function(registration) {
+            console.log('✅ Service Worker مسجل بنجاح (PWA)');
+          })
+          .catch(function(error) {
+            console.log('❌ فشل تسجيل Service Worker:', error);
+          });
+      });
+    }
+  </script>
 
 </body>
 </html>
