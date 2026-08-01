@@ -2,13 +2,13 @@
 <html lang="ar" dir="rtl">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>أكاديمية بهاء الدين التعليمية</title>
-  
+
   <!-- ============================================================
   PWA MANIFEST (مضمن بالكامل)
   ============================================================ -->
-  <link rel="manifest" href='data:application/json,{"name":"أكاديمية بهاء الدين التعليمية","short_name":"بهاء الدين","description":"منصة تعليمية متكاملة لتعلم البرمجة","start_url":"/","display":"standalone","background_color":"#f6f9fc","theme_color":"#2563eb","orientation":"portrait-primary","scope":"/","categories":["education","programming"],"icons":[{"src":"data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 512 512%22%3E%3Crect width=%22512%22 height=%22512%22 rx=%2264%22 fill=%22%232563eb%22/%3E%3Ctext x=%22256%22 y=%22320%22 font-size=%22200%22 text-anchor=%22middle%22 fill=%22white%22 font-family=%22sans-serif%22%3E📚%3C/text%3E%3C/svg%3E","sizes":"512x512","type":"image/svg+xml","purpose":"any maskable"},{"src":"data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 192 192%22%3E%3Crect width=%22192%22 height=%22192%22 rx=%2232%22 fill=%22%232563eb%22/%3E%3Ctext x=%2296%22 y=%22130%22 font-size=%2280%22 text-anchor=%22middle%22 fill=%22white%22 font-family=%22sans-serif%22%3E📚%3C/text%3E%3C/svg%3E","sizes":"192x192","type":"image/svg+xml","purpose":"any maskable"}]}' />
+  <link rel="manifest" href='data:application/json,{"name":"أكاديمية بهاء الدين التعليمية","short_name":"بهاء الدين","description":"منصة تعليمية متكاملة لتعلم البرمجة","start_url":"/","display":"standalone","background_color":"#f6f9fc","theme_color":"#2563eb","orientation":"portrait-primary","icons":[{"src":"data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 512 512%22%3E%3Crect width=%22512%22 height=%22512%22 rx=%2264%22 fill=%22%232563eb%22/%3E%3Ctext x=%22256%22 y=%22320%22 font-size=%22200%22 text-anchor=%22middle%22 fill=%22white%22 font-family=%22sans-serif%22%3E📚%3C/text%3E%3C/svg%3E","sizes":"512x512","type":"image/svg+xml"}]}' />
 
   <!-- Apple Touch Icon -->
   <link rel="apple-touch-icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'%3E%3Crect width='512' height='512' rx='64' fill='%232563eb'/%3E%3Ctext x='256' y='320' font-size='200' text-anchor='middle' fill='white' font-family='sans-serif'%3E📚%3C/text%3E%3C/svg%3E" />
@@ -17,16 +17,18 @@
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
   <meta name="theme-color" content="#2563eb" />
-  <meta name="mobile-web-app-capable" content="yes" />
-  <meta name="application-name" content="بهاء الدين" />
 
   <!-- Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
   <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&display=swap" rel="stylesheet" />
 
   <style>
-    /* ===== كل الكود الأصلي ===== */
-    * { margin: 0; padding: 0; box-sizing: border-box; }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
     body {
       font-family: 'Cairo', 'Segoe UI', system-ui, sans-serif;
       background: #f8fafc;
@@ -34,7 +36,12 @@
       line-height: 1.7;
       overflow-x: hidden;
     }
-    .container { max-width: 1300px; margin: 0 auto; padding: 0 2rem; }
+
+    .container {
+      max-width: 1300px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
 
     /* ===== HEADER ===== */
     .navbar {
@@ -47,6 +54,7 @@
       top: 0;
       z-index: 1000;
     }
+
     .navbar .container {
       display: flex;
       align-items: center;
@@ -54,6 +62,7 @@
       flex-wrap: wrap;
       gap: 1rem;
     }
+
     .logo {
       font-size: 1.8rem;
       font-weight: 900;
@@ -64,13 +73,19 @@
       align-items: center;
       gap: 0.4rem;
     }
-    .logo i { -webkit-text-fill-color: #2563eb; font-size: 2rem; }
+
+    .logo i {
+      -webkit-text-fill-color: #2563eb;
+      font-size: 2rem;
+    }
+
     .nav-links {
       display: flex;
       gap: 0.8rem;
       align-items: center;
       flex-wrap: wrap;
     }
+
     .nav-links button {
       background: transparent;
       border: none;
@@ -87,7 +102,12 @@
       font-family: inherit;
       position: relative;
     }
-    .nav-links button i { color: #64748b; font-size: 0.9rem; }
+
+    .nav-links button i {
+      color: #64748b;
+      font-size: 0.9rem;
+    }
+
     .nav-links button::after {
       content: '';
       position: absolute;
@@ -100,16 +120,33 @@
       border-radius: 4px;
       transition: 0.3s;
     }
-    .nav-links button:hover::after { width: 60%; }
-    .nav-links button:hover { background: rgba(37, 99, 235, 0.06); color: #0b1a2e; }
-    .nav-links button:hover i { color: #2563eb; }
+
+    .nav-links button:hover::after {
+      width: 60%;
+    }
+
+    .nav-links button:hover {
+      background: rgba(37, 99, 235, 0.06);
+      color: #0b1a2e;
+    }
+
+    .nav-links button:hover i {
+      color: #2563eb;
+    }
+
     .nav-links .active-page {
       background: #2563eb;
       color: white !important;
       box-shadow: 0 6px 20px rgba(37, 99, 235, 0.25);
     }
-    .nav-links .active-page i { color: white !important; }
-    .nav-links .active-page::after { display: none; }
+
+    .nav-links .active-page i {
+      color: white !important;
+    }
+
+    .nav-links .active-page::after {
+      display: none;
+    }
 
     .btn-join {
       background: linear-gradient(135deg, #0b1a2e, #1e3a6b) !important;
@@ -127,8 +164,15 @@
       font-size: 0.95rem;
       box-shadow: 0 4px 16px rgba(11, 26, 46, 0.15);
     }
-    .btn-join:hover { transform: translateY(-3px); box-shadow: 0 8px 28px rgba(11, 26, 46, 0.25); }
-    .btn-join i { color: #94a3b8 !important; }
+
+    .btn-join:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 28px rgba(11, 26, 46, 0.25);
+    }
+
+    .btn-join i {
+      color: #94a3b8 !important;
+    }
 
     .btn-course {
       background: linear-gradient(135deg, #2563eb, #7c3aed) !important;
@@ -146,8 +190,15 @@
       font-size: 0.95rem;
       box-shadow: 0 4px 16px rgba(37, 99, 235, 0.25);
     }
-    .btn-course:hover { transform: translateY(-3px); box-shadow: 0 8px 28px rgba(37, 99, 235, 0.35); }
-    .btn-course i { color: white !important; }
+
+    .btn-course:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 28px rgba(37, 99, 235, 0.35);
+    }
+
+    .btn-course i {
+      color: white !important;
+    }
 
     /* ===== HERO ===== */
     .hero {
@@ -160,6 +211,7 @@
       position: relative;
       overflow: hidden;
     }
+
     .hero-content {
       position: relative;
       z-index: 2;
@@ -168,6 +220,7 @@
       align-items: center;
       text-align: center;
     }
+
     .hero-badge {
       display: inline-flex;
       align-items: center;
@@ -181,6 +234,7 @@
       margin-bottom: 1.5rem;
       border: 1px solid rgba(37, 99, 235, 0.1);
     }
+
     .hero h1 {
       font-size: 3.8rem;
       font-weight: 900;
@@ -188,12 +242,14 @@
       margin-bottom: 0.5rem;
       max-width: 800px;
     }
+
     .hero h1 span {
       background: linear-gradient(135deg, #2563eb, #7c3aed);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
     }
+
     .hero-subhead {
       font-size: 1.2rem;
       color: #475569;
@@ -201,6 +257,7 @@
       margin: 0.5rem auto 2rem;
       line-height: 1.8;
     }
+
     .hero-actions {
       display: flex;
       flex-wrap: wrap;
@@ -208,6 +265,7 @@
       justify-content: center;
       margin-bottom: 1.5rem;
     }
+
     .hero-btn-primary {
       display: inline-block;
       background: linear-gradient(135deg, #2563eb, #7c3aed);
@@ -222,7 +280,12 @@
       border: none;
       cursor: pointer;
     }
-    .hero-btn-primary:hover { transform: translateY(-3px); box-shadow: 0 12px 40px rgba(37, 99, 235, 0.4); }
+
+    .hero-btn-primary:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 12px 40px rgba(37, 99, 235, 0.4);
+    }
+
     .hero-btn-secondary {
       display: inline-block;
       background: rgba(255, 255, 255, 0.7);
@@ -236,7 +299,13 @@
       transition: 0.3s;
       border: 1.5px solid rgba(0, 0, 0, 0.06);
     }
-    .hero-btn-secondary:hover { background: white; transform: translateY(-3px); box-shadow: 0 8px 28px rgba(0, 0, 0, 0.06); }
+
+    .hero-btn-secondary:hover {
+      background: white;
+      transform: translateY(-3px);
+      box-shadow: 0 8px 28px rgba(0, 0, 0, 0.06);
+    }
+
     .hero-stats {
       display: flex;
       gap: 3rem;
@@ -247,9 +316,22 @@
       border-top: 1px solid rgba(0, 0, 0, 0.04);
       width: 100%;
     }
-    .hero-stats .stat-item { text-align: center; }
-    .hero-stats .stat-number { font-size: 1.8rem; font-weight: 900; color: #0b1a2e; display: block; }
-    .hero-stats .stat-label { font-size: 0.9rem; color: #64748b; }
+
+    .hero-stats .stat-item {
+      text-align: center;
+    }
+
+    .hero-stats .stat-number {
+      font-size: 1.8rem;
+      font-weight: 900;
+      color: #0b1a2e;
+      display: block;
+    }
+
+    .hero-stats .stat-label {
+      font-size: 0.9rem;
+      color: #64748b;
+    }
 
     /* ===== FOUNDER ===== */
     .founder-section {
@@ -260,6 +342,7 @@
       border: 1px solid #e9edf2;
       box-shadow: 0 8px 30px rgba(0, 0, 0, 0.02);
     }
+
     .founder-section h3 {
       font-size: 1.8rem;
       font-weight: 800;
@@ -270,7 +353,11 @@
       justify-content: center;
       color: #0b1a2e;
     }
-    .founder-section h3 i { color: #2563eb; }
+
+    .founder-section h3 i {
+      color: #2563eb;
+    }
+
     .founder-grid {
       display: flex;
       flex-wrap: wrap;
@@ -279,6 +366,7 @@
       justify-content: center;
       margin-top: 1.5rem;
     }
+
     .founder-image-wrapper {
       flex-shrink: 0;
       position: relative;
@@ -290,13 +378,19 @@
       border: 4px solid #2563eb;
       transition: 0.4s;
     }
-    .founder-image-wrapper:hover { transform: scale(1.03); box-shadow: 0 16px 50px rgba(37, 99, 235, 0.25); }
+
+    .founder-image-wrapper:hover {
+      transform: scale(1.03);
+      box-shadow: 0 16px 50px rgba(37, 99, 235, 0.25);
+    }
+
     .founder-image-wrapper img {
       width: 100%;
       height: 100%;
       object-fit: cover;
       display: block;
     }
+
     .founder-image-wrapper .camera-icon {
       position: absolute;
       bottom: 8px;
@@ -314,15 +408,31 @@
       box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
       z-index: 2;
     }
-    .founder-desc { flex: 1; min-width: 250px; text-align: right; }
-    .founder-desc p { color: #1e293b; font-size: 1.05rem; line-height: 1.8; }
-    .founder-desc .highlight { color: #2563eb; font-weight: 700; }
+
+    .founder-desc {
+      flex: 1;
+      min-width: 250px;
+      text-align: right;
+    }
+
+    .founder-desc p {
+      color: #1e293b;
+      font-size: 1.05rem;
+      line-height: 1.8;
+    }
+
+    .founder-desc .highlight {
+      color: #2563eb;
+      font-weight: 700;
+    }
+
     .social-links {
       display: flex;
       gap: 0.8rem;
       margin-top: 0.8rem;
       justify-content: flex-start;
     }
+
     .social-links a {
       display: flex;
       align-items: center;
@@ -336,7 +446,13 @@
       text-decoration: none;
       font-size: 1.2rem;
     }
-    .social-links a:hover { background: #2563eb; color: white; transform: translateY(-3px); box-shadow: 0 6px 16px rgba(37, 99, 235, 0.2); }
+
+    .social-links a:hover {
+      background: #2563eb;
+      color: white;
+      transform: translateY(-3px);
+      box-shadow: 0 6px 16px rgba(37, 99, 235, 0.2);
+    }
 
     /* ===== COURSES ===== */
     .section-title {
@@ -348,14 +464,24 @@
       gap: 0.8rem;
       color: #0b1a2e;
     }
-    .section-title i { color: #2563eb; }
-    .section-subtitle { color: #64748b; font-size: 1.05rem; margin-bottom: 1.5rem; }
+
+    .section-title i {
+      color: #2563eb;
+    }
+
+    .section-subtitle {
+      color: #64748b;
+      font-size: 1.05rem;
+      margin-bottom: 1.5rem;
+    }
+
     .courses-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
       gap: 2rem;
       margin-top: 1.5rem;
     }
+
     .course-card {
       background: white;
       border-radius: 32px;
@@ -369,6 +495,7 @@
       position: relative;
       overflow: hidden;
     }
+
     .course-card::before {
       content: '';
       position: absolute;
@@ -380,8 +507,17 @@
       opacity: 0;
       transition: 0.3s;
     }
-    .course-card:hover { transform: translateY(-8px); border-color: #2563eb; box-shadow: 0 20px 48px -12px rgba(37, 99, 235, 0.12); }
-    .course-card:hover::before { opacity: 1; }
+
+    .course-card:hover {
+      transform: translateY(-8px);
+      border-color: #2563eb;
+      box-shadow: 0 20px 48px -12px rgba(37, 99, 235, 0.12);
+    }
+
+    .course-card:hover::before {
+      opacity: 1;
+    }
+
     .course-card .icon-wrapper {
       width: 72px;
       height: 72px;
@@ -393,13 +529,48 @@
       font-size: 2.2rem;
       transition: 0.3s;
     }
-    .course-card:hover .icon-wrapper { transform: scale(1.05) rotate(-2deg); }
-    .course-card h4 { font-size: 1.25rem; font-weight: 700; margin-bottom: 0.2rem; }
-    .course-card .meta { font-size: 0.85rem; color: #64748b; margin: 0.3rem 0; display: flex; justify-content: center; gap: 1rem; }
-    .course-card .badge { display: inline-block; padding: 0.2rem 1rem; border-radius: 60px; font-size: 0.75rem; font-weight: 700; }
-    .badge-featured { background: linear-gradient(135deg, #2563eb, #7c3aed); color: white; }
-    .badge-html { background: linear-gradient(135deg, #e67e22, #d35400); color: white; }
-    .badge-course { background: #dbeafe; color: #1e4ab0; }
+
+    .course-card:hover .icon-wrapper {
+      transform: scale(1.05) rotate(-2deg);
+    }
+
+    .course-card h4 {
+      font-size: 1.25rem;
+      font-weight: 700;
+      margin-bottom: 0.2rem;
+    }
+
+    .course-card .meta {
+      font-size: 0.85rem;
+      color: #64748b;
+      margin: 0.3rem 0;
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+    }
+
+    .course-card .badge {
+      display: inline-block;
+      padding: 0.2rem 1rem;
+      border-radius: 60px;
+      font-size: 0.75rem;
+      font-weight: 700;
+    }
+
+    .badge-featured {
+      background: linear-gradient(135deg, #2563eb, #7c3aed);
+      color: white;
+    }
+
+    .badge-html {
+      background: linear-gradient(135deg, #e67e22, #d35400);
+      color: white;
+    }
+
+    .badge-course {
+      background: #dbeafe;
+      color: #1e4ab0;
+    }
 
     /* ===== OTHER PAGES ===== */
     .page-card {
@@ -409,6 +580,7 @@
       border: 1px solid #e9edf2;
       box-shadow: 0 8px 30px rgba(0, 0, 0, 0.02);
     }
+
     .page-card h2 {
       font-size: 2rem;
       font-weight: 800;
@@ -417,14 +589,25 @@
       gap: 0.8rem;
       margin-bottom: 0.5rem;
     }
-    .page-card h2 i { color: #2563eb; }
-    .page-text { color: #1e293b; font-size: 1.05rem; line-height: 2; margin-bottom: 1.5rem; }
+
+    .page-card h2 i {
+      color: #2563eb;
+    }
+
+    .page-text {
+      color: #1e293b;
+      font-size: 1.05rem;
+      line-height: 2;
+      margin-bottom: 1.5rem;
+    }
+
     .grid-3 {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
       gap: 2rem;
       margin-top: 1.5rem;
     }
+
     .grid-item {
       background: #f8fafc;
       padding: 2rem;
@@ -433,7 +616,13 @@
       transition: 0.3s;
       text-align: center;
     }
-    .grid-item:hover { transform: translateY(-4px); border-color: #2563eb; box-shadow: 0 12px 28px -8px rgba(37, 99, 235, 0.06); }
+
+    .grid-item:hover {
+      transform: translateY(-4px);
+      border-color: #2563eb;
+      box-shadow: 0 12px 28px -8px rgba(37, 99, 235, 0.06);
+    }
+
     .grid-item i {
       font-size: 2.8rem;
       color: #2563eb;
@@ -442,8 +631,16 @@
       border-radius: 50%;
       margin-bottom: 1rem;
     }
-    .grid-item h4 { font-size: 1.2rem; margin-bottom: 0.3rem; }
-    .grid-item p { color: #475569; font-size: 0.95rem; }
+
+    .grid-item h4 {
+      font-size: 1.2rem;
+      margin-bottom: 0.3rem;
+    }
+
+    .grid-item p {
+      color: #475569;
+      font-size: 0.95rem;
+    }
 
     .btn-support {
       display: inline-block;
@@ -458,9 +655,22 @@
       cursor: pointer;
       font-size: 0.95rem;
     }
-    .btn-support:hover { background: #1d4ed8; transform: translateY(-2px); box-shadow: 0 8px 20px rgba(37, 99, 235, 0.2); }
-    .btn-support-outline { background: #eef2f6; color: #1e293b; }
-    .btn-support-outline:hover { background: #dbeafe; color: #1e4ab0; }
+
+    .btn-support:hover {
+      background: #1d4ed8;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(37, 99, 235, 0.2);
+    }
+
+    .btn-support-outline {
+      background: #eef2f6;
+      color: #1e293b;
+    }
+
+    .btn-support-outline:hover {
+      background: #dbeafe;
+      color: #1e4ab0;
+    }
 
     .contact-item {
       background: #f8fafc;
@@ -470,7 +680,13 @@
       transition: 0.3s;
       text-align: center;
     }
-    .contact-item:hover { transform: translateY(-4px); border-color: #2563eb; box-shadow: 0 12px 28px -8px rgba(37, 99, 235, 0.06); }
+
+    .contact-item:hover {
+      transform: translateY(-4px);
+      border-color: #2563eb;
+      box-shadow: 0 12px 28px -8px rgba(37, 99, 235, 0.06);
+    }
+
     .contact-item i {
       font-size: 2.8rem;
       color: #2563eb;
@@ -479,8 +695,16 @@
       border-radius: 50%;
       margin-bottom: 1rem;
     }
-    .contact-item h4 { font-size: 1.2rem; }
-    .contact-item p { color: #475569; font-size: 1.05rem; }
+
+    .contact-item h4 {
+      font-size: 1.2rem;
+    }
+
+    .contact-item p {
+      color: #475569;
+      font-size: 1.05rem;
+    }
+
     .whatsapp-btn {
       display: inline-block;
       background: #25D366;
@@ -492,7 +716,11 @@
       margin-top: 0.5rem;
       transition: 0.3s;
     }
-    .whatsapp-btn:hover { background: #1da851; transform: scale(1.03); }
+
+    .whatsapp-btn:hover {
+      background: #1da851;
+      transform: scale(1.03);
+    }
 
     .faq-item {
       background: #f8fafc;
@@ -502,9 +730,21 @@
       border-right: 4px solid #2563eb;
       transition: 0.2s;
     }
-    .faq-item:hover { background: #f1f5f9; }
-    .faq-item strong { display: block; font-size: 1.05rem; color: #0b1a2e; }
-    .faq-item p { color: #475569; margin-top: 0.3rem; }
+
+    .faq-item:hover {
+      background: #f1f5f9;
+    }
+
+    .faq-item strong {
+      display: block;
+      font-size: 1.05rem;
+      color: #0b1a2e;
+    }
+
+    .faq-item p {
+      color: #475569;
+      margin-top: 0.3rem;
+    }
 
     /* ===== FOOTER ===== */
     .footer {
@@ -514,15 +754,33 @@
       margin-top: 2rem;
       border-radius: 44px 44px 0 0;
     }
-    .footer .container { display: flex; flex-direction: column; gap: 1.5rem; }
+
+    .footer .container {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+
     .footer-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
       gap: 2rem;
     }
-    .footer h4 { color: white; margin-bottom: 0.5rem; font-size: 1.1rem; }
-    .footer ul { list-style: none; }
-    .footer ul li { margin-bottom: 0.3rem; }
+
+    .footer h4 {
+      color: white;
+      margin-bottom: 0.5rem;
+      font-size: 1.1rem;
+    }
+
+    .footer ul {
+      list-style: none;
+    }
+
+    .footer ul li {
+      margin-bottom: 0.3rem;
+    }
+
     .footer ul li a {
       color: #b0c4de;
       text-decoration: none;
@@ -530,7 +788,12 @@
       transition: 0.2s;
       cursor: pointer;
     }
-    .footer ul li a:hover { color: white; text-decoration: underline; }
+
+    .footer ul li a:hover {
+      color: white;
+      text-decoration: underline;
+    }
+
     .footer-bottom {
       border-top: 1px solid #1e2a3a;
       padding-top: 1rem;
@@ -543,65 +806,134 @@
 
     /* ===== RESPONSIVE ===== */
     @media (max-width: 768px) {
-      .container { padding: 0 1rem; }
-      .hero { padding: 2rem 1.5rem; border-radius: 32px; }
-      .hero h1 { font-size: 2.4rem; }
-      .hero-stats { gap: 1.5rem; }
-      .founder-section { padding: 1.5rem; }
-      .founder-image-wrapper { width: 140px; height: 140px; }
-      .founder-grid { flex-direction: column; text-align: center; }
-      .social-links { justify-content: center; }
-      .navbar .container { flex-direction: column; align-items: stretch; }
-      .nav-links { justify-content: center; gap: 0.4rem; }
-      .nav-links button { font-size: 0.85rem; padding: 0.3rem 0.7rem; }
-      .btn-join, .btn-course { padding: 0.4rem 1.2rem !important; font-size: 0.85rem !important; }
-      .hero-actions { flex-direction: column; align-items: center; }
-      .hero-btn-primary, .hero-btn-secondary { width: 100%; text-align: center; padding: 0.8rem 1.5rem; font-size: 1rem; }
-      .courses-grid { grid-template-columns: 1fr 1fr; }
-      .grid-3 { grid-template-columns: 1fr; }
+      .container {
+        padding: 0 1rem;
+      }
+
+      .hero {
+        padding: 2rem 1.5rem;
+        border-radius: 32px;
+      }
+
+      .hero h1 {
+        font-size: 2.4rem;
+      }
+
+      .hero-stats {
+        gap: 1.5rem;
+      }
+
+      .founder-section {
+        padding: 1.5rem;
+      }
+
+      .founder-image-wrapper {
+        width: 140px;
+        height: 140px;
+      }
+
+      .founder-grid {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .social-links {
+        justify-content: center;
+      }
+
+      .navbar .container {
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      .nav-links {
+        justify-content: center;
+        gap: 0.4rem;
+      }
+
+      .nav-links button {
+        font-size: 0.85rem;
+        padding: 0.3rem 0.7rem;
+      }
+
+      .btn-join,
+      .btn-course {
+        padding: 0.4rem 1.2rem !important;
+        font-size: 0.85rem !important;
+      }
+
+      .hero-actions {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .hero-btn-primary,
+      .hero-btn-secondary {
+        width: 100%;
+        text-align: center;
+        padding: 0.8rem 1.5rem;
+        font-size: 1rem;
+      }
+
+      .courses-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .grid-3 {
+        grid-template-columns: 1fr;
+      }
     }
+
     @media (max-width: 480px) {
-      .courses-grid { grid-template-columns: 1fr; }
-      .hero h1 { font-size: 2rem; }
-      .hero-stats .stat-number { font-size: 1.4rem; }
+      .courses-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero h1 {
+        font-size: 2rem;
+      }
+
+      .hero-stats .stat-number {
+        font-size: 1.4rem;
+      }
     }
 
     /* ===== PAGE SWITCHING ===== */
-    .page { display: none; animation: pageFade 0.4s ease; }
-    .page.active-page-content { display: block; }
-    @keyframes pageFade { 0% { opacity: 0; transform: translateY(16px); } 100% { opacity: 1; transform: translateY(0); } }
-    .fade-up { opacity: 0; transform: translateY(24px); animation: fadeUp 0.6s ease forwards; }
-    @keyframes fadeUp { to { opacity: 1; transform: translateY(0); } }
-    .fade-up-d1 { animation-delay: 0.1s; }
-
-    /* ===== زر التثبيت المخصص (احتياطي) ===== */
-    .install-btn-container {
+    .page {
       display: none;
-      text-align: center;
-      margin: 0.5rem 0;
+      animation: pageFade 0.4s ease;
     }
-    .install-btn-container.show {
+
+    .page.active-page-content {
       display: block;
     }
-    .install-btn {
-      background: linear-gradient(135deg, #2563eb, #7c3aed);
-      color: white;
-      border: none;
-      padding: 0.6rem 2rem;
-      border-radius: 60px;
-      font-size: 0.95rem;
-      font-weight: 700;
-      cursor: pointer;
-      box-shadow: 0 4px 16px rgba(37, 99, 235, 0.3);
-      transition: 0.3s;
-      font-family: inherit;
+
+    @keyframes pageFade {
+      0% {
+        opacity: 0;
+        transform: translateY(16px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
-    .install-btn:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 8px 28px rgba(37, 99, 235, 0.4);
+
+    .fade-up {
+      opacity: 0;
+      transform: translateY(24px);
+      animation: fadeUp 0.6s ease forwards;
     }
-    .install-btn i {
-      margin-left: 0.5rem;
+
+    @keyframes fadeUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .fade-up-d1 {
+      animation-delay: 0.1s;
     }
   </style>
 </head>
@@ -624,15 +956,6 @@
       </nav>
     </div>
   </header>
-
-  <!-- ===== زر التثبيت المخصص (احتياطي) ===== -->
-  <div class="container">
-    <div class="install-btn-container" id="customInstallContainer">
-      <button class="install-btn" id="customInstallBtn">
-        <i class="fas fa-download"></i> تثبيت التطبيق
-      </button>
-    </div>
-  </div>
 
   <!-- ===== PAGE CONTAINER ===== -->
   <section class="page-content">
@@ -661,12 +984,16 @@
           <h3><i class="fas fa-user-astronaut"></i> المبرمج بهاء الدين الحسين</h3>
           <div class="founder-grid">
             <div class="founder-image-wrapper">
-              <img src="مبرمج.jpeg" alt="بهاء الدين الحسين" />
+              <img src="images/founder.jpg" alt="بهاء الدين الحسين" />
               <span class="camera-icon"><i class="fas fa-camera"></i></span>
             </div>
             <div class="founder-desc">
               <p><span class="highlight">بهاء الدين الحسين</span> — مطور ويب شغوف، يملك خبرة عملية تمتد لأربع سنوات في برمجة وتطوير الويب. أسس هذه الأكاديمية لمشاركة خبرته بأسلوب مبسط وعملي، مؤمنًا بأن التعليم الجيد هو المفتاح لبناء مبرمجين مبدعين.</p>
               <div class="social-links">
+                <a href="#" aria-label="فيسبوك"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" aria-label="تويتر"><i class="fab fa-twitter"></i></a>
+                <a href="#" aria-label="يوتيوب"><i class="fab fa-youtube"></i></a>
+                <a href="#" aria-label="إنستغرام"><i class="fab fa-instagram"></i></a>
               </div>
             </div>
           </div>
@@ -883,69 +1210,6 @@
     });
 
     document.addEventListener('DOMContentLoaded', function() { switchPage('home'); });
-
-    // ============================================================
-    // PWA - زر التثبيت
-    // ============================================================
-    let deferredPrompt = null;
-
-    window.addEventListener('beforeinstallprompt', function(e) {
-      e.preventDefault();
-      deferredPrompt = e;
-      document.getElementById('customInstallContainer').classList.add('show');
-      console.log('✅ زر التثبيت جاهز');
-    });
-
-    document.getElementById('customInstallBtn').addEventListener('click', function() {
-      if (deferredPrompt) {
-        deferredPrompt.prompt();
-        deferredPrompt.userChoice.then(function(choiceResult) {
-          if (choiceResult.outcome === 'accepted') {
-            console.log('✅ تم تثبيت التطبيق');
-          } else {
-            console.log('❌ تم رفض التثبيت');
-          }
-          deferredPrompt = null;
-          document.getElementById('customInstallContainer').classList.remove('show');
-        });
-      } else {
-        alert('لتثبيت التطبيق: اضغط على النقاط الثلاث في المتصفح واختر "تثبيت الصفحة كتطبيق"');
-      }
-    });
-
-    window.addEventListener('appinstalled', function() {
-      console.log('✅ تم تثبيت التطبيق بنجاح');
-      document.getElementById('customInstallContainer').classList.remove('show');
-    });
-
-    // ============================================================
-    // SERVICE WORKER
-    // ============================================================
-    if ('serviceWorker' in navigator) {
-      window.addEventListener('load', function() {
-        const swCode = `
-          self.addEventListener('install', function(e) {
-            e.waitUntil(
-              caches.open('academy-v1').then(function(cache) {
-                return cache.addAll(['/', '/index.html', '/course-basics.html', '/course-html.html']);
-              })
-            );
-          });
-          self.addEventListener('fetch', function(e) {
-            e.respondWith(
-              caches.match(e.request).then(function(response) {
-                return response || fetch(e.request);
-              })
-            );
-          });
-        `;
-        const blob = new Blob([swCode], { type: 'application/javascript' });
-        const swUrl = URL.createObjectURL(blob);
-        navigator.serviceWorker.register(swUrl)
-          .then(() => console.log('✅ Service Worker مسجل بنجاح'))
-          .catch(err => console.log('❌ خطأ في التسجيل:', err));
-      });
-    }
   </script>
 
 </body>
