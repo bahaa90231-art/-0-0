@@ -1207,6 +1207,90 @@
 
     document.addEventListener('DOMContentLoaded', function() { switchPage('home'); });
   </script>
+  <script>
+  // ============================================================
+  // حل ذكي: إنشاء manifest ديناميكي عبر JavaScript
+  // يتيح التثبيت على iOS و Android حتى من الملفات المحلية
+  // ============================================================
+  (function() {
+    // 1. إنشاء manifest ديناميكي
+    const manifest = {
+      name: "أكاديمية بهاء الدين التعليمية",
+      short_name: "بهاء الدين",
+      description: "منصة تعليمية متكاملة لتعلم البرمجة",
+      start_url: window.location.href,
+      display: "standalone",
+      background_color: "#f6f9fc",
+      theme_color: "#2563eb",
+      icons: [
+        {
+          src: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'%3E%3Crect width='512' height='512' rx='64' fill='%232563eb'/%3E%3Ctext x='256' y='320' font-size='200' text-anchor='middle' fill='white' font-family='sans-serif'%3E📚%3C/text%3E%3C/svg%3E",
+          sizes: "512x512",
+          type: "image/svg+xml"
+        }
+      ]
+    };
 
+    // 2. تحويله إلى JSON وإضافته كـ link
+    const blob = new Blob([JSON.stringify(manifest)], { type: 'application/json' });
+    const manifestURL = URL.createObjectURL(blob);
+    
+    const link = document.createElement('link');
+    link.rel = 'manifest';
+    link.href = manifestURL;
+    document.head.appendChild(link);
+
+    // 3. إضافة meta tags خاصة بـ iOS
+    const meta1 = document.createElement('meta');
+    meta1.name = 'apple-mobile-web-app-capable';
+    meta1.content = 'yes';
+    document.head.appendChild(meta1);
+
+    const meta2 = document.createElement('meta');
+    meta2.name = 'apple-mobile-web-app-status-bar-style';
+    meta2.content = 'black-translucent';
+    document.head.appendChild(meta2);
+
+    const meta3 = document.createElement('meta');
+    meta3.name = 'apple-mobile-web-app-title';
+    meta3.content = 'بهاء الدين';
+    document.head.appendChild(meta3);
+
+    console.log('✅ PWA manifest تم إنشاؤه ديناميكياً');
+  })();
+</script>
+<script>
+  // ============================================================
+  // Service Worker بسيط (للتخزين المؤقت ودعم التثبيت)
+  // ============================================================
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', function() {
+      // نستخدم Service Worker بسيط جداً
+      const swCode = `
+        self.addEventListener('install', function(e) {
+          e.waitUntil(
+            caches.open('academy-v1').then(function(cache) {
+              return cache.addAll(['/']);
+            })
+          );
+        });
+        self.addEventListener('fetch', function(e) {
+          e.respondWith(
+            caches.match(e.request).then(function(response) {
+              return response || fetch(e.request);
+            })
+          );
+        });
+      `;
+      
+      const blob = new Blob([swCode], { type: 'application/javascript' });
+      const swUrl = URL.createObjectURL(blob);
+      
+      navigator.serviceWorker.register(swUrl)
+        .then(() => console.log('✅ Service Worker مسجل'))
+        .catch(err => console.log('❌ Service Worker خطأ:', err));
+    });
+  }
+</script>
 </body>
 </html>
