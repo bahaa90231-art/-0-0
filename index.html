@@ -966,7 +966,7 @@
         <div class="hero fade-up">
           <div class="hero-content">
             <div class="hero-badge"><i class="fas fa-crown"></i> أكاديمية بهاء الدين التعليمية</div>
-            <h1><span>رحلة</span> 777الإتقان تبدأ من هنا</h1>
+            <h1><span>رحلة</span> الإتقان تبدأ من هنا</h1>
             <p class="hero-subhead">منصة تعليمية متكاملة أسسها المبرمج <strong>بهاء الدين الحسين</strong> لتقديم تجربة أكاديمية احترافية ومشوقة.</p>
             <div class="hero-actions">
               <a href="course-basics.html" class="hero-btn-primary"><i class="fas fa-rocket"></i> ابدأ كورس أساسيات البرمجة الآن</a>
@@ -984,12 +984,16 @@
           <h3><i class="fas fa-user-astronaut"></i> المبرمج بهاء الدين الحسين</h3>
           <div class="founder-grid">
             <div class="founder-image-wrapper">
-              <img src="مبرمج.jpeg" alt="بهاء الدين الحسين" />
+              <img src="images/founder.jpg" alt="بهاء الدين الحسين" />
               <span class="camera-icon"><i class="fas fa-camera"></i></span>
             </div>
             <div class="founder-desc">
               <p><span class="highlight">بهاء الدين الحسين</span> — مطور ويب شغوف، يملك خبرة عملية تمتد لأربع سنوات في برمجة وتطوير الويب. أسس هذه الأكاديمية لمشاركة خبرته بأسلوب مبسط وعملي، مؤمنًا بأن التعليم الجيد هو المفتاح لبناء مبرمجين مبدعين.</p>
               <div class="social-links">
+                <a href="#" aria-label="فيسبوك"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" aria-label="تويتر"><i class="fab fa-twitter"></i></a>
+                <a href="#" aria-label="يوتيوب"><i class="fab fa-youtube"></i></a>
+                <a href="#" aria-label="إنستغرام"><i class="fab fa-instagram"></i></a>
               </div>
             </div>
           </div>
@@ -1172,89 +1176,129 @@
 
   <!-- ===== JAVASCRIPT ===== -->
   <script>
-  // ============================================================
-  // حل ذكي: إنشاء manifest ديناميكي عبر JavaScript
-  // يتيح التثبيت على iOS و Android حتى من الملفات المحلية
-  // ============================================================
-  (function() {
-    // 1. إنشاء manifest ديناميكي
-    const manifest = {
-      name: "أكاديمية بهاء الدين التعليمية",
-      short_name: "بهاء الدين",
-      description: "منصة تعليمية متكاملة لتعلم البرمجة",
-      start_url: window.location.href,
-      display: "standalone",
-      background_color: "#f6f9fc",
-      theme_color: "#2563eb",
-      icons: [
-        {
-          src: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'%3E%3Crect width='512' height='512' rx='64' fill='%232563eb'/%3E%3Ctext x='256' y='320' font-size='200' text-anchor='middle' fill='white' font-family='sans-serif'%3E📚%3C/text%3E%3C/svg%3E",
-          sizes: "512x512",
-          type: "image/svg+xml"
-        }
-      ]
-    };
+    // ============================================================
+    // PAGE SWITCHING
+    // ============================================================
+    function switchPage(pageId) {
+      document.querySelectorAll('.page').forEach(el => el.classList.remove('active-page-content'));
+      const target = document.getElementById('page-' + pageId);
+      if (target) target.classList.add('active-page-content');
+      document.querySelectorAll('.nav-links button[data-page]').forEach(btn => {
+        btn.classList.remove('active-page');
+        if (btn.getAttribute('data-page') === pageId) btn.classList.add('active-page');
+      });
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
 
-    // 2. تحويله إلى JSON وإضافته كـ link
-    const blob = new Blob([JSON.stringify(manifest)], { type: 'application/json' });
-    const manifestURL = URL.createObjectURL(blob);
-    
-    const link = document.createElement('link');
-    link.rel = 'manifest';
-    link.href = manifestURL;
-    document.head.appendChild(link);
-
-    // 3. إضافة meta tags خاصة بـ iOS
-    const meta1 = document.createElement('meta');
-    meta1.name = 'apple-mobile-web-app-capable';
-    meta1.content = 'yes';
-    document.head.appendChild(meta1);
-
-    const meta2 = document.createElement('meta');
-    meta2.name = 'apple-mobile-web-app-status-bar-style';
-    meta2.content = 'black-translucent';
-    document.head.appendChild(meta2);
-
-    const meta3 = document.createElement('meta');
-    meta3.name = 'apple-mobile-web-app-title';
-    meta3.content = 'بهاء الدين';
-    document.head.appendChild(meta3);
-
-    console.log('✅ PWA manifest تم إنشاؤه ديناميكياً');
-  })();
-</script>
-<script>
-  // ============================================================
-  // Service Worker بسيط (للتخزين المؤقت ودعم التثبيت)
-  // ============================================================
-  if ('serviceWorker' in navigator) {
-    window.addEventListener('load', function() {
-      // نستخدم Service Worker بسيط جداً
-      const swCode = `
-        self.addEventListener('install', function(e) {
-          e.waitUntil(
-            caches.open('academy-v1').then(function(cache) {
-              return cache.addAll(['/']);
-            })
-          );
-        });
-        self.addEventListener('fetch', function(e) {
-          e.respondWith(
-            caches.match(e.request).then(function(response) {
-              return response || fetch(e.request);
-            })
-          );
-        });
-      `;
-      
-      const blob = new Blob([swCode], { type: 'application/javascript' });
-      const swUrl = URL.createObjectURL(blob);
-      
-      navigator.serviceWorker.register(swUrl)
-        .then(() => console.log('✅ Service Worker مسجل'))
-        .catch(err => console.log('❌ Service Worker خطأ:', err));
+    document.querySelectorAll('.nav-links button[data-page]').forEach(btn => {
+      btn.addEventListener('click', function() { switchPage(this.getAttribute('data-page')); });
     });
-  }
-</script>
+
+    document.querySelectorAll('.footer a').forEach(link => {
+      link.addEventListener('click', function(e) {
+        if (this.getAttribute('href') === 'course-basics.html') return;
+        if (this.getAttribute('href') === 'course-html.html') return;
+        e.preventDefault();
+        const text = this.textContent.trim();
+        if (text === 'الرئيسية') switchPage('home');
+        else if (text === 'الدورات') switchPage('courses');
+        else if (text === 'عن الأكاديمية') switchPage('about');
+        else if (text === 'الأسئلة الشائعة') switchPage('faq');
+        else if (text === 'سياسة الخصوصية') switchPage('privacy');
+        else if (text === 'دليل المستخدم') switchPage('guide');
+      });
+    });
+
+    document.addEventListener('DOMContentLoaded', function() { switchPage('home'); });
+
+    // ============================================================
+    // SOLUCIÓN PARA TELÉFONOS: MANIFEST DINÁMICO PARA PWA
+    // ============================================================
+    (function() {
+      try {
+        // Crear manifest dinámico (necesario para instalación en móviles)
+        const manifest = {
+          name: "أكاديمية بهاء الدين التعليمية",
+          short_name: "بهاء الدين",
+          description: "منصة تعليمية متكاملة لتعلم البرمجة",
+          start_url: window.location.href,
+          display: "standalone",
+          background_color: "#f6f9fc",
+          theme_color: "#2563eb",
+          icons: [{
+            src: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'%3E%3Crect width='512' height='512' rx='64' fill='%232563eb'/%3E%3Ctext x='256' y='320' font-size='200' text-anchor='middle' fill='white' font-family='sans-serif'%3E📚%3C/text%3E%3C/svg%3E",
+            sizes: "512x512",
+            type: "image/svg+xml"
+          }]
+        };
+
+        // Convertir a blob URL
+        const blob = new Blob([JSON.stringify(manifest)], { type: 'application/json' });
+        const manifestURL = URL.createObjectURL(blob);
+
+        // Agregar link al head
+        const link = document.createElement('link');
+        link.rel = 'manifest';
+        link.href = manifestURL;
+        document.head.appendChild(link);
+
+        // Meta tags para iOS
+        const meta1 = document.createElement('meta');
+        meta1.name = 'apple-mobile-web-app-capable';
+        meta1.content = 'yes';
+        document.head.appendChild(meta1);
+
+        const meta2 = document.createElement('meta');
+        meta2.name = 'apple-mobile-web-app-status-bar-style';
+        meta2.content = 'black-translucent';
+        document.head.appendChild(meta2);
+
+        const meta3 = document.createElement('meta');
+        meta3.name = 'apple-mobile-web-app-title';
+        meta3.content = 'بهاء الدين';
+        document.head.appendChild(meta3);
+
+        console.log('✅ PWA manifest creado dinámicamente');
+      } catch (e) {
+        console.log('⚠️ Error al crear manifest dinámico:', e);
+      }
+    })();
+
+    // ============================================================
+    // SERVICE WORKER PARA CACHÉ Y SOPORTE DE INSTALACIÓN
+    // ============================================================
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', function() {
+        try {
+          const swCode = `
+            self.addEventListener('install', function(e) {
+              e.waitUntil(
+                caches.open('academy-v1').then(function(cache) {
+                  return cache.addAll(['/']);
+                })
+              );
+            });
+            self.addEventListener('fetch', function(e) {
+              e.respondWith(
+                caches.match(e.request).then(function(response) {
+                  return response || fetch(e.request);
+                })
+              );
+            });
+          `;
+
+          const blob = new Blob([swCode], { type: 'application/javascript' });
+          const swUrl = URL.createObjectURL(blob);
+
+          navigator.serviceWorker.register(swUrl)
+            .then(() => console.log('✅ Service Worker registrado correctamente'))
+            .catch(err => console.log('❌ Error al registrar Service Worker:', err));
+        } catch (e) {
+          console.log('⚠️ Error con Service Worker:', e);
+        }
+      });
+    }
+  </script>
+
 </body>
 </html>
